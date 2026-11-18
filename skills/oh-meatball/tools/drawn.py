@@ -92,6 +92,9 @@ SCENES.update(drawn_jensen_art.SCENES)
 import drawn_topical_art  # noqa: E402  (11/13 topical news TikToks: calendar, console, router, neon city, ...)
 ACTORS.update(drawn_topical_art.ACTORS)
 SCENES.update(drawn_topical_art.SCENES)
+import drawn_phil_art  # noqa: E402  (11/18 philosophy test: ship of Theseus, planks, body cells, neuron, phone)
+ACTORS.update(drawn_phil_art.ACTORS)
+SCENES.update(drawn_phil_art.SCENES)
 ROOT = os.path.dirname(HERE)
 W, H = 1080, 1920
 SR = 48000
@@ -855,8 +858,9 @@ def draw_prop(ctx, prop, hx, hy, k, t, beam=True):
 
 # ---------------------------------------------------------------- captions (spoken-word, 1-3 words)
 
-def caption_chunks(beats, swap=None):
-    """swap: optional {WORD: SHOWN} map for on-screen spellings only (spec "cap_swap"); the voice still says WORD."""
+def caption_chunks(beats, swap=None, most=3):
+    """swap: optional {WORD: SHOWN} map for on-screen spellings only (spec "cap_swap"); the voice still says WORD.
+    most: words per caption chunk (spec "cap_words", default 3; 1 = bold one-word captions, no glue-word rule)."""
     out = []
     for b in beats:
         toks = b["say"].split()
@@ -871,7 +875,7 @@ def caption_chunks(beats, swap=None):
         i = 0
         while i < len(ws):
             group = [ws[i]]
-            while (len(group) < 3 and i + len(group) < len(ws)
+            while (len(group) < most and i + len(group) < len(ws)
                    and not group[-1][2].endswith((",", ".", "?", "!"))
                    and len(" ".join(g[2] for g in group + [ws[i + len(group)]])) <= 15):
                 group.append(ws[i + len(group)])
@@ -879,7 +883,8 @@ def caption_chunks(beats, swap=None):
             # (up to 4 words), or end the chunk one word earlier
             def _glue(w):
                 return "".join(ch for ch in w.lower() if ch.isalnum() or ch == "'") in CAP_GLUE
-            if (i + len(group) < len(ws) and _glue(group[-1][2]) and not group[-1][2].endswith((",", ".", "?", "!"))):
+            if (most > 1 and i + len(group) < len(ws) and _glue(group[-1][2])
+                    and not group[-1][2].endswith((",", ".", "?", "!"))):
                 if len(group) < 4 and len(" ".join(g[2] for g in group + [ws[i + len(group)]])) <= 20:
                     group.append(ws[i + len(group)])
                 elif len(group) > 1:
@@ -1290,7 +1295,7 @@ def main():
     beats, total = plan(spec, work)
     drawn_cine.plan_pass(spec, beats)
     t_plan = time.time() - t_start
-    G.update(fps=args.fps, beats=beats, rigs=rig_tracks(beats, args.fps), caps=caption_chunks(beats, spec.get("cap_swap")),
+    G.update(fps=args.fps, beats=beats, rigs=rig_tracks(beats, args.fps), caps=caption_chunks(beats, spec.get("cap_swap"), spec.get("cap_words", 3)),
              cap_px=spec.get("captions", 66), cap_y=spec.get("caption_y", 1530), counter=spec.get("counter"), search_top=spec.get("search_top"),
              cap_key=set(spec.get("cap_key", ())))
     G["ticks"] = counter_ticks(spec, beats)

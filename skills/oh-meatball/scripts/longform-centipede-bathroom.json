@@ -856,25 +856,32 @@
    "id": "s1.l4",
    "seg": 1,
    "shot": {
-    "f": "kk",
-    "ring_k": true,
-    "room": "hallM",
+    "f": "kkk",
+    "room": "board",
+    "roomscene": "rk_board_bg",
     "cams": [
      [
-      600,
-      1350,
-      1.1,
-      1.15
+      0,
+      40,
+      0.95,
+      1.0
      ],
      [
-      900,
-      1400,
-      1.6,
-      1.7
+      0,
+      120,
+      1.35,
+      1.42
+     ],
+     [
+      0,
+      60,
+      1.05,
+      1.1
      ]
     ],
     "cuts": [
-     "die|50%"
+     "house|0%",
+     "lack|0%"
     ],
     "mb": {
      "hidden": true
@@ -882,120 +889,81 @@
     "bug": null,
     "x": [
      {
-      "id": "o0",
-      "type": "house_centipede",
+      "id": "card",
+      "type": "rk_card",
       "pos": [
-       100,
-       1496
+       0,
+       120
       ],
-      "s": 0.35,
-      "p": {},
-      "set": [
-       {
-        "at": "moisture|30%",
-        "dur": 0.5,
-        "p": {}
-       }
+      "s": 1.0,
+      "p": {
+       "w": 1400,
+       "h": 560
+      }
+     },
+     {
+      "id": "oth",
+      "type": "ds_label",
+      "pos": [
+       0,
+       -80
       ],
-      "moves": [
-       {
-        "at": "die|40%",
-        "dur": 0.5,
-        "pos": [
-         100,
-         1500
-        ],
-        "rot": 160
-       }
-      ]
+      "s": 1.0,
+      "p": {
+       "text": "OTHER CENTIPEDES",
+       "px": 64,
+       "color": "#ffffff",
+       "on": 1.0
+      }
+     },
+     {
+      "id": "o0",
+      "type": "rk_greysil",
+      "pos": [
+       -430,
+       300
+      ],
+      "s": 0.55,
+      "p": {
+       "kind": "house_centipede"
+      }
      },
      {
       "id": "o1",
-      "type": "house_centipede",
+      "type": "rk_greysil",
       "pos": [
-       360,
-       1496
+       0,
+       300
       ],
-      "s": 0.35,
-      "p": {},
-      "set": [
-       {
-        "at": "moisture|45%",
-        "dur": 0.5,
-        "p": {}
-       }
-      ],
-      "moves": [
-       {
-        "at": "die|52%",
-        "dur": 0.5,
-        "pos": [
-         360,
-         1500
-        ],
-        "rot": 160
-       }
-      ]
+      "s": 0.55,
+      "p": {
+       "kind": "house_centipede"
+      }
      },
      {
       "id": "o2",
-      "type": "house_centipede",
+      "type": "rk_greysil",
       "pos": [
-       620,
-       1496
+       430,
+       300
       ],
-      "s": 0.35,
-      "p": {},
-      "set": [
-       {
-        "at": "moisture|60%",
-        "dur": 0.5,
-        "p": {}
-       }
-      ],
-      "moves": [
-       {
-        "at": "die|64%",
-        "dur": 0.5,
-        "pos": [
-         620,
-         1500
-        ],
-        "rot": 160
-       }
-      ]
-     },
-     {
-      "id": "o3",
-      "type": "house_centipede",
-      "pos": [
-       880,
-       1496
-      ],
-      "s": 0.35,
-      "p": {},
-      "set": [
-       {
-        "at": "moisture|75%",
-        "dur": 0.5,
-        "p": {}
-       }
-      ],
-      "moves": [
-       {
-        "at": "die|76%",
-        "dur": 0.5,
-        "pos": [
-         880,
-         1500
-        ],
-        "rot": 160
-       }
-      ]
+      "s": 0.55,
+      "p": {
+       "kind": "house_centipede"
+      }
      }
     ],
+    "stamp": {
+     "text": "DRY AIR",
+     "color": "#ff9f43",
+     "at": "shortly|40%",
+     "x": 960,
+     "y": 600,
+     "px": 150,
+     "rot": -8
+    },
     "sfx": [
-     "thud@die|50%"
+     "stamp@shortly|40%"
     ]
    }
   },
@@ -3157,8 +3125,8 @@
      ]
     ],
     "cuts": [
-     "eat|35%",
-     "moisture|60%"
+     "control|0%",
+     "focus|0%"
     ],
     "mb": {
      "pos": [
@@ -3192,7 +3160,7 @@
       },
       "set": [
        {
-        "at": "eat|40%",
+        "at": "says|30%",
         "dur": 0.3,
         "p": {
          "on": 1.0
@@ -3201,33 +3169,50 @@
       ]
      },
      {
-      "id": "dr",
-      "type": "droplets",
+      "id": "p1",
+      "type": "sp.moth",
       "pos": [
-       1100,
-       0
+       1000,
+       60
       ],
-      "s": 0.8,
-      "p": {
-       "n": 6,
-       "r": 160
-      }
+      "s": 0.3,
+      "p": {}
+     },
+     {
+      "id": "p2",
+      "type": "sp.fly",
+      "pos": [
+       1200,
+       140
+      ],
+      "s": 0.3,
+      "p": {}
+     },
+     {
+      "id": "p3",
+      "type": "sp.earwig",
+      "pos": [
+       1050,
+       190
+      ],
+      "s": 0.3,
+      "p": {}
      },
      {
       "id": "x2",
       "type": "ds_cross",
       "pos": [
        1100,
-       0
+       60
       ],
       "s": 1.0,
       "p": {
        "on": 0.0,
-       "r": 200
+       "r": 220
       },
       "set": [
        {
-        "at": "moisture|65%",
+        "at": "bugs|30%",
         "dur": 0.3,
         "p": {
          "on": 1.0
@@ -3237,8 +3222,8 @@
      }
     ],
     "sfx": [
-     "stamp@eat|40%",
-     "stamp@moisture|65%"
+     "stamp@says|30%",
+     "stamp@bugs|30%"
     ]
    }
   },
@@ -3370,37 +3355,95 @@
    "id": "s5.l6",
    "seg": 5,
    "shot": {
-    "f": "kM",
+    "f": "kkkk",
     "room": "bathA",
     "cams": [
      [
-      1400,
-      600,
+      700,
+      1200,
+      1.1,
+      1.15
+     ],
+     [
+      650,
+      1330,
       1.6,
-      1.7
+      1.66
+     ],
+     [
+      380,
+      1400,
+      2.4,
+      2.5
+     ],
+     [
+      700,
+      1260,
+      1.25,
+      1.3
      ]
     ],
-    "pose": "laugh",
+    "cuts": [
+     "Ohio|0%",
+     "rarely|0%",
+     "where|0%"
+    ],
+    "mb": {
+     "hidden": true
+    },
     "bug": {
      "hidden": true
     },
     "x": [
      {
-      "id": "fan",
-      "type": "rk_fan",
+      "id": "van",
+      "type": "rk_vanity",
       "pos": [
-       1400,
-       600
+       690,
+       1500
       ],
-      "s": 0.9,
+      "s": 1.0,
       "p": {
-       "spin": 1.0
+       "crack": -360
       }
+     },
+     {
+      "id": "ant",
+      "type": "rk_antennae",
+      "pos": [
+       330,
+       1478
+      ],
+      "s": 1.3,
+      "p": {}
+     },
+     {
+      "id": "mist",
+      "type": "rk_mist",
+      "pos": [
+       980,
+       1500
+      ],
+      "s": 1.0,
+      "p": {
+       "reach": 0.0,
+       "len": 1300
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "skip|0%",
+        "dur": 1.7,
+        "p": {
+         "reach": 1.0
+        }
+       }
+      ]
      }
     ],
-    "mb": {
-     "shake": 0.3
-    }
+    "sfx": [
+     "whoosh@skip|10%"
+    ]
    }
   },
   {
@@ -3412,56 +3455,88 @@
    "id": "s5.l7",
    "seg": 5,
    "shot": {
-    "f": "kk",
-    "room": "board",
-    "roomscene": "ds_floor",
+    "f": "kkkkkk",
+    "room": "hallM",
     "cams": [
      [
-      960,
-      1150,
-      1.0,
-      1.05
+      330,
+      1000,
+      0.85,
+      0.9
      ],
      [
-      960,
-      1250,
-      1.4,
-      1.5
+      200,
+      1000,
+      1.3,
+      1.36
+     ],
+     [
+      380,
+      1080,
+      1.6,
+      1.68
+     ],
+     [
+      330,
+      1000,
+      0.85,
+      0.9
+     ],
+     [
+      -270,
+      900,
+      1.5,
+      1.56
+     ],
+     [
+      250,
+      1030,
+      1.15,
+      1.2
      ]
     ],
     "cuts": [
-     "ineffective|55%"
+     "Maryland|0%",
+     "escort|0%",
+     "Penn|0%",
+     "survive|0%",
+     "Pennsylvania|0%"
     ],
+    "pose": "bow",
+    "look": "viewer",
     "mb": {
-     "hidden": true
+     "pos": [
+      330,
+      1500
+     ],
+     "prop": "cupcard"
     },
-    "bug": null,
+    "bug": {
+     "pos": [
+      1050,
+      1496
+     ],
+     "p": {
+      "mood": "calm",
+      "look": [
+       -1,
+       0
+      ]
+     }
+    },
     "x": [
      {
-      "id": "bomb",
-      "type": "tc_prop",
+      "id": "door",
+      "type": "rk_frontdoor",
       "pos": [
-       960,
+       -480,
        1500
       ],
       "s": 1.0,
-      "p": {
-       "kind": "foamcan"
-      }
+      "p": {}
      }
     ],
-    "stamp": {
-     "text": "NO",
-     "color": "#e5383b",
-     "at": "bomb|35%",
-     "x": 960,
-     "y": 500,
-     "px": 220,
-     "rot": -12
-    },
-    "sfx": [
-     "stamp@bomb|35%"
-    ]
+    "no_bugcam": true
    }
   },
   {
@@ -3473,37 +3548,78 @@
    "id": "s5.l8",
    "seg": 5,
    "shot": {
-    "f": "kM",
-    "room": "bathA",
+    "f": "kkk",
+    "room": "hallM",
     "cams": [
      [
-      710,
-      520,
-      1.7,
-      1.8
+      200,
+      1000,
+      1.3,
+      1.36
+     ],
+     [
+      -270,
+      900,
+      1.5,
+      1.56
+     ],
+     [
+      330,
+      1000,
+      0.85,
+      0.9
      ]
     ],
     "cuts": [
-     "Penn|50%"
+     "for|0%",
+     "went|0%"
     ],
-    "pose": "think",
-    "bug": {
-     "hidden": true
+    "pose": "bow",
+    "look": "viewer",
+    "no_bugcam": true,
+    "mb": {
+     "pos": [
+      330,
+      1500
+     ],
+     "prop": "cupcard"
     },
     "card_px": 78,
+    "bug": {
+     "pos": [
+      1050,
+      1496
+     ],
+     "p": {
+      "mood": "calm",
+      "look": [
+       1,
+       0
+      ]
+     },
+     "flip": false,
+     "moves": [
+      {
+       "at": "went|0%",
+       "dur": 1.6,
+       "pos": [
+        2400,
+        1496
+       ],
+       "walk": true
+      }
+     ]
+    },
     "x": [
      {
-      "id": "snow",
-      "type": "rk_snow",
+      "id": "door",
+      "type": "rk_frontdoor",
       "pos": [
-       560,
-       260
+       -480,
+       1500
       ],
       "s": 1.0,
-      "p": {
-       "w": 300,
-       "h": 260
-      }
+      "p": {}
      }
     ]
    }

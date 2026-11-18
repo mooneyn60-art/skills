@@ -1,0 +1,1735 @@
+{
+ "series": "Meatball Philosophy (test)",
+ "photo_credits": [],
+ "voice": "kokoro:adam-puck",
+ "music": "mystery",
+ "music_db": -18,
+ "captions": 124,
+ "cap_words": 1,
+ "caption_y": 1660,
+ "cap_swap": {
+  "damn": "#@%!"
+ },
+ "cap_key": [
+  "cells",
+  "you",
+  "billion",
+  "ninety",
+  "blood",
+  "neurons",
+  "never",
+  "greece",
+  "theseus",
+  "planks",
+  "plank",
+  "timber",
+  "same",
+  "new",
+  "ship",
+  "hobbes",
+  "two",
+  "real",
+  "twice",
+  "not",
+  "phone",
+  "screen",
+  "wallet",
+  "original",
+  "half"
+ ],
+ "cine": {
+  "light": "off",
+  "shots": "off"
+ },
+ "loop": true,
+ "cut_whoosh": false,
+ "sources": [
+  "SM21 Sender R, Milo R. The distribution of cellular turnover in the human body. Nat Med 27:45-48 (2021), Weizmann Institute, doi:10.1038/s41591-020-01182-9, https://pubmed.ncbi.nlm.nih.gov/33432173/ : 'In terms of cell numbers, close to 90% of the (0.33 +/- 0.02) x 10^12 cells per day turnover was blood cells.' Body text: 'a reference 70 kg person with 30 trillion host cells ... produces this number of cells every 80 d ... not all parts of the human body are ever replaced (for example, most brain neurons and cells of the eye lens ...) and hence complete turnover never happens.'",
+  "SP05 Spalding KL et al. Retrospective birth dating of cells in humans. Cell 122:133-143 (2005), Karolinska Institute, https://pubmed.ncbi.nlm.nih.gov/16009139/ : 'whereas nonneuronal cells are exchanged, occipital neurons are as old as the individual'",
+  "PLU Plutarch, Life of Theseus (Dryden tr.), https://classics.mit.edu/Plutarch/theseus.html : 'The ship wherein Theseus and the youth of Athens returned had thirty oars, and was preserved by the Athenians ... for they took away the old planks as they decayed, putting in new and stronger timber in their place, insomuch that this ship became a standing example among the philosophers ... one side holding that the ship remained the same, and the other contending that it was not the same.'",
+  "SEP-IT Stanford Encyclopedia of Philosophy, 'Identity Over Time' (rev. Jan 12 2026), https://plato.stanford.edu/entries/identity-time/ : 'Over a long period all of the planks composing a certain ship are replaced one by one. Eventually a ship indiscernible from the original, but composed of entirely different planks, results.'",
+  "SEP-MC Stanford Encyclopedia of Philosophy, 'Material Constitution', https://plato.stanford.edu/entries/material-constitution/ : 'Thomas Hobbes imagined a scenario in which a custodian collects the original planks and puts them back in the original arrangement. ... we are left with two seafaring vessels ... But where is the original Ship of Theseus? Some will say that it is with the museum, since boats can survive the gradual replacement of parts. Others will say that it is with the custodian, since constructs can survive being taken apart and put back together. Both arguments seem compelling, but together they imply that the ship survives twice over.'"
+ ],
+ "title": "The Ship of Theseus: Replace Every Plank and It's Not the Same Ship",
+ "_note": "Philosophy test 11/18 (Studio notes 2:50/2:55/2:58/3:05 PM in side-hustles TASKS.md). Script + sources: side-hustles channels/scripts/philosophy-ship-of-theseus.md. Hand-made beats; pictures in tools/drawn_phil_art.py (ph_). Voice E2 plain (kokoro:adam-puck, no speed/pitch/formant/drive), one-word captions (cap_words 1), one light swear (line 'damn glitch', after 7 s; captions show #@%!). Written by a generator; edit both cuts together.",
+ "beats": [
+  {
+   "say": "Most of your body's cells get swapped out over the years. So are you even still you?",
+   "scene": "ph_lab",
+   "scene_p": {
+    "wall": "#1f2d4f"
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      520,
+      1060,
+      1.3
+     ],
+     "to": [
+      530,
+      1050,
+      1.36
+     ]
+    },
+    {
+     "at": "So|55%",
+     "cam": [
+      560,
+      1010,
+      1.05
+     ],
+     "to": [
+      560,
+      1000,
+      1.1
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "body",
+     "type": "ph_body",
+     "pos": [
+      380,
+      1500
+     ],
+     "s": 0.95,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "swap": 0.0
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": 0.0,
+       "p": {
+        "swap": 1.0
+       },
+       "dur": 3.2
+      }
+     ]
+    },
+    {
+     "id": "qm",
+     "type": "ph_qm",
+     "pos": [
+      800,
+      760
+     ],
+     "s": 0.7,
+     "front": true,
+     "rot": 0.0,
+     "p": {
+      "on": 0.0
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "still|80%",
+       "p": {
+        "on": 1.0
+       },
+       "dur": 0.3
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "shock",
+    "pos": [
+     790,
+     1500
+    ],
+    "size": 380,
+    "gest": [
+     [
+      "So|55%",
+      "point",
+      1.2
+     ]
+    ],
+    "moves": [],
+    "look": "body"
+   },
+   "pad": 0.08,
+   "recut": false,
+   "_f": [
+    "SM21"
+   ],
+   "card": {
+    "rows": [
+     [
+      "ARE YOU STILL YOU?",
+      "#ffd34d",
+      96
+     ]
+    ],
+    "y": 200,
+    "at": "still|80%",
+    "pop": true
+   },
+   "sfx": [
+    "pop@still|80%"
+   ],
+   "transition": "cut"
+  },
+  {
+   "say": "But most of your brain's neurons never get replaced. So you're part new, part original.",
+   "scene": "ph_lab",
+   "scene_p": {
+    "wall": "#1f3a4f"
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      480,
+      960,
+      1.05
+     ],
+     "to": [
+      480,
+      940,
+      1.12
+     ]
+    },
+    {
+     "at": "part|62%",
+     "cam": [
+      460,
+      1020,
+      0.95
+     ],
+     "to": [
+      460,
+      1010,
+      1.0
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "neu",
+     "type": "ph_neuron",
+     "pos": [
+      420,
+      900
+     ],
+     "s": 1.25,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "glow": 0.0,
+      "lock": 0.0
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "never|35%",
+       "p": {
+        "lock": 1.0,
+        "glow": 1.0
+       },
+       "dur": 0.3
+      },
+      {
+       "at": "part|62%",
+       "p": {
+        "hidden": true
+       }
+      }
+     ]
+    },
+    {
+     "id": "body2",
+     "type": "ph_body",
+     "pos": [
+      400,
+      1500
+     ],
+     "s": 0.95,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "swap": 0.65,
+      "brain": 0.0,
+      "hidden": true
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "part|62%",
+       "p": {
+        "hidden": false,
+        "brain": 1.0
+       }
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "think",
+    "pos": [
+     880,
+     1500
+    ],
+    "size": 400,
+    "gest": [
+     [
+      "never|35%",
+      "point",
+      1.0
+     ]
+    ],
+    "moves": []
+   },
+   "pad": 0.08,
+   "recut": false,
+   "_f": [
+    "SM21",
+    "SP05"
+   ],
+   "card": {
+    "rows": [
+     [
+      "MOST NEURONS: NEVER REPLACED",
+      "#ffd34d",
+      70
+     ]
+    ],
+    "y": 230,
+    "at": "never|35%"
+   },
+   "sfx": [
+    "pop@never|35%"
+   ]
+  },
+  {
+   "say": "The Athenians kept the ship of Theseus. As the old planks decayed, they swapped in new timber.",
+   "scene": "ph_harbor",
+   "scene_p": {
+    "time": "day"
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      1080,
+      1.1
+     ],
+     "to": [
+      540,
+      1060,
+      1.15
+     ]
+    },
+    {
+     "at": "As|45%",
+     "cam": [
+      500,
+      1180,
+      1.45
+     ],
+     "to": [
+      500,
+      1170,
+      1.55
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "ship",
+     "type": "ph_ship",
+     "pos": [
+      520,
+      1330
+     ],
+     "s": 0.85,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "new": 0.0,
+      "seed": 3
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "As|45%",
+       "p": {
+        "new": 0.45
+       },
+       "dur": 2.0
+      }
+     ]
+    },
+    {
+     "id": "pk1",
+     "type": "ph_plank",
+     "pos": [
+      380,
+      1260
+     ],
+     "s": 0.8,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "old": true
+     },
+     "moves": [
+      {
+       "at": "As|45%",
+       "dur": 0.9,
+       "pos": [
+        -200,
+        1700
+       ],
+       "rot": -60
+      }
+     ],
+     "set": []
+    },
+    {
+     "id": "pk2",
+     "type": "ph_plank",
+     "pos": [
+      1300,
+      900
+     ],
+     "s": 0.8,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "old": false
+     },
+     "moves": [
+      {
+       "at": "new|75%",
+       "dur": 0.6,
+       "pos": [
+        640,
+        1260
+       ],
+       "rot": 0
+      }
+     ],
+     "set": []
+    }
+   ],
+   "mb": {
+    "pose": "present",
+    "pos": [
+     900,
+     1500
+    ],
+    "size": 360,
+    "gest": [],
+    "moves": [],
+    "look": "ship"
+   },
+   "pad": 0.08,
+   "recut": false,
+   "_f": [
+    "PLU"
+   ],
+   "card": {
+    "rows": [
+     [
+      "THE SHIP OF THESEUS",
+      "#ffd34d",
+      96
+     ],
+     [
+      "PLUTARCH",
+      "#ffffff",
+      50,
+      true
+     ]
+    ],
+    "y": 230,
+    "at": 0.2
+   },
+   "sfx": [
+    "whoosh@As|45%",
+    "pop@new|75%"
+   ]
+  },
+  {
+   "say": "Plank by plank, until not one original plank is left.",
+   "scene": "ph_harbor",
+   "scene_p": {
+    "time": "day"
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      520,
+      1180,
+      1.4
+     ],
+     "to": [
+      520,
+      1180,
+      1.5
+     ]
+    },
+    {
+     "at": "until|45%",
+     "cam": [
+      540,
+      1060,
+      1.0
+     ],
+     "to": [
+      540,
+      1050,
+      1.05
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "ship",
+     "type": "ph_ship",
+     "pos": [
+      520,
+      1330
+     ],
+     "s": 0.85,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "new": 0.45,
+      "seed": 3
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": 0.0,
+       "p": {
+        "new": 1.0
+       },
+       "dur": 2.0
+      }
+     ]
+    },
+    {
+     "id": "fl0",
+     "type": "ph_plank",
+     "pos": [
+      300,
+      1250
+     ],
+     "s": 0.6,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "old": true,
+      "spin": 2.0
+     },
+     "moves": [
+      {
+       "at": 0.15,
+       "dur": 0.8,
+       "pos": [
+        -300,
+        1800
+       ],
+       "rot": 120
+      }
+     ],
+     "set": []
+    },
+    {
+     "id": "fl1",
+     "type": "ph_plank",
+     "pos": [
+      420,
+      1250
+     ],
+     "s": 0.6,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "old": true,
+      "spin": 2.0
+     },
+     "moves": [
+      {
+       "at": 0.44999999999999996,
+       "dur": 0.8,
+       "pos": [
+        1300,
+        900
+       ],
+       "rot": 120
+      }
+     ],
+     "set": []
+    },
+    {
+     "id": "fl2",
+     "type": "ph_plank",
+     "pos": [
+      540,
+      1250
+     ],
+     "s": 0.6,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "old": true,
+      "spin": 2.0
+     },
+     "moves": [
+      {
+       "at": 0.75,
+       "dur": 0.8,
+       "pos": [
+        -300,
+        1800
+       ],
+       "rot": 120
+      }
+     ],
+     "set": []
+    },
+    {
+     "id": "fl3",
+     "type": "ph_plank",
+     "pos": [
+      660,
+      1250
+     ],
+     "s": 0.6,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "old": true,
+      "spin": 2.0
+     },
+     "moves": [
+      {
+       "at": 1.0499999999999998,
+       "dur": 0.8,
+       "pos": [
+        1300,
+        900
+       ],
+       "rot": 120
+      }
+     ],
+     "set": []
+    }
+   ],
+   "mb": {
+    "pose": "shock",
+    "pos": [
+     900,
+     1500
+    ],
+    "size": 360,
+    "gest": [],
+    "moves": [],
+    "look": "ship"
+   },
+   "pad": 0.08,
+   "recut": false,
+   "_f": [
+    "SEP-IT"
+   ],
+   "card": {
+    "rows": [
+     [
+      "ZERO ORIGINAL PLANKS",
+      "#ff4b3e",
+      92
+     ]
+    ],
+    "y": 240,
+    "at": "until|45%"
+   }
+  },
+  {
+   "say": "Same ship, or new ship? Pick one, no fence-sitting.",
+   "scene": "tp_set",
+   "scene_p": {
+    "wall": "#2a3358",
+    "wall2": "#323d6a",
+    "floor": "#1d2340"
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      540,
+      950,
+      1.06
+     ]
+    },
+    {
+     "at": "Pick|55%",
+     "cam": [
+      540,
+      900,
+      1.12
+     ],
+     "to": [
+      540,
+      900,
+      1.16
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "split",
+     "type": "ph_split",
+     "pos": [
+      540,
+      820
+     ],
+     "s": 1.0,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "on": 0.0,
+      "a": "#5fa8e8",
+      "b": "#ff4b3e"
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": 0.05,
+       "p": {
+        "on": 1.0
+       },
+       "dur": 0.3
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "point",
+    "pos": [
+     860,
+     1500
+    ],
+    "size": 400,
+    "gest": [
+     [
+      "Pick|55%",
+      "you",
+      1.2
+     ]
+    ],
+    "moves": []
+   },
+   "pad": 0.08,
+   "recut": false,
+   "_f": [],
+   "card": {
+    "rows": [
+     [
+      "SAME SHIP OR NEW SHIP?",
+      "#ffd34d",
+      88
+     ],
+     [
+      "PICK ONE. NO FENCE-SITTING.",
+      "#ffffff",
+      50,
+      true
+     ]
+    ],
+    "y": 220,
+    "at": 0.0,
+    "pop": true
+   },
+   "sfx": [
+    "pop@0.05"
+   ]
+  },
+  {
+   "say": "But here's the version that breaks everyone's brain.",
+   "scene": "tp_set",
+   "scene_p": {
+    "wall": "#3a1630",
+    "wall2": "#4a1d3d",
+    "floor": "#24101e"
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      1100,
+      1.25
+     ],
+     "to": [
+      540,
+      1100,
+      1.35
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "qm1",
+     "type": "ph_qm",
+     "pos": [
+      230,
+      1180
+     ],
+     "s": 1.0,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "on": 0.0
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "breaks|60%",
+       "p": {
+        "on": 1.0
+       },
+       "dur": 0.3
+      }
+     ]
+    },
+    {
+     "id": "qm2",
+     "type": "ph_qm",
+     "pos": [
+      850,
+      1120
+     ],
+     "s": 0.8,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "on": 0.0,
+      "col": "#ff4b3e"
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "brain|85%",
+       "p": {
+        "on": 1.0
+       },
+       "dur": 0.3
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "nervous",
+    "pos": [
+     560,
+     1500
+    ],
+    "size": 470,
+    "gest": [],
+    "moves": []
+   },
+   "pad": 0.08,
+   "recut": false,
+   "_f": [],
+   "card": {
+    "rows": [
+     [
+      "THE TWIST",
+      "#ff4b3e",
+      110
+     ]
+    ],
+    "y": 230,
+    "at": "breaks|60%",
+    "pop": true
+   },
+   "sfx": [
+    "hit@breaks|60%"
+   ],
+   "transition": "smash",
+   "scare": "brain|85%"
+  },
+  {
+   "say": "Thomas Hobbes asked: what if someone collected all the old planks, and put the ship back together?",
+   "scene": "ph_shed",
+   "scene_p": {},
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      1100,
+      1.1
+     ],
+     "to": [
+      520,
+      1100,
+      1.15
+     ]
+    },
+    {
+     "at": "put|55%",
+     "cam": [
+      560,
+      1150,
+      1.0
+     ],
+     "to": [
+      560,
+      1140,
+      1.04
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "guy",
+     "type": "person",
+     "pos": [
+      -150,
+      1500
+     ],
+     "s": 0.5,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "hat": "sailor",
+      "item": "sack",
+      "arm": "hold",
+      "walk": 1.0
+     },
+     "moves": [
+      {
+       "at": 0.0,
+       "dur": 1.8,
+       "pos": [
+        200,
+        1500
+       ],
+       "walk": true
+      }
+     ],
+     "set": []
+    },
+    {
+     "id": "pile",
+     "type": "ph_pile",
+     "pos": [
+      420,
+      1500
+     ],
+     "s": 1.3,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "n": 0.0
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": 0.3,
+       "p": {
+        "n": 1.0
+       },
+       "dur": 2.0
+      },
+      {
+       "at": "put|55%",
+       "p": {
+        "hidden": true
+       }
+      }
+     ]
+    },
+    {
+     "id": "old",
+     "type": "ph_ship",
+     "pos": [
+      560,
+      1380
+     ],
+     "s": 0.7,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "new": 0.0,
+      "seed": 3,
+      "bob": 0.0,
+      "ghost": 1.0,
+      "hidden": true
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "put|55%",
+       "p": {
+        "hidden": false
+       }
+      },
+      {
+       "at": "put|55%",
+       "p": {
+        "ghost": 0.0
+       },
+       "dur": 1.6
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "think",
+    "pos": [
+     930,
+     1500
+    ],
+    "size": 340,
+    "gest": [],
+    "moves": [],
+    "look": "old"
+   },
+   "pad": 0.08,
+   "recut": false,
+   "_f": [
+    "SEP-MC"
+   ],
+   "card": {
+    "rows": [
+     [
+      "HOBBES'S TWIST",
+      "#ffd34d",
+      96
+     ],
+     [
+      "REBUILT FROM THE OLD PLANKS",
+      "#ffffff",
+      50,
+      true
+     ]
+    ],
+    "y": 220,
+    "at": 0.0
+   },
+   "sfx": [
+    "whoosh@put|55%"
+   ]
+  },
+  {
+   "say": "Now there are two ships. So which one is the real Ship of Theseus?",
+   "scene": "ph_harbor",
+   "scene_p": {
+    "time": "day"
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      1100,
+      1.0
+     ],
+     "to": [
+      540,
+      1090,
+      1.05
+     ]
+    },
+    {
+     "at": "which|45%",
+     "cam": [
+      540,
+      1180,
+      1.2
+     ],
+     "to": [
+      540,
+      1180,
+      1.25
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "shipL",
+     "type": "ph_ship",
+     "pos": [
+      270,
+      1330
+     ],
+     "s": 0.48,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "new": 1.0,
+      "seed": 3,
+      "sail": "#f4ecd6"
+     },
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "shipR",
+     "type": "ph_ship",
+     "pos": [
+      800,
+      1330
+     ],
+     "s": 0.48,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "new": 0.0,
+      "seed": 5,
+      "sail": "#e8dcc0"
+     },
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "qm",
+     "type": "ph_qm",
+     "pos": [
+      540,
+      760
+     ],
+     "s": 0.8,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "on": 0.0
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "real|70%",
+       "p": {
+        "on": 1.0
+       },
+       "dur": 0.3
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "shrug",
+    "pos": [
+     540,
+     1720
+    ],
+    "size": 330,
+    "gest": [],
+    "moves": []
+   },
+   "pad": 0.08,
+   "recut": false,
+   "_f": [
+    "SEP-MC"
+   ],
+   "card": {
+    "rows": [
+     [
+      "TWO SHIPS. WHICH ONE IS REAL?",
+      "#ffd34d",
+      74
+     ]
+    ],
+    "y": 230,
+    "at": "two|20%"
+   },
+   "sfx": [
+    "pop@real|70%"
+   ]
+  },
+  {
+   "say": "Team Athens says new parts are fine. Team rebuilt says it's the same wood.",
+   "scene": "ph_harbor",
+   "scene_p": {
+    "time": "day"
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      330,
+      1180,
+      1.35
+     ],
+     "to": [
+      320,
+      1180,
+      1.4
+     ]
+    },
+    {
+     "at": "rebuilt|55%",
+     "cam": [
+      780,
+      1180,
+      1.35
+     ],
+     "to": [
+      790,
+      1180,
+      1.4
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "shipL",
+     "type": "ph_ship",
+     "pos": [
+      270,
+      1330
+     ],
+     "s": 0.48,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "new": 1.0,
+      "seed": 3,
+      "sail": "#f4ecd6"
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "Athens|10%",
+       "p": {
+        "glow": 1.0
+       },
+       "dur": 0.25
+      }
+     ]
+    },
+    {
+     "id": "shipR",
+     "type": "ph_ship",
+     "pos": [
+      800,
+      1330
+     ],
+     "s": 0.48,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "new": 0.0,
+      "seed": 5,
+      "sail": "#e8dcc0"
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "rebuilt|55%",
+       "p": {
+        "glow": 1.0
+       },
+       "dur": 0.25
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "think",
+    "pos": [
+     540,
+     1720
+    ],
+    "size": 300,
+    "gest": [],
+    "moves": []
+   },
+   "pad": 0.08,
+   "recut": false,
+   "_f": [
+    "SEP-MC",
+    "SEP-IT"
+   ],
+   "card": {
+    "rows": [
+     [
+      "NEW PARTS? STILL THE SHIP.",
+      "#5fa8e8",
+      66
+     ],
+     [
+      "SAME WOOD? STILL THE SHIP.",
+      "#ff4b3e",
+      66
+     ]
+    ],
+    "y": 230,
+    "at": 0.0
+   }
+  },
+  {
+   "say": "Agree with both, and the ship exists twice. That's not a ship, that's a damn glitch.",
+   "scene": "ph_harbor",
+   "scene_p": {
+    "time": "dusk"
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      1100,
+      1.0
+     ],
+     "to": [
+      540,
+      1100,
+      1.06
+     ]
+    },
+    {
+     "at": "glitch|85%",
+     "cam": [
+      540,
+      1150,
+      1.3
+     ],
+     "to": [
+      540,
+      1150,
+      1.35
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "shipL",
+     "type": "ph_ship",
+     "pos": [
+      270,
+      1330
+     ],
+     "s": 0.48,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "new": 1.0,
+      "seed": 3,
+      "sail": "#f4ecd6"
+     },
+     "moves": [],
+     "set": []
+    },
+    {
+     "id": "shipR",
+     "type": "ph_ship",
+     "pos": [
+      800,
+      1330
+     ],
+     "s": 0.48,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "new": 0.0,
+      "seed": 5,
+      "sail": "#e8dcc0"
+     },
+     "moves": [],
+     "set": []
+    }
+   ],
+   "mb": {
+    "pose": "facepalm",
+    "pos": [
+     540,
+     1720
+    ],
+    "size": 330,
+    "gest": [],
+    "moves": []
+   },
+   "pad": 0.08,
+   "recut": false,
+   "_f": [
+    "SEP-MC"
+   ],
+   "card": {
+    "rows": [
+     [
+      "THE SHIP EXISTS TWICE?",
+      "#ff4b3e",
+      86
+     ]
+    ],
+    "y": 230,
+    "at": "twice|40%",
+    "pop": true
+   },
+   "sfx": [
+    "hit@glitch|85%"
+   ],
+   "shake": [
+    "glitch|85%"
+   ],
+   "flash": [
+    "glitch|85%"
+   ]
+  },
+  {
+   "say": "Meatball's ruling: It's NOT the same ship.",
+   "scene": "tp_set",
+   "scene_p": {
+    "wall": "#14324a",
+    "wall2": "#183a56",
+    "floor": "#0e2233"
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      1150,
+      1.25
+     ],
+     "to": [
+      540,
+      1150,
+      1.35
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "shipN",
+     "type": "ph_ship",
+     "pos": [
+      280,
+      1440
+     ],
+     "s": 0.4,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "new": 1.0,
+      "seed": 3,
+      "bob": 0.0
+     },
+     "moves": [],
+     "set": []
+    }
+   ],
+   "mb": {
+    "pose": "deadpan",
+    "pos": [
+     650,
+     1500
+    ],
+    "size": 520,
+    "gest": [
+     [
+      "NOT|60%",
+      "point",
+      1.0
+     ]
+    ],
+    "moves": []
+   },
+   "pad": 0.08,
+   "recut": false,
+   "_f": [],
+   "card": {
+    "rows": [
+     [
+      "IT'S NOT THE SAME SHIP.",
+      "#ffd34d",
+      92
+     ]
+    ],
+    "y": 230,
+    "at": "NOT|55%",
+    "pop": true
+   },
+   "sfx": [
+    "hit@NOT|55%"
+   ]
+  },
+  {
+   "say": "And if you disagree, you've never replaced a phone screen.",
+   "scene": "tp_living",
+   "scene_p": {
+    "sofa": true
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      1000,
+      1.0
+     ],
+     "to": [
+      540,
+      1000,
+      1.05
+     ]
+    },
+    {
+     "at": "phone|75%",
+     "cam": [
+      400,
+      980,
+      1.25
+     ],
+     "to": [
+      400,
+      980,
+      1.3
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "ph",
+     "type": "ph_phone",
+     "pos": [
+      380,
+      1000
+     ],
+     "s": 0.9,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "crack": 0.0,
+      "rot": -0.08
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": "replaced|55%",
+       "p": {
+        "crack": 1.0
+       },
+       "dur": 0.4
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "you",
+    "pos": [
+     860,
+     1500
+    ],
+    "size": 400,
+    "gest": [],
+    "moves": [],
+    "look": "viewer"
+   },
+   "pad": 0.08,
+   "recut": false,
+   "_f": [],
+   "card": {
+    "rows": [
+     [
+      "EVER REPLACED A PHONE SCREEN?",
+      "#ffffff",
+      66,
+      true
+     ]
+    ],
+    "y": 230,
+    "at": "replaced|55%"
+   },
+   "sfx": [
+    "hit@replaced|55%"
+   ]
+  },
+  {
+   "say": "So, same ship or new ship? Pick one, no fence-sitting.",
+   "scene": "tp_set",
+   "scene_p": {
+    "wall": "#2a3358",
+    "wall2": "#323d6a",
+    "floor": "#1d2340"
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      540,
+      960,
+      1.0
+     ],
+     "to": [
+      540,
+      950,
+      1.06
+     ]
+    },
+    {
+     "at": "Pick|55%",
+     "cam": [
+      540,
+      900,
+      1.12
+     ],
+     "to": [
+      540,
+      900,
+      1.16
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "split",
+     "type": "ph_split",
+     "pos": [
+      540,
+      820
+     ],
+     "s": 1.0,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "on": 0.0,
+      "a": "#5fa8e8",
+      "b": "#ff4b3e"
+     },
+     "moves": [],
+     "set": [
+      {
+       "at": 0.05,
+       "p": {
+        "on": 1.0
+       },
+       "dur": 0.3
+      }
+     ]
+    }
+   ],
+   "mb": {
+    "pose": "point",
+    "pos": [
+     860,
+     1500
+    ],
+    "size": 400,
+    "gest": [
+     [
+      "Pick|55%",
+      "you",
+      1.2
+     ]
+    ],
+    "moves": []
+   },
+   "pad": 0.08,
+   "recut": false,
+   "_f": [],
+   "card": {
+    "rows": [
+     [
+      "SAME SHIP OR NEW SHIP?",
+      "#ffd34d",
+      88
+     ],
+     [
+      "PICK ONE. NO FENCE-SITTING.",
+      "#ffffff",
+      50,
+      true
+     ]
+    ],
+    "y": 220,
+    "at": 0.0,
+    "pop": true
+   },
+   "sfx": [
+    "pop@0.05"
+   ]
+  },
+  {
+   "say": "Half of you are wrong. And remember...",
+   "scene": "ph_lab",
+   "scene_p": {
+    "wall": "#1f2d4f"
+   },
+   "shots": [
+    {
+     "at": 0.0,
+     "cam": [
+      520,
+      1000,
+      1.0
+     ],
+     "to": [
+      520,
+      1000,
+      1.02
+     ]
+    }
+   ],
+   "actors": [
+    {
+     "id": "body",
+     "type": "ph_body",
+     "pos": [
+      400,
+      1500
+     ],
+     "s": 0.95,
+     "front": false,
+     "rot": 0.0,
+     "p": {
+      "swap": 0.0
+     },
+     "moves": [],
+     "set": []
+    }
+   ],
+   "mb": {
+    "pose": "you",
+    "pos": [
+     860,
+     1500
+    ],
+    "size": 430,
+    "gest": [],
+    "moves": [],
+    "look": "viewer"
+   },
+   "pad": 0.08,
+   "recut": false,
+   "_f": [],
+   "card": {
+    "rows": [
+     [
+      "HALF OF YOU ARE WRONG.",
+      "#ffd34d",
+      92
+     ],
+     [
+      "COMMENTS.",
+      "#ffffff",
+      70,
+      true
+     ]
+    ],
+    "y": 200,
+    "at": 0.0,
+    "pop": true
+   }
+  }
+ ]
+}

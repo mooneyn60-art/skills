@@ -12,7 +12,8 @@ the chapter re-hook cards and the shot table. The flagship build is untouched (i
   check SPEC.json                   runtime and holds
 
 Constraints from the brief (Studio 11/18): no prop is shown going outside in the snow, and the "escort it outdoors"
-method is never acted out (the card states it; the picture stays inside).
+method is never acted out (the card states it; the picture stays inside: QA #10 11/18, Meatball holds the front door
+open with a bow, a paper cup and card in paw, and the cup is never over the bug).
 """
 import copy
 import json
@@ -112,6 +113,116 @@ drawn.ACTORS.update(rk_mat=rk_mat, rk_antennae=rk_antennae, rk_towel=rk_towel, r
                     rk_snow=rk_snow, rk_steam=rk_steam)
 
 
+# QA #10 (11/18 12:47 PM) visual fixes: nothing on screen dies (0:41), the bug bomb's mist stops at the cabinet edge
+# (3:22), Meatball holds the front door open with a bow, cup and card in paw, the cup never over the bug (3:30).
+def rk_greysil(ctx, t, p):
+    """Any actor (p kind, its params kp) as a flat grey silhouette: a still icon, it never moves or tips over."""
+    ctx.push_group()
+    drawn.ACTORS[p["kind"]](ctx, 0.0, dict(p.get("kp", {})))
+    pat = ctx.pop_group()
+    r, g, b = p.get("col", (0.55, 0.56, 0.6))
+    ctx.set_source_rgba(r, g, b, p.get("a", 1.0))
+    ctx.mask(pat)
+
+
+def rk_card(ctx, t, p):
+    """A plain cream card (origin = centre), p w, h."""
+    w, h = p.get("w", 1300), p.get("h", 560)
+    shape(ctx, lambda c: p_rrect(c, -w / 2, -h / 2, w, h, 36), hexc(p.get("fill", "#f3ead6")), OUT, None)
+
+
+def rk_vanity(ctx, t, p):
+    """A bathroom vanity cabinet, origin = bottom centre, p w (580), h (500); a dark crack in the baseboard at p crack
+    (x offset from the origin) where the house centipede waits."""
+    w, h = p.get("w", 580), p.get("h", 500)
+    shape(ctx, lambda c: p_rrect(c, -w / 2, -h, w, h, 10), hexc("#c99a62"), OUT, None)
+    shape(ctx, lambda c: p_rrect(c, -w / 2 - 20, -h - 40, w + 40, 46, 10), hexc("#eef2f4"), OUT, None)
+    flat(ctx, lambda c: c.rectangle(-w / 2 + 10, -40, w - 20, 34), hexc("#4a3424"))
+    for dx in (-w / 4, w / 4):
+        shape(ctx, lambda c, dx=dx: p_rrect(c, dx - w / 4 + 22, -h + 30, w / 2 - 44, h - 90, 8), hexc("#d8ad78"), OUT * 0.6, None)
+        shape(ctx, lambda c, dx=dx: p_ellipse(c, dx + (-w / 4 + 50 if dx > 0 else w / 4 - 50), -h / 2, 12, 12), hexc("#8a8f99"), OUT * 0.5, None)
+    cx = p.get("crack")
+    if cx is not None:
+        flat(ctx, lambda c: p_poly(c, [(cx - 70, -6), (cx + 70, -6), (cx + 60, -48), (cx + 20, -40), (cx - 10, -56), (cx - 60, -42)]),
+             hexc("#14100c"))
+
+
+def rk_mist(ctx, t, p):
+    """Bug-bomb mist rolling in from the right along the floor (origin = the stop line on the floor): its front edge
+    never passes x 0 (the cabinet edge); p reach 0..1, len (how far right it starts)."""
+    reach, ln = p.get("reach", 0.0), p.get("len", 1200)
+    if reach <= 0.01:
+        return
+    front = ln * (1 - ease(min(1.0, reach)))
+    ctx.save()
+    ctx.rectangle(0, -2000, 6000, 2200)
+    ctx.clip()
+    for k in range(26):
+        x = front + (k * 97.3) % (ln + 300) + 14 * math.sin(t * 1.3 + k)
+        y = -40 - (k * 61.7) % 460 + 12 * math.sin(t * 1.7 + 2 * k)
+        r = 90 + (k * 37) % 70
+        shape(ctx, lambda c, x=x, y=y, r=r: p_ellipse(c, x, y, r, r * 0.7), hexc("#b8cf8f"), OUT * 0.35, None, a=0.85)
+    for k in range(5):   # the curl where it bunches up against the cabinet
+        y = -60 - k * 95
+        bx = front + 40 + 10 * math.sin(t * 3 + k)
+        shape(ctx, lambda c, bx=bx, y=y: p_ellipse(c, bx, y, 70, 55), hexc("#cfe0a8"), OUT * 0.35, None, a=0.9)
+    ctx.restore()
+
+
+def rk_frontdoor(ctx, t, p):
+    """The front door from inside, swung open (origin = the floor at the frame's left edge, 420 wide, 1120 tall):
+    the night porch and falling snow show through; the door leaf opens in toward the room on the right."""
+    w, h = 420, 1120
+    shape(ctx, lambda c: c.rectangle(-30, -h - 30, w + 60, h + 30), hexc("#3a2a20"), OUT, None)
+    flat(ctx, lambda c: c.rectangle(0, -h, w, h), hexc("#16204a"))
+    flat(ctx, lambda c: c.rectangle(0, -230, w, 230), hexc("#dfe8f2"))
+    stroke(ctx, [(0, -230), (w, -230)], 4, color=hexc("#b9c6d6"))
+    ctx.save()
+    ctx.translate(0, -h)
+    rk_snow(ctx, t, {"w": w, "h": h})
+    ctx.restore()
+    flat(ctx, lambda c: p_ellipse(c, w * 0.75, -h + 160, 46, 46), hexc("#f6f1c8"))
+    shape(ctx, lambda c: p_poly(c, [(w, -h), (w + 210, -h - 60), (w + 210, 60), (w, 0)]), hexc("#8a3b2c"), OUT, None)
+    for y0, y1 in ((-h + 60, -h * 0.55), (-h * 0.47, -60)):
+        shape(ctx, lambda c, y0=y0, y1=y1: p_poly(c, [(w + 40, y0 - 8), (w + 170, y0 - 40), (w + 170, y1 + 40), (w + 40, y1 + 8)]),
+              hexc("#9c4a38"), OUT * 0.5, None)
+    shape(ctx, lambda c: p_ellipse(c, w + 185, -h * 0.5, 14, 18), hexc("#e3c25a"), OUT * 0.5, None)
+    shape(ctx, lambda c: p_poly(c, [(-40, 0), (w + 40, 0), (w + 70, 40), (-70, 40)]), hexc("#6b4a2e"), OUT * 0.7, None)
+
+
+drawn.ACTORS.update(rk_greysil=rk_greysil, rk_card=rk_card, rk_vanity=rk_vanity, rk_mist=rk_mist, rk_frontdoor=rk_frontdoor)
+
+# Meatball's bow at the door: leaning toward it, the screen-left arm out holding it, cup and card in the right paw.
+import mascot  # noqa: E402
+mascot.POSES["bow"] = {"l": ("ik", "shoulder", (-230, 60), 1), "r": (40, 70, 10), "lean": -12, "tilt": -18, "knee": 8,
+                       "mouth": "smile", "brow": "calm", "eyes": "bliss", "gaze": "viewer"}
+mascot.PERSONA.add("bow")
+_prev_prop = drawn.draw_prop
+
+
+def _draw_prop(ctx, prop, hx, hy, k, t, beam=True):
+    """cupcard: a paper cup (open side up, never turned over) and an index card, held in the right paw."""
+    if prop != "cupcard":
+        return _prev_prop(ctx, prop, hx, hy, k, t, beam=beam)
+    ctx.save()
+    ctx.translate(hx, hy)
+    ctx.scale(k, k)
+    ctx.save()
+    ctx.translate(40, -40)
+    ctx.rotate(0.25)
+    shape(ctx, lambda c: p_rrect(c, -60, -95, 120, 85, 6), (1, 1, 1), OUT * 0.6, None)
+    for y in (-75, -55, -35):
+        stroke(ctx, [(-45, y), (45, y)], 3, color=hexc("#7fa7d9"))
+    ctx.restore()
+    shape(ctx, lambda c: p_poly(c, [(-48, -70), (48, -70), (34, 40), (-34, 40)]), (0.97, 0.97, 0.95), OUT * 0.6, None)
+    flat(ctx, lambda c: p_poly(c, [(-44, -40), (44, -40), (41, -18), (-41, -18)]), hexc("#e5383b"))
+    shape(ctx, lambda c: p_ellipse(c, 0, -70, 48, 12), (0.88, 0.88, 0.85), OUT * 0.5, None)
+    ctx.restore()
+
+
+drawn.draw_prop = _draw_prop
+
+
 def ov_typed(arr, b, t, o):
     """The opening question typed onto the screen, letter by letter, as the first card."""
     a = drawn.at_time(b["words"], o.get("at", 0.0))
@@ -207,10 +318,13 @@ def _table():
     T["s1.l2"] = dict(f="bm", pose="present", x=[A("dr", "droplets", [600, 900], 1.0, {"n": 8, "r": 300}), lab("da", "DRY AIR", [600, 600], "dry|40%", px=80, color="#ff9f43")],
                       sfx=["whoosh@dry|40%"])
     T["s1.l3"] = dict(f="M", pose="deadpan", look="viewer", bug={"hidden": True}, mb={"gest": [["licks|40%", "laugh", 0.8]]})
-    T["s1.l4"] = dict(f="kk", ring_k=True, room="hallM", cams=[[600, 1350, 1.1, 1.15], [900, 1400, 1.6, 1.7]], cuts=["die|50%"], mb={"hidden": True}, bug=None,
-                      x=[A("o%d" % k, "house_centipede", [100 + 260 * k, 1496], 0.35, {}, set=[{"at": "moisture|%d%%" % (30 + 15 * k), "dur": 0.5, "p": {}}],
-                           moves=[{"at": "die|%d%%" % (40 + 12 * k), "dur": 0.5, "pos": [100 + 260 * k, 1500], "rot": 160}]) for k in range(4)],
-                      sfx=["thud@die|50%"])
+    # QA #10: the other centipedes are grey silhouettes on a card under a DRY AIR stamp; nothing marches, tips or wilts
+    T["s1.l4"] = dict(f="kkk", room="board", roomscene="rk_board_bg", cams=[[0, 40, 0.95, 1.0], [0, 120, 1.35, 1.42], [0, 60, 1.05, 1.1]],
+                      cuts=["house|0%", "lack|0%"], mb={"hidden": True}, bug=None,
+                      x=[A("card", "rk_card", [0, 120], 1.0, {"w": 1400, "h": 560}),
+                         lab("oth", "OTHER CENTIPEDES", [0, -80], None, px=64, color="#ffffff")] +
+                        [A("o%d" % k, "rk_greysil", [-430 + 430 * k, 300], 0.55, {"kind": "house_centipede"}) for k in range(3)],
+                      **stamp("DRY AIR", "shortly|40%", "#ff9f43", 960, 600, 150, -8), sfx=["stamp@shortly|40%"])
     T["s1.l5"] = dict(f="bw", pose="shrug", look="hero", light={"kind": "lamp", "dark": 0.5}, x=[lab("only", "ALL YEAR", [600, 640], "year|60%", px=80, color=YEL)])
     T["s1.l6"] = dict(f="kb", cams=[[900, 800, 1.2, 1.3]], mb={"hidden": True},
                       x=[lab("se1", "SPRING", [1000, 520], "live|10%", px=70, color=GREEN), lab("se2", "SUMMER", [1000, 620], "entire|35%", px=70, color=YEL),
@@ -301,22 +415,39 @@ def _table():
                       x=[A("t1", "rk_trap", [300, 1496], 1.2, {"bugs": 0.0}, set=[{"at": "bugs|30%", "dur": 1.2, "p": {"bugs": 1.0}}]),
                          A("t2", "rk_trap", [800, 1496], 1.2, {"bugs": 0.0}, set=[{"at": "many|60%", "dur": 1.0, "p": {"bugs": 0.6}}])])
     T["s5.l2"] = dict(f="Mm", pose="nervous", bug={"hidden": True}, mb={"shake": 0.6}, x=[A("tr", "rk_trap", [1080, 1180], 1.3, {})])
+    # QA #10: the line is only "focus on the bugs they eat": the crossed-out things are small prey bugs (no water drop)
     T["s5.l3"] = dict(f="kMk", burst=True, pose="point", room="board", roomscene="rk_board_bg", cams=[[300, 0, 1.2, 1.25], [1100, 0, 1.2, 1.25]],
-                      cuts=["eat|35%", "moisture|60%"], mb={"pos": [700, 1500]}, bug=None,
-                      x=[A("fl", "sp.fly", [300, 100], 0.5, {}), A("x1", "ds_cross", [300, 0], 1.0, {"on": 0.0, "r": 200}, set=popset("eat|40%")),
-                         A("dr", "droplets", [1100, 0], 0.8, {"n": 6, "r": 160}), A("x2", "ds_cross", [1100, 0], 1.0, {"on": 0.0, "r": 200}, set=popset("moisture|65%"))],
-                      sfx=["stamp@eat|40%", "stamp@moisture|65%"])
+                      cuts=["control|0%", "focus|0%"], mb={"pos": [700, 1500]}, bug=None,
+                      x=[A("fl", "sp.fly", [300, 100], 0.5, {}), A("x1", "ds_cross", [300, 0], 1.0, {"on": 0.0, "r": 200}, set=popset("says|30%")),
+                         A("p1", "sp.moth", [1000, 60], 0.3, {}), A("p2", "sp.fly", [1200, 140], 0.3, {}), A("p3", "sp.earwig", [1050, 190], 0.3, {}),
+                         A("x2", "ds_cross", [1100, 60], 1.0, {"on": 0.0, "r": 220}, set=popset("bugs|30%"))],
+                      sfx=["stamp@says|30%", "stamp@bugs|30%"])
     T["s5.l4"] = dict(f="wM", room="laundry", pose="present", bug=None, mb={"prop": "paper"},
                       x=[A("pud", "droplets", [1200, 1480], 0.8, {"n": 6, "r": 120}), lab("dry", "DRY IT OUT", [950, 1150], "dry|20%", px=80, color=GREEN)])
     T["s5.l5"] = dict(f="kw", room="laundry", cams=[[1200, 1250, 1.3, 1.4]], cuts=["dehumidifiers|60%"], pose="point", bug=None,
                       x=[A("dh", "cl_box", [1200, 1500], 0.9, {}), lab("dhl", "DEHUMIDIFIER", [1200, 1050], "dehumidifiers|60%", px=70, color=YEL)])
-    T["s5.l6"] = dict(f="kM", room="bathA", cams=[[1400, 600, 1.6, 1.7]], pose="laugh", bug={"hidden": True},
-                      x=[A("fan", "rk_fan", [1400, 600], 0.9, {"spin": 1.0})], mb={"shake": 0.3})
-    T["s5.l7"] = dict(f="kk", room="board", roomscene="ds_floor", cams=[[960, 1150, 1.0, 1.05], [960, 1250, 1.4, 1.5]], cuts=["ineffective|55%"], mb={"hidden": True}, bug=None,
-                      x=[A("bomb", "tc_prop", [960, 1500], 1.0, {"kind": "foamcan"})], **stamp("NO", "bomb|35%", RED, 960, 500, 220, -12), sfx=["stamp@bomb|35%"])
+    # QA #10: the bug bomb's mist rolls in and stops at the cabinet edge; the antennae wave on, safe in the crack
+    T["s5.l6"] = dict(f="kkkk", room="bathA", cams=[[700, 1200, 1.1, 1.15], [650, 1330, 1.6, 1.66], [380, 1400, 2.4, 2.5], [700, 1260, 1.25, 1.3]],
+                      cuts=["Ohio|0%", "rarely|0%", "where|0%"], mb={"hidden": True},
+                      bug={"hidden": True},
+                      x=[A("van", "rk_vanity", [690, 1500], 1.0, {"crack": -360}), A("ant", "rk_antennae", [330, 1478], 1.3, {}),
+                         A("mist", "rk_mist", [980, 1500], 1.0, {"reach": 0.0, "len": 1300}, front=True,
+                           set=[{"at": "skip|0%", "dur": 1.7, "p": {"reach": 1.0}}])],
+                      sfx=["whoosh@skip|10%"])
+    # QA #10: the escort line: Meatball holds the front door open with a bow, a paper cup and card in paw; the bug stays
+    # on the floor far from the cup (the cup is never over it), nothing goes outside
+    T["s5.l7"] = dict(f="kkkkkk", room="hallM", cams=[[330, 1000, 0.85, 0.9], [200, 1000, 1.3, 1.36], [380, 1080, 1.6, 1.68],
+                                                         [330, 1000, 0.85, 0.9], [-270, 900, 1.5, 1.56], [250, 1030, 1.15, 1.2]],
+                      cuts=["Maryland|0%", "escort|0%", "Penn|0%", "survive|0%", "Pennsylvania|0%"], pose="bow", look="viewer", mb={"pos": [330, 1500], "prop": "cupcard"},
+                      bug={"pos": [1050, 1496], "p": {"mood": "calm", "look": [-1, 0]}},
+                      x=[A("door", "rk_frontdoor", [-480, 1500], 1.0, {})], no_bugcam=True)
     # the card states the method; the picture stays indoors (brief: no prop goes outside, the method is not acted out)
-    T["s5.l8"] = dict(f="kM", room="bathA", cams=[[710, 520, 1.7, 1.8]], cuts=["Penn|50%"], pose="think", bug={"hidden": True}, card_px=78,
-                      x=[A("snow", "rk_snow", [560, 260], 1.0, {"w": 300, "h": 260})])
+    T["s5.l8"] = dict(f="kkk", room="hallM", cams=[[200, 1000, 1.3, 1.36], [-270, 900, 1.5, 1.56], [330, 1000, 0.85, 0.9]],
+                      cuts=["for|0%", "went|0%"], pose="bow", look="viewer",
+                      no_bugcam=True, mb={"pos": [330, 1500], "prop": "cupcard"}, card_px=78,
+                      bug={"pos": [1050, 1496], "p": {"mood": "calm", "look": [1, 0]}, "flip": False,
+                           "moves": [{"at": "went|0%", "dur": 1.6, "pos": [2400, 1496], "walk": True}]},
+                      x=[A("door", "rk_frontdoor", [-480, 1500], 1.0, {})])
     T["s5.l9"] = dict(f="Mb", room="bathD", cuts=["mat|55%"], pose="deadpan", look="viewer", bug={"hidden": True}, zb=2.0,
                       x=[A("mat", "rk_mat", [1000, 1510], 1.2, {"lump": 0.6}), A("ant", "rk_antennae", [760, 1490], 1.0, {})],
                       bugpos_for_frame=[850, 1500])

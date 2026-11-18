@@ -1,0 +1,10070 @@
+{
+ "_note": "Built by tools/drawn_xmas.py build (drawn_ranked engine) from longform-christmas-tree-flagship.outline.json. Each line: id (s<seg>.l<line>), the outline fields (say/vis/card/rate/pitch/src) and shot (the SHOTS recipe in tools/drawn_ranked.py; \"_keep\": true keeps a hand edit across rebuilds).",
+ "voice": "kokoro:adam-puck",
+ "rate": "+10%",
+ "pitch": "+3Hz",
+ "music": "mystery",
+ "music_db": -17,
+ "tempo": {
+  "lead": 0.0,
+  "tail": 0.02,
+  "thr": 0.01,
+  "cam": 0.7
+ },
+ "pad": 0.08,
+ "speed_k": 0.7,
+ "beat_lines": [
+  "s0.l3",
+  "s1.l6",
+  "s2.l4",
+  "s2.l16",
+  "s3.l7",
+  "s4.l13",
+  "s6.l4",
+  "s8.l0"
+ ],
+ "captions": 122,
+ "caption_y": 870,
+ "cut_whoosh": true,
+ "sfx_gain": 0.24,
+ "cap_key": [
+  "tree",
+  "christmas",
+  "marshmallow",
+  "eggs",
+  "hundred",
+  "thousand",
+  "twenty-five",
+  "mantis",
+  "aphid",
+  "aphids",
+  "tick",
+  "ticks",
+  "six",
+  "eight",
+  "spiders",
+  "nine",
+  "vacuum",
+  "squash",
+  "spray",
+  "shake",
+  "clip",
+  "nest",
+  "trunk",
+  "lanternfly",
+  "fire",
+  "ignore",
+  "never",
+  "purple",
+  "panic",
+  "starve",
+  "evergreen",
+  "babies",
+  "cannibals",
+  "rumor"
+ ],
+ "end_hold": 12.0,
+ "end_label": "Don't Kill the Spider in Your Corner (posts Wed 11/18)",
+ "segments": [
+  {
+   "chapter": "Check for this",
+   "chip": null
+  },
+  {
+   "chapter": "The 25,000",
+   "chip": "THE NUMBER"
+  },
+  {
+   "chapter": "1. The mantis egg case",
+   "chip": "STOWAWAY 1 OF 9"
+  },
+  {
+   "chapter": "2. The one people call a tick",
+   "chip": "STOWAWAY 2 OF 9"
+  },
+  {
+   "chapter": "3 to 8. The ones you can ignore",
+   "chip": "STOWAWAYS 3 TO 8"
+  },
+  {
+   "chapter": "9. The one that matters outside",
+   "chip": "STOWAWAY 9 OF 9"
+  },
+  {
+   "chapter": "The mistake",
+   "chip": "DON'T DO THIS"
+  },
+  {
+   "chapter": "The tree check",
+   "chip": "THE TREE CHECK"
+  },
+  {
+   "chapter": "The verdict",
+   "chip": "VERDICT"
+  }
+ ],
+ "titles": [
+  "Never Bring a Christmas Tree Inside Before You Check for This",
+  "Can Christmas Trees Have Bugs? Meatball Checks Every One",
+  "9 Things That Ride In on Your Christmas Tree, Ranked by Panic"
+ ],
+ "pinned_comment": "What's the strangest thing that ever came out of your Christmas tree? 👇",
+ "lines": [
+  {
+   "say": "Before your Christmas tree comes through the door, check it for one thing: a tan blob that looks like a toasted marshmallow.",
+   "vis": "FRAME 0: close on a tan foamy blob glued to a fir twig, already quivering. Ornaments and lights soft behind. Card: CHECK FOR THIS",
+   "card": "CHECK FOR THIS",
+   "id": "s0.l0",
+   "seg": 0,
+   "shot": {
+    "room": "case",
+    "f": "kkk",
+    "cams": [
+     [
+      960,
+      470,
+      1.75,
+      1.85
+     ],
+     [
+      960,
+      500,
+      1.05,
+      1.1
+     ],
+     [
+      1250,
+      520,
+      1.0,
+      1.05
+     ]
+    ],
+    "cuts": [
+     "check|35%",
+     "toasted|72%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "card_at": "check|38%",
+    "x": [
+     {
+      "id": "twig",
+      "type": "tc_twig",
+      "pos": [
+       960,
+       720
+      ],
+      "s": 1.1,
+      "p": {}
+     },
+     {
+      "id": "case",
+      "type": "tc_ooth",
+      "pos": [
+       960,
+       720
+      ],
+      "s": 1.75,
+      "p": {
+       "quiver": 1.0
+      }
+     },
+     {
+      "id": "ring",
+      "type": "ds_ring",
+      "pos": [
+       960,
+       470
+      ],
+      "s": 1.0,
+      "p": {
+       "on": 0.0,
+       "r": 280,
+       "lw": 9
+      },
+      "set": [
+       {
+        "at": "check|40%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "marsh",
+      "type": "tc_marsh",
+      "pos": [
+       2900,
+       560
+      ],
+      "s": 1.25,
+      "p": {},
+      "moves": [
+       {
+        "at": "toasted|72%",
+        "dur": 0.4,
+        "pos": [
+         1560,
+         560
+        ]
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "sting@0.02",
+     "thud@check|40%",
+     "whoosh@toasted|72%"
+    ],
+    "sheet_at": 0.2
+   }
+  },
+  {
+   "say": "Inside it: a hundred eggs. Maybe several hundred.",
+   "src": "F23 F27 F29",
+   "vis": "X-ray of the case: rows of eggs. Counter spins up past 100.",
+   "id": "s0.l1",
+   "seg": 0,
+   "shot": {
+    "room": "board",
+    "f": "kk",
+    "cams": [
+     [
+      0,
+      60,
+      1.0,
+      1.05
+     ],
+     [
+      -330,
+      220,
+      1.7,
+      1.8
+     ]
+    ],
+    "cuts": [
+     "Maybe|55%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "twig",
+      "type": "tc_twig",
+      "pos": [
+       -330,
+       330
+      ],
+      "s": 1.2,
+      "p": {}
+     },
+     {
+      "id": "case",
+      "type": "tc_ooth",
+      "pos": [
+       -330,
+       330
+      ],
+      "s": 2.2,
+      "p": {
+       "xray": 0.0,
+       "quiver": 0.3
+      },
+      "set": [
+       {
+        "at": "Inside|5%",
+        "dur": 0.5,
+        "p": {
+         "xray": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "cnt",
+      "type": "tc_counter",
+      "pos": [
+       480,
+       -40
+      ],
+      "s": 1.0,
+      "p": {
+       "v": 0.0,
+       "px": 230
+      },
+      "set": [
+       {
+        "at": "hundred|25%",
+        "dur": 0.7,
+        "p": {
+         "v": 100.0
+        }
+       },
+       {
+        "at": "several|75%",
+        "dur": 0.0,
+        "p": {
+         "text": "100+"
+        }
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "whoosh@Inside|5%",
+     "tink@hundred|30%",
+     "pop@several|75%"
+    ]
+   }
+  },
+  {
+   "say": "And your warm living room is about to tell them it's spring.",
+   "src": "F17 F47",
+   "vis": "Thermostat glows; a tiny crack appears in the case.",
+   "id": "s0.l2",
+   "seg": 0,
+   "shot": {
+    "room": "liv",
+    "f": "kk",
+    "cams": [
+     [
+      1250,
+      420,
+      2.0,
+      2.1
+     ],
+     [
+      1126,
+      610,
+      3.6,
+      3.8
+     ]
+    ],
+    "cuts": [
+     "tell|45%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "tree",
+      "type": "tc_xtree",
+      "pos": [
+       960,
+       905
+      ],
+      "s": 0.8,
+      "p": {
+       "deco": 1.0,
+       "lit": 1.0
+      }
+     },
+     {
+      "id": "thermo",
+      "type": "tc_prop",
+      "pos": [
+       1250,
+       420
+      ],
+      "s": 0.9,
+      "p": {
+       "kind": "thermostat",
+       "glow": 0.0,
+       "dial": 0.2
+      },
+      "set": [
+       {
+        "at": "warm|20%",
+        "dur": 0.8,
+        "p": {
+         "glow": 1.0,
+         "dial": 0.9
+        }
+       }
+      ]
+     },
+     {
+      "id": "oc",
+      "type": "tc_ooth",
+      "pos": [
+       1126,
+       663
+      ],
+      "s": 0.25,
+      "p": {
+       "quiver": 0.6
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "spring|75%",
+        "dur": 0.4,
+        "p": {
+         "crack": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "tint": [
+     1.0,
+     0.55,
+     0.15,
+     0.08
+    ],
+    "sfx": [
+     "tink@warm|25%",
+     "crunch@spring|80%"
+    ]
+   }
+  },
+  {
+   "say": "Merry Christmas. Your tree came with a free toddler starter pack.",
+   "src": "joke",
+   "act": "smug",
+   "id": "s0.l3",
+   "seg": 0,
+   "shot": {
+    "room": "liv",
+    "f": "Mw",
+    "cuts": [
+     "toddler|45%"
+    ],
+    "pose": "deadpan",
+    "look": "viewer",
+    "mb": {
+     "pos": [
+      1600,
+      900
+     ]
+    },
+    "x": [
+     {
+      "id": "tree",
+      "type": "tc_xtree",
+      "pos": [
+       960,
+       905
+      ],
+      "s": 0.8,
+      "p": {
+       "deco": 1.0,
+       "lit": 1.0
+      }
+     },
+     {
+      "id": "gift",
+      "type": "tc_prop",
+      "pos": [
+       1350,
+       900
+      ],
+      "s": 1.2,
+      "p": {
+       "kind": "gift"
+      }
+     },
+     {
+      "id": "gl",
+      "type": "ds_label",
+      "pos": [
+       1350,
+       640
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "FREE: STARTER PACK",
+       "px": 56,
+       "color": "#ffd34d",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "starter|60%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "pop@starter|60%"
+    ]
+   }
+  },
+  {
+   "say": "That's stowaway number one. Nine things can ride in on that tree.",
+   "vis": "Pull back: the whole decorated tree; nine little question marks blink in the branches. Chip: 9 STOWAWAYS",
+   "id": "s0.l4",
+   "seg": 0,
+   "shot": {
+    "room": "liv",
+    "f": "kk",
+    "cams": [
+     [
+      1126,
+      620,
+      3.0,
+      3.1
+     ],
+     [
+      1150,
+      520,
+      0.92,
+      0.97
+     ]
+    ],
+    "cuts": [
+     "Nine|35%"
+    ],
+    "pose": "point",
+    "look": "tree",
+    "mb": {
+     "pos": [
+      1600,
+      900
+     ],
+     "moves": [
+      {
+       "at": "Nine|40%",
+       "dur": 0.4,
+       "pos": [
+        1560,
+        900
+       ],
+       "hop": 60
+      }
+     ]
+    },
+    "card": "9 STOWAWAYS",
+    "card_at": "Nine|45%",
+    "x": [
+     {
+      "id": "tree",
+      "type": "tc_xtree",
+      "pos": [
+       960,
+       905
+      ],
+      "s": 0.8,
+      "p": {
+       "deco": 1.0,
+       "lit": 1.0,
+       "qmarks": 0.0
+      },
+      "set": [
+       {
+        "at": "Nine|40%",
+        "dur": 1.4,
+        "p": {
+         "qmarks": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "oc",
+      "type": "tc_ooth",
+      "pos": [
+       1126,
+       663
+      ],
+      "s": 0.25,
+      "p": {},
+      "front": true
+     }
+    ],
+    "sfx": [
+     "whoosh@Nine|35%",
+     "pop@Nine|45%"
+    ]
+   }
+  },
+  {
+   "say": "Six you can ignore. One you vacuum. One you clip off. And one matters outside your house, not in it.",
+   "vis": "Four stamps preview: IGNORE x6, VACUUM x1, CLIP x1, CHECK THE TRUNK x1.",
+   "id": "s0.l5",
+   "seg": 0,
+   "shot": {
+    "room": "board",
+    "f": "kk",
+    "cams": [
+     [
+      0,
+      0,
+      1.0,
+      1.03
+     ],
+     [
+      0,
+      60,
+      1.25,
+      1.3
+     ]
+    ],
+    "cuts": [
+     "outside|70%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "card": false,
+    "x": [
+     {
+      "id": "i1",
+      "type": "cellar_spider",
+      "pos": [
+       -700,
+       0
+      ],
+      "s": 0.0005,
+      "p": {},
+      "moves": [
+       {
+        "at": "Six|3%",
+        "dur": 0.25,
+        "pos": [
+         -700,
+         0
+        ],
+        "s": 0.35
+       }
+      ]
+     },
+     {
+      "id": "i2",
+      "type": "tc_barkbeetle",
+      "pos": [
+       -560,
+       -40
+      ],
+      "s": 0.0005,
+      "p": {},
+      "moves": [
+       {
+        "at": "Six|8%",
+        "dur": 0.25,
+        "pos": [
+         -560,
+         -40
+        ],
+        "s": 0.45
+       }
+      ]
+     },
+     {
+      "id": "v",
+      "type": "tc_aphid",
+      "pos": [
+       -250,
+       -40
+      ],
+      "s": 0.0005,
+      "p": {},
+      "moves": [
+       {
+        "at": "vacuum|30%",
+        "dur": 0.25,
+        "pos": [
+         -250,
+         -40
+        ],
+        "s": 0.55
+       }
+      ]
+     },
+     {
+      "id": "tw",
+      "type": "tc_twig",
+      "pos": [
+       150,
+       -110
+      ],
+      "s": 0.0005,
+      "p": {},
+      "moves": [
+       {
+        "at": "clip|50%",
+        "dur": 0.25,
+        "pos": [
+         150,
+         -110
+        ],
+        "s": 0.3
+       }
+      ]
+     },
+     {
+      "id": "c2",
+      "type": "tc_ooth",
+      "pos": [
+       150,
+       -110
+      ],
+      "s": 0.0005,
+      "p": {},
+      "moves": [
+       {
+        "at": "clip|52%",
+        "dur": 0.25,
+        "pos": [
+         150,
+         -110
+        ],
+        "s": 0.75
+       }
+      ]
+     },
+     {
+      "id": "slf",
+      "type": "tc_slf_eggs",
+      "pos": [
+       630,
+       -120
+      ],
+      "s": 0.0005,
+      "p": {},
+      "moves": [
+       {
+        "at": "outside|72%",
+        "dur": 0.25,
+        "pos": [
+         630,
+         -120
+        ],
+        "s": 0.8
+       }
+      ]
+     },
+     {
+      "id": "four",
+      "type": "tc_stamps",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "n": 0.0,
+       "y": 640,
+       "items": [
+        [
+         "IGNORE",
+         "x6",
+         "#3fb950"
+        ],
+        [
+         "VACUUM",
+         "x1",
+         "#ffd34d"
+        ],
+        [
+         "CLIP",
+         "x1",
+         "#ffd34d"
+        ],
+        [
+         "CHECK THE TRUNK",
+         "x1",
+         "#e5383b"
+        ]
+       ]
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "Six|5%",
+        "dur": 0.3,
+        "p": {
+         "n": 1.0
+        }
+       },
+       {
+        "at": "vacuum|32%",
+        "dur": 0.3,
+        "p": {
+         "n": 2.0
+        }
+       },
+       {
+        "at": "clip|54%",
+        "dur": 0.3,
+        "p": {
+         "n": 3.0
+        }
+       },
+       {
+        "at": "outside|75%",
+        "dur": 0.3,
+        "p": {
+         "n": 4.0
+        }
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "stamp@Six|5%",
+     "stamp@vacuum|32%",
+     "stamp@clip|54%",
+     "stamp@outside|75%"
+    ]
+   }
+  },
+  {
+   "say": "And the internet says there are twenty-five thousand bugs in there. We'll check that number first.",
+   "src": "F1",
+   "vis": "Headline card 25,000 BUGS? slams in. The PANIC METER slides in at 9 of 10.",
+   "card": "25,000 BUGS?",
+   "panic": 9,
+   "id": "s0.l6",
+   "seg": 0,
+   "shot": {
+    "room": "liv",
+    "f": "wM",
+    "cuts": [
+     "twenty|20%"
+    ],
+    "pose": "shock",
+    "look": "viewer",
+    "mb": {
+     "pos": [
+      1600,
+      900
+     ],
+     "gest": [
+      [
+       "check|70%",
+       "point",
+       1.2
+      ]
+     ]
+    },
+    "x": [
+     {
+      "id": "tree",
+      "type": "tc_xtree",
+      "pos": [
+       960,
+       905
+      ],
+      "s": 0.8,
+      "p": {
+       "deco": 1.0,
+       "lit": 1.0
+      }
+     }
+    ],
+    "card_at": "twenty|22%",
+    "meter_in": "check|62%",
+    "shake": [
+     "twenty|22%"
+    ],
+    "burst": true,
+    "act": "shocked",
+    "sfx": [
+     "thud@twenty|22%",
+     "boing@thousand|40%"
+    ]
+   },
+   "act": "shocked"
+  },
+  {
+   "say": "Twenty-five thousand. Where does that come from?",
+   "vis": "The number on a corkboard with red string leading off screen.",
+   "id": "s1.l0",
+   "seg": 1,
+   "shot": {
+    "room": "cork",
+    "f": "kM",
+    "cams": [
+     [
+      800,
+      540,
+      1.0,
+      1.06
+     ]
+    ],
+    "cuts": [
+     "Where|40%"
+    ],
+    "pose": "think",
+    "look": "viewer",
+    "mb": {
+     "pos": [
+      1450,
+      1500
+     ]
+    },
+    "x": [
+     {
+      "id": "n25",
+      "type": "tc_note",
+      "pos": [
+       700,
+       560
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "25,000",
+       "px": 170,
+       "w": 700,
+       "h": 300
+      }
+     },
+     {
+      "id": "str",
+      "type": "tc_string",
+      "pos": [
+       1000,
+       520
+      ],
+      "s": 1.0,
+      "p": {
+       "to": [
+        1300,
+        -500
+       ],
+       "grow": 0.0
+      },
+      "set": [
+       {
+        "at": "Where|30%",
+        "dur": 0.8,
+        "p": {
+         "grow": 1.0
+        }
+       }
+      ],
+      "front": true
+     }
+    ],
+    "act": "curious",
+    "sfx": [
+     "sting@0",
+     "hit@0.05",
+     "tink@Where|30%"
+    ],
+    "ov": [
+     {
+      "type": "suspect",
+      "text": "THE NUMBER",
+      "kicker": "THE 25,000",
+      "at": 0.0
+     }
+    ],
+    "card_at": 1.5
+   },
+   "act": "curious"
+  },
+  {
+   "say": "One web article from a university in Norway, in December 2012.",
+   "src": "F1 F2",
+   "vis": "String leads to a pin on Norway and a calendar page: DEC 2012.",
+   "id": "s1.l1",
+   "seg": 1,
+   "shot": {
+    "room": "cork",
+    "f": "kk",
+    "cams": [
+     [
+      700,
+      540,
+      1.0,
+      1.03
+     ],
+     [
+      1400,
+      540,
+      1.15,
+      1.2
+     ]
+    ],
+    "cuts": [
+     "December|50%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "str",
+      "type": "tc_string",
+      "pos": [
+       -200,
+       300
+      ],
+      "s": 1.0,
+      "p": {
+       "to": [
+        1000,
+        160
+       ],
+       "grow": 0.0
+      },
+      "set": [
+       {
+        "at": "university|25%",
+        "dur": 0.8,
+        "p": {
+         "grow": 1.0
+        }
+       }
+      ],
+      "front": true
+     },
+     {
+      "id": "map",
+      "type": "tc_map",
+      "pos": [
+       800,
+       520
+      ],
+      "s": 0.72,
+      "p": {
+       "place": "NORWAY",
+       "pin": 0.0,
+       "px": -60,
+       "py": 40
+      },
+      "set": [
+       {
+        "at": "Norway|30%",
+        "dur": 0.5,
+        "p": {
+         "pin": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "cal",
+      "type": "ds_prop",
+      "pos": [
+       1450,
+       540
+      ],
+      "s": 0.0005,
+      "p": {
+       "kind": "calendar",
+       "label": "DEC 2012"
+      },
+      "moves": [
+       {
+        "at": "December|55%",
+        "dur": 0.25,
+        "pos": [
+         1450,
+         540
+        ],
+        "s": 0.95
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "pop@Norway|30%",
+     "pop@December|55%"
+    ]
+   }
+  },
+  {
+   "say": "A museum biologist said as many as twenty-five thousand tiny creatures had turned up in some trees.",
+   "src": "F1",
+   "vis": "Speech bubble from a lab coat figure: AS MANY AS... IN SOME TREES. The words SOME TREES underline themselves.",
+   "id": "s1.l2",
+   "seg": 1,
+   "shot": {
+    "room": "lab",
+    "f": "kk",
+    "cams": [
+     [
+      900,
+      620,
+      0.95,
+      1.0
+     ],
+     [
+      1210,
+      400,
+      1.6,
+      1.65
+     ]
+    ],
+    "cuts": [
+     "trees|80%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "sci",
+      "type": "person",
+      "pos": [
+       520,
+       900
+      ],
+      "s": 0.62,
+      "p": {
+       "body": [
+        0.9568627450980393,
+        0.9568627450980393,
+        0.9568627450980393
+       ],
+       "glasses": "round",
+       "hair": [
+        0.4196078431372549,
+        0.2901960784313726,
+        0.1843137254901961
+       ],
+       "mood": "calm",
+       "arm": "point"
+      },
+      "talks": true
+     },
+     {
+      "id": "bub",
+      "type": "tc_speech",
+      "pos": [
+       1210,
+       380
+      ],
+      "s": 0.0005,
+      "p": {
+       "lines": [
+        "AS MANY AS...",
+        "IN SOME TREES"
+       ],
+       "px": 78,
+       "w": 800,
+       "h": 300,
+       "under": 0.0
+      },
+      "set": [
+       {
+        "at": "some|80%",
+        "dur": 0.5,
+        "p": {
+         "under": 1.0
+        }
+       }
+      ],
+      "moves": [
+       {
+        "at": "said|15%",
+        "dur": 0.25,
+        "pos": [
+         1210,
+         380
+        ],
+        "s": 1.0
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "pop@said|15%",
+     "scratch@some|80%"
+    ]
+   }
+  },
+  {
+   "say": "Some trees. Norwegian trees. Spruce and pine.",
+   "src": "F3 F5",
+   "vis": "Wild Norwegian spruce and pine in snow, not a decorated fir.",
+   "id": "s1.l3",
+   "seg": 1,
+   "shot": {
+    "room": "woods",
+    "f": "kk",
+    "cams": [
+     [
+      960,
+      560,
+      0.95,
+      1.0
+     ],
+     [
+      1290,
+      500,
+      1.4,
+      1.45
+     ]
+    ],
+    "cuts": [
+     "pine|60%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "spr",
+      "type": "tc_wild",
+      "pos": [
+       640,
+       920
+      ],
+      "s": 0.78,
+      "p": {
+       "kind": "spruce"
+      }
+     },
+     {
+      "id": "pine",
+      "type": "tc_wild",
+      "pos": [
+       1290,
+       920
+      ],
+      "s": 0.78,
+      "p": {
+       "kind": "pine"
+      }
+     },
+     {
+      "id": "l1",
+      "type": "ds_label",
+      "pos": [
+       640,
+       290
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "SPRUCE",
+       "px": 64,
+       "color": "#ffffff",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "Spruce|40%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "l2",
+      "type": "ds_label",
+      "pos": [
+       1290,
+       160
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "PINE",
+       "px": 64,
+       "color": "#ffffff",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "pine|60%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "pop@Spruce|40%",
+     "pop@pine|60%"
+    ]
+   }
+  },
+  {
+   "say": "And tiny means tiny. Springtails, bark lice, mites, a moth, the odd spider.",
+   "src": "F4",
+   "vis": "Magnifier over a twig: five specks labelled in turn.",
+   "id": "s1.l4",
+   "seg": 1,
+   "shot": {
+    "room": "close",
+    "f": "kk",
+    "cams": [
+     [
+      960,
+      620,
+      0.95,
+      1.0
+     ],
+     [
+      900,
+      600,
+      1.3,
+      1.35
+     ]
+    ],
+    "cuts": [
+     "moth|70%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "twig",
+      "type": "tc_twig",
+      "pos": [
+       960,
+       650
+      ],
+      "s": 1.3,
+      "p": {}
+     },
+     {
+      "id": "c0",
+      "type": "tc_springtail",
+      "pos": [
+       400,
+       600
+      ],
+      "s": 0.0005,
+      "p": {},
+      "moves": [
+       {
+        "at": "Springtails|25%",
+        "dur": 0.25,
+        "pos": [
+         400,
+         600
+        ],
+        "s": 0.756
+       }
+      ]
+     },
+     {
+      "id": "n0",
+      "type": "ds_label",
+      "pos": [
+       400,
+       380
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "SPRINGTAIL",
+       "px": 48,
+       "color": "#ffd34d",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "Springtails|25%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "c1",
+      "type": "tc_barklouse",
+      "pos": [
+       680,
+       600
+      ],
+      "s": 0.0005,
+      "p": {},
+      "moves": [
+       {
+        "at": "bark|42%",
+        "dur": 0.25,
+        "pos": [
+         680,
+         600
+        ],
+        "s": 0.756
+       }
+      ]
+     },
+     {
+      "id": "n1",
+      "type": "ds_label",
+      "pos": [
+       680,
+       450
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "BARK LOUSE",
+       "px": 48,
+       "color": "#ffd34d",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "bark|42%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "c2",
+      "type": "tc_mite",
+      "pos": [
+       960,
+       560
+      ],
+      "s": 0.0005,
+      "p": {},
+      "moves": [
+       {
+        "at": "mites|58%",
+        "dur": 0.25,
+        "pos": [
+         960,
+         560
+        ],
+        "s": 0.5760000000000001
+       }
+      ]
+     },
+     {
+      "id": "n2",
+      "type": "ds_label",
+      "pos": [
+       960,
+       380
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "MITE",
+       "px": 48,
+       "color": "#ffd34d",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "mites|58%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "c3",
+      "type": "sp.moth",
+      "pos": [
+       1240,
+       600
+      ],
+      "s": 0.0005,
+      "p": {},
+      "moves": [
+       {
+        "at": "moth|72%",
+        "dur": 0.25,
+        "pos": [
+         1240,
+         600
+        ],
+        "s": 0.5760000000000001
+       }
+      ]
+     },
+     {
+      "id": "n3",
+      "type": "ds_label",
+      "pos": [
+       1240,
+       450
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "MOTH",
+       "px": 48,
+       "color": "#ffd34d",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "moth|72%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "c4",
+      "type": "cellar_spider",
+      "pos": [
+       1520,
+       600
+      ],
+      "s": 0.0005,
+      "p": {},
+      "moves": [
+       {
+        "at": "spider|88%",
+        "dur": 0.25,
+        "pos": [
+         1520,
+         600
+        ],
+        "s": 0.396
+       }
+      ]
+     },
+     {
+      "id": "n4",
+      "type": "ds_label",
+      "pos": [
+       1520,
+       380
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "SPIDER",
+       "px": 48,
+       "color": "#ffd34d",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "spider|88%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "pop@Springtails|25%",
+     "pop@bark|42%",
+     "pop@mites|58%",
+     "pop@moth|72%",
+     "pop@spider|88%"
+    ]
+   }
+  },
+  {
+   "say": "The article doesn't say how they were counted, and I couldn't find the study behind it.",
+   "src": "F7",
+   "vis": "Meatball digs through a filing cabinet, comes up empty. Stamp: NO METHOD GIVEN.",
+   "panic": 7,
+   "id": "s1.l5",
+   "seg": 1,
+   "shot": {
+    "room": "lab",
+    "f": "mM",
+    "cuts": [
+     "couldn't|55%"
+    ],
+    "pose": "nervous",
+    "mb": {
+     "pos": [
+      1250,
+      900
+     ],
+     "moves": [
+      {
+       "at": "counted|30%",
+       "dur": 0.3,
+       "pos": [
+        1300,
+        900
+       ]
+      }
+     ]
+    },
+    "x": [
+     {
+      "id": "cab",
+      "type": "tc_prop",
+      "pos": [
+       800,
+       900
+      ],
+      "s": 1.0,
+      "p": {
+       "kind": "cabinet",
+       "open": 0.0
+      },
+      "set": [
+       {
+        "at": "counted|20%",
+        "dur": 0.5,
+        "p": {
+         "open": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "thud@couldn't|55%",
+     "stamp@behind|75%"
+    ],
+    "stamp": {
+     "text": "NO METHOD GIVEN",
+     "color": "#e5383b",
+     "at": "behind|75%",
+     "x": 960,
+     "y": 320,
+     "px": 120,
+     "rot": -8
+    }
+   }
+  },
+  {
+   "say": "So the internet's scariest bug stat is basically a rumor in a lab coat. Stellar work, internet.",
+   "src": "joke",
+   "act": "smug",
+   "id": "s1.l6",
+   "seg": 1,
+   "shot": {
+    "room": "cork",
+    "f": "Mk",
+    "cams": [
+     [
+      700,
+      560,
+      1.4,
+      1.5
+     ]
+    ],
+    "cuts": [
+     "Stellar|65%"
+    ],
+    "pose": "laugh",
+    "look": "viewer",
+    "mb": {
+     "pos": [
+      1450,
+      1500
+     ]
+    },
+    "x": [
+     {
+      "id": "n25",
+      "type": "tc_note",
+      "pos": [
+       700,
+       560
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "25,000",
+       "px": 170,
+       "w": 700,
+       "h": 300,
+       "strike": 0.0
+      },
+      "set": [
+       {
+        "at": "rumor|40%",
+        "dur": 0.5,
+        "p": {
+         "strike": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "rum",
+      "type": "ds_label",
+      "pos": [
+       700,
+       330
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "RUMOR",
+       "px": 110,
+       "color": "#e5383b",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "rumor|45%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "scratch@rumor|40%"
+    ]
+   }
+  },
+  {
+   "say": "A Dutch natural history museum says nobody has done that study in the Netherlands yet.",
+   "src": "F6",
+   "vis": "A second pin on the Netherlands with a shrug emoji-free figure: NO DUTCH NUMBERS.",
+   "id": "s1.l7",
+   "seg": 1,
+   "shot": {
+    "room": "cork",
+    "f": "kk",
+    "cams": [
+     [
+      900,
+      600,
+      1.0,
+      1.04
+     ],
+     [
+      900,
+      560,
+      1.6,
+      1.65
+     ]
+    ],
+    "cuts": [
+     "nobody|45%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "map",
+      "type": "tc_map",
+      "pos": [
+       900,
+       520
+      ],
+      "s": 0.72,
+      "p": {
+       "place": "NETHERLANDS",
+       "pin": 0.0
+      },
+      "set": [
+       {
+        "at": "Dutch|15%",
+        "dur": 0.5,
+        "p": {
+         "pin": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "nd",
+      "type": "ds_label",
+      "pos": [
+       900,
+       860
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "NO DUTCH NUMBERS",
+       "px": 90,
+       "color": "#ffd34d",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "nobody|50%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "pop@Dutch|15%",
+     "pop@nobody|50%"
+    ]
+   }
+  },
+  {
+   "say": "The biologist's own home test is easy. Shake your tree over a white sheet and look.",
+   "src": "F8",
+   "vis": "Meatball shakes a small tree over a bedsheet; a few specks fall.",
+   "id": "s1.l8",
+   "seg": 1,
+   "shot": {
+    "room": "liv",
+    "f": "wk",
+    "cams": [
+     [
+      1300,
+      760,
+      1.6,
+      1.7
+     ]
+    ],
+    "cuts": [
+     "Shake|45%"
+    ],
+    "pose": "present",
+    "look": "viewer",
+    "mb": {
+     "pos": [
+      1450,
+      900
+     ],
+     "prop": "smalltree"
+    },
+    "x": [
+     {
+      "id": "tree",
+      "type": "tc_xtree",
+      "pos": [
+       960,
+       905
+      ],
+      "s": 0.8,
+      "p": {
+       "deco": 1.0,
+       "lit": 1.0
+      }
+     },
+     {
+      "id": "sheet",
+      "type": "tc_prop",
+      "pos": [
+       1300,
+       920
+      ],
+      "s": 1.2,
+      "p": {
+       "kind": "sheet"
+      }
+     },
+     {
+      "id": "fall",
+      "type": "tc_fall",
+      "pos": [
+       1300,
+       910
+      ],
+      "s": 1.0,
+      "p": {
+       "on": 0.0,
+       "w": 400,
+       "h": 400,
+       "n": 18
+      },
+      "set": [
+       {
+        "at": "Shake|50%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "whoosh@Shake|50%"
+    ]
+   }
+  },
+  {
+   "say": "In the U.S., Iowa State says a buggy tree carries a few to several hundred.",
+   "src": "F13",
+   "vis": "Counter: A FEW ... SEVERAL HUNDRED, tiny next to the crossed-out 25,000.",
+   "card": "A FEW TO SEVERAL HUNDRED",
+   "panic": 6,
+   "id": "s1.l9",
+   "seg": 1,
+   "shot": {
+    "room": "board",
+    "f": "kk",
+    "cams": [
+     [
+      0,
+      0,
+      1.0,
+      1.04
+     ],
+     [
+      0,
+      -40,
+      1.35,
+      1.4
+     ]
+    ],
+    "cuts": [
+     "several|60%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "big",
+      "type": "tc_note",
+      "pos": [
+       -450,
+       -60
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "25,000",
+       "px": 150,
+       "w": 620,
+       "h": 260,
+       "strike": 0.0
+      },
+      "set": [
+       {
+        "at": "buggy|20%",
+        "dur": 0.4,
+        "p": {
+         "strike": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "ctr",
+      "type": "tc_counter",
+      "pos": [
+       420,
+       -40
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "A FEW",
+       "px": 130,
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "few|40%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       },
+       {
+        "at": "several|60%",
+        "dur": 0.0,
+        "p": {
+         "text": "SEVERAL HUNDRED",
+         "px": 100
+        }
+       }
+      ]
+     },
+     {
+      "id": "ia",
+      "type": "ds_label",
+      "pos": [
+       420,
+       180
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "IOWA STATE",
+       "px": 60,
+       "color": "#ffd34d",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "Iowa|10%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "scratch@buggy|20%",
+     "tink@several|60%"
+    ]
+   }
+  },
+  {
+   "say": "And North Carolina State guesses that perhaps one tree in a hundred thousand carries one of these pests.",
+   "src": "F10",
+   "vis": "A vast lot of trees to the horizon; one lights up.",
+   "card": "PERHAPS 1 IN 100,000",
+   "panic": 5,
+   "id": "s1.l10",
+   "seg": 1,
+   "shot": {
+    "room": "farm",
+    "f": "kk",
+    "cams": [
+     [
+      960,
+      600,
+      0.6,
+      0.62
+     ],
+     [
+      1300,
+      700,
+      1.6,
+      1.7
+     ]
+    ],
+    "cuts": [
+     "thousand|60%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "glow",
+      "type": "rk_glow",
+      "pos": [
+       1300,
+       760
+      ],
+      "s": 1.0,
+      "p": {
+       "r": 120,
+       "on": 0.0
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "thousand|50%",
+        "dur": 0.5,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "tink@thousand|55%"
+    ]
+   }
+  },
+  {
+   "say": "Cut your own in the woods? Washington State University says bugs are more likely on forest and field trees than on farm-grown ones.",
+   "src": "F83",
+   "vis": "Split: a wild tree in a forest with a few more specks vs a neat farm row.",
+   "id": "s1.l11",
+   "seg": 1,
+   "shot": {
+    "room": "woods",
+    "f": "kk",
+    "cams": [
+     [
+      700,
+      560,
+      1.0,
+      1.05
+     ],
+     [
+      1500,
+      560,
+      1.0,
+      1.05
+     ]
+    ],
+    "cuts": [
+     "farm|75%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "wild",
+      "type": "tc_wild",
+      "pos": [
+       700,
+       920
+      ],
+      "s": 0.78,
+      "p": {
+       "kind": "spruce"
+      }
+     },
+     {
+      "id": "sp",
+      "type": "tc_specks",
+      "pos": [
+       700,
+       600
+      ],
+      "s": 1.0,
+      "p": {
+       "n": 14,
+       "w": 360,
+       "h": 420
+      }
+     },
+     {
+      "id": "ft",
+      "type": "tc_farmtree",
+      "pos": [
+       1500,
+       920
+      ],
+      "s": 0.8,
+      "p": {}
+     },
+     {
+      "id": "w1",
+      "type": "ds_label",
+      "pos": [
+       700,
+       330
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "FOREST: MORE LIKELY",
+       "px": 60,
+       "color": "#ffd34d",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "forest|45%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "w2",
+      "type": "ds_label",
+      "pos": [
+       1500,
+       330
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "FARM-GROWN",
+       "px": 60,
+       "color": "#3fb950",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "farm|78%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "act": "curious",
+    "sfx": [
+     "pop@forest|45%",
+     "pop@farm|78%"
+    ]
+   },
+   "act": "curious"
+  },
+  {
+   "say": "Why any at all? It's an outdoor tree. Insects settle into conifers for the winter.",
+   "src": "F15",
+   "vis": "Tree farm in snow; bugs asleep under bark and needles with tiny Z's.",
+   "id": "s1.l12",
+   "seg": 1,
+   "shot": {
+    "room": "farm",
+    "f": "kk",
+    "cams": [
+     [
+      960,
+      640,
+      0.9,
+      0.95
+     ],
+     [
+      1100,
+      800,
+      2.0,
+      2.1
+     ]
+    ],
+    "cuts": [
+     "Insects|45%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "zs",
+      "type": "tc_specks",
+      "pos": [
+       1100,
+       820
+      ],
+      "s": 1.0,
+      "p": {
+       "n": 8,
+       "w": 260,
+       "h": 120,
+       "sleep": 1.0
+      }
+     }
+    ],
+    "roomscene": "tc_farm",
+    "sfx": [
+     "pop@winter|80%"
+    ]
+   }
+  },
+  {
+   "say": "Bring it inside, and the heat tells them winter is over.",
+   "src": "F17 F18",
+   "vis": "The same tree carried through a door; the Z's pop one by one.",
+   "id": "s1.l13",
+   "seg": 1,
+   "shot": {
+    "room": "liv",
+    "f": "kw",
+    "cams": [
+     [
+      960,
+      500,
+      1.0,
+      1.05
+     ]
+    ],
+    "cuts": [
+     "winter|55%"
+    ],
+    "pose": "shock",
+    "look": "tree",
+    "mb": {
+     "pos": [
+      1600,
+      900
+     ]
+    },
+    "x": [
+     {
+      "id": "tree",
+      "type": "tc_xtree",
+      "pos": [
+       960,
+       905
+      ],
+      "s": 0.8,
+      "p": {
+       "deco": 1.0,
+       "lit": 1.0,
+       "zs": 1.0
+      },
+      "set": [
+       {
+        "at": "heat|35%",
+        "dur": 1.2,
+        "p": {
+         "zs": 0.0
+        }
+       }
+      ]
+     }
+    ],
+    "tint": [
+     1.0,
+     0.55,
+     0.15,
+     0.08
+    ],
+    "sfx": [
+     "pop@heat|40%",
+     "pop@over|80%"
+    ]
+   }
+  },
+  {
+   "say": "So breathe. But still do the check, because of stowaway number one.",
+   "vis": "Back to the foam blob on the twig. Pause-and-reveal 1 of 3.",
+   "id": "s1.l14",
+   "seg": 1,
+   "shot": {
+    "room": "liv",
+    "f": "Mk",
+    "cams": [
+     [
+      1126,
+      630,
+      3.2,
+      3.4
+     ]
+    ],
+    "cuts": [
+     "stowaway|55%"
+    ],
+    "pose": "you",
+    "look": "viewer",
+    "mb": {
+     "pos": [
+      1600,
+      900
+     ]
+    },
+    "x": [
+     {
+      "id": "tree",
+      "type": "tc_xtree",
+      "pos": [
+       960,
+       905
+      ],
+      "s": 0.8,
+      "p": {
+       "deco": 1.0,
+       "lit": 1.0
+      }
+     },
+     {
+      "id": "oc",
+      "type": "tc_ooth",
+      "pos": [
+       1126,
+       663
+      ],
+      "s": 0.25,
+      "p": {},
+      "front": true
+     }
+    ],
+    "sfx": [
+     "sting@stowaway|55%"
+    ]
+   }
+  },
+  {
+   "say": "Stowaway one. The praying mantis egg case.",
+   "vis": "Chapter card 1.2 s. Mantis (triangular head, raised spiked forelegs) on a fir branch.",
+   "id": "s2.l0",
+   "seg": 2,
+   "shot": {
+    "room": "case",
+    "f": "kk",
+    "cams": [
+     [
+      760,
+      520,
+      1.1,
+      1.15
+     ],
+     [
+      960,
+      560,
+      1.6,
+      1.7
+     ]
+    ],
+    "cuts": [
+     "egg|55%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "twig",
+      "type": "tc_twig",
+      "pos": [
+       960,
+       720
+      ],
+      "s": 1.1,
+      "p": {}
+     },
+     {
+      "id": "case",
+      "type": "tc_ooth",
+      "pos": [
+       960,
+       720
+      ],
+      "s": 1.75,
+      "p": {}
+     },
+     {
+      "id": "man",
+      "type": "tc_mantis",
+      "pos": [
+       560,
+       720
+      ],
+      "s": 0.6,
+      "p": {
+       "look": [
+        1,
+        -0.2
+       ]
+      }
+     }
+    ],
+    "ring_k": true,
+    "ov": [
+     {
+      "type": "suspect",
+      "text": "STOWAWAY 1 OF 9",
+      "kicker": "THE MANTIS EGG CASE",
+      "at": 0.0
+     }
+    ],
+    "sfx": [
+     "sting@0",
+     "hit@0.05"
+    ],
+    "card_at": 1.5
+   }
+  },
+  {
+   "say": "In fall, a mantis glues a blob of foam to a twig, and the foam hardens.",
+   "src": "F23 F24",
+   "vis": "The mantis lays the froth; time lapse: it sets hard.",
+   "id": "s2.l1",
+   "seg": 2,
+   "shot": {
+    "room": "case",
+    "f": "kk",
+    "cams": [
+     [
+      860,
+      600,
+      1.2,
+      1.25
+     ],
+     [
+      960,
+      580,
+      1.5,
+      1.6
+     ]
+    ],
+    "cuts": [
+     "hardens|60%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "twig",
+      "type": "tc_twig",
+      "pos": [
+       960,
+       720
+      ],
+      "s": 1.1,
+      "p": {}
+     },
+     {
+      "id": "case",
+      "type": "tc_ooth",
+      "pos": [
+       960,
+       720
+      ],
+      "s": 1.75,
+      "p": {
+       "grow": 0.0,
+       "wet": 1.0
+      },
+      "set": [
+       {
+        "at": "blob|30%",
+        "dur": 1.0,
+        "p": {
+         "grow": 1.0
+        }
+       },
+       {
+        "at": "hardens|60%",
+        "dur": 0.8,
+        "p": {
+         "wet": 0.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "man",
+      "type": "tc_mantis",
+      "pos": [
+       560,
+       720
+      ],
+      "s": 0.6,
+      "p": {
+       "lay": 1.0
+      }
+     }
+    ],
+    "sfx": [
+     "scratch@glues|35%",
+     "tink@hardens|70%"
+    ]
+   }
+  },
+  {
+   "say": "It can look like spray foam insulation. Light brown, about an inch and a half wide.",
+   "src": "F30",
+   "vis": "Ruler: 1.5 inches. Spray-foam can beside it for comparison.",
+   "id": "s2.l2",
+   "seg": 2,
+   "shot": {
+    "room": "case",
+    "f": "kk",
+    "cams": [
+     [
+      960,
+      600,
+      1.0,
+      1.05
+     ],
+     [
+      1150,
+      640,
+      1.4,
+      1.45
+     ]
+    ],
+    "cuts": [
+     "Light|50%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "twig",
+      "type": "tc_twig",
+      "pos": [
+       960,
+       720
+      ],
+      "s": 1.1,
+      "p": {}
+     },
+     {
+      "id": "case",
+      "type": "tc_ooth",
+      "pos": [
+       960,
+       720
+      ],
+      "s": 1.75,
+      "p": {}
+     },
+     {
+      "id": "foam",
+      "type": "tc_prop",
+      "pos": [
+       1500,
+       860
+      ],
+      "s": 0.8,
+      "p": {
+       "kind": "foamcan"
+      }
+     },
+     {
+      "id": "rul",
+      "type": "tc_prop",
+      "pos": [
+       960,
+       860
+      ],
+      "s": 1.2,
+      "p": {
+       "kind": "ruler",
+       "w": 700,
+       "mark": 0.0,
+       "span": 300,
+       "label": "1.5 INCHES"
+      },
+      "set": [
+       {
+        "at": "inch|70%",
+        "dur": 0.5,
+        "p": {
+         "mark": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "pop@spray|20%",
+     "tink@inch|80%"
+    ]
+   }
+  },
+  {
+   "say": "The big ones, from the Chinese mantis, are the size of a ping-pong ball.",
+   "src": "F31",
+   "vis": "Ping-pong ball rolls in next to it.",
+   "id": "s2.l3",
+   "seg": 2,
+   "shot": {
+    "room": "case",
+    "f": "kk",
+    "cams": [
+     [
+      1100,
+      560,
+      1.1,
+      1.15
+     ],
+     [
+      1300,
+      560,
+      1.6,
+      1.7
+     ]
+    ],
+    "cuts": [
+     "ping|55%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "twig",
+      "type": "tc_twig",
+      "pos": [
+       960,
+       720
+      ],
+      "s": 1.1,
+      "p": {}
+     },
+     {
+      "id": "case",
+      "type": "tc_ooth",
+      "pos": [
+       960,
+       720
+      ],
+      "s": 1.75,
+      "p": {}
+     },
+     {
+      "id": "pp",
+      "type": "tc_prop",
+      "pos": [
+       2600,
+       600
+      ],
+      "s": 1.6,
+      "p": {
+       "kind": "pingpong"
+      },
+      "moves": [
+       {
+        "at": "ping|50%",
+        "dur": 0.6,
+        "pos": [
+         1450,
+         600
+        ],
+        "rot": 360
+       }
+      ]
+     },
+     {
+      "id": "cm",
+      "type": "ds_label",
+      "pos": [
+       1100,
+       330
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "CHINESE MANTIS",
+       "px": 70,
+       "color": "#ffd34d",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "Chinese|30%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "boing@ping|55%"
+    ]
+   }
+  },
+  {
+   "say": "A ping-pong ball. Full of babies. Wedged in your tree like the world's worst ornament.",
+   "src": "joke",
+   "act": "smug",
+   "id": "s2.l4",
+   "seg": 2,
+   "shot": {
+    "room": "liv",
+    "f": "Mk",
+    "cams": [
+     [
+      1126,
+      640,
+      3.0,
+      3.2
+     ]
+    ],
+    "cuts": [
+     "Wedged|55%"
+    ],
+    "pose": "deadpan",
+    "look": "viewer",
+    "mb": {
+     "pos": [
+      1600,
+      900
+     ]
+    },
+    "x": [
+     {
+      "id": "tree",
+      "type": "tc_xtree",
+      "pos": [
+       960,
+       905
+      ],
+      "s": 0.8,
+      "p": {
+       "deco": 1.0,
+       "lit": 1.0
+      }
+     },
+     {
+      "id": "oc",
+      "type": "tc_ooth",
+      "pos": [
+       1126,
+       663
+      ],
+      "s": 0.32,
+      "p": {},
+      "front": true
+     }
+    ],
+    "sfx": [
+     "boing@babies|30%"
+    ]
+   }
+  },
+  {
+   "say": "The native Carolina mantis makes a slim one. Half an inch to an inch, tan, with a ribbed top.",
+   "src": "F32",
+   "vis": "Second, slim case on another twig. Labels: CHINESE / CAROLINA.",
+   "id": "s2.l5",
+   "seg": 2,
+   "shot": {
+    "room": "closeG",
+    "f": "kk",
+    "cams": [
+     [
+      960,
+      600,
+      1.1,
+      1.15
+     ],
+     [
+      960,
+      620,
+      1.7,
+      1.8
+     ]
+    ],
+    "cuts": [
+     "Half|45%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "twig",
+      "type": "tc_twig",
+      "pos": [
+       960,
+       720
+      ],
+      "s": 1.1,
+      "p": {}
+     },
+     {
+      "id": "case",
+      "type": "tc_ooth",
+      "pos": [
+       960,
+       720
+      ],
+      "s": 1.6,
+      "p": {
+       "kind": "carolina"
+      }
+     },
+     {
+      "id": "cl",
+      "type": "ds_label",
+      "pos": [
+       960,
+       250
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "CAROLINA MANTIS",
+       "px": 70,
+       "color": "#3fb950",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "Carolina|20%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "cn",
+      "type": "ds_label",
+      "pos": [
+       960,
+       370
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "NATIVE",
+       "px": 56,
+       "color": "#ffffff",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "native|10%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "pop@Carolina|20%"
+    ]
+   }
+  },
+  {
+   "say": "Penn State lists four mantis species that leave these on conifer twigs.",
+   "src": "F34",
+   "vis": "Four mantis silhouettes line up along a branch, each beside its own case.",
+   "id": "s2.l6",
+   "seg": 2,
+   "shot": {
+    "room": "close",
+    "f": "kk",
+    "cams": [
+     [
+      960,
+      560,
+      0.85,
+      0.9
+     ],
+     [
+      700,
+      560,
+      1.4,
+      1.45
+     ]
+    ],
+    "cuts": [
+     "leave|60%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "twig",
+      "type": "tc_twig",
+      "pos": [
+       960,
+       720
+      ],
+      "s": 1.4,
+      "p": {}
+     },
+     {
+      "id": "m0",
+      "type": "tc_mantis",
+      "pos": [
+       300,
+       720
+      ],
+      "s": 0.0005,
+      "p": {
+       "col": "#7fbf4a"
+      },
+      "moves": [
+       {
+        "at": "four|20%",
+        "dur": 0.25,
+        "pos": [
+         300,
+         720
+        ],
+        "s": 0.32
+       }
+      ]
+     },
+     {
+      "id": "m1",
+      "type": "tc_mantis",
+      "pos": [
+       740,
+       720
+      ],
+      "s": 0.0005,
+      "p": {
+       "col": "#b9a36b"
+      },
+      "moves": [
+       {
+        "at": "four|28%",
+        "dur": 0.25,
+        "pos": [
+         740,
+         720
+        ],
+        "s": 0.32
+       }
+      ]
+     },
+     {
+      "id": "m2",
+      "type": "tc_mantis",
+      "pos": [
+       1180,
+       720
+      ],
+      "s": 0.0005,
+      "p": {
+       "col": "#9ccf6a"
+      },
+      "moves": [
+       {
+        "at": "four|36%",
+        "dur": 0.25,
+        "pos": [
+         1180,
+         720
+        ],
+        "s": 0.32
+       }
+      ]
+     },
+     {
+      "id": "m3",
+      "type": "tc_mantis",
+      "pos": [
+       1620,
+       720
+      ],
+      "s": 0.0005,
+      "p": {
+       "col": "#8fae5a"
+      },
+      "moves": [
+       {
+        "at": "four|44%",
+        "dur": 0.25,
+        "pos": [
+         1620,
+         720
+        ],
+        "s": 0.32
+       }
+      ]
+     },
+     {
+      "id": "o0",
+      "type": "tc_ooth",
+      "pos": [
+       440,
+       720
+      ],
+      "s": 0.0005,
+      "p": {},
+      "moves": [
+       {
+        "at": "leave|55%",
+        "dur": 0.25,
+        "pos": [
+         440,
+         720
+        ],
+        "s": 0.6
+       }
+      ]
+     },
+     {
+      "id": "o1",
+      "type": "tc_ooth",
+      "pos": [
+       880,
+       720
+      ],
+      "s": 0.0005,
+      "p": {},
+      "moves": [
+       {
+        "at": "leave|61%",
+        "dur": 0.25,
+        "pos": [
+         880,
+         720
+        ],
+        "s": 0.6
+       }
+      ]
+     },
+     {
+      "id": "o2",
+      "type": "tc_ooth",
+      "pos": [
+       1320,
+       720
+      ],
+      "s": 0.0005,
+      "p": {},
+      "moves": [
+       {
+        "at": "leave|67%",
+        "dur": 0.25,
+        "pos": [
+         1320,
+         720
+        ],
+        "s": 0.6
+       }
+      ]
+     },
+     {
+      "id": "o3",
+      "type": "tc_ooth",
+      "pos": [
+       1760,
+       720
+      ],
+      "s": 0.0005,
+      "p": {},
+      "moves": [
+       {
+        "at": "leave|73%",
+        "dur": 0.25,
+        "pos": [
+         1760,
+         720
+        ],
+        "s": 0.6
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "pop@four|20%",
+     "pop@four|28%",
+     "pop@four|36%",
+     "pop@four|44%"
+    ]
+   }
+  },
+  {
+   "say": "And Illinois Extension says mantises commonly prefer Fraser fir Christmas trees for laying eggs.",
+   "src": "F43",
+   "id": "s2.l7",
+   "seg": 2,
+   "shot": {
+    "room": "lot",
+    "f": "kk",
+    "cams": [
+     [
+      960,
+      560,
+      0.9,
+      0.95
+     ],
+     [
+      700,
+      520,
+      1.6,
+      1.7
+     ]
+    ],
+    "cuts": [
+     "Fraser|50%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "ft",
+      "type": "tc_farmtree",
+      "pos": [
+       700,
+       920
+      ],
+      "s": 0.8,
+      "p": {}
+     },
+     {
+      "id": "fr",
+      "type": "ds_label",
+      "pos": [
+       700,
+       140
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "FRASER FIR",
+       "px": 80,
+       "color": "#ffd34d",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "Fraser|50%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "man",
+      "type": "tc_mantis",
+      "pos": [
+       800,
+       600
+      ],
+      "s": 0.0005,
+      "p": {},
+      "moves": [
+       {
+        "at": "prefer|40%",
+        "dur": 0.25,
+        "pos": [
+         800,
+         600
+        ],
+        "s": 0.25
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "pop@Fraser|50%"
+    ]
+   }
+  },
+  {
+   "say": "Of course they do. Bougie little bugs. Fir snobs, honestly.",
+   "src": "joke",
+   "act": "smug",
+   "id": "s2.l8",
+   "seg": 2,
+   "shot": {
+    "room": "liv",
+    "f": "Mw",
+    "cuts": [
+     "Fir|65%"
+    ],
+    "pose": "laugh",
+    "look": "viewer",
+    "mb": {
+     "pos": [
+      1600,
+      900
+     ]
+    },
+    "x": [
+     {
+      "id": "tree",
+      "type": "tc_xtree",
+      "pos": [
+       960,
+       905
+      ],
+      "s": 0.8,
+      "p": {
+       "deco": 1.0,
+       "lit": 1.0
+      }
+     }
+    ],
+    "ov": [
+     {
+      "type": "big",
+      "at": "Fir|65%",
+      "rows": [
+       [
+        "FIR SNOBS",
+        120,
+        "#ffd34d"
+       ]
+      ],
+      "x": 960,
+      "y": 240
+     }
+    ],
+    "sfx": [
+     "pop@Fir|65%"
+    ]
+   }
+  },
+  {
+   "say": "How many eggs? Missouri's extension says about a hundred. Mississippi State says several hundred for the big kind.",
+   "src": "F23 F27",
+   "vis": "Two source chips with their numbers.",
+   "id": "s2.l9",
+   "seg": 2,
+   "shot": {
+    "room": "board",
+    "f": "kk",
+    "cams": [
+     [
+      -300,
+      0,
+      1.2,
+      1.25
+     ],
+     [
+      300,
+      0,
+      1.2,
+      1.25
+     ]
+    ],
+    "cuts": [
+     "Mississippi|50%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "s1",
+      "type": "ds_chip_src",
+      "pos": [
+       -300,
+       -150
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "MISSOURI EXTENSION",
+       "px": 52
+      }
+     },
+     {
+      "id": "c1",
+      "type": "tc_counter",
+      "pos": [
+       -300,
+       60
+      ],
+      "s": 1.0,
+      "p": {
+       "v": 0,
+       "px": 150,
+       "fmt": "~{}"
+      },
+      "set": [
+       {
+        "at": "hundred|30%",
+        "dur": 0.6,
+        "p": {
+         "v": 100
+        }
+       }
+      ]
+     },
+     {
+      "id": "s2",
+      "type": "ds_chip_src",
+      "pos": [
+       300,
+       -150
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "MISSISSIPPI STATE",
+       "px": 52
+      }
+     },
+     {
+      "id": "c2",
+      "type": "tc_counter",
+      "pos": [
+       300,
+       60
+      ],
+      "s": 1.0,
+      "p": {
+       "v": 0,
+       "px": 110,
+       "fmt": "{}",
+       "text": "SEVERAL HUNDRED",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "several|75%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "act": "curious",
+    "sfx": [
+     "tink@hundred|30%",
+     "pop@several|75%"
+    ]
+   },
+   "act": "curious"
+  },
+  {
+   "say": "So: a hundred to several hundred, depending on the mantis.",
+   "src": "F29",
+   "vis": "Card.",
+   "card": "100 TO SEVERAL HUNDRED",
+   "panic": 7,
+   "id": "s2.l10",
+   "seg": 2,
+   "shot": {
+    "room": "case",
+    "f": "kM",
+    "cams": [
+     [
+      960,
+      500,
+      1.3,
+      1.35
+     ]
+    ],
+    "cuts": [
+     "depending|60%"
+    ],
+    "pose": "present",
+    "mb": {
+     "pos": [
+      1550,
+      1300
+     ]
+    },
+    "x": [
+     {
+      "id": "twig",
+      "type": "tc_twig",
+      "pos": [
+       960,
+       720
+      ],
+      "s": 1.1,
+      "p": {}
+     },
+     {
+      "id": "case",
+      "type": "tc_ooth",
+      "pos": [
+       960,
+       720
+      ],
+      "s": 1.75,
+      "p": {
+       "xray": 1.0
+      }
+     }
+    ],
+    "card_x": 960
+   }
+  },
+  {
+   "say": "Outside, they would sit there until spring.",
+   "src": "F24",
+   "vis": "Case on a snowy twig, calendar pages drifting.",
+   "id": "s2.l11",
+   "seg": 2,
+   "shot": {
+    "room": "close",
+    "f": "kk",
+    "cams": [
+     [
+      960,
+      600,
+      1.2,
+      1.25
+     ],
+     [
+      960,
+      600,
+      1.5,
+      1.55
+     ]
+    ],
+    "cuts": [
+     "spring|60%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "twig",
+      "type": "tc_twig",
+      "pos": [
+       960,
+       720
+      ],
+      "s": 1.1,
+      "p": {
+       "snow": 1.0
+      }
+     },
+     {
+      "id": "case",
+      "type": "tc_ooth",
+      "pos": [
+       960,
+       720
+      ],
+      "s": 1.75,
+      "p": {}
+     },
+     {
+      "id": "pg",
+      "type": "tc_pages",
+      "pos": [
+       960,
+       400
+      ],
+      "s": 1.0,
+      "p": {
+       "on": 1.0,
+       "n": 6
+      }
+     }
+    ],
+    "roomscene": "tc_bokeh"
+   }
+  },
+  {
+   "say": "Inside, Penn State says a case hatches after several weeks, into dozens of baby mantises.",
+   "src": "F35",
+   "vis": "The case splits; dozens of pale threadlike nymphs pour down the branch past the ornaments.",
+   "card": "DOZENS OF BABIES",
+   "panic": 8,
+   "id": "s2.l12",
+   "seg": 2,
+   "shot": {
+    "room": "liv",
+    "f": "kkM",
+    "cams": [
+     [
+      1126,
+      640,
+      2.8,
+      2.9
+     ],
+     [
+      1000,
+      560,
+      1.1,
+      1.15
+     ]
+    ],
+    "cuts": [
+     "hatches|45%",
+     "dozens|75%"
+    ],
+    "pose": "shock",
+    "mb": {
+     "pos": [
+      1600,
+      900
+     ]
+    },
+    "act": "shocked",
+    "burst": true,
+    "freak": [
+     "dozens|75%"
+    ],
+    "x": [
+     {
+      "id": "tree",
+      "type": "tc_xtree",
+      "pos": [
+       960,
+       905
+      ],
+      "s": 0.8,
+      "p": {
+       "deco": 1.0,
+       "lit": 1.0
+      }
+     },
+     {
+      "id": "oc",
+      "type": "tc_ooth",
+      "pos": [
+       1126,
+       663
+      ],
+      "s": 0.3,
+      "p": {
+       "split": 0.0
+      },
+      "front": true,
+      "set": [
+       {
+        "at": "hatches|45%",
+        "dur": 0.4,
+        "p": {
+         "split": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "ny0",
+      "type": "tc_nymph",
+      "pos": [
+       1126,
+       660
+      ],
+      "s": 0.0005,
+      "p": {},
+      "moves": [
+       {
+        "at": "hatches|50%",
+        "dur": 1.4,
+        "pos": [
+         880,
+         520
+        ],
+        "s": 0.07
+       }
+      ]
+     },
+     {
+      "id": "ny1",
+      "type": "tc_nymph",
+      "pos": [
+       1126,
+       660
+      ],
+      "s": 0.0005,
+      "p": {},
+      "moves": [
+       {
+        "at": "hatches|53%",
+        "dur": 1.4,
+        "pos": [
+         950,
+         640
+        ],
+        "s": 0.07
+       }
+      ]
+     },
+     {
+      "id": "ny2",
+      "type": "tc_nymph",
+      "pos": [
+       1126,
+       660
+      ],
+      "s": 0.0005,
+      "p": {},
+      "moves": [
+       {
+        "at": "hatches|56%",
+        "dur": 1.4,
+        "pos": [
+         1020,
+         760
+        ],
+        "s": 0.07
+       }
+      ]
+     },
+     {
+      "id": "ny3",
+      "type": "tc_nymph",
+      "pos": [
+       1126,
+       660
+      ],
+      "s": 0.0005,
+      "p": {},
+      "moves": [
+       {
+        "at": "hatches|59%",
+        "dur": 1.4,
+        "pos": [
+         1090,
+         520
+        ],
+        "s": 0.07
+       }
+      ]
+     },
+     {
+      "id": "ny4",
+      "type": "tc_nymph",
+      "pos": [
+       1126,
+       660
+      ],
+      "s": 0.0005,
+      "p": {},
+      "moves": [
+       {
+        "at": "hatches|62%",
+        "dur": 1.4,
+        "pos": [
+         1160,
+         640
+        ],
+        "s": 0.07
+       }
+      ]
+     },
+     {
+      "id": "ny5",
+      "type": "tc_nymph",
+      "pos": [
+       1126,
+       660
+      ],
+      "s": 0.0005,
+      "p": {},
+      "moves": [
+       {
+        "at": "hatches|65%",
+        "dur": 1.4,
+        "pos": [
+         1230,
+         760
+        ],
+        "s": 0.07
+       }
+      ]
+     },
+     {
+      "id": "ny6",
+      "type": "tc_nymph",
+      "pos": [
+       1126,
+       660
+      ],
+      "s": 0.0005,
+      "p": {},
+      "moves": [
+       {
+        "at": "hatches|68%",
+        "dur": 1.4,
+        "pos": [
+         1300,
+         520
+        ],
+        "s": 0.07
+       }
+      ]
+     },
+     {
+      "id": "ny7",
+      "type": "tc_nymph",
+      "pos": [
+       1126,
+       660
+      ],
+      "s": 0.0005,
+      "p": {},
+      "moves": [
+       {
+        "at": "hatches|71%",
+        "dur": 1.4,
+        "pos": [
+         1370,
+         640
+        ],
+        "s": 0.07
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "crunch@hatches|45%",
+     "sting@dozens|75%"
+    ]
+   },
+   "act": "shocked"
+  },
+  {
+   "say": "A fresh tree can last three to four weeks indoors. So it's a photo finish.",
+   "src": "F81 F35",
+   "vis": "Split calendar: TREE DOWN vs EGGS HATCH racing to the same week.",
+   "id": "s2.l13",
+   "seg": 2,
+   "shot": {
+    "room": "board",
+    "f": "kk",
+    "cams": [
+     [
+      0,
+      0,
+      1.0,
+      1.05
+     ],
+     [
+      300,
+      0,
+      1.4,
+      1.45
+     ]
+    ],
+    "cuts": [
+     "photo|60%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "race",
+      "type": "tc_race",
+      "pos": [
+       -500,
+       -100
+      ],
+      "s": 1.0,
+      "p": {
+       "a": 0.0,
+       "b": 0.0,
+       "la": "TREE DOWN",
+       "lb": "EGGS HATCH",
+       "w": 1100
+      },
+      "set": [
+       {
+        "at": "three|20%",
+        "dur": 2.2,
+        "p": {
+         "a": 0.95,
+         "b": 0.93
+        }
+       }
+      ]
+     },
+     {
+      "id": "wk",
+      "type": "ds_label",
+      "pos": [
+       0,
+       -300
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "3-4 WEEKS",
+       "px": 90,
+       "color": "#ffd34d",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "weeks|30%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "whoosh@three|20%",
+     "hit@photo|70%"
+    ]
+   }
+  },
+  {
+   "say": "Then the sad part. There is nothing for them to eat in your living room.",
+   "vis": "A nymph looks at a candy cane, a gift, a sock. Nothing.",
+   "id": "s2.l14",
+   "seg": 2,
+   "shot": {
+    "room": "liv",
+    "f": "kk",
+    "cams": [
+     [
+      1250,
+      820,
+      1.6,
+      1.7
+     ],
+     [
+      1450,
+      820,
+      1.6,
+      1.7
+     ]
+    ],
+    "cuts": [
+     "eat|50%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "tree",
+      "type": "tc_xtree",
+      "pos": [
+       960,
+       905
+      ],
+      "s": 0.8,
+      "p": {
+       "deco": 1.0,
+       "lit": 1.0
+      }
+     },
+     {
+      "id": "ny",
+      "type": "tc_nymph",
+      "pos": [
+       1150,
+       890
+      ],
+      "s": 0.12,
+      "p": {},
+      "moves": [
+       {
+        "at": "nothing|30%",
+        "dur": 1.8,
+        "pos": [
+         1400,
+         890
+        ],
+        "walk": true
+       }
+      ]
+     },
+     {
+      "id": "cc",
+      "type": "tc_prop",
+      "pos": [
+       1300,
+       900
+      ],
+      "s": 0.6,
+      "p": {
+       "kind": "candycane"
+      }
+     },
+     {
+      "id": "sock",
+      "type": "tc_prop",
+      "pos": [
+       1500,
+       900
+      ],
+      "s": 0.6,
+      "p": {
+       "kind": "sock"
+      }
+     }
+    ],
+    "light": {
+     "kind": "lamp",
+     "dark": 0.4,
+     "target": [
+      1350,
+      820
+     ]
+    }
+   }
+  },
+  {
+   "say": "So they eat each other.",
+   "src": "F36",
+   "vis": "Two nymphs eye each other. Cut away before anything graphic.",
+   "id": "s2.l15",
+   "seg": 2,
+   "shot": {
+    "room": "close",
+    "f": "kM",
+    "cams": [
+     [
+      960,
+      620,
+      1.6,
+      1.7
+     ]
+    ],
+    "cuts": [
+     "other|65%"
+    ],
+    "pose": "shock",
+    "mb": {
+     "pos": [
+      1550,
+      1300
+     ]
+    },
+    "act": "shocked",
+    "x": [
+     {
+      "id": "twig",
+      "type": "tc_twig",
+      "pos": [
+       960,
+       720
+      ],
+      "s": 1.1,
+      "p": {}
+     },
+     {
+      "id": "n1",
+      "type": "tc_nymph",
+      "pos": [
+       780,
+       720
+      ],
+      "s": 0.25,
+      "p": {}
+     },
+     {
+      "id": "n2",
+      "type": "tc_nymph",
+      "pos": [
+       1140,
+       720
+      ],
+      "s": 0.25,
+      "p": {},
+      "flip": true
+     }
+    ],
+    "burst": true,
+    "sfx": [
+     "sting@other|65%"
+    ]
+   },
+   "act": "shocked"
+  },
+  {
+   "say": "Nothing says peace on Earth like siblings eating each other under the tree.",
+   "src": "joke",
+   "act": "smug",
+   "id": "s2.l16",
+   "seg": 2,
+   "shot": {
+    "room": "liv",
+    "f": "Mw",
+    "cuts": [
+     "siblings|55%"
+    ],
+    "pose": "deadpan",
+    "look": "viewer",
+    "mb": {
+     "pos": [
+      1600,
+      900
+     ]
+    },
+    "x": [
+     {
+      "id": "tree",
+      "type": "tc_xtree",
+      "pos": [
+       960,
+       905
+      ],
+      "s": 0.8,
+      "p": {
+       "deco": 1.0,
+       "lit": 1.0
+      }
+     }
+    ],
+    "light": {
+     "kind": "lamp",
+     "dark": 0.35
+    }
+   }
+  },
+  {
+   "say": "And Illinois Extension says the ones that are left will likely starve.",
+   "src": "F37",
+   "vis": "One last nymph on a bauble, tiny sigh.",
+   "panic": 6,
+   "id": "s2.l17",
+   "seg": 2,
+   "shot": {
+    "room": "liv",
+    "f": "kM",
+    "cams": [
+     [
+      1120,
+      520,
+      2.4,
+      2.5
+     ]
+    ],
+    "cuts": [
+     "starve|60%"
+    ],
+    "pose": "nervous",
+    "mb": {
+     "pos": [
+      1600,
+      900
+     ]
+    },
+    "x": [
+     {
+      "id": "tree",
+      "type": "tc_xtree",
+      "pos": [
+       960,
+       905
+      ],
+      "s": 0.8,
+      "p": {
+       "deco": 1.0,
+       "lit": 1.0
+      }
+     },
+     {
+      "id": "ba",
+      "type": "tc_bauble",
+      "pos": [
+       1120,
+       380
+      ],
+      "s": 0.6,
+      "p": {
+       "col": "#c0392b"
+      }
+     },
+     {
+      "id": "ny",
+      "type": "tc_nymph",
+      "pos": [
+       1120,
+       470
+      ],
+      "s": 0.07,
+      "p": {}
+     }
+    ]
+   }
+  },
+  {
+   "say": "If it happens anyway, Missouri's extension suggests feeding them small flies or tiny pet-store crickets.",
+   "src": "F42",
+   "vis": "Meatball with tweezers and a tub labelled CRICKETS, a row of nymphs with napkins.",
+   "id": "s2.l18",
+   "seg": 2,
+   "shot": {
+    "room": "liv",
+    "f": "kw",
+    "cams": [
+     [
+      1400,
+      760,
+      1.5,
+      1.6
+     ]
+    ],
+    "cuts": [
+     "crickets|65%"
+    ],
+    "pose": "present",
+    "mb": {
+     "pos": [
+      1650,
+      900
+     ],
+     "prop": "tweezers"
+    },
+    "x": [
+     {
+      "id": "tree",
+      "type": "tc_xtree",
+      "pos": [
+       960,
+       905
+      ],
+      "s": 0.8,
+      "p": {
+       "deco": 1.0,
+       "lit": 1.0
+      }
+     },
+     {
+      "id": "ny0",
+      "type": "tc_nymph",
+      "pos": [
+       1200,
+       900
+      ],
+      "s": 0.1,
+      "p": {
+       "napkin": 1.0
+      }
+     },
+     {
+      "id": "ny1",
+      "type": "tc_nymph",
+      "pos": [
+       1280,
+       900
+      ],
+      "s": 0.1,
+      "p": {
+       "napkin": 1.0
+      }
+     },
+     {
+      "id": "ny2",
+      "type": "tc_nymph",
+      "pos": [
+       1360,
+       900
+      ],
+      "s": 0.1,
+      "p": {
+       "napkin": 1.0
+      }
+     },
+     {
+      "id": "ny3",
+      "type": "tc_nymph",
+      "pos": [
+       1440,
+       900
+      ],
+      "s": 0.1,
+      "p": {
+       "napkin": 1.0
+      }
+     },
+     {
+      "id": "tub",
+      "type": "tc_prop",
+      "pos": [
+       1500,
+       900
+      ],
+      "s": 0.6,
+      "p": {
+       "kind": "tub",
+       "label": "CRICKETS"
+      }
+     }
+    ],
+    "sfx": [
+     "pop@crickets|65%"
+    ]
+   }
+  },
+  {
+   "say": "I am not making that up.",
+   "vis": "Source chip pops: UNIVERSITY OF MISSOURI EXTENSION. Meatball points at it.",
+   "id": "s2.l19",
+   "seg": 2,
+   "shot": {
+    "room": "liv",
+    "f": "M",
+    "pose": "point",
+    "look": "viewer",
+    "mb": {
+     "pos": [
+      1600,
+      900
+     ],
+     "gest": [
+      [
+       "making|40%",
+       "you",
+       1.0
+      ]
+     ]
+    },
+    "x": [
+     {
+      "id": "tree",
+      "type": "tc_xtree",
+      "pos": [
+       960,
+       905
+      ],
+      "s": 0.8,
+      "p": {
+       "deco": 1.0,
+       "lit": 1.0
+      }
+     },
+     {
+      "id": "src",
+      "type": "ds_chip_src",
+      "pos": [
+       1600,
+       200
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "UNIVERSITY OF MISSOURI EXTENSION",
+       "px": 44
+      }
+     }
+    ],
+    "card": false
+   }
+  },
+  {
+   "say": "Congratulations. Your festive pine just became a damn daycare for tiny cannibals.",
+   "src": "joke",
+   "act": "smug",
+   "id": "s2.l20",
+   "seg": 2,
+   "shot": {
+    "room": "liv",
+    "f": "Mk",
+    "cams": [
+     [
+      1250,
+      820,
+      1.5,
+      1.6
+     ]
+    ],
+    "cuts": [
+     "daycare|50%"
+    ],
+    "pose": "laugh",
+    "look": "viewer",
+    "mb": {
+     "pos": [
+      1600,
+      900
+     ]
+    },
+    "x": [
+     {
+      "id": "tree",
+      "type": "tc_xtree",
+      "pos": [
+       960,
+       905
+      ],
+      "s": 0.8,
+      "p": {
+       "deco": 1.0,
+       "lit": 1.0
+      }
+     },
+     {
+      "id": "ny0",
+      "type": "tc_nymph",
+      "pos": [
+       1050,
+       900
+      ],
+      "s": 0.1,
+      "p": {}
+     },
+     {
+      "id": "ny1",
+      "type": "tc_nymph",
+      "pos": [
+       1140,
+       900
+      ],
+      "s": 0.1,
+      "p": {}
+     },
+     {
+      "id": "ny2",
+      "type": "tc_nymph",
+      "pos": [
+       1230,
+       900
+      ],
+      "s": 0.1,
+      "p": {}
+     },
+     {
+      "id": "ny3",
+      "type": "tc_nymph",
+      "pos": [
+       1320,
+       900
+      ],
+      "s": 0.1,
+      "p": {}
+     },
+     {
+      "id": "ny4",
+      "type": "tc_nymph",
+      "pos": [
+       1410,
+       900
+      ],
+      "s": 0.1,
+      "p": {}
+     },
+     {
+      "id": "dc",
+      "type": "ds_label",
+      "pos": [
+       1250,
+       560
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TINY CANNIBAL DAYCARE",
+       "px": 60,
+       "color": "#ffd34d",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "daycare|55%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "pop@daycare|55%"
+    ]
+   }
+  },
+  {
+   "say": "Better plan. Step one of the tree check: look for the marshmallow.",
+   "vis": "TREE CHECK list appears with box 1 ticked.",
+   "check": "1. LOOK FOR THE MARSHMALLOW",
+   "id": "s2.l21",
+   "seg": 2,
+   "shot": {
+    "room": "liv",
+    "f": "wk",
+    "cams": [
+     [
+      1126,
+      630,
+      2.6,
+      2.7
+     ]
+    ],
+    "cuts": [
+     "marshmallow|60%"
+    ],
+    "pose": "point",
+    "look": "tree",
+    "mb": {
+     "pos": [
+      1600,
+      900
+     ],
+     "prop": "magnifier"
+    },
+    "x": [
+     {
+      "id": "tree",
+      "type": "tc_xtree",
+      "pos": [
+       960,
+       905
+      ],
+      "s": 0.8,
+      "p": {
+       "deco": 1.0,
+       "lit": 1.0
+      }
+     },
+     {
+      "id": "oc",
+      "type": "tc_ooth",
+      "pos": [
+       1126,
+       663
+      ],
+      "s": 0.25,
+      "p": {},
+      "front": true
+     }
+    ],
+    "check_at": "Step|30%",
+    "sfx": [
+     "pop@marshmallow|60%"
+    ]
+   }
+  },
+  {
+   "say": "Found one? Don't crush it. Clip the twig.",
+   "src": "F39 F40",
+   "vis": "Pruning shears snip the twig with the case on it.",
+   "id": "s2.l22",
+   "seg": 2,
+   "shot": {
+    "room": "case",
+    "f": "kkk",
+    "cams": [
+     [
+      960,
+      560,
+      1.2,
+      1.25
+     ],
+     [
+      960,
+      560,
+      1.2,
+      1.25
+     ],
+     [
+      1100,
+      700,
+      1.5,
+      1.55
+     ]
+    ],
+    "cuts": [
+     "crush|30%",
+     "Clip|65%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "twig",
+      "type": "tc_twig",
+      "pos": [
+       960,
+       720
+      ],
+      "s": 1.1,
+      "p": {}
+     },
+     {
+      "id": "case",
+      "type": "tc_ooth",
+      "pos": [
+       960,
+       720
+      ],
+      "s": 1.75,
+      "p": {}
+     },
+     {
+      "id": "sl",
+      "type": "tc_prop",
+      "pos": [
+       1300,
+       380
+      ],
+      "s": 1.0,
+      "p": {
+       "kind": "slipper"
+      },
+      "moves": [
+       {
+        "at": 0.1,
+        "dur": 0.4,
+        "pos": [
+         1200,
+         300
+        ]
+       }
+      ]
+     },
+     {
+      "id": "x",
+      "type": "ds_cross",
+      "pos": [
+       1200,
+       300
+      ],
+      "s": 1.0,
+      "p": {
+       "on": 0.0,
+       "r": 200
+      },
+      "set": [
+       {
+        "at": "crush|30%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ],
+      "front": true
+     },
+     {
+      "id": "sh",
+      "type": "tc_prop",
+      "pos": [
+       1500,
+       760
+      ],
+      "s": 1.2,
+      "p": {
+       "kind": "shears",
+       "snip": 0.0
+      },
+      "set": [
+       {
+        "at": "twig|80%",
+        "dur": 0.2,
+        "p": {
+         "snip": 1.0
+        }
+       }
+      ],
+      "front": true
+     }
+    ],
+    "sfx": [
+     "stamp@crush|30%",
+     "click@twig|80%"
+    ]
+   }
+  },
+  {
+   "say": "Tuck it into an evergreen outside.",
+   "src": "F40",
+   "vis": "Meatball wedges the twig into a garden shrub.",
+   "check": "2. CLIP IT, PUT IT IN AN EVERGREEN",
+   "id": "s2.l23",
+   "seg": 2,
+   "shot": {
+    "room": "yard",
+    "f": "wk",
+    "cams": [
+     [
+      900,
+      700,
+      1.6,
+      1.7
+     ]
+    ],
+    "cuts": [
+     "evergreen|50%"
+    ],
+    "pose": "present",
+    "look": [
+     900,
+     650
+    ],
+    "mb": {
+     "pos": [
+      1250,
+      900
+     ],
+     "prop": "twig",
+     "moves": [
+      {
+       "at": "Tuck|10%",
+       "dur": 0.8,
+       "pos": [
+        1150,
+        900
+       ],
+       "walk": true
+      }
+     ]
+    },
+    "x": [
+     {
+      "id": "sh",
+      "type": "tc_shrub",
+      "pos": [
+       800,
+       900
+      ],
+      "s": 0.9,
+      "p": {
+       "snow": 0.6
+      }
+     },
+     {
+      "id": "tw",
+      "type": "tc_prop",
+      "pos": [
+       880,
+       640
+      ],
+      "s": 0.0005,
+      "p": {
+       "kind": "shrubtwig"
+      },
+      "moves": [
+       {
+        "at": "evergreen|60%",
+        "dur": 0.25,
+        "pos": [
+         880,
+         640
+        ],
+        "s": 0.5
+       }
+      ]
+     }
+    ],
+    "check_at": "evergreen|55%",
+    "sfx": [
+     "pop@evergreen|60%"
+    ]
+   }
+  },
+  {
+   "say": "Not on the ground. Illinois says ants will eat the eggs.",
+   "src": "F41",
+   "vis": "A line of ants heading for a case on the ground; Meatball lifts it away.",
+   "panic": 4,
+   "id": "s2.l24",
+   "seg": 2,
+   "shot": {
+    "room": "yard",
+    "f": "kM",
+    "cams": [
+     [
+      700,
+      820,
+      1.8,
+      1.9
+     ]
+    ],
+    "cuts": [
+     "eggs|70%"
+    ],
+    "pose": "nervous",
+    "mb": {
+     "pos": [
+      1250,
+      900
+     ]
+    },
+    "x": [
+     {
+      "id": "tw",
+      "type": "tc_prop",
+      "pos": [
+       700,
+       900
+      ],
+      "s": 0.6,
+      "p": {
+       "kind": "shrubtwig"
+      },
+      "moves": [
+       {
+        "at": "ants|50%",
+        "dur": 0.5,
+        "pos": [
+         700,
+         680
+        ]
+       }
+      ]
+     },
+     {
+      "id": "ants",
+      "type": "tc_crawlers",
+      "pos": [
+       300,
+       900
+      ],
+      "s": 1.0,
+      "p": {
+       "u": 0.0,
+       "n": 10,
+       "len": 380,
+       "col": "#2a1a10"
+      },
+      "set": [
+       {
+        "at": "Not|10%",
+        "dur": 2.0,
+        "p": {
+         "u": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "x",
+      "type": "ds_cross",
+      "pos": [
+       700,
+       820
+      ],
+      "s": 1.0,
+      "p": {
+       "on": 0.0,
+       "r": 160
+      },
+      "set": [
+       {
+        "at": "ground|25%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ],
+      "front": true
+     }
+    ],
+    "sfx": [
+     "stamp@ground|25%"
+    ]
+   }
+  },
+  {
+   "say": "One more thing about these mantises. The big ones are not from here.",
+   "vis": "Map of the U.S. with two little arriving ships.",
+   "id": "s2.l25",
+   "seg": 2,
+   "shot": {
+    "room": "board",
+    "f": "kk",
+    "cams": [
+     [
+      0,
+      0,
+      1.0,
+      1.04
+     ],
+     [
+      0,
+      0,
+      1.4,
+      1.45
+     ]
+    ],
+    "cuts": [
+     "big|60%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "map",
+      "type": "tc_map",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "place": "USA",
+       "ships": 0.0
+      },
+      "set": [
+       {
+        "at": "from|60%",
+        "dur": 1.2,
+        "p": {
+         "ships": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "whoosh@from|60%"
+    ]
+   }
+  },
+  {
+   "say": "The Chinese mantis and the European mantis both turned up in the late 1800s. In Illinois, only the Carolina mantis is native.",
+   "src": "F44 F45",
+   "vis": "Timeline: LATE 1800s. Three mantises; one wears a NATIVE badge.",
+   "id": "s2.l26",
+   "seg": 2,
+   "shot": {
+    "room": "board",
+    "f": "kk",
+    "cams": [
+     [
+      0,
+      0,
+      1.0,
+      1.04
+     ],
+     [
+      400,
+      60,
+      1.5,
+      1.55
+     ]
+    ],
+    "cuts": [
+     "Illinois|55%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "t",
+      "type": "ds_label",
+      "pos": [
+       0,
+       -330
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "LATE 1800s",
+       "px": 100,
+       "color": "#ffd34d",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "1800s|30%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "m1",
+      "type": "tc_mantis",
+      "pos": [
+       -450,
+       120
+      ],
+      "s": 0.38,
+      "p": {
+       "col": "#9ccf6a"
+      }
+     },
+     {
+      "id": "l1",
+      "type": "ds_label",
+      "pos": [
+       -450,
+       200
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "CHINESE",
+       "px": 50,
+       "color": "#ffffff",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "Chinese|10%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "m2",
+      "type": "tc_mantis",
+      "pos": [
+       0,
+       120
+      ],
+      "s": 0.38,
+      "p": {
+       "col": "#b9a36b"
+      }
+     },
+     {
+      "id": "l2",
+      "type": "ds_label",
+      "pos": [
+       0,
+       200
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "EUROPEAN",
+       "px": 50,
+       "color": "#ffffff",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "European|20%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "m3",
+      "type": "tc_mantis",
+      "pos": [
+       450,
+       120
+      ],
+      "s": 0.38,
+      "p": {
+       "col": "#7fbf4a"
+      }
+     },
+     {
+      "id": "l3",
+      "type": "ds_label",
+      "pos": [
+       450,
+       200
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "CAROLINA: NATIVE",
+       "px": 50,
+       "color": "#3fb950",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "Carolina|70%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "pop@1800s|30%",
+     "pop@Carolina|70%"
+    ]
+   }
+  },
+  {
+   "say": "Stowaway two is the one that makes people yell tick.",
+   "vis": "Chapter card 1.2 s. A dark round bug with long legs walks across a wrapped present.",
+   "id": "s3.l0",
+   "seg": 3,
+   "shot": {
+    "room": "liv",
+    "f": "kk",
+    "cams": [
+     [
+      1200,
+      820,
+      1.7,
+      1.8
+     ],
+     [
+      1150,
+      760,
+      1.2,
+      1.25
+     ]
+    ],
+    "cuts": [
+     "tick|60%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "tree",
+      "type": "tc_xtree",
+      "pos": [
+       960,
+       905
+      ],
+      "s": 0.8,
+      "p": {
+       "deco": 1.0,
+       "lit": 1.0
+      }
+     },
+     {
+      "id": "a",
+      "type": "tc_aphid",
+      "pos": [
+       1000,
+       870
+      ],
+      "s": 0.3,
+      "p": {},
+      "moves": [
+       {
+        "at": 0.6,
+        "dur": 2.5,
+        "pos": [
+         1250,
+         870
+        ],
+        "walk": true
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "sting@0",
+     "hit@0.05",
+     "scratch@tick|60%"
+    ],
+    "ov": [
+     {
+      "type": "suspect",
+      "text": "STOWAWAY 2 OF 9",
+      "kicker": "THE ONE PEOPLE CALL A TICK",
+      "at": 0.0
+     }
+    ],
+    "card_at": 1.5
+   }
+  },
+  {
+   "say": "Dark. Round. Long legs. Walking off the tree and onto your presents.",
+   "src": "F48 F55",
+   "vis": "Several of them drop from a branch onto gift wrap.",
+   "panic": 7,
+   "id": "s3.l1",
+   "seg": 3,
+   "shot": {
+    "room": "liv",
+    "f": "kk",
+    "cams": [
+     [
+      1200,
+      760,
+      1.5,
+      1.6
+     ],
+     [
+      1180,
+      840,
+      2.4,
+      2.5
+     ]
+    ],
+    "cuts": [
+     "Walking|50%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "tree",
+      "type": "tc_xtree",
+      "pos": [
+       960,
+       905
+      ],
+      "s": 0.8,
+      "p": {
+       "deco": 1.0,
+       "lit": 1.0
+      }
+     },
+     {
+      "id": "a0",
+      "type": "tc_aphid",
+      "pos": [
+       1050,
+       600
+      ],
+      "s": 0.18,
+      "p": {},
+      "moves": [
+       {
+        "at": "Long|20%",
+        "dur": 0.6,
+        "pos": [
+         1050,
+         860
+        ]
+       }
+      ]
+     },
+     {
+      "id": "a1",
+      "type": "tc_aphid",
+      "pos": [
+       1130,
+       600
+      ],
+      "s": 0.18,
+      "p": {},
+      "moves": [
+       {
+        "at": "Long|28%",
+        "dur": 0.6,
+        "pos": [
+         1130,
+         840
+        ]
+       }
+      ]
+     },
+     {
+      "id": "a2",
+      "type": "tc_aphid",
+      "pos": [
+       1210,
+       600
+      ],
+      "s": 0.18,
+      "p": {},
+      "moves": [
+       {
+        "at": "Long|36%",
+        "dur": 0.6,
+        "pos": [
+         1210,
+         860
+        ]
+       }
+      ]
+     },
+     {
+      "id": "a3",
+      "type": "tc_aphid",
+      "pos": [
+       1290,
+       600
+      ],
+      "s": 0.18,
+      "p": {},
+      "moves": [
+       {
+        "at": "Long|44%",
+        "dur": 0.6,
+        "pos": [
+         1290,
+         840
+        ]
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "thud@Dark|10%",
+     "thud@Round|25%",
+     "scratch@Walking|55%"
+    ]
+   }
+  },
+  {
+   "say": "Very spooky. Very dramatic. Very much not what it looks like.",
+   "src": "joke",
+   "act": "smug",
+   "id": "s3.l2",
+   "seg": 3,
+   "shot": {
+    "room": "liv",
+    "f": "Mw",
+    "cuts": [
+     "Very#3|65%"
+    ],
+    "pose": "deadpan",
+    "look": "viewer",
+    "mb": {
+     "pos": [
+      1600,
+      900
+     ]
+    },
+    "x": [
+     {
+      "id": "tree",
+      "type": "tc_xtree",
+      "pos": [
+       960,
+       905
+      ],
+      "s": 0.8,
+      "p": {
+       "deco": 1.0,
+       "lit": 1.0
+      }
+     },
+     {
+      "id": "a",
+      "type": "tc_aphid",
+      "pos": [
+       1250,
+       870
+      ],
+      "s": 0.25,
+      "p": {}
+     }
+    ]
+   }
+  },
+  {
+   "say": "It's a giant conifer aphid. Up to about an eighth of an inch.",
+   "src": "F48",
+   "vis": "Name card. Ruler: UP TO 1/8 INCH.",
+   "card": "GIANT CONIFER APHID",
+   "id": "s3.l3",
+   "seg": 3,
+   "shot": {
+    "room": "close",
+    "f": "kk",
+    "cams": [
+     [
+      900,
+      600,
+      1.2,
+      1.25
+     ],
+     [
+      900,
+      600,
+      1.6,
+      1.7
+     ]
+    ],
+    "cuts": [
+     "Up|50%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "twig",
+      "type": "tc_twig",
+      "pos": [
+       960,
+       720
+      ],
+      "s": 1.0,
+      "p": {}
+     },
+     {
+      "id": "a",
+      "type": "tc_aphid",
+      "pos": [
+       900,
+       700
+      ],
+      "s": 0.8,
+      "p": {}
+     },
+     {
+      "id": "rul",
+      "type": "tc_prop",
+      "pos": [
+       900,
+       830
+      ],
+      "s": 1.0,
+      "p": {
+       "kind": "ruler",
+       "w": 700,
+       "mark": 0.0,
+       "span": 420,
+       "label": "UP TO 1/8 INCH"
+      },
+      "set": [
+       {
+        "at": "eighth|70%",
+        "dur": 0.5,
+        "p": {
+         "mark": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "ring_k": true,
+    "sfx": [
+     "tink@eighth|80%"
+    ]
+   }
+  },
+  {
+   "say": "N.C. State calls them among the largest aphids we have.",
+   "src": "F49",
+   "vis": "The aphid flexes next to a normal tiny aphid.",
+   "id": "s3.l4",
+   "seg": 3,
+   "shot": {
+    "room": "board",
+    "f": "kk",
+    "cams": [
+     [
+      0,
+      0,
+      1.0,
+      1.04
+     ],
+     [
+      -200,
+      0,
+      1.5,
+      1.55
+     ]
+    ],
+    "cuts": [
+     "largest|50%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "big",
+      "type": "tc_aphid",
+      "pos": [
+       -300,
+       150
+      ],
+      "s": 0.9,
+      "p": {
+       "flex": 0.0
+      },
+      "set": [
+       {
+        "at": "largest|50%",
+        "dur": 0.5,
+        "p": {
+         "flex": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "small",
+      "type": "tc_aphid",
+      "pos": [
+       450,
+       150
+      ],
+      "s": 0.25,
+      "p": {
+       "col": "#7fbf4a"
+      }
+     },
+     {
+      "id": "l1",
+      "type": "ds_label",
+      "pos": [
+       -300,
+       -300
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "GIANT CONIFER APHID",
+       "px": 64,
+       "color": "#ffd34d",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "N.C.|10%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "l2",
+      "type": "ds_label",
+      "pos": [
+       450,
+       -60
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "A NORMAL APHID",
+       "px": 48,
+       "color": "#ffffff",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "largest|60%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "boing@largest|50%"
+    ]
+   }
+  },
+  {
+   "say": "North Carolina State says people often mistake them for ticks.",
+   "src": "F50",
+   "vis": "Aphid and tick side by side under a magnifier.",
+   "id": "s3.l5",
+   "seg": 3,
+   "shot": {
+    "room": "board",
+    "f": "kk",
+    "cams": [
+     [
+      0,
+      0,
+      1.0,
+      1.05
+     ],
+     [
+      0,
+      0,
+      1.3,
+      1.35
+     ]
+    ],
+    "cuts": [
+     "ticks|70%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "ap",
+      "type": "tc_aphid",
+      "pos": [
+       -420,
+       150
+      ],
+      "s": 0.7,
+      "p": {}
+     },
+     {
+      "id": "tk",
+      "type": "tc_tick_top",
+      "pos": [
+       420,
+       0
+      ],
+      "s": 0.8,
+      "p": {}
+     },
+     {
+      "id": "lens",
+      "type": "tc_prop",
+      "pos": [
+       0,
+       -40
+      ],
+      "s": 1.4,
+      "p": {
+       "kind": "lens"
+      },
+      "moves": [
+       {
+        "at": "mistake|50%",
+        "dur": 0.8,
+        "pos": [
+         380,
+         -40
+        ]
+       }
+      ],
+      "front": true
+     }
+    ],
+    "sfx": [
+     "whoosh@mistake|50%"
+    ]
+   }
+  },
+  {
+   "say": "So count the legs. An aphid has six. Ticks and spiders have eight.",
+   "src": "F56",
+   "vis": "Legs count off 1 to 6 on the aphid, 1 to 8 on the tick.",
+   "card": "6 LEGS, NOT 8",
+   "panic": 5,
+   "id": "s3.l6",
+   "seg": 3,
+   "shot": {
+    "room": "board",
+    "f": "kk",
+    "cams": [
+     [
+      0,
+      0,
+      1.0,
+      1.04
+     ],
+     [
+      400,
+      0,
+      1.4,
+      1.45
+     ]
+    ],
+    "cuts": [
+     "Ticks|60%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "ap",
+      "type": "tc_aphid",
+      "pos": [
+       -420,
+       150
+      ],
+      "s": 0.7,
+      "p": {
+       "count": 0.0
+      },
+      "set": [
+       {
+        "at": "six|30%",
+        "dur": 1.2,
+        "p": {
+         "count": 6.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "tk",
+      "type": "tc_tick_top",
+      "pos": [
+       420,
+       0
+      ],
+      "s": 0.8,
+      "p": {
+       "count": 0.0
+      },
+      "set": [
+       {
+        "at": "eight|70%",
+        "dur": 1.4,
+        "p": {
+         "count": 8.0
+        }
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "tink@six|30%",
+     "tink@eight|75%"
+    ]
+   }
+  },
+  {
+   "say": "Yes, we're counting bug legs at Christmas. This aphid made it everyone's problem.",
+   "src": "joke",
+   "act": "smug",
+   "id": "s3.l7",
+   "seg": 3,
+   "shot": {
+    "room": "liv",
+    "f": "Mk",
+    "cams": [
+     [
+      1250,
+      780,
+      1.8,
+      1.9
+     ]
+    ],
+    "cuts": [
+     "aphid|55%"
+    ],
+    "pose": "facepalm",
+    "look": "viewer",
+    "mb": {
+     "pos": [
+      1600,
+      900
+     ]
+    },
+    "x": [
+     {
+      "id": "tree",
+      "type": "tc_xtree",
+      "pos": [
+       960,
+       905
+      ],
+      "s": 0.8,
+      "p": {
+       "deco": 1.0,
+       "lit": 1.0
+      }
+     },
+     {
+      "id": "a",
+      "type": "tc_aphid",
+      "pos": [
+       1250,
+       870
+      ],
+      "s": 0.3,
+      "p": {}
+     }
+    ]
+   }
+  },
+  {
+   "say": "N.C. State says they don't bite, sting or carry disease. And they won't eat your houseplants.",
+   "src": "F54 (NC State); Penn State and Illinois for houseplants",
+   "vis": "Three quick icons crossed off; a houseplant gets a tick mark (safe).",
+   "id": "s3.l8",
+   "seg": 3,
+   "shot": {
+    "room": "board",
+    "f": "kk",
+    "cams": [
+     [
+      0,
+      0,
+      1.0,
+      1.04
+     ],
+     [
+      500,
+      0,
+      1.4,
+      1.45
+     ]
+    ],
+    "cuts": [
+     "houseplants|70%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "i1",
+      "type": "tc_prop",
+      "pos": [
+       -600,
+       -60
+      ],
+      "s": 1.4,
+      "p": {
+       "kind": "icon",
+       "icon": "tooth",
+       "x": 0.0
+      },
+      "set": [
+       {
+        "at": "bite|30%",
+        "dur": 0.3,
+        "p": {
+         "x": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "i2",
+      "type": "tc_prop",
+      "pos": [
+       -200,
+       -60
+      ],
+      "s": 1.4,
+      "p": {
+       "kind": "icon",
+       "icon": "sting",
+       "x": 0.0
+      },
+      "set": [
+       {
+        "at": "sting|40%",
+        "dur": 0.3,
+        "p": {
+         "x": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "i3",
+      "type": "tc_prop",
+      "pos": [
+       200,
+       -60
+      ],
+      "s": 1.4,
+      "p": {
+       "kind": "icon",
+       "icon": "germ",
+       "x": 0.0
+      },
+      "set": [
+       {
+        "at": "disease|50%",
+        "dur": 0.3,
+        "p": {
+         "x": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "pl",
+      "type": "tc_prop",
+      "pos": [
+       600,
+       200
+      ],
+      "s": 1.0,
+      "p": {
+       "kind": "plant"
+      }
+     },
+     {
+      "id": "ok",
+      "type": "tc_tick",
+      "pos": [
+       700,
+       -80
+      ],
+      "s": 0.0005,
+      "p": {},
+      "moves": [
+       {
+        "at": "houseplants|80%",
+        "dur": 0.25,
+        "pos": [
+         700,
+         -80
+        ],
+        "s": 1.0
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "stamp@bite|30%",
+     "stamp@sting|40%",
+     "stamp@disease|50%",
+     "pop@houseplants|80%"
+    ]
+   }
+  },
+  {
+   "say": "The warmth wakes them up, and they wander.",
+   "src": "F55",
+   "vis": "Aphids yawning, then marching along a branch toward the room.",
+   "id": "s3.l9",
+   "seg": 3,
+   "shot": {
+    "room": "liv",
+    "f": "kk",
+    "cams": [
+     [
+      1100,
+      620,
+      1.8,
+      1.9
+     ],
+     [
+      1150,
+      560,
+      1.2,
+      1.25
+     ]
+    ],
+    "cuts": [
+     "wander|55%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "tree",
+      "type": "tc_xtree",
+      "pos": [
+       960,
+       905
+      ],
+      "s": 0.8,
+      "p": {
+       "deco": 1.0,
+       "lit": 1.0
+      }
+     },
+     {
+      "id": "a0",
+      "type": "tc_aphid",
+      "pos": [
+       1050,
+       560
+      ],
+      "s": 0.12,
+      "p": {},
+      "moves": [
+       {
+        "at": "wander|50%",
+        "dur": 2.0,
+        "pos": [
+         1350,
+         560
+        ],
+        "walk": true
+       }
+      ]
+     },
+     {
+      "id": "a1",
+      "type": "tc_aphid",
+      "pos": [
+       1100,
+       620
+      ],
+      "s": 0.12,
+      "p": {},
+      "moves": [
+       {
+        "at": "wander|50%",
+        "dur": 2.0,
+        "pos": [
+         1410,
+         620
+        ],
+        "walk": true
+       }
+      ]
+     },
+     {
+      "id": "a2",
+      "type": "tc_aphid",
+      "pos": [
+       1150,
+       680
+      ],
+      "s": 0.12,
+      "p": {},
+      "moves": [
+       {
+        "at": "wander|50%",
+        "dur": 2.0,
+        "pos": [
+         1470,
+         680
+        ],
+        "walk": true
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "say": "As the tree dries out, they move onto the decorations and the furniture.",
+   "src": "F58",
+   "vis": "Aphids abseil from a drying branch onto an armchair.",
+   "id": "s3.l10",
+   "seg": 3,
+   "shot": {
+    "room": "liv",
+    "f": "kk",
+    "cams": [
+     [
+      1150,
+      560,
+      1.0,
+      1.05
+     ],
+     [
+      1500,
+      800,
+      1.6,
+      1.7
+     ]
+    ],
+    "cuts": [
+     "furniture|60%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "tree",
+      "type": "tc_xtree",
+      "pos": [
+       960,
+       905
+      ],
+      "s": 0.8,
+      "p": {
+       "deco": 1.0,
+       "lit": 1.0
+      }
+     },
+     {
+      "id": "chair",
+      "type": "tc_prop",
+      "pos": [
+       1600,
+       900
+      ],
+      "s": 1.0,
+      "p": {
+       "kind": "armchair"
+      }
+     },
+     {
+      "id": "a0",
+      "type": "tc_aphid",
+      "pos": [
+       1150,
+       480
+      ],
+      "s": 0.12,
+      "p": {},
+      "moves": [
+       {
+        "at": "furniture|50%",
+        "dur": 1.2,
+        "pos": [
+         1500,
+         760
+        ]
+       }
+      ]
+     },
+     {
+      "id": "a1",
+      "type": "tc_aphid",
+      "pos": [
+       1190,
+       480
+      ],
+      "s": 0.12,
+      "p": {},
+      "moves": [
+       {
+        "at": "furniture|50%",
+        "dur": 1.2,
+        "pos": [
+         1560,
+         760
+        ]
+       }
+      ]
+     },
+     {
+      "id": "a2",
+      "type": "tc_aphid",
+      "pos": [
+       1230,
+       480
+      ],
+      "s": 0.12,
+      "p": {},
+      "moves": [
+       {
+        "at": "furniture|50%",
+        "dur": 1.2,
+        "pos": [
+         1620,
+         760
+        ]
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "whoosh@furniture|55%"
+    ]
+   }
+  },
+  {
+   "say": "Here is the one rule. Do not squash them.",
+   "vis": "Meatball's raised slipper freezes mid-air.",
+   "id": "s3.l11",
+   "seg": 3,
+   "shot": {
+    "room": "liv",
+    "f": "wM",
+    "cuts": [
+     "squash|55%"
+    ],
+    "pose": "shock",
+    "look": "viewer",
+    "act": "shout",
+    "burst": true,
+    "mb": {
+     "pos": [
+      1550,
+      900
+     ],
+     "prop": "slipper",
+     "shake": 0.6
+    },
+    "x": [
+     {
+      "id": "tree",
+      "type": "tc_xtree",
+      "pos": [
+       960,
+       905
+      ],
+      "s": 0.8,
+      "p": {
+       "deco": 1.0,
+       "lit": 1.0
+      }
+     },
+     {
+      "id": "a",
+      "type": "tc_aphid",
+      "pos": [
+       1250,
+       870
+      ],
+      "s": 0.3,
+      "p": {}
+     }
+    ],
+    "stamp": {
+     "text": "DON'T SQUASH",
+     "color": "#e5383b",
+     "at": "squash|60%",
+     "x": 960,
+     "y": 400,
+     "px": 150,
+     "rot": -8
+    },
+    "sfx": [
+     "stamp@squash|60%"
+    ]
+   },
+   "act": "shout"
+  },
+  {
+   "say": "Crushed, they can leave a purple or red stain. Carpet, couch, wrapping paper.",
+   "src": "F52 F53",
+   "vis": "A purple smear on gift wrap, then on a white rug.",
+   "card": "PURPLE STAIN",
+   "panic": 6,
+   "id": "s3.l12",
+   "seg": 3,
+   "shot": {
+    "room": "board",
+    "f": "kk",
+    "cams": [
+     [
+      0,
+      0,
+      1.0,
+      1.04
+     ],
+     [
+      300,
+      120,
+      1.5,
+      1.55
+     ]
+    ],
+    "cuts": [
+     "Carpet|55%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "roomscene": "rk_board_bg",
+    "x": [
+     {
+      "id": "gift",
+      "type": "tc_prop",
+      "pos": [
+       -400,
+       150
+      ],
+      "s": 1.6,
+      "p": {
+       "kind": "gift",
+       "stain": 0.0
+      },
+      "set": [
+       {
+        "at": "purple|30%",
+        "dur": 0.6,
+        "p": {
+         "stain": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "rug",
+      "type": "tc_stain",
+      "pos": [
+       400,
+       180
+      ],
+      "s": 2.0,
+      "p": {
+       "grow": 0.0,
+       "rug": true
+      },
+      "set": [
+       {
+        "at": "Carpet|55%",
+        "dur": 0.8,
+        "p": {
+         "grow": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "card_y": 150,
+    "sfx": [
+     "tink@purple|30%"
+    ]
+   }
+  },
+  {
+   "say": "Vacuum them instead. Use the hose, not the spinning brush.",
+   "src": "F59",
+   "vis": "Vacuum hose lifts them neatly; the brush head sits unused with an X.",
+   "check": "5. VACUUM. NEVER SQUASH.",
+   "id": "s3.l13",
+   "seg": 3,
+   "shot": {
+    "room": "liv",
+    "f": "kk",
+    "cams": [
+     [
+      1350,
+      760,
+      1.4,
+      1.45
+     ],
+     [
+      1200,
+      820,
+      1.9,
+      2.0
+     ]
+    ],
+    "cuts": [
+     "brush|60%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "tree",
+      "type": "tc_xtree",
+      "pos": [
+       960,
+       905
+      ],
+      "s": 0.8,
+      "p": {
+       "deco": 1.0,
+       "lit": 1.0
+      }
+     },
+     {
+      "id": "vac",
+      "type": "tc_prop",
+      "pos": [
+       1700,
+       900
+      ],
+      "s": 1.0,
+      "p": {
+       "kind": "canvac",
+       "suck": 1.0,
+       "tip": [
+        -400,
+        -80
+       ]
+      }
+     },
+     {
+      "id": "a",
+      "type": "tc_aphid",
+      "pos": [
+       1280,
+       830
+      ],
+      "s": 0.2,
+      "p": {},
+      "moves": [
+       {
+        "at": "hose|40%",
+        "dur": 0.5,
+        "pos": [
+         1310,
+         820
+        ],
+        "s": 0.02
+       }
+      ]
+     },
+     {
+      "id": "bh",
+      "type": "tc_prop",
+      "pos": [
+       1100,
+       900
+      ],
+      "s": 0.8,
+      "p": {
+       "kind": "brushhead"
+      }
+     },
+     {
+      "id": "x",
+      "type": "ds_cross",
+      "pos": [
+       1100,
+       820
+      ],
+      "s": 1.0,
+      "p": {
+       "on": 0.0,
+       "r": 140
+      },
+      "set": [
+       {
+        "at": "brush|65%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ],
+      "front": true
+     }
+    ],
+    "check_at": "instead|35%",
+    "sfx": [
+     "whoosh@hose|45%",
+     "stamp@brush|65%"
+    ]
+   }
+  },
+  {
+   "say": "Keep a tree in long enough, especially one with a root ball, and Penn State says they may breed.",
+   "src": "F57",
+   "vis": "A balled-and-burlapped tree (root ball, not a pot); a few winged aphids appear with question marks.",
+   "id": "s3.l14",
+   "seg": 3,
+   "shot": {
+    "room": "liv",
+    "f": "kk",
+    "cams": [
+     [
+      900,
+      560,
+      1.0,
+      1.05
+     ],
+     [
+      1000,
+      500,
+      1.6,
+      1.7
+     ]
+    ],
+    "cuts": [
+     "breed|60%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "rb",
+      "type": "tc_rootball",
+      "pos": [
+       900,
+       900
+      ],
+      "s": 1.0,
+      "p": {}
+     },
+     {
+      "id": "w0",
+      "type": "tc_aphid",
+      "pos": [
+       800,
+       450
+      ],
+      "s": 0.0005,
+      "p": {
+       "winged": 1.0
+      },
+      "moves": [
+       {
+        "at": "breed|65%",
+        "dur": 0.25,
+        "pos": [
+         800,
+         450
+        ],
+        "s": 0.12
+       }
+      ]
+     },
+     {
+      "id": "w1",
+      "type": "tc_aphid",
+      "pos": [
+       920,
+       450
+      ],
+      "s": 0.0005,
+      "p": {
+       "winged": 1.0
+      },
+      "moves": [
+       {
+        "at": "breed|70%",
+        "dur": 0.25,
+        "pos": [
+         920,
+         450
+        ],
+        "s": 0.12
+       }
+      ]
+     },
+     {
+      "id": "w2",
+      "type": "tc_aphid",
+      "pos": [
+       1040,
+       450
+      ],
+      "s": 0.0005,
+      "p": {
+       "winged": 1.0
+      },
+      "moves": [
+       {
+        "at": "breed|75%",
+        "dur": 0.25,
+        "pos": [
+         1040,
+         450
+        ],
+        "s": 0.12
+       }
+      ]
+     },
+     {
+      "id": "q",
+      "type": "ds_label",
+      "pos": [
+       1100,
+       330
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "?",
+       "px": 140,
+       "color": "#ffd34d",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "breed|75%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "pop@breed|65%"
+    ]
+   }
+  },
+  {
+   "say": "And real ticks on Christmas trees? A few cases have been recorded. A few.",
+   "src": "F51",
+   "vis": "One tick on a trunk with a tiny RARE tag.",
+   "panic": 4,
+   "id": "s3.l15",
+   "seg": 3,
+   "shot": {
+    "room": "trunk",
+    "f": "kk",
+    "cams": [
+     [
+      960,
+      540,
+      1.0,
+      1.05
+     ],
+     [
+      960,
+      540,
+      1.8,
+      1.9
+     ]
+    ],
+    "cuts": [
+     "few#2|75%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "tk",
+      "type": "tc_tick_top",
+      "pos": [
+       960,
+       560
+      ],
+      "s": 0.35,
+      "p": {}
+     },
+     {
+      "id": "rare",
+      "type": "ds_label",
+      "pos": [
+       960,
+       400
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "RARE",
+       "px": 80,
+       "color": "#3fb950",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "recorded|50%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "act": "curious",
+    "sfx": [
+     "pop@recorded|55%"
+    ]
+   },
+   "act": "curious"
+  },
+  {
+   "say": "That's two. The next six take about a minute. Then the one that matters.",
+   "vis": "Progress strip: 2 of 9 ticked; six blur past as silhouettes; the ninth glows.",
+   "id": "s3.l16",
+   "seg": 3,
+   "shot": {
+    "room": "board",
+    "f": "kk",
+    "cams": [
+     [
+      0,
+      0,
+      1.0,
+      1.04
+     ],
+     [
+      500,
+      0,
+      1.4,
+      1.45
+     ]
+    ],
+    "cuts": [
+     "matters|70%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "strip",
+      "type": "tc_strip",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "done": 1.0,
+       "blur": 0.0,
+       "glow9": 0.0
+      },
+      "set": [
+       {
+        "at": "two|10%",
+        "dur": 0.4,
+        "p": {
+         "done": 2.0
+        }
+       },
+       {
+        "at": "next|30%",
+        "dur": 1.6,
+        "p": {
+         "blur": 1.0
+        }
+       },
+       {
+        "at": "matters|70%",
+        "dur": 0.6,
+        "p": {
+         "glow9": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "tink@two|10%",
+     "whoosh@next|30%",
+     "sting@matters|70%"
+    ]
+   }
+  },
+  {
+   "say": "Three. Spiders. Iowa State says aphids and spiders are the two things most often found on cut trees.",
+   "src": "F14",
+   "vis": "A small spider and spiderlings on a branch.",
+   "id": "s4.l0",
+   "seg": 4,
+   "shot": {
+    "room": "closeG",
+    "f": "kk",
+    "cams": [
+     [
+      960,
+      600,
+      1.2,
+      1.25
+     ],
+     [
+      960,
+      600,
+      1.7,
+      1.8
+     ]
+    ],
+    "cuts": [
+     "Iowa|35%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "twig",
+      "type": "tc_twig",
+      "pos": [
+       960,
+       720
+      ],
+      "s": 1.1,
+      "p": {}
+     },
+     {
+      "id": "sp",
+      "type": "cellar_spider",
+      "pos": [
+       800,
+       720
+      ],
+      "s": 0.3,
+      "p": {}
+     },
+     {
+      "id": "sl",
+      "type": "tc_spiderlings",
+      "pos": [
+       1150,
+       690
+      ],
+      "s": 1.2,
+      "p": {}
+     }
+    ],
+    "ring_k": true,
+    "ov": [
+     {
+      "type": "suspect",
+      "text": "STOWAWAYS 3 TO 8",
+      "kicker": "THE ONES YOU CAN IGNORE",
+      "at": 0.0
+     }
+    ],
+    "sfx": [
+     "sting@0",
+     "hit@0.05"
+    ],
+    "card_at": 1.5
+   }
+  },
+  {
+   "say": "Penn State says they aren't dangerous to you or your pets, and they die in a short time indoors.",
+   "src": "F72",
+   "vis": "Stamp: IGNORE. A dog sniffs the tree, unbothered.",
+   "card": "IGNORE",
+   "id": "s4.l1",
+   "seg": 4,
+   "shot": {
+    "room": "liv",
+    "f": "kk",
+    "cams": [
+     [
+      1200,
+      760,
+      1.4,
+      1.5
+     ],
+     [
+      1100,
+      600,
+      1.0,
+      1.05
+     ]
+    ],
+    "cuts": [
+     "die|55%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "tree",
+      "type": "tc_xtree",
+      "pos": [
+       960,
+       905
+      ],
+      "s": 0.8,
+      "p": {
+       "deco": 1.0,
+       "lit": 1.0
+      }
+     },
+     {
+      "id": "dog",
+      "type": "tc_dog",
+      "pos": [
+       1350,
+       900
+      ],
+      "s": 0.6,
+      "p": {
+       "sniff": 1.0,
+       "wag": 1.0
+      },
+      "flip": true
+     }
+    ],
+    "stamp": {
+     "text": "IGNORE",
+     "color": "#3fb950",
+     "at": "dangerous|40%",
+     "x": 1400,
+     "y": 300,
+     "px": 130,
+     "rot": -8
+    },
+    "sfx": [
+     "stamp@dangerous|40%"
+    ]
+   }
+  },
+  {
+   "say": "Four. Bark beetles. You might see a little very fine sawdust.",
+   "src": "F66",
+   "vis": "Tiny beetle; a pinch of dust under the trunk.",
+   "id": "s4.l2",
+   "seg": 4,
+   "shot": {
+    "room": "trunk",
+    "f": "kk",
+    "cams": [
+     [
+      960,
+      520,
+      1.6,
+      1.7
+     ],
+     [
+      960,
+      900,
+      1.6,
+      1.7
+     ]
+    ],
+    "cuts": [
+     "sawdust|55%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "bb",
+      "type": "tc_barkbeetle",
+      "pos": [
+       960,
+       520
+      ],
+      "s": 0.6,
+      "p": {}
+     },
+     {
+      "id": "sd",
+      "type": "tc_sawdust",
+      "pos": [
+       960,
+       1000
+      ],
+      "s": 1.4,
+      "p": {
+       "drift": 1.0
+      }
+     }
+    ],
+    "ring_k": true
+   }
+  },
+  {
+   "say": "Will they eat your furniture? No. They need damp wood, and your house is too dry.",
+   "src": "F65",
+   "vis": "Beetle taps a table leg, shakes its head, leaves. Stamp: IGNORE.",
+   "card": "IGNORE",
+   "panic": 3,
+   "id": "s4.l3",
+   "seg": 4,
+   "shot": {
+    "room": "liv",
+    "f": "kM",
+    "cams": [
+     [
+      1450,
+      780,
+      1.6,
+      1.7
+     ]
+    ],
+    "cuts": [
+     "damp|55%"
+    ],
+    "pose": "shrug",
+    "mb": {
+     "pos": [
+      1650,
+      900
+     ]
+    },
+    "act": "curious",
+    "x": [
+     {
+      "id": "tree",
+      "type": "tc_xtree",
+      "pos": [
+       960,
+       905
+      ],
+      "s": 0.8,
+      "p": {
+       "deco": 1.0,
+       "lit": 1.0
+      }
+     },
+     {
+      "id": "tab",
+      "type": "tc_prop",
+      "pos": [
+       1400,
+       900
+      ],
+      "s": 1.0,
+      "p": {
+       "kind": "table"
+      }
+     },
+     {
+      "id": "bb",
+      "type": "tc_barkbeetle",
+      "pos": [
+       1300,
+       900
+      ],
+      "s": 0.15,
+      "p": {},
+      "moves": [
+       {
+        "at": "No|30%",
+        "dur": 0.8,
+        "pos": [
+         1000,
+         900
+        ],
+        "face": -1
+       }
+      ]
+     }
+    ],
+    "stamp": {
+     "text": "IGNORE",
+     "color": "#3fb950",
+     "at": "dry|80%",
+     "x": 960,
+     "y": 300,
+     "px": 130,
+     "rot": -8
+    },
+    "sfx": [
+     "stamp@dry|80%"
+    ]
+   },
+   "act": "curious"
+  },
+  {
+   "say": "Five. White cottony fluff on the bark. Adelgids. They stay put and they're harmless.",
+   "src": "F69",
+   "vis": "Cotton tufts on bark; Meatball pokes one, nothing happens. Stamp: IGNORE.",
+   "id": "s4.l4",
+   "seg": 4,
+   "shot": {
+    "room": "trunk",
+    "f": "kk",
+    "cams": [
+     [
+      960,
+      540,
+      1.2,
+      1.25
+     ],
+     [
+      960,
+      540,
+      1.8,
+      1.9
+     ]
+    ],
+    "cuts": [
+     "Adelgids|50%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "ad",
+      "type": "tc_adelgid",
+      "pos": [
+       960,
+       540
+      ],
+      "s": 1.4,
+      "p": {
+       "poke": 0.0
+      },
+      "set": [
+       {
+        "at": "stay|65%",
+        "dur": 0.5,
+        "p": {
+         "poke": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "stamp": {
+     "text": "IGNORE",
+     "color": "#3fb950",
+     "at": "harmless|80%",
+     "x": 960,
+     "y": 280,
+     "px": 130,
+     "rot": -8
+    },
+    "sfx": [
+     "stamp@harmless|80%"
+    ]
+   }
+  },
+  {
+   "say": "Six. Specks that start walking after a couple of weeks. Scale crawlers. Wipe them up with a damp towel.",
+   "src": "F70",
+   "vis": "Dots creep along a windowsill; a towel swipes. Stamp: IGNORE.",
+   "id": "s4.l5",
+   "seg": 4,
+   "shot": {
+    "room": "liv",
+    "f": "kk",
+    "cams": [
+     [
+      300,
+      520,
+      1.6,
+      1.7
+     ],
+     [
+      300,
+      520,
+      2.2,
+      2.3
+     ]
+    ],
+    "cuts": [
+     "Wipe|65%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "tree",
+      "type": "tc_xtree",
+      "pos": [
+       960,
+       905
+      ],
+      "s": 0.8,
+      "p": {
+       "deco": 1.0,
+       "lit": 1.0
+      }
+     },
+     {
+      "id": "cr",
+      "type": "tc_crawlers",
+      "pos": [
+       100,
+       590
+      ],
+      "s": 1.0,
+      "p": {
+       "u": 0.0,
+       "n": 12,
+       "len": 380,
+       "gone": 0.0
+      },
+      "set": [
+       {
+        "at": "walking|25%",
+        "dur": 2.0,
+        "p": {
+         "u": 1.0
+        }
+       },
+       {
+        "at": "Wipe|75%",
+        "dur": 0.8,
+        "p": {
+         "gone": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "cl",
+      "type": "tc_prop",
+      "pos": [
+       -300,
+       560
+      ],
+      "s": 1.0,
+      "p": {
+       "kind": "cloth"
+      },
+      "moves": [
+       {
+        "at": "Wipe|70%",
+        "dur": 0.8,
+        "pos": [
+         600,
+         560
+        ]
+       }
+      ],
+      "front": true
+     }
+    ],
+    "stamp": {
+     "text": "IGNORE",
+     "color": "#3fb950",
+     "at": "towel|90%",
+     "x": 300,
+     "y": 260,
+     "px": 130,
+     "rot": -8
+    },
+    "sfx": [
+     "whoosh@Wipe|70%",
+     "stamp@towel|90%"
+    ]
+   }
+  },
+  {
+   "say": "Seven. Mites. Penn State says none of the predatory mites on Christmas trees bite.",
+   "src": "F68",
+   "vis": "A mite eating a tinier egg, busy. Stamp: IGNORE.",
+   "id": "s4.l6",
+   "seg": 4,
+   "shot": {
+    "room": "close",
+    "f": "kk",
+    "cams": [
+     [
+      960,
+      600,
+      1.3,
+      1.35
+     ],
+     [
+      960,
+      600,
+      1.9,
+      2.0
+     ]
+    ],
+    "cuts": [
+     "predatory|50%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "twig",
+      "type": "tc_twig",
+      "pos": [
+       960,
+       720
+      ],
+      "s": 1.1,
+      "p": {}
+     },
+     {
+      "id": "mi",
+      "type": "tc_mite",
+      "pos": [
+       960,
+       640
+      ],
+      "s": 0.8,
+      "p": {
+       "eat": 1.0
+      }
+     }
+    ],
+    "ring_k": true,
+    "stamp": {
+     "text": "IGNORE",
+     "color": "#3fb950",
+     "at": "bite|85%",
+     "x": 960,
+     "y": 260,
+     "px": 130,
+     "rot": -8
+    },
+    "sfx": [
+     "stamp@bite|85%"
+    ]
+   }
+  },
+  {
+   "say": "But if there's an old bird nest in the tree, take it out. Nests can carry mites and lice.",
+   "src": "F73",
+   "vis": "Meatball lifts a nest out with tongs.",
+   "check": "4. PULL ANY BIRD NEST",
+   "id": "s4.l7",
+   "seg": 4,
+   "shot": {
+    "room": "liv",
+    "f": "wk",
+    "cams": [
+     [
+      1000,
+      450,
+      1.6,
+      1.7
+     ]
+    ],
+    "cuts": [
+     "Nests|55%"
+    ],
+    "pose": "present",
+    "look": "tree",
+    "mb": {
+     "pos": [
+      1450,
+      900
+     ],
+     "prop": "tongs_nest",
+     "moves": [
+      {
+       "at": "take|35%",
+       "dur": 0.6,
+       "pos": [
+        1350,
+        900
+       ]
+      }
+     ]
+    },
+    "x": [
+     {
+      "id": "tree",
+      "type": "tc_xtree",
+      "pos": [
+       960,
+       905
+      ],
+      "s": 0.8,
+      "p": {
+       "deco": 1.0,
+       "lit": 1.0
+      }
+     },
+     {
+      "id": "nest",
+      "type": "tc_nest",
+      "pos": [
+       1000,
+       470
+      ],
+      "s": 0.4,
+      "p": {},
+      "set": [
+       {
+        "at": "take|35%",
+        "dur": 0.0,
+        "p": {
+         "hidden": true
+        }
+       }
+      ]
+     }
+    ],
+    "check_at": "out|45%"
+   }
+  },
+  {
+   "say": "Eight. Bark lice. They can't bite, and dry air kills them quickly.",
+   "src": "F67",
+   "vis": "Tiny pale specks; a radiator; they're gone. Stamp: IGNORE.",
+   "id": "s4.l8",
+   "seg": 4,
+   "shot": {
+    "room": "liv",
+    "f": "kk",
+    "cams": [
+     [
+      600,
+      700,
+      1.6,
+      1.7
+     ],
+     [
+      600,
+      700,
+      2.2,
+      2.3
+     ]
+    ],
+    "cuts": [
+     "dry|60%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "tree",
+      "type": "tc_xtree",
+      "pos": [
+       960,
+       905
+      ],
+      "s": 0.8,
+      "p": {
+       "deco": 1.0,
+       "lit": 1.0
+      }
+     },
+     {
+      "id": "bl",
+      "type": "tc_barklouse",
+      "pos": [
+       600,
+       760
+      ],
+      "s": 0.3,
+      "p": {},
+      "set": [
+       {
+        "at": "kills|70%",
+        "dur": 0.0,
+        "p": {
+         "hidden": true
+        }
+       }
+      ]
+     },
+     {
+      "id": "sp",
+      "type": "tc_specks",
+      "pos": [
+       600,
+       700
+      ],
+      "s": 1.0,
+      "p": {
+       "n": 10,
+       "w": 300,
+       "h": 100,
+       "col": "#e8e0c8"
+      },
+      "set": [
+       {
+        "at": "kills|70%",
+        "dur": 0.0,
+        "p": {
+         "hidden": true
+        }
+       }
+      ]
+     }
+    ],
+    "stamp": {
+     "text": "IGNORE",
+     "color": "#3fb950",
+     "at": "quickly|85%",
+     "x": 600,
+     "y": 260,
+     "px": 130,
+     "rot": -8
+    },
+    "tint": [
+     1.0,
+     0.6,
+     0.3,
+     0.1
+    ],
+    "sfx": [
+     "stamp@quickly|85%"
+    ]
+   }
+  },
+  {
+   "say": "And the two scales? Penn State says they don't have time to grow up indoors. At worst, a little sticky honeydew.",
+   "src": "F71",
+   "id": "s4.l9",
+   "seg": 4,
+   "shot": {
+    "room": "close",
+    "f": "kk",
+    "cams": [
+     [
+      960,
+      640,
+      1.3,
+      1.35
+     ],
+     [
+      960,
+      680,
+      1.9,
+      2.0
+     ]
+    ],
+    "cuts": [
+     "honeydew|65%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "twig",
+      "type": "tc_twig",
+      "pos": [
+       960,
+       720
+      ],
+      "s": 1.1,
+      "p": {}
+     },
+     {
+      "id": "cr",
+      "type": "tc_crawlers",
+      "pos": [
+       700,
+       700
+      ],
+      "s": 1.0,
+      "p": {
+       "u": 0.4,
+       "n": 6,
+       "len": 500
+      }
+     },
+     {
+      "id": "drop",
+      "type": "droplets",
+      "pos": [
+       960,
+       780
+      ],
+      "s": 0.6,
+      "p": {
+       "n": 4,
+       "r": 120
+      }
+     }
+    ],
+    "act": "curious"
+   },
+   "act": "curious"
+  },
+  {
+   "say": "Iowa State sums up the tiny ones. They can't bite or sting, and they won't live long enough to grow or multiply.",
+   "src": "F20",
+   "vis": "All six silhouettes in a row, each with an IGNORE stamp.",
+   "id": "s4.l10",
+   "seg": 4,
+   "shot": {
+    "room": "board",
+    "f": "kk",
+    "cams": [
+     [
+      0,
+      0,
+      1.0,
+      1.03
+     ],
+     [
+      0,
+      0,
+      1.25,
+      1.3
+     ]
+    ],
+    "cuts": [
+     "multiply|60%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "s0",
+      "type": "cellar_spider",
+      "pos": [
+       -750,
+       60
+      ],
+      "s": 0.25,
+      "p": {}
+     },
+     {
+      "id": "s1",
+      "type": "tc_barkbeetle",
+      "pos": [
+       -450,
+       60
+      ],
+      "s": 0.4,
+      "p": {}
+     },
+     {
+      "id": "s2",
+      "type": "tc_adelgid",
+      "pos": [
+       -150,
+       60
+      ],
+      "s": 0.6,
+      "p": {}
+     },
+     {
+      "id": "s3",
+      "type": "tc_crawlers",
+      "pos": [
+       150,
+       60
+      ],
+      "s": 1.0,
+      "p": {}
+     },
+     {
+      "id": "s4",
+      "type": "tc_mite",
+      "pos": [
+       450,
+       60
+      ],
+      "s": 0.4,
+      "p": {}
+     },
+     {
+      "id": "s5",
+      "type": "tc_barklouse",
+      "pos": [
+       750,
+       60
+      ],
+      "s": 0.4,
+      "p": {}
+     },
+     {
+      "id": "x0",
+      "type": "ds_stamp",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "on": 0.0,
+       "text": "IGNORE",
+       "color": "#3fb950",
+       "x": 210,
+       "y": 760,
+       "px": 54,
+       "rot": -8
+      },
+      "set": [
+       {
+        "at": "20%",
+        "dur": 0.2,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ],
+      "front": true
+     },
+     {
+      "id": "x1",
+      "type": "ds_stamp",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "on": 0.0,
+       "text": "IGNORE",
+       "color": "#3fb950",
+       "x": 510,
+       "y": 760,
+       "px": 54,
+       "rot": -8
+      },
+      "set": [
+       {
+        "at": "32%",
+        "dur": 0.2,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ],
+      "front": true
+     },
+     {
+      "id": "x2",
+      "type": "ds_stamp",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "on": 0.0,
+       "text": "IGNORE",
+       "color": "#3fb950",
+       "x": 810,
+       "y": 760,
+       "px": 54,
+       "rot": -8
+      },
+      "set": [
+       {
+        "at": "44%",
+        "dur": 0.2,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ],
+      "front": true
+     },
+     {
+      "id": "x3",
+      "type": "ds_stamp",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "on": 0.0,
+       "text": "IGNORE",
+       "color": "#3fb950",
+       "x": 1110,
+       "y": 760,
+       "px": 54,
+       "rot": -8
+      },
+      "set": [
+       {
+        "at": "56%",
+        "dur": 0.2,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ],
+      "front": true
+     },
+     {
+      "id": "x4",
+      "type": "ds_stamp",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "on": 0.0,
+       "text": "IGNORE",
+       "color": "#3fb950",
+       "x": 1410,
+       "y": 760,
+       "px": 54,
+       "rot": -8
+      },
+      "set": [
+       {
+        "at": "68%",
+        "dur": 0.2,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ],
+      "front": true
+     },
+     {
+      "id": "x5",
+      "type": "ds_stamp",
+      "pos": [
+       0,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "on": 0.0,
+       "text": "IGNORE",
+       "color": "#3fb950",
+       "x": 1710,
+       "y": 760,
+       "px": 54,
+       "rot": -8
+      },
+      "set": [
+       {
+        "at": "80%",
+        "dur": 0.2,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ],
+      "front": true
+     }
+    ],
+    "sfx": [
+     "stamp@20%",
+     "stamp@44%",
+     "stamp@68%"
+    ]
+   }
+  },
+  {
+   "say": "Newly hatched aphids and spiderlings are about a sixteenth of an inch.",
+   "src": "F22",
+   "vis": "A speck beside a grain of rice for scale (no number on screen beyond 1/16 INCH).",
+   "card": "1/16 INCH",
+   "id": "s4.l11",
+   "seg": 4,
+   "shot": {
+    "room": "board",
+    "f": "kk",
+    "cams": [
+     [
+      0,
+      0,
+      1.4,
+      1.45
+     ],
+     [
+      0,
+      0,
+      2.2,
+      2.3
+     ]
+    ],
+    "cuts": [
+     "sixteenth|55%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "rice",
+      "type": "tc_prop",
+      "pos": [
+       -120,
+       0
+      ],
+      "s": 1.0,
+      "p": {
+       "kind": "grain"
+      }
+     },
+     {
+      "id": "sl",
+      "type": "tc_spiderlings",
+      "pos": [
+       150,
+       0
+      ],
+      "s": 0.25,
+      "p": {
+       "n": 1
+      }
+     },
+     {
+      "id": "ap",
+      "type": "tc_aphid",
+      "pos": [
+       250,
+       20
+      ],
+      "s": 0.05,
+      "p": {}
+     }
+    ],
+    "card_y": 150
+   }
+  },
+  {
+   "say": "Most of them starve or dry out.",
+   "src": "F21",
+   "vis": "The six fade.",
+   "panic": 2,
+   "id": "s4.l12",
+   "seg": 4,
+   "shot": {
+    "room": "liv",
+    "f": "kk",
+    "cams": [
+     [
+      960,
+      560,
+      1.0,
+      1.05
+     ],
+     [
+      960,
+      560,
+      1.3,
+      1.35
+     ]
+    ],
+    "cuts": [
+     "dry|55%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "tree",
+      "type": "tc_xtree",
+      "pos": [
+       960,
+       905
+      ],
+      "s": 0.8,
+      "p": {
+       "deco": 1.0,
+       "lit": 1.0
+      }
+     },
+     {
+      "id": "s0",
+      "type": "cellar_spider",
+      "pos": [
+       700,
+       890
+      ],
+      "s": 0.12,
+      "p": {},
+      "set": [
+       {
+        "at": "dry|55%",
+        "dur": 0.0,
+        "p": {
+         "hidden": true
+        }
+       }
+      ]
+     },
+     {
+      "id": "s1",
+      "type": "tc_barkbeetle",
+      "pos": [
+       830,
+       890
+      ],
+      "s": 0.12,
+      "p": {},
+      "set": [
+       {
+        "at": "dry|60%",
+        "dur": 0.0,
+        "p": {
+         "hidden": true
+        }
+       }
+      ]
+     },
+     {
+      "id": "s2",
+      "type": "tc_mite",
+      "pos": [
+       960,
+       890
+      ],
+      "s": 0.12,
+      "p": {},
+      "set": [
+       {
+        "at": "dry|65%",
+        "dur": 0.0,
+        "p": {
+         "hidden": true
+        }
+       }
+      ]
+     },
+     {
+      "id": "s3",
+      "type": "tc_barklouse",
+      "pos": [
+       1090,
+       890
+      ],
+      "s": 0.12,
+      "p": {},
+      "set": [
+       {
+        "at": "dry|70%",
+        "dur": 0.0,
+        "p": {
+         "hidden": true
+        }
+       }
+      ]
+     },
+     {
+      "id": "s4",
+      "type": "tc_aphid",
+      "pos": [
+       1220,
+       890
+      ],
+      "s": 0.12,
+      "p": {},
+      "set": [
+       {
+        "at": "dry|75%",
+        "dur": 0.0,
+        "p": {
+         "hidden": true
+        }
+       }
+      ]
+     }
+    ],
+    "tint": [
+     1.0,
+     0.6,
+     0.3,
+     0.12
+    ]
+   }
+  },
+  {
+   "say": "Your living room is the worst resort they've ever booked. Dry, foodless, terrible.",
+   "src": "joke",
+   "act": "smug",
+   "id": "s4.l13",
+   "seg": 4,
+   "shot": {
+    "room": "liv",
+    "f": "Mw",
+    "cuts": [
+     "Dry|55%"
+    ],
+    "pose": "laugh",
+    "look": "viewer",
+    "mb": {
+     "pos": [
+      1600,
+      900
+     ]
+    },
+    "x": [
+     {
+      "id": "tree",
+      "type": "tc_xtree",
+      "pos": [
+       960,
+       905
+      ],
+      "s": 0.8,
+      "p": {
+       "deco": 1.0,
+       "lit": 1.0
+      }
+     }
+    ],
+    "ov": [
+     {
+      "type": "big",
+      "at": "worst|30%",
+      "rows": [
+       [
+        "1 STAR",
+        130,
+        "#ffd34d"
+       ],
+       [
+        "DRY · FOODLESS · TERRIBLE",
+        70,
+        "#ffffff"
+       ]
+      ],
+      "x": 900,
+      "y": 230
+     }
+    ],
+    "sfx": [
+     "pop@worst|30%"
+    ]
+   }
+  },
+  {
+   "say": "Penn State's rule for anything you find: leave it on the tree until the tree goes out, and vacuum whatever lands on the walls or ceiling.",
+   "src": "F75",
+   "vis": "Meatball, vacuum hose raised to a ceiling speck; the tree untouched.",
+   "id": "s4.l14",
+   "seg": 4,
+   "shot": {
+    "room": "liv",
+    "f": "wk",
+    "cams": [
+     [
+      1200,
+      200,
+      1.4,
+      1.5
+     ]
+    ],
+    "cuts": [
+     "vacuum|65%"
+    ],
+    "pose": "point",
+    "look": [
+     1200,
+     150
+    ],
+    "mb": {
+     "pos": [
+      1450,
+      900
+     ],
+     "prop": "hose"
+    },
+    "x": [
+     {
+      "id": "tree",
+      "type": "tc_xtree",
+      "pos": [
+       960,
+       905
+      ],
+      "s": 0.8,
+      "p": {
+       "deco": 1.0,
+       "lit": 1.0
+      }
+     },
+     {
+      "id": "sp",
+      "type": "tc_specks",
+      "pos": [
+       1200,
+       150
+      ],
+      "s": 1.0,
+      "p": {
+       "n": 3,
+       "w": 60,
+       "h": 40,
+       "col": "#2a2018"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "say": "Nine. This one is not a problem in your house. It's a problem for your county.",
+   "vis": "Pause-and-reveal 2 of 3. Camera moves down the trunk.",
+   "id": "s5.l0",
+   "seg": 5,
+   "shot": {
+    "room": "trunk",
+    "f": "kk",
+    "pans": [
+     [
+      960,
+      200,
+      1.0
+     ],
+     [
+      960,
+      900,
+      1.1
+     ]
+    ],
+    "cams": [
+     [
+      960,
+      300,
+      1.0,
+      1.05
+     ],
+     [
+      960,
+      700,
+      1.6,
+      1.7
+     ]
+    ],
+    "cuts": [
+     "county|60%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "slf",
+      "type": "tc_slf_eggs",
+      "pos": [
+       960,
+       760
+      ],
+      "s": 0.9,
+      "p": {}
+     }
+    ],
+    "sfx": [
+     "sting@0",
+     "hit@0.05",
+     "sting@county|60%"
+    ],
+    "ov": [
+     {
+      "type": "suspect",
+      "text": "STOWAWAY 9 OF 9",
+      "kicker": "THE ONE THAT MATTERS OUTSIDE",
+      "at": 0.0
+     }
+    ],
+    "card_at": 1.5
+   }
+  },
+  {
+   "say": "Spotted lanternfly eggs. Penn State calls it unlikely, but they can turn up on Christmas trees.",
+   "src": "F74; Penn State Extension, Insects on Real Christmas Trees (updated 2026-01-19); Penn State News 2019-11-18",
+   "vis": "A grey patch on the trunk. Name card: SPOTTED LANTERNFLY EGGS.",
+   "card": "SPOTTED LANTERNFLY EGGS",
+   "id": "s5.l1",
+   "seg": 5,
+   "shot": {
+    "room": "trunk",
+    "f": "kk",
+    "cams": [
+     [
+      960,
+      700,
+      1.4,
+      1.45
+     ],
+     [
+      960,
+      700,
+      2.0,
+      2.1
+     ]
+    ],
+    "cuts": [
+     "unlikely|50%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "slf",
+      "type": "tc_slf_eggs",
+      "pos": [
+       960,
+       760
+      ],
+      "s": 0.9,
+      "p": {}
+     }
+    ],
+    "ring_k": true
+   }
+  },
+  {
+   "say": "On bark, an egg mass can look like a smear of dried mud.",
+   "src": "Penn State News 2019-11-18 (\"resemble gray mud splatters\"); Penn State SLF Management Guide (\"mud-like covering\"); USDA APHIS",
+   "vis": "Close-up: grey, cracked, mud-like smear about an inch long.",
+   "id": "s5.l2",
+   "seg": 5,
+   "shot": {
+    "room": "trunk",
+    "f": "kk",
+    "cams": [
+     [
+      960,
+      740,
+      2.0,
+      2.1
+     ],
+     [
+      960,
+      740,
+      2.6,
+      2.7
+     ]
+    ],
+    "cuts": [
+     "mud|60%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "slf",
+      "type": "tc_slf_eggs",
+      "pos": [
+       960,
+       760
+      ],
+      "s": 0.9,
+      "p": {}
+     },
+     {
+      "id": "mud",
+      "type": "ds_label",
+      "pos": [
+       960,
+       560
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "LOOKS LIKE DRIED MUD",
+       "px": 44,
+       "color": "#ffd34d",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "mud|60%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "ring_k": true
+   }
+  },
+  {
+   "say": "If they hatch in your living room, the babies soon die.",
+   "src": "F74",
+   "vis": "A few nymphs on a windowsill, then gone.",
+   "id": "s5.l3",
+   "seg": 5,
+   "shot": {
+    "room": "liv",
+    "f": "kk",
+    "cams": [
+     [
+      250,
+      520,
+      1.8,
+      1.9
+     ],
+     [
+      250,
+      520,
+      2.4,
+      2.5
+     ]
+    ],
+    "cuts": [
+     "die|60%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "tree",
+      "type": "tc_xtree",
+      "pos": [
+       960,
+       905
+      ],
+      "s": 0.8,
+      "p": {
+       "deco": 1.0,
+       "lit": 1.0
+      }
+     },
+     {
+      "id": "ny",
+      "type": "tc_slf_nymphs",
+      "pos": [
+       250,
+       590
+      ],
+      "s": 0.4,
+      "p": {
+       "n": 4,
+       "gone": 0.0
+      },
+      "set": [
+       {
+        "at": "die|60%",
+        "dur": 1.0,
+        "p": {
+         "gone": 1.0
+        }
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "say": "The worry is the ride. Eggs on a tree could reach new ground and hatch outside in spring.",
+   "src": "Virginia Cooperative Extension ENTO-402; Penn State Christmas-tree page",
+   "vis": "A tree on a car roof crossing a county line, then a spring yard with nymphs.",
+   "id": "s5.l4",
+   "seg": 5,
+   "shot": {
+    "room": "road",
+    "f": "kk",
+    "cams": [
+     [
+      600,
+      700,
+      0.9,
+      0.95
+     ],
+     [
+      1300,
+      760,
+      1.2,
+      1.25
+     ]
+    ],
+    "cuts": [
+     "hatch|65%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "car",
+      "type": "tc_car",
+      "pos": [
+       -300,
+       960
+      ],
+      "s": 0.9,
+      "p": {
+       "roll": 1.0,
+       "bounce": 1.0,
+       "tree": true
+      },
+      "moves": [
+       {
+        "at": 0.0,
+        "dur": 3.0,
+        "pos": [
+         1500,
+         960
+        ],
+        "linear": true
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "whoosh@ride|20%"
+    ]
+   }
+  },
+  {
+   "say": "So if you live in or near a lanternfly area, check the trunk before the tree travels.",
+   "src": "Penn State Christmas-tree page; Penn State SLF Management Guide; New Jersey Dept. of Agriculture",
+   "vis": "Meatball inspects the trunk with a flashlight at the lot.",
+   "check": "4. PULL ANY BIRD NEST, CHECK THE TRUNK",
+   "id": "s5.l5",
+   "seg": 5,
+   "shot": {
+    "room": "lot",
+    "f": "wk",
+    "cams": [
+     [
+      1100,
+      700,
+      1.6,
+      1.7
+     ]
+    ],
+    "cuts": [
+     "trunk|55%"
+    ],
+    "pose": "lean",
+    "look": [
+     1050,
+     700
+    ],
+    "mb": {
+     "pos": [
+      1300,
+      900
+     ],
+     "prop": "torch"
+    },
+    "x": [
+     {
+      "id": "tl",
+      "type": "tc_tree_lying",
+      "pos": [
+       700,
+       900
+      ],
+      "s": 0.6,
+      "p": {}
+     }
+    ],
+    "check_at": "trunk|55%",
+    "light": {
+     "kind": "flashlight",
+     "target": [
+      1050,
+      780
+     ]
+    }
+   }
+  },
+  {
+   "say": "Found one? Scrape it into rubbing alcohol or hand sanitizer, or smash it.",
+   "src": "Penn State News 2019-11-18; Penn State SLF Management Guide; USDA APHIS",
+   "vis": "A scraper card pushes the grey patch into a zip bag of sanitizer.",
+   "id": "s5.l6",
+   "seg": 5,
+   "shot": {
+    "room": "trunk",
+    "f": "kk",
+    "cams": [
+     [
+      960,
+      740,
+      1.6,
+      1.7
+     ],
+     [
+      1100,
+      740,
+      1.6,
+      1.7
+     ]
+    ],
+    "cuts": [
+     "sanitizer|50%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "slf",
+      "type": "tc_slf_eggs",
+      "pos": [
+       960,
+       760
+      ],
+      "s": 0.9,
+      "p": {
+       "off": 0.0
+      },
+      "set": [
+       {
+        "at": "Scrape|20%",
+        "dur": 1.0,
+        "p": {
+         "off": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "sc",
+      "type": "tc_prop",
+      "pos": [
+       1300,
+       700
+      ],
+      "s": 1.0,
+      "p": {
+       "kind": "scraper"
+      },
+      "moves": [
+       {
+        "at": "Scrape|15%",
+        "dur": 1.0,
+        "pos": [
+         700,
+         780
+        ]
+       }
+      ],
+      "front": true
+     },
+     {
+      "id": "bag",
+      "type": "tc_prop",
+      "pos": [
+       1250,
+       850
+      ],
+      "s": 0.0005,
+      "p": {
+       "kind": "zipbag"
+      },
+      "moves": [
+       {
+        "at": "sanitizer|50%",
+        "dur": 0.25,
+        "pos": [
+         1250,
+         850
+        ],
+        "s": 0.9
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "scratch@Scrape|20%"
+    ]
+   }
+  },
+  {
+   "say": "Outside the known lanternfly area? Report it to your state agriculture department.",
+   "src": "Penn State SLF Management Guide; USDA APHIS; Penn State Christmas-tree page",
+   "vis": "A phone with a generic STATE AG DEPT screen, no real logo.",
+   "panic": 3,
+   "id": "s5.l7",
+   "seg": 5,
+   "shot": {
+    "room": "liv",
+    "f": "Mk",
+    "cams": [
+     [
+      1500,
+      600,
+      1.8,
+      1.9
+     ]
+    ],
+    "cuts": [
+     "Report|45%"
+    ],
+    "pose": "point",
+    "look": "viewer",
+    "mb": {
+     "pos": [
+      1650,
+      900
+     ],
+     "prop": "phone"
+    },
+    "x": [
+     {
+      "id": "tree",
+      "type": "tc_xtree",
+      "pos": [
+       960,
+       905
+      ],
+      "s": 0.8,
+      "p": {
+       "deco": 1.0,
+       "lit": 1.0
+      }
+     },
+     {
+      "id": "ph",
+      "type": "tc_prop",
+      "pos": [
+       1500,
+       600
+      ],
+      "s": 1.0,
+      "p": {
+       "kind": "phone"
+      }
+     }
+    ],
+    "act": "curious"
+   },
+   "act": "curious"
+  },
+  {
+   "say": "And in a lanternfly area, send the old tree to a chipping program, not the backyard.",
+   "src": "Penn State Christmas-tree page",
+   "vis": "The tree on a curb with a RECYCLE tag.",
+   "id": "s5.l8",
+   "seg": 5,
+   "shot": {
+    "room": "curb",
+    "f": "wk",
+    "cams": [
+     [
+      800,
+      700,
+      1.3,
+      1.35
+     ]
+    ],
+    "cuts": [
+     "chipping|50%"
+    ],
+    "pose": "present",
+    "mb": {
+     "pos": [
+      1350,
+      900
+     ]
+    },
+    "x": [
+     {
+      "id": "tl",
+      "type": "tc_tree_lying",
+      "pos": [
+       500,
+       900
+      ],
+      "s": 0.5,
+      "p": {
+       "dry": 1.0
+      }
+     },
+     {
+      "id": "rc",
+      "type": "ds_label",
+      "pos": [
+       700,
+       480
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "TREE RECYCLING",
+       "px": 64,
+       "color": "#3fb950",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "chipping|50%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "say": "Now the one real mistake. Do not hit the tree with bug spray.",
+   "vis": "A hand with an aerosol can aimed at the lit tree. Freeze.",
+   "id": "s6.l0",
+   "seg": 6,
+   "shot": {
+    "room": "livN",
+    "f": "kM",
+    "cams": [
+     [
+      1150,
+      560,
+      1.1,
+      1.15
+     ]
+    ],
+    "cuts": [
+     "spray|70%"
+    ],
+    "pose": "shock",
+    "mb": {
+     "pos": [
+      1600,
+      900
+     ],
+     "prop": "aerosol"
+    },
+    "act": "shocked",
+    "burst": true,
+    "x": [
+     {
+      "id": "tree",
+      "type": "tc_xtree",
+      "pos": [
+       960,
+       905
+      ],
+      "s": 0.8,
+      "p": {
+       "deco": 1.0,
+       "lit": 1.0
+      }
+     }
+    ],
+    "stamp": {
+     "text": "NO",
+     "color": "#e5383b",
+     "at": "spray|75%",
+     "x": 960,
+     "y": 380,
+     "px": 220,
+     "rot": -10
+    },
+    "sfx": [
+     "sting@0",
+     "hit@0.05",
+     "stamp@spray|75%"
+    ],
+    "ov": [
+     {
+      "type": "suspect",
+      "text": "DON'T DO THIS",
+      "kicker": "THE MISTAKE",
+      "at": 0.0
+     }
+    ],
+    "card_at": 1.5
+   },
+   "act": "shocked"
+  },
+  {
+   "say": "Penn State says aerosol insecticides are often flammable and usually not labelled for indoor use.",
+   "src": "F60",
+   "vis": "The can's label flips to a flame symbol.",
+   "id": "s6.l1",
+   "seg": 6,
+   "shot": {
+    "room": "board",
+    "f": "kk",
+    "cams": [
+     [
+      0,
+      0,
+      1.2,
+      1.25
+     ],
+     [
+      0,
+      0,
+      1.8,
+      1.9
+     ]
+    ],
+    "cuts": [
+     "usually|60%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "can",
+      "type": "tc_prop",
+      "pos": [
+       0,
+       200
+      ],
+      "s": 1.6,
+      "p": {
+       "kind": "aerosol",
+       "flame": 0.0
+      },
+      "set": [
+       {
+        "at": "flammable|45%",
+        "dur": 0.4,
+        "p": {
+         "flame": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "ni",
+      "type": "ds_label",
+      "pos": [
+       0,
+       -320
+      ],
+      "s": 1.0,
+      "p": {
+       "text": "NOT FOR INDOOR USE",
+       "px": 70,
+       "color": "#ffd34d",
+       "on": 0.0
+      },
+      "set": [
+       {
+        "at": "indoor|75%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "sfx": [
+     "tink@flammable|45%"
+    ]
+   }
+  },
+  {
+   "say": "Illinois Extension just says never.",
+   "src": "F61",
+   "vis": "Card.",
+   "card": "NEVER SPRAY THE TREE",
+   "check": "5. VACUUM. NEVER SQUASH. NEVER SPRAY.",
+   "id": "s6.l2",
+   "seg": 6,
+   "shot": {
+    "room": "livN",
+    "f": "wM",
+    "cuts": [
+     "never|60%"
+    ],
+    "pose": "point",
+    "look": "viewer",
+    "mb": {
+     "pos": [
+      1600,
+      900
+     ]
+    },
+    "x": [
+     {
+      "id": "tree",
+      "type": "tc_xtree",
+      "pos": [
+       960,
+       905
+      ],
+      "s": 0.8,
+      "p": {
+       "deco": 1.0,
+       "lit": 1.0
+      }
+     }
+    ],
+    "check_at": "never|70%",
+    "sfx": [
+     "hit@never|60%"
+    ]
+   }
+  },
+  {
+   "say": "North Carolina State's entomologists put it this way: with the lights on, you could set the tree on fire.",
+   "src": "F63",
+   "vis": "Lights glow; Meatball slowly lowers the can and backs away.",
+   "panic": 5,
+   "id": "s6.l3",
+   "seg": 6,
+   "shot": {
+    "room": "livN",
+    "f": "kw",
+    "cams": [
+     [
+      960,
+      500,
+      1.4,
+      1.5
+     ]
+    ],
+    "cuts": [
+     "lights|55%"
+    ],
+    "pose": "nervous",
+    "look": "tree",
+    "mb": {
+     "pos": [
+      1600,
+      900
+     ],
+     "prop": "aerosol_down",
+     "moves": [
+      {
+       "at": "fire|60%",
+       "dur": 1.2,
+       "pos": [
+        1800,
+        900
+       ],
+       "walk": true
+      }
+     ]
+    },
+    "x": [
+     {
+      "id": "tree",
+      "type": "tc_xtree",
+      "pos": [
+       960,
+       905
+      ],
+      "s": 0.8,
+      "p": {
+       "deco": 1.0,
+       "lit": 1.0
+      }
+     }
+    ]
+   }
+  },
+  {
+   "say": "Bug spray plus Christmas lights. Whoever started that tip deserves a [BLEEP] lump of coal.",
+   "src": "joke",
+   "act": "smug",
+   "id": "s6.l4",
+   "seg": 6,
+   "shot": {
+    "room": "livN",
+    "f": "Mk",
+    "cams": [
+     [
+      960,
+      560,
+      1.0,
+      1.05
+     ]
+    ],
+    "cuts": [
+     "Whoever|35%"
+    ],
+    "pose": "deadpan",
+    "look": "viewer",
+    "mb": {
+     "pos": [
+      1600,
+      900
+     ]
+    },
+    "x": [
+     {
+      "id": "tree",
+      "type": "tc_xtree",
+      "pos": [
+       960,
+       905
+      ],
+      "s": 0.8,
+      "p": {
+       "deco": 1.0,
+       "lit": 1.0
+      }
+     },
+     {
+      "id": "coal",
+      "type": "tc_prop",
+      "pos": [
+       1300,
+       900
+      ],
+      "s": 0.8,
+      "p": {
+       "kind": "logs",
+       "n": 1
+      }
+     }
+    ],
+    "card": false
+   }
+  },
+  {
+   "say": "And you don't need it. Iowa State says spraying a fresh-cut tree isn't necessary or recommended.",
+   "src": "F62",
+   "vis": "Can goes in a drawer. Panic drops.",
+   "panic": 2,
+   "id": "s6.l5",
+   "seg": 6,
+   "shot": {
+    "room": "liv",
+    "f": "kM",
+    "cams": [
+     [
+      1450,
+      760,
+      1.5,
+      1.6
+     ]
+    ],
+    "cuts": [
+     "Iowa|40%"
+    ],
+    "pose": "laugh",
+    "mb": {
+     "pos": [
+      1650,
+      900
+     ]
+    },
+    "x": [
+     {
+      "id": "tree",
+      "type": "tc_xtree",
+      "pos": [
+       960,
+       905
+      ],
+      "s": 0.8,
+      "p": {
+       "deco": 1.0,
+       "lit": 1.0
+      }
+     },
+     {
+      "id": "tab",
+      "type": "tc_prop",
+      "pos": [
+       1400,
+       900
+      ],
+      "s": 1.0,
+      "p": {
+       "kind": "table",
+       "open": 1.0
+      }
+     },
+     {
+      "id": "can",
+      "type": "tc_prop",
+      "pos": [
+       1400,
+       520
+      ],
+      "s": 0.5,
+      "p": {
+       "kind": "aerosol"
+      },
+      "moves": [
+       {
+        "at": "need|30%",
+        "dur": 0.6,
+        "pos": [
+         1400,
+         640
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "say": "Should you hose the tree off outside first? North Carolina State says you can. The Norwegian biologist says don't, because washing damages the tree. Shaking is the step most advice agrees on.",
+   "src": "F80 F9 F76",
+   "vis": "Two advisers with opposite signs (HOSE IT / DON'T), then a tree being shaken and dragged clear of the pile.",
+   "check": "3. SHAKE IT, THEN MOVE IT AWAY",
+   "id": "s6.l6",
+   "seg": 6,
+   "shot": {
+    "room": "yard",
+    "f": "kkk",
+    "cams": [
+     [
+      600,
+      600,
+      1.0,
+      1.05
+     ],
+     [
+      1200,
+      600,
+      1.0,
+      1.05
+     ],
+     [
+      960,
+      600,
+      0.9,
+      0.95
+     ]
+    ],
+    "cuts": [
+     "Norwegian|40%",
+     "Shaking|75%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "p1",
+      "type": "tc_prop",
+      "pos": [
+       600,
+       900
+      ],
+      "s": 1.0,
+      "p": {
+       "kind": "sign",
+       "text": "HOSE IT",
+       "col": "#3fb950"
+      }
+     },
+     {
+      "id": "p2",
+      "type": "tc_prop",
+      "pos": [
+       1200,
+       900
+      ],
+      "s": 1.0,
+      "p": {
+       "kind": "sign",
+       "text": "DON'T",
+       "col": "#e5383b"
+      }
+     },
+     {
+      "id": "t",
+      "type": "tc_xtree",
+      "pos": [
+       960,
+       900
+      ],
+      "s": 0.6,
+      "p": {
+       "deco": 0.0,
+       "lit": 0.0,
+       "sway": 0.0,
+       "gifts": false
+      },
+      "set": [
+       {
+        "at": "Shaking|75%",
+        "dur": 0.0,
+        "p": {
+         "sway": 0.08
+        }
+       }
+      ]
+     }
+    ],
+    "check_at": "Shaking|80%",
+    "sfx": [
+     "pop@can|25%",
+     "pop@Norwegian|45%",
+     "whoosh@Shaking|75%"
+    ]
+   }
+  },
+  {
+   "say": "Same idea for firewood. Illinois says bring in a day or two of wood at a time, because things wake up in there too.",
+   "src": "F84 F86",
+   "vis": "Small armful of logs by the fire; a beetle peeks out of a big indoor pile with an X on it.",
+   "id": "s6.l7",
+   "seg": 6,
+   "shot": {
+    "room": "liv",
+    "f": "kk",
+    "cams": [
+     [
+      1750,
+      760,
+      1.4,
+      1.5
+     ],
+     [
+      1200,
+      760,
+      1.4,
+      1.5
+     ]
+    ],
+    "cuts": [
+     "wake|70%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "tree",
+      "type": "tc_xtree",
+      "pos": [
+       960,
+       905
+      ],
+      "s": 0.8,
+      "p": {
+       "deco": 1.0,
+       "lit": 1.0
+      }
+     },
+     {
+      "id": "lg",
+      "type": "tc_prop",
+      "pos": [
+       1750,
+       900
+      ],
+      "s": 1.0,
+      "p": {
+       "kind": "logs",
+       "n": 2
+      }
+     },
+     {
+      "id": "pile",
+      "type": "tc_prop",
+      "pos": [
+       1200,
+       900
+      ],
+      "s": 1.0,
+      "p": {
+       "kind": "logs",
+       "n": 9
+      }
+     },
+     {
+      "id": "bb",
+      "type": "tc_barkbeetle",
+      "pos": [
+       1200,
+       760
+      ],
+      "s": 0.15,
+      "p": {}
+     },
+     {
+      "id": "x",
+      "type": "ds_cross",
+      "pos": [
+       1200,
+       760
+      ],
+      "s": 1.0,
+      "p": {
+       "on": 0.0,
+       "r": 180
+      },
+      "set": [
+       {
+        "at": "wake|70%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ],
+      "front": true
+     }
+    ],
+    "sfx": [
+     "stamp@wake|70%"
+    ]
+   }
+  },
+  {
+   "say": "Here is the whole tree check.",
+   "vis": "The TREE CHECK list fills the right half of the frame. Pause-and-reveal 3 of 3.",
+   "id": "s7.l0",
+   "seg": 7,
+   "shot": {
+    "room": "lot",
+    "f": "w",
+    "pose": "present",
+    "look": "viewer",
+    "mb": {
+     "pos": [
+      1200,
+      900
+     ]
+    },
+    "sfx": [
+     "sting@0",
+     "hit@0.05",
+     "hit@check|60%"
+    ],
+    "ov": [
+     {
+      "type": "suspect",
+      "text": "THE TREE CHECK",
+      "kicker": "THE TREE CHECK",
+      "at": 0.0
+     }
+    ],
+    "card_at": 1.5
+   }
+  },
+  {
+   "say": "One. Before it comes inside, look up into the tree from the cut end, and scan the branches for the marshmallow.",
+   "src": "F78 F39",
+   "vis": "Tree on its side at the lot; Meatball peers in from the trunk end.",
+   "id": "s7.l1",
+   "seg": 7,
+   "shot": {
+    "room": "lot",
+    "f": "kk",
+    "cams": [
+     [
+      600,
+      700,
+      1.0,
+      1.05
+     ],
+     [
+      500,
+      700,
+      1.6,
+      1.7
+     ]
+    ],
+    "cuts": [
+     "scan|60%"
+    ],
+    "mb": {
+     "pos": [
+      1000,
+      900
+     ],
+     "prop": "torch"
+    },
+    "pose": "lean",
+    "x": [
+     {
+      "id": "te",
+      "type": "tc_tree_end",
+      "pos": [
+       500,
+       900
+      ],
+      "s": 0.6,
+      "p": {
+       "peek": 0.0
+      },
+      "set": [
+       {
+        "at": "look|30%",
+        "dur": 1.0,
+        "p": {
+         "peek": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "list_step": 1
+   }
+  },
+  {
+   "say": "Two. Clip any egg case, twig and all, and tuck it into an evergreen outside.",
+   "src": "F40",
+   "vis": "Replay: snip, tuck.",
+   "id": "s7.l2",
+   "seg": 7,
+   "shot": {
+    "room": "yard",
+    "f": "kk",
+    "cams": [
+     [
+      600,
+      700,
+      1.3,
+      1.35
+     ],
+     [
+      400,
+      700,
+      1.3,
+      1.35
+     ]
+    ],
+    "cuts": [
+     "tuck|60%"
+    ],
+    "mb": {
+     "pos": [
+      800,
+      900
+     ],
+     "prop": "shears",
+     "moves": [
+      {
+       "at": "tuck|60%",
+       "dur": 0.8,
+       "pos": [
+        600,
+        900
+       ],
+       "walk": true
+      }
+     ]
+    },
+    "pose": "present",
+    "x": [
+     {
+      "id": "sh",
+      "type": "tc_shrub",
+      "pos": [
+       300,
+       900
+      ],
+      "s": 0.9,
+      "p": {
+       "snow": 0.6
+      }
+     }
+    ],
+    "list_step": 2
+   }
+  },
+  {
+   "say": "Three. Shake the tree. Some lots have a shaker. Then move it away from that spot, or the bugs can crawl back.",
+   "src": "F76 F77",
+   "vis": "Mechanical shaker rattles the tree; specks fall; Meatball drags the tree clear of the pile.",
+   "id": "s7.l3",
+   "seg": 7,
+   "shot": {
+    "room": "lot",
+    "f": "kk",
+    "cams": [
+     [
+      500,
+      600,
+      1.0,
+      1.05
+     ],
+     [
+      800,
+      700,
+      1.0,
+      1.05
+     ]
+    ],
+    "cuts": [
+     "move|55%"
+    ],
+    "mb": {
+     "pos": [
+      1100,
+      900
+     ],
+     "moves": [
+      {
+       "at": "move|55%",
+       "dur": 1.2,
+       "pos": [
+        1300,
+        900
+       ],
+       "walk": true
+      }
+     ]
+    },
+    "pose": "point",
+    "x": [
+     {
+      "id": "shk",
+      "type": "tc_shaker",
+      "pos": [
+       500,
+       900
+      ],
+      "s": 0.8,
+      "p": {
+       "shake": 0.0,
+       "fall": 0.0
+      },
+      "set": [
+       {
+        "at": "Shake|10%",
+        "dur": 0.3,
+        "p": {
+         "shake": 1.0,
+         "fall": 1.0
+        }
+       },
+       {
+        "at": "move|50%",
+        "dur": 0.3,
+        "p": {
+         "shake": 0.0
+        }
+       }
+      ]
+     }
+    ],
+    "list_step": 3,
+    "sfx": [
+     "whoosh@Shake|10%"
+    ]
+   }
+  },
+  {
+   "say": "Four. Pull out any old bird nest, and check the trunk.",
+   "src": "F73 F74",
+   "vis": "Nest out; flashlight on bark.",
+   "id": "s7.l4",
+   "seg": 7,
+   "shot": {
+    "room": "lot",
+    "f": "kk",
+    "cams": [
+     [
+      800,
+      600,
+      1.3,
+      1.35
+     ],
+     [
+      800,
+      700,
+      1.8,
+      1.9
+     ]
+    ],
+    "cuts": [
+     "trunk|60%"
+    ],
+    "mb": {
+     "pos": [
+      1100,
+      900
+     ],
+     "prop": "tongs_nest"
+    },
+    "pose": "present",
+    "x": [
+     {
+      "id": "tl",
+      "type": "tc_tree_lying",
+      "pos": [
+       500,
+       900
+      ],
+      "s": 0.6,
+      "p": {}
+     }
+    ],
+    "list_step": 4
+   }
+  },
+  {
+   "say": "Five. Once it's inside: vacuum, never squash, never spray.",
+   "src": "F59 F60 F52",
+   "vis": "Vacuum yes; slipper no; spray can no.",
+   "id": "s7.l5",
+   "seg": 7,
+   "shot": {
+    "room": "liv",
+    "f": "kk",
+    "cams": [
+     [
+      1100,
+      600,
+      1.0,
+      1.05
+     ],
+     [
+      1200,
+      700,
+      1.3,
+      1.35
+     ]
+    ],
+    "cuts": [
+     "squash|55%"
+    ],
+    "mb": {
+     "pos": [
+      1300,
+      900
+     ],
+     "prop": "hose"
+    },
+    "pose": "present",
+    "x": [
+     {
+      "id": "tree",
+      "type": "tc_xtree",
+      "pos": [
+       960,
+       905
+      ],
+      "s": 0.8,
+      "p": {
+       "deco": 1.0,
+       "lit": 1.0
+      }
+     },
+     {
+      "id": "x1",
+      "type": "ds_cross",
+      "pos": [
+       1450,
+       760
+      ],
+      "s": 1.0,
+      "p": {
+       "on": 0.0,
+       "r": 120
+      },
+      "set": [
+       {
+        "at": "squash|60%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ],
+      "front": true
+     },
+     {
+      "id": "x2",
+      "type": "ds_cross",
+      "pos": [
+       1650,
+       760
+      ],
+      "s": 1.0,
+      "p": {
+       "on": 0.0,
+       "r": 120
+      },
+      "set": [
+       {
+        "at": "spray|85%",
+        "dur": 0.3,
+        "p": {
+         "on": 1.0
+        }
+       }
+      ],
+      "front": true
+     },
+     {
+      "id": "sl",
+      "type": "tc_prop",
+      "pos": [
+       1450,
+       900
+      ],
+      "s": 0.8,
+      "p": {
+       "kind": "slipper"
+      }
+     },
+     {
+      "id": "can",
+      "type": "tc_prop",
+      "pos": [
+       1650,
+       900
+      ],
+      "s": 0.6,
+      "p": {
+       "kind": "aerosol"
+      }
+     }
+    ],
+    "list_step": 5,
+    "sfx": [
+     "stamp@squash|60%",
+     "stamp@spray|85%"
+    ]
+   }
+  },
+  {
+   "say": "That's it.",
+   "vis": "All five boxes ticked.",
+   "id": "s7.l6",
+   "seg": 7,
+   "shot": {
+    "room": "lot",
+    "f": "M",
+    "pose": "laugh",
+    "look": "viewer",
+    "mb": {
+     "pos": [
+      1200,
+      900
+     ]
+    },
+    "list_all": true,
+    "act": "smug"
+   },
+   "act": "smug"
+  },
+  {
+   "say": "Panic level: one.",
+   "vis": "Meter drops to 1 of 10 and turns green.",
+   "panic": 1,
+   "id": "s8.l0",
+   "seg": 8,
+   "shot": {
+    "room": "liv",
+    "f": "kk",
+    "cams": [
+     [
+      960,
+      540,
+      1.0,
+      1.04
+     ],
+     [
+      960,
+      500,
+      1.2,
+      1.25
+     ]
+    ],
+    "cuts": [
+     "one|60%"
+    ],
+    "mb": {
+     "pos": [
+      1600,
+      900
+     ]
+    },
+    "pose": "laugh",
+    "x": [
+     {
+      "id": "tree",
+      "type": "tc_xtree",
+      "pos": [
+       960,
+       905
+      ],
+      "s": 0.8,
+      "p": {
+       "deco": 1.0,
+       "lit": 1.0
+      }
+     }
+    ],
+    "meter_big_to": 1.0,
+    "meter_at": "one|55%",
+    "tint": [
+     0.6,
+     1.0,
+     0.6,
+     0.06
+    ],
+    "sfx": [
+     "sting@0",
+     "hit@0.05",
+     "sting@one|60%"
+    ],
+    "ov": [
+     {
+      "type": "suspect",
+      "text": "VERDICT",
+      "kicker": "THE VERDICT",
+      "at": 0.0
+     }
+    ],
+    "card_at": 1.5
+   }
+  },
+  {
+   "say": "Your tree is not twenty-five thousand bugs. It's an outdoor tree with a few sleepy passengers that don't last long in your living room.",
+   "src": "F13 F20 F21",
+   "vis": "The decorated tree, calm; a couple of tiny specks with Z's.",
+   "id": "s8.l1",
+   "seg": 8,
+   "shot": {
+    "room": "liv",
+    "f": "kk",
+    "cams": [
+     [
+      960,
+      560,
+      1.0,
+      1.05
+     ],
+     [
+      960,
+      500,
+      1.6,
+      1.7
+     ]
+    ],
+    "cuts": [
+     "outdoor|45%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "tree",
+      "type": "tc_xtree",
+      "pos": [
+       960,
+       905
+      ],
+      "s": 0.8,
+      "p": {
+       "deco": 1.0,
+       "lit": 1.0,
+       "zs": 1.0
+      }
+     }
+    ],
+    "meter_big_to": 0.0
+   }
+  },
+  {
+   "say": "Check for the marshmallow, and go get the tree.",
+   "vis": "Meatball carries the tree through the door, triumphant.",
+   "id": "s8.l2",
+   "seg": 8,
+   "shot": {
+    "room": "yard",
+    "f": "wM",
+    "cuts": [
+     "go|55%"
+    ],
+    "pose": "laugh",
+    "look": "viewer",
+    "mb": {
+     "pos": [
+      1300,
+      900
+     ],
+     "prop": "carrytree",
+     "moves": [
+      {
+       "at": "go|50%",
+       "dur": 1.4,
+       "pos": [
+        700,
+        900
+       ],
+       "walk": true,
+       "face": -1
+      }
+     ]
+    }
+   }
+  },
+  {
+   "say": "And that egg case you tucked into the bush? In spring, it hatches where there is actually something to eat.",
+   "src": "F24 F40",
+   "vis": "Callback: the garden evergreen in spring; nymphs pour out into green leaves.",
+   "id": "s8.l3",
+   "seg": 8,
+   "shot": {
+    "room": "yardS",
+    "f": "kk",
+    "cams": [
+     [
+      800,
+      700,
+      1.0,
+      1.05
+     ],
+     [
+      800,
+      650,
+      1.7,
+      1.8
+     ]
+    ],
+    "cuts": [
+     "spring|40%"
+    ],
+    "mb": {
+     "hidden": true
+    },
+    "x": [
+     {
+      "id": "sh",
+      "type": "tc_shrub",
+      "pos": [
+       800,
+       900
+      ],
+      "s": 1.0,
+      "p": {
+       "spring": 1.0
+      }
+     },
+     {
+      "id": "tw",
+      "type": "tc_prop",
+      "pos": [
+       880,
+       640
+      ],
+      "s": 0.5,
+      "p": {
+       "kind": "shrubtwig"
+      }
+     },
+     {
+      "id": "ny0",
+      "type": "tc_nymph",
+      "pos": [
+       880,
+       640
+      ],
+      "s": 0.0005,
+      "p": {},
+      "moves": [
+       {
+        "at": "hatches|45%",
+        "dur": 1.2,
+        "pos": [
+         700,
+         560
+        ],
+        "s": 0.07
+       }
+      ]
+     },
+     {
+      "id": "ny1",
+      "type": "tc_nymph",
+      "pos": [
+       880,
+       640
+      ],
+      "s": 0.0005,
+      "p": {},
+      "moves": [
+       {
+        "at": "hatches|49%",
+        "dur": 1.2,
+        "pos": [
+         760,
+         610
+        ],
+        "s": 0.07
+       }
+      ]
+     },
+     {
+      "id": "ny2",
+      "type": "tc_nymph",
+      "pos": [
+       880,
+       640
+      ],
+      "s": 0.0005,
+      "p": {},
+      "moves": [
+       {
+        "at": "hatches|53%",
+        "dur": 1.2,
+        "pos": [
+         820,
+         660
+        ],
+        "s": 0.07
+       }
+      ]
+     },
+     {
+      "id": "ny3",
+      "type": "tc_nymph",
+      "pos": [
+       880,
+       640
+      ],
+      "s": 0.0005,
+      "p": {},
+      "moves": [
+       {
+        "at": "hatches|57%",
+        "dur": 1.2,
+        "pos": [
+         880,
+         560
+        ],
+        "s": 0.07
+       }
+      ]
+     },
+     {
+      "id": "ny4",
+      "type": "tc_nymph",
+      "pos": [
+       880,
+       640
+      ],
+      "s": 0.0005,
+      "p": {},
+      "moves": [
+       {
+        "at": "hatches|61%",
+        "dur": 1.2,
+        "pos": [
+         940,
+         610
+        ],
+        "s": 0.07
+       }
+      ]
+     },
+     {
+      "id": "ny5",
+      "type": "tc_nymph",
+      "pos": [
+       880,
+       640
+      ],
+      "s": 0.0005,
+      "p": {},
+      "moves": [
+       {
+        "at": "hatches|65%",
+        "dur": 1.2,
+        "pos": [
+         1000,
+         660
+        ],
+        "s": 0.07
+       }
+      ]
+     }
+    ],
+    "tint": [
+     0.7,
+     1.0,
+     0.6,
+     0.06
+    ],
+    "act": "story"
+   },
+   "act": "story"
+  },
+  {
+   "say": "Next, the skinny spider in the corner of your ceiling. Don't squish that one either.",
+   "vis": "END SCREEN: WATCH NEXT slot (the cellar spider episode), subscribe slot. Hold 12 s under music.",
+   "id": "s8.l4",
+   "seg": 8,
+   "shot": {
+    "room": "liv",
+    "f": "wk",
+    "cams": [
+     [
+      1500,
+      300,
+      1.6,
+      1.7
+     ]
+    ],
+    "cuts": [
+     "skinny|30%"
+    ],
+    "pose": "point",
+    "look": [
+     1500,
+     250
+    ],
+    "mb": {
+     "pos": [
+      1600,
+      900
+     ]
+    },
+    "x": [
+     {
+      "id": "tree",
+      "type": "tc_xtree",
+      "pos": [
+       960,
+       905
+      ],
+      "s": 0.8,
+      "p": {
+       "deco": 1.0,
+       "lit": 1.0
+      }
+     },
+     {
+      "id": "sp",
+      "type": "cellar_spider",
+      "pos": [
+       1500,
+       220
+      ],
+      "s": 0.3,
+      "p": {}
+     },
+     {
+      "id": "web",
+      "type": "ds_web",
+      "pos": [
+       1500,
+       150
+      ],
+      "s": 0.5,
+      "p": {
+       "w": 400,
+       "h": 400
+      }
+     }
+    ]
+   }
+  }
+ ],
+ "burst": "loud",
+ "panic_start": 9,
+ "end_text": "WATCH NEXT  ·  THE SPIDER IN YOUR CORNER",
+ "cap_swap": {
+  "damn": "dang"
+ }
+}
