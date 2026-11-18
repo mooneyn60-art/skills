@@ -349,7 +349,8 @@ def build(outline, out_spec):
             continue
         sh = R.SHOTS.setdefault(f"s{si}.l0", {"f": "wm"})
         kick = seg["chapter"].split(".", 1)[-1].strip().upper() if seg["chapter"][0].isdigit() else seg["chapter"].upper()
-        sh.setdefault("ov", []).insert(0, {"type": "suspect", "text": seg.get("chip") or kick, "kicker": kick, "at": 0.0})
+        sh.setdefault("ov", []).insert(0, {"type": "suspect", "text": seg.get("chip") or kick, "kicker": kick, "at": 0.0,
+                                           "dur": sh.get("slam_dur", 1.5)})
         sh.setdefault("sfx", [])[:0] = ["sting@0", "hit@0.05"]
         sh["card_at"] = 1.5
     R.BEATS = list(BEAT_IDS)

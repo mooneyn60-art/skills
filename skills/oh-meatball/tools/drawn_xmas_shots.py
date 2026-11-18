@@ -389,9 +389,9 @@ def table():
     # =========================================================================================== 6. the mistake (living room at night)
     T["s6.l0"] = dict(room="livN", f="kM", cams=[[1150, 560, 1.1, 1.15]], cuts=["spray|70%"], pose="shock", mb=MB(1600, prop="aerosol"), act="shocked", burst=True,
                       x=[tree()], **stamp("NO", "spray|75%", RED, 960, 380, 220, -10), sfx=["stamp@spray|75%"])
-    T["s6.l1"] = dict(room="board", f="kk", cams=[[0, 0, 1.2, 1.25], [0, 0, 1.8, 1.9]], cuts=["usually|60%"], mb=HID,
+    T["s6.l1"] = dict(room="board", f="kk", cams=[[0, 0, 1.0, 1.05], [0, 100, 1.5, 1.55]], cuts=["usually|60%"], mb=HID,
                       x=[A("can", "tc_prop", [0, 200], 1.6, {"kind": "aerosol", "flame": 0.0}, set=[st("flammable|45%", 0.4, flame=1.0)]),
-                         lab("ni", "NOT FOR INDOOR USE", [0, -320], "indoor|75%", px=70, color=YEL)], sfx=["tink@flammable|45%"])
+                         lab("ni", "NOT FOR INDOOR USE", [0, -260], "indoor|75%", px=60, color=YEL)], sfx=["tink@flammable|45%"])
     T["s6.l2"] = dict(room="livN", f="wM", cuts=["never|60%"], pose="point", look="viewer", mb=MB(1600), x=[tree()], check_at="never|70%",
                       sfx=["hit@never|60%"])
     T["s6.l3"] = dict(room="livN", f="kw", cams=[[960, 500, 1.4, 1.5]], cuts=["lights|55%"], pose="nervous", look="tree",
@@ -405,7 +405,7 @@ def table():
                                  A("p2", "tc_prop", [1200, FY], 1.0, {"kind": "sign", "text": "DON'T", "col": "#e5383b"}),
                                  A("t", "tc_xtree", [960, FY], 0.6, {"deco": 0.0, "lit": 0.0, "sway": 0.0, "gifts": False}, set=[st("Shaking|75%", 0.0, sway=0.08)])],
                       check_at="Shaking|80%", sfx=["pop@can|25%", "pop@Norwegian|45%", "whoosh@Shaking|75%"])
-    T["s6.l7"] = dict(room="liv", f="kk", cams=[[1750, 760, 1.4, 1.5], [1200, 760, 1.4, 1.5]], cuts=["wake|70%"], mb=HID,
+    T["s6.l7"] = dict(room="liv", f="kkk", cams=[[1750, 760, 1.4, 1.5], [1150, 600, 0.9, 0.95], [1200, 760, 1.5, 1.55]], cuts=["Illinois|30%", "wake|70%"], mb=HID,
                       x=[tree(), prop("lg", "logs", [1750, FY], 1.0, n=2), prop("pile", "logs", [1200, FY], 1.0, n=9),
                          A("bb", "tc_barkbeetle", [1200, 760], 0.15, {}), A("x", "ds_cross", [1200, 760], 1.0, {"on": 0.0, "r": 180}, set=popset("wake|70%"), front=True)],
                       sfx=["stamp@wake|70%"])
@@ -427,9 +427,9 @@ def table():
     T["s7.l6"] = dict(room="lot", f="M", pose="laugh", look="viewer", mb=MB(1200), list_all=True, act="smug")
     # =========================================================================================== 8. the verdict
     T["s8.l0"] = dict(room="liv", f="kk", cams=[[960, 540, 1.0, 1.04], [960, 500, 1.2, 1.25]], cuts=["one|60%"], mb=MB(1600), pose="laugh",
-                      x=[tree()], meter_big_to=1.0, meter_at="one|55%", tint=[0.6, 1.0, 0.6, 0.06], sfx=["sting@one|60%"])
+                      x=[tree()], meter_big_to=1.0, meter_big_at="45%", meter_at="one|60%", slam_dur=0.9, tint=[0.6, 1.0, 0.6, 0.06], sfx=["sting@one|60%"])
     T["s8.l1"] = dict(room="liv", f="kk", cams=[[960, 560, 1.0, 1.05], [960, 500, 1.6, 1.7]], cuts=["outdoor|45%"], mb=HID,
-                      x=[tree(zs=1.0)], meter_big_to=0.0)
+                      x=[tree(zs=1.0)], meter_big=1.0, meter_big_to=0.0, meter_big_at="35%")
     T["s8.l2"] = dict(room="yard", f="wM", cuts=["go|55%"], pose="laugh", look="viewer", mb=MB(1300, prop="carrytree", moves=[mv("go|50%", 1.4, [700, FY], walk=True, face=-1)]))
     T["s8.l3"] = dict(room="yardS", f="kk", cams=[[800, 700, 1.0, 1.05], [800, 650, 1.7, 1.8]], cuts=["spring|40%"], mb=HID,
                       x=[A("sh", "tc_shrub", [800, FY], 1.0, {"spring": 1.0}), A("tw", "tc_prop", [880, 640], 0.5, {"kind": "shrubtwig"})] +
