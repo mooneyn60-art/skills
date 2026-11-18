@@ -214,7 +214,7 @@ function listingPages() {
         <div style="font-size:42px;color:#2b2d42;line-height:1.5;margin-top:30px">Your elf flies home with Santa on Christmas Eve, and leaves space for a favorite memory from this year.</div>
         <div style="margin-top:40px">${A.elf(1.1)}</div>
       </div>
-      <div class="abs" style="left:0;right:0;bottom:50px;text-align:center"><span class="pill" style="background:#2f7d4f">Christmas Eve Goodbye Letter</span></div>`,
+      <div class="abs" style="left:1300px;width:640px;top:1190px;text-align:center"><span class="pill" style="background:#2f7d4f;font-size:42px;padding:18px 40px">Christmas Eve Goodbye</span></div>`,
   };
 }
 
