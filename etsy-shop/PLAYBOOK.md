@@ -1,5 +1,14 @@
 # DoodleDesignAndCo Team Playbook (shared by every agent)
 
+## 🎯 #1 TEAM GOAL (set Nov 18): FIRST SALE BY SUN NOV 22
+Every agent works toward this first. The plan, based on our research (beginner-seller guides: Outfy, Promptless Press, Insight Agent, ProfitTree):
+1. **Sale live now.** Owner sets **25% off all listings, Nov 19 – Dec 1** (one sale covering launch week + Cyber Week). Strike-through prices plus Etsy's "on sale" surfacing.
+2. **Traffic.** 3 TikToks/day (scheduled), daily Pinterest pins, and the owner shares listings in her own Facebook/Instagram stories and parent groups (promo threads only).
+3. **More listings.** Add the Elf Letter Bundle this week (shop goes to 13). Aim for 20 listings by early December.
+4. **Etsy Ads $3/day** on the Santa Mail Set, Coloring Book and Nice List, **only once the owner approves** the spend.
+5. **Hero products to push:** Santa Mail Set ($7.99 → $5.99 on sale), Coloring Book, Nice List, Elf Letter Bundle.
+6. **When the first order arrives:** the analyst reports it, and the owner sends a warm thank-you. Never ask for or incentivize reviews.
+
 ## The business
 - **Etsy shop:** DoodleDesignAndCo (shop_id 69156121). It sells printable digital downloads: Christmas kids' printables, planners and wall art.
 - **Owner:** new to AI. Every message to her must be short and plain, with numbered steps for anything she has to do.
