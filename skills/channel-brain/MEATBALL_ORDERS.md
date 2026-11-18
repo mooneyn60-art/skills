@@ -15,6 +15,7 @@ Daily and tactical notes stay in the shared notebook under **[MEATBALL]**. The r
 - **Every style-lane script** passes channels/qa/style-lane-joke-safety-checklist.md (Research & QA) before preview: joke scores (avg >=3.5, cut 1-2s), original satire of public figures/institutions only, 10 policy red flags. Render only after PASS.
 - **Still in force:** sourced facts, swears 1-2 none in first 7 s, TikTok AI label ON, YouTube synthetic NO, made for kids NO, TikToks >=61 s.
 - **Next:** wait for Studio's style brief before building anything in the new style.
+- **Nolan 11/18 on the first cutout preview:** "Funnier, we need way edgier jokes just like South Park... study South Park and use their type of humor and make topic more known." So: well-known topics (holidays, big news, everyday pain points), "but/therefore" escalation, kids saying cynical adult things deadpan, an adult crazier than the kids, absurd escalation, a fake moral speech that gets undercut, reaction holds and hard cuts. Technique only; no copied characters, lines, voices or music.
 
 ## 11/18 FULL PLAN (Studio 0ea9c59, Moondog88-approved): applies from the next render on
 - **Every Short:** Related video = the matching long-form (Studio sets it in YouTube; Metricool can't). Say and show "full video linked" in the last 5 s; the long-form pays off that hook in its first 10 s.
