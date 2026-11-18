@@ -28,6 +28,9 @@ BLENDS = {  # name -> [(kokoro voice, weight)]; C is Nolan's pick (research/39-v
     "michael": [("am_michael", 1.0)],
     "pip": [("am_puck", 0.6), ("af_sky", 0.4)],         # cutout preview 11/18: Pip, tall anxious kid
     "dot": [("af_sky", 0.5), ("af_river", 0.5)],        # cutout preview 11/18: Dot, short deadpan kid
+    "grandma": [("bf_isabella", 0.6), ("af_heart", 0.4)],  # cutout test 2: tiny sweet grandma, turned ruthless
+    "kiosk": [("am_echo", 0.6), ("bm_george", 0.4)],      # cutout test 2: flat self-checkout robot (no effects)
+    "ceo": [("am_michael", 0.5), ("bm_lewis", 0.5)],      # cutout test 2 v2: smug fictional MEGAMART CEO
 }
 SPEED = 1.05
 # Per-blend overrides: speed, and "pause" = the longest silence kept inside a line (s). The drawn animal

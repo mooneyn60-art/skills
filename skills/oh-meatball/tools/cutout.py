@@ -225,7 +225,9 @@ def eyes(cx, cy, dx, rx, ry, gaze, look, lids, lid_col, brow, brow_col):
     return s
 
 
-def mouth(cx, cy, lvl, w, kind):
+def mouth(cx, cy, lvl, w, kind, style="oval"):
+    """Closed: a line (smirk / frown / flat). Open, per character: grin (D shape, Meatball), oval (tall, Pip),
+    slot (small, barely moves: Dot's deadpan), dent (both rows of teeth: Grandma)."""
     if lvl == 0:
         if kind == "smirk":
             return [("p", strip([(cx - w * 0.7, cy + 2), (cx, cy + 4), (cx + w * 0.8, cy - 6)], 6), MOUTH, False)]
@@ -233,6 +235,28 @@ def mouth(cx, cy, lvl, w, kind):
             return [("p", strip([(cx - w * 0.6, cy + 4), (cx, cy - 2), (cx + w * 0.6, cy + 4)], 6), MOUTH, False)]
         return [("p", strip([(cx - w * 0.55, cy), (cx + w * 0.55, cy)], 6), MOUTH, False)]
     h = [0, 0.42, 0.85][lvl] * w
+    if style == "grin":
+        top = cy - h * 0.15
+        pts = [(cx - w, top), (cx + w, top)] + ell(cx, top, w, h * 0.95 + 4, 0, 180)[1:-1]
+        s = [("pts", pts, MOUTH)]
+        s.append(("c", (cx, top + h * 0.55, w * 0.55, h * 0.35 + 2), TONGUE, False))
+        s.append(("p", [(cx - w * 0.85, top + 2), (cx + w * 0.85, top + 2), (cx + w * 0.75, top + h * 0.22 + 4),
+                        (cx - w * 0.75, top + h * 0.22 + 4)], WHITE, False))
+        return s
+    if style == "slot":
+        hh = [0, 0.18, 0.32][lvl] * w
+        return [("e", (cx, cy, w * 0.5, hh + 3), MOUTH)]
+    if style == "dent":
+        s = [("e", (cx, cy + h * 0.2, w * 0.85, h * 0.6 + 4), MOUTH)]
+        s.append(("p", [(cx - w * 0.7, cy - h * 0.3), (cx + w * 0.7, cy - h * 0.3), (cx + w * 0.6, cy - h * 0.1),
+                        (cx - w * 0.6, cy - h * 0.1)], WHITE, False))
+        s.append(("p", [(cx - w * 0.6, cy + h * 0.55), (cx + w * 0.6, cy + h * 0.55), (cx + w * 0.7, cy + h * 0.72),
+                        (cx - w * 0.7, cy + h * 0.72)], WHITE, False))
+        return s
+    if style == "oval":
+        s = [("e", (cx, cy + h * 0.3, w * (0.55 if lvl == 1 else 0.62), h * 0.75 + 3), MOUTH)]
+        s.append(("c", (cx, cy + h * 0.3 + h * 0.4, w * 0.4, h * 0.3), TONGUE, False))
+        return s
     s = [("e", (cx, cy + h * 0.25, w * (0.75 if lvl == 1 else 0.9), h * 0.6 + 3), MOUTH)]
     s.append(("c", (cx, cy + h * 0.25 + h * 0.3, w * 0.5, h * 0.3), TONGUE, False))
     if lvl == 2:
@@ -257,7 +281,7 @@ def head_shapes(c, lvl, gaze, blink, expr):
         lids = 1.0 if blink else {"smug": 0.45}.get(expr, 0.0)
         brow = {"smug": -8, "wide": 14, "worried": 18}.get(expr, 4)
         s += eyes(0, cy - 4, 31, 28, 34, gaze, "wide" if expr == "wide" else "norm", lids, MEAT, brow, (70, 34, 18))
-        s += mouth(4, cy + 58, lvl, 40, "smirk" if expr == "smug" else "flat")
+        s += mouth(4, cy + 58, lvl, 40, "smirk" if expr == "smug" else "flat", "grin")
         return s
     if c == "pip":
         cy = -100
@@ -275,7 +299,7 @@ def head_shapes(c, lvl, gaze, blink, expr):
         brow = {"wide": 26, "worried": 22, "norm": 16}.get(expr, 16)
         s += eyes(0, cy + 14, 30, 27, 33, gaze, "wide" if expr in ("wide", "worried") else "norm", lids, SKIN_P,
                   brow, (110, 70, 40))
-        s += mouth(0, cy + 70, lvl, 34, "frown")
+        s += mouth(0, cy + 70, lvl, 34, "frown", "oval")
         return s
     cy = -96   # dot
     s = [("e", (0, cy - 6, 134, 132), YEL)]
@@ -287,7 +311,7 @@ def head_shapes(c, lvl, gaze, blink, expr):
     s.append(("p", strip([(30, cy + 110), (22, cy + 150)], 7), (70, 70, 80), False))
     lids = 1.0 if blink else {"wide": 0.1, "deadpan": 0.52, "smug": 0.6}.get(expr, 0.45)
     s += eyes(0, cy + 24, 30, 26, 30, gaze, "norm", lids, SKIN_D, None, None)
-    s += mouth(0, cy + 72, lvl, 30, "flat")
+    s += mouth(0, cy + 72, lvl, 30, "flat", "slot")
     return s
 
 
