@@ -389,7 +389,7 @@ def cams(L):
         out["cu_" + k] = (cx, L["feet"] + L["cu_dy"], L["cu"])
     sx, sy, ss = L["ship"]
     zs = 2.5 if L["W"] > L["H"] else 2.1
-    out["cu_ship"] = (sx - 10 * ss, sy - (150 if L["W"] > L["H"] else 60) * ss, zs)
+    out["cu_ship"] = (sx - 10 * ss, sy - (110 if L["W"] > L["H"] else 60) * ss, zs)
     return out
 
 
@@ -551,15 +551,15 @@ def plank_sprite(kind, z):
         shapes.append(("p", strip([(-62, y), (62, y)], 2), (120, 76, 40) if kind == "old"
                        else (200, 160, 96), False))
     if kind == "new":   # the price tag: the gag
-        shapes += [("p", strip([(50, 0), (76, 34)], 3), (60, 60, 60), False),
-                   ("p", [(62, 30), (124, 22), (130, 62), (68, 70)], WHITE),
-                   ("e", (72, 38, 5, 5), (60, 60, 60), False)]
+        shapes += [("p", strip([(50, 0), (80, 40)], 4), (60, 60, 60), False),
+                   ("p", [(66, 34), (176, 22), (184, 88), (74, 98)], WHITE),
+                   ("e", (80, 46, 6, 6), (60, 60, 60), False)]
     img = render_shapes(shapes, z, R, 5)
     if kind == "new":
         d = ImageDraw.Draw(img)
-        f = ImageFont.truetype(FONT, max(8, int(20 * z)))
+        f = ImageFont.truetype(FONT, max(8, int(34 * z)))
         c = img.size[0] / 2
-        d.text((c + 96 * z, c + 46 * z), "NEW!", font=f, fill=(200, 40, 32), anchor="mm")
+        d.text((c + 128 * z, c + 60 * z), "NEW!", font=f, fill=(200, 40, 32), anchor="mm")
     _PLANK[key] = img
     return img
 
@@ -709,7 +709,7 @@ def frame(fi):
         hx, hy = cam.p(bx + k["neck"][0] + jx, by + k["neck"][1] + jy)
         paste(fr, sprite(c, "head", zz, *hk), hx, hy, ang)
     draw_banner(fr, L, t, end)
-    draw_caption(fr, L, T, t)
+    draw_caption(fr, L, T, t, top=cam_name == "cu_ship")
     return np.asarray(fr.convert("RGB")).tobytes()
 
 
@@ -730,7 +730,7 @@ def tag(text, size, seed):
     return img.rotate(float(rng.uniform(-3, 3)), resample=Image.BICUBIC)
 
 
-def draw_caption(fr, L, T, t):
+def draw_caption(fr, L, T, t, top=False):
     li = speaking(T, t + 0.04)
     if li is None:
         return
@@ -756,7 +756,7 @@ def draw_caption(fr, L, T, t):
     w = img.size[0]
     if w > L["W"] - 40:
         img = img.resize((L["W"] - 40, int(img.size[1] * (L["W"] - 40) / w)), Image.LANCZOS)
-    paste(fr, img, L["W"] / 2, L["cap_y"])
+    paste(fr, img, L["W"] / 2, L["H"] * (0.13 if L["W"] > L["H"] else 0.2) if top else L["cap_y"])
 
 
 @lru_cache(maxsize=4)
