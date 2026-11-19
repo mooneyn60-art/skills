@@ -635,7 +635,7 @@ def ep4():
         ("hold", 0.45, "cu_karen"),
         ("line", "karen", "This is the worst day of my life!", None,
          dict(scene="checkout", cams=[(0, "wide")], gap=0.1)),
-        ("line", "grandma", "Sweetie, I've buried two husbands. Sit down.", None,
+        ("line", "grandma", "Sweetie, I've returned a fruitcake without a receipt. Sit down.", None,
          dict(scene="checkout", cams=[(0, "cu_grandma")], gap=0.0)),
         ("hold", 0.45, "cu_karen"),
         ("line", "karen", "I'm calling the police!", None, dict(scene="checkout", cams=[(0, "cu_karen")], gap=0.0)),
@@ -709,7 +709,7 @@ def ep4():
             tt = np.arange(int(0.5 * SR)) / SR
             add(fx, (np.sin(2 * np.pi * np.cumsum(500 + 1500 * tt / 0.5) / SR) * 0.2).astype(np.float32), s0, 1.0)
 
-    return dict(title="HOA KAREN", end=["TAG THE KAREN", "IN YOUR", "NEIGHBORHOOD"], seq=seq,
+    return dict(title="HOA KAREN", end=["WHAT'S THE PETTIEST", "HOA RULE", "YOU'VE SEEN?"], seq=seq,
                 scenes={"street": dict(layout=street_layout, bg=street_bg),
                         "checkout": dict(layout=checkout_layout, bg=checkout_bg)},
                 where=where, pre=pre, post=post, pose_hook=pose_hook, sfx=sfx)
@@ -787,7 +787,7 @@ def ep8():
         ("line", "rick", "I contain multitudes.", "...I contain multitudes.",
          dict(scene="table", cams=[(0, "cu_rick")], gap=0.0)),
         ("hold", 0.3, "cu_dot"),
-        ("line", "dot", "Take those off, Rick. That's how you got here.", None,
+        ("line", "dot", "Take those off, Rick. Heritage isn't a hat.", None,
          dict(scene="table", cams=[(0, "cu_dot")], gap=0.0)),
         ("hold", 0.3, "wide"),
         ("gag", "end", 3.0, "table", "wide"),
