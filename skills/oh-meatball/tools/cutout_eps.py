@@ -1040,7 +1040,351 @@ def ep5():
                 where=where, pre=pre, pose_hook=pose_hook, sfx=sfx)
 
 
-EPISODES = {"ep3": ep3, "ep4": ep4, "ep5": ep5, "ep8": ep8}
+@eprop("cannon")
+def _cannon(z):
+    img = render_shapes([("p", strip([(0, -60), (150, -300)], 90), (60, 64, 72)),
+                         ("e", (150, -300, 52, 30, 0, 360, None, -58), (30, 30, 34)),
+                         ("p", [(-90, -70), (90, -70), (100, 0), (-100, 0)], (120, 80, 50)),
+                         ("e", (-70, 0, 46, 46), (90, 60, 40)), ("e", (70, 0, 46, 46), (90, 60, 40)),
+                         ("e", (-70, 0, 14, 14), (200, 200, 200), False), ("e", (70, 0, 14, 14), (200, 200, 200),
+                                                                            False)], z, 360, 520)
+    d = ImageDraw.Draw(img)
+    c = img.size[0] / 2
+    d.text((c + 60 * z, c - 160 * z), "BOY?", font=ImageFont.truetype(FONT, max(6, int(34 * z))), fill=(120, 190, 250),
+           anchor="mm")
+    return img
+
+
+@eprop("oatmilk")
+def _oat(z):
+    img = render_shapes([("p", [(-26, -50), (26, -50), (26, 50), (-26, 50)], (240, 234, 210)),
+                         ("p", [(-26, -50), (0, -70), (26, -50)], (220, 210, 180))], z, 80, 521)
+    d = ImageDraw.Draw(img)
+    c = img.size[0] / 2
+    d.text((c, c), "OAT", font=ImageFont.truetype(FONT, max(6, int(18 * z))), fill=(120, 150, 90), anchor="mm")
+    return img
+
+
+@eprop("shaker")
+def _shaker(z):
+    img = render_shapes([("p", [(-26, -40), (26, -40), (22, 56), (-22, 56)], (40, 40, 46)),
+                         ("p", [(-30, -60), (30, -60), (30, -40), (-30, -40)], (200, 40, 32))], z, 80, 522)
+    d = ImageDraw.Draw(img)
+    c = img.size[0] / 2
+    d.text((c, c + 8 * z), "PRO", font=ImageFont.truetype(FONT, max(6, int(18 * z))), fill=WHITE, anchor="mm")
+    return img
+
+
+@eprop("fork")
+def _fork(z):
+    return render_shapes([("p", strip([(0, 60), (0, -40)], 16), (200, 200, 210)),
+                          ("p", [(-30, -40), (30, -40), (30, -60), (-30, -60)], (200, 200, 210))] +
+                         [("p", strip([(x, -60), (x, -130)], 9), (200, 200, 210)) for x in (-26, -9, 9, 26)],
+                         z, 150, 523)
+
+
+def yard_layout(L):
+    vert = L["H"] > L["W"]
+    K = L["K"]
+    if vert:
+        xs = dict(chadsr=260, brittany=480, pip=700, mb=910, dot=1120, grandma=1320, firefighter=1500)
+        return dict(cast=xs, cannon=(60, L["feet"]), wide=(760, 1240, 0.68), trees=(320, 1250), tail=1850,
+                    cams={"cu_cannon": (330, L["feet"] - 420 * K, 1.05)})
+    xs = dict(chadsr=330, brittany=580, pip=900, mb=1140, dot=1380, grandma=1620, firefighter=1820)
+    return dict(cast=xs, cannon=(140, L["feet"]), wide=(960, 600, 1.0), trees=(420, 1500), tail=2000,
+                cams={"cu_cannon": (520, L["feet"] - 330 * K, 1.3)})
+
+
+def yard_bg(L, cam, scene):
+    W, H_, z = L["W"], L["H"], cam.z
+    S = L[scene]
+    K, F = L["K"], L["feet"]
+    rng = np.random.default_rng(141)
+    img = Image.new("RGBA", (W, H_))
+    paper(img, cam.pts([(-900, -900), (2600, -900), (2600, 3000), (-900, 3000)]), (160, 210, 236), rng, z,
+          shadow=False, jitter=False, edge=False)
+    fy = F - 330 * K
+    for k in range(-6, 30):   # wooden fence
+        x = k * 90
+        paper(img, cam.pts([(x, fy - 260 * K), (x + 80, fy - 270 * K), (x + 80, fy), (x, fy)]), (200, 160, 110), rng,
+              z, sh=3)
+    for tx in S["trees"]:
+        paper(img, cam.pts([(tx - 30 * K, fy - 380 * K), (tx + 30 * K, fy - 380 * K), (tx + 36 * K, fy),
+                            (tx - 36 * K, fy)]), (120, 84, 54), rng, z, sh=4)
+        paper(img, cam.pts(lumpy(tx, fy - 520 * K, 200 * K, [(16, 5, tx), (10, 9, 1)])), (80, 150, 70), rng, z, sh=6)
+    paper(img, cam.pts([(-900, fy), (2600, fy), (2600, 3000), (-900, 3000)]), (120, 186, 96), rng, z, shadow=False)
+    bx = (S["cast"]["chadsr"] + S["cast"]["brittany"]) / 2   # banner + balloons on the fence
+    paper(img, cam.pts([(bx - 300 * K, fy - 230 * K), (bx + 300 * K, fy - 240 * K), (bx + 300 * K, fy - 150 * K),
+                        (bx - 300 * K, fy - 140 * K)]), WHITE, rng, z, sh=4)
+    d = ImageDraw.Draw(img)
+    d.text(cam.p(bx, fy - 190 * K), "BOY OR GIRL?", font=ImageFont.truetype(FONT, int(54 * z * K)),
+           fill=(120, 120, 220), anchor="mm")
+    for k in range(6):
+        x = bx + (k - 2.5) * 110 * K
+        paper(img, cam.pts(strip([(x, fy - 240 * K), (x + 10, fy - 420 * K)], 3)), (90, 90, 90), rng, z, shadow=False)
+        paper(img, cam.pts(ell(x + 10, fy - 470 * K, 46 * K, 56 * K)), (120, 180, 250) if k % 2 else (250, 160, 200),
+              rng, z, sh=4)
+    gx = S["tail"]   # the grill
+    paper(img, cam.pts([(gx - 80 * K, fy - 10 * K), (gx + 80 * K, fy - 10 * K), (gx + 60 * K, fy + 80 * K),
+                        (gx - 60 * K, fy + 80 * K)]), (40, 40, 46), rng, z, sh=5)
+    return C.vignette(img)
+
+
+def ep6():
+    seq = [
+        ("gag", "intro", 2.4, "yard", "wide"),
+        ("line", "mb", "My neighbors are having a baby. So naturally, they bought explosives.", None,
+         dict(scene="yard", cams=[(0, "cu_mb")], gap=0.2)),
+        ("line", "brittany", "This reveal is gonna go viral, babe!", None,
+         dict(scene="yard", cams=[(0, "cu_brittany")], gap=0.2)),
+        ("line", "chadsr", "I got two hundred pounds of blue powder and a cannon from a guy named Scooter.", None,
+         dict(scene="yard", cams=[(0, "cu_chadsr")], gap=0.2)),
+        ("line", "dot", "That's not a party. That's a war crime with balloons.", None,
+         dict(scene="yard", cams=[(0, "cu_dot")], gap=0.2)),
+        ("line", "pip", "Why can't you just say it's a boy?", None, dict(scene="yard", cams=[(0, "cu_pip")], gap=0.2)),
+        ("line", "brittany", "Because then how would strangers on the internet know?", None,
+         dict(scene="yard", cams=[(0, "cu_brittany")], gap=0.0)),
+        ("gag", "boom", 2.2, "yard", "cu_cannon"),
+        ("line", "chadsr", "It's a boy!", None, dict(scene="yard", cams=[(0, "cu_chadsr")], gap=0.1)),
+        ("line", "dot", "It's a felony.", None, dict(scene="yard", cams=[(0, "cu_dot")], gap=0.0)),
+        ("hold", 0.6, "wide"),
+        ("line", "firefighter", "Whose idea was the cannon?", None,
+         dict(scene="yard", cams=[(0, "cu_firefighter")], gap=0.2)),
+        ("line", "chadsr", "Scooter's.", None, dict(scene="yard", cams=[(0, "cu_chadsr")], gap=0.2)),
+        ("line", "firefighter", "Scooter's in jail, sir. Again.", None,
+         dict(scene="yard", cams=[(0, "cu_firefighter")], gap=0.0)),
+        ("hold", 0.4, "cu_chadsr"),
+        ("line", "brittany", "Can you film me crying? From my good side?", None,
+         dict(scene="yard", cams=[(0, "cu_brittany")], gap=0.2)),
+        ("line", "grandma", "In my day we found out when the baby came out. And we were happy it had a pulse.", None,
+         dict(scene="yard", cams=[(0, "cu_grandma")], gap=0.0)),
+        ("hold", 0.4, "cu_mb"),
+        ("line", "mb", "Congratulations. Your son's first word is gonna be evacuation.", None,
+         dict(scene="yard", cams=[(0, "cu_mb")], gap=0.2)),
+        ("line", "pip", "What about the next baby?", None,
+         dict(scene="yard", cams=[(0, "cu_pip")], gap=0.2, voice="kokoro:aud-pip-b@speed=1.25,pause=0.14")),
+        ("line", "chadsr", "Bigger cannon.", None, dict(scene="yard", cams=[(0, "cu_chadsr")], gap=0.0)),
+        ("hold", 0.7, "wide"),
+        ("gag", "end", 3.0, "yard", "wide"),
+    ]
+
+    def where(c, t, scene, L):
+        if c == "firefighter":
+            ln = H.lines_with("Whose idea", "firefighter")
+            if not ln or t < ln[0]["t0"] - 0.6:
+                return None
+        return (L[scene]["cast"][c], L["feet"])
+
+    def pre(fr, cam, t, fi, li, scene, L):
+        K = L["K"]
+        cx, cy = L[scene]["cannon"]
+        ev = G["ev"]
+        rec = 0
+        if "boom" in ev and 0 <= t - ev["boom"] < 0.25:
+            rec = -40   # recoil
+        paste(fr, H.prop("cannon", round(cam.z * K, 3)), *cam.p(cx + rec * K, cy - 40 * K))
+        if "boom" in ev and t >= ev["boom"] + 0.3:   # the trees burn (paper flames, cartoon)
+            fy = L["feet"] - 330 * K
+            for k, tx in enumerate(L[scene]["trees"]):
+                fire(fr, cam, tx, fy - 420 * K, 150 * K, t, 10 + k)
+
+    def post(fr, cam, t, fi, li, scene, L):
+        ev = G["ev"]
+        K = L["K"]
+        if "boom" not in ev:
+            return
+        d = t - ev["boom"]
+        cx, cy = L[scene]["cannon"]
+        if 0 <= d < 0.4:
+            px, py = cam.p(cx + 170 * K, cy - 420 * K)
+            paste(fr, C2.spr("star", round(cam.z * K * 1.6, 2), "BOOM!"), px, py, (fi % 2) * 10)
+        if 0.15 <= d < 3.6:   # the blue cloud rises and drifts
+            f = min(1.0, d / 1.2)
+            rng = np.random.default_rng(5)
+            fade = 1.0 if d < 2.6 else max(0.0, 1 - (d - 2.6))
+            n = int(10 * fade) + 2
+            for k in range(n):
+                bx = cx + 150 * K + (k * 137 % 900) * K * f
+                by = cy - 500 * K - (k * 71 % 500) * K * f
+                r = (90 + (k * 53 % 90)) * K * (0.4 + f)
+                paper(fr, cam.pts(lumpy(bx, by, r, [(r * 0.08, 5, k)])), (110, 170, 245), rng, cam.z, sh=4)
+
+    def pose_hook(c, t, fi, li, scene, p):
+        hop, j, ang, (aL, aR), hk, sq, rot, extra = p
+        ev = G["ev"]
+        if c == "brittany":
+            ln = H.lines_with("film me", "brittany")
+            if ln and ln[0]["t0"] <= t:
+                aR, extra["item"] = 140, ("phone", "R", 0)
+        if c == "chadsr" and t < ev.get("boom", 1e9):
+            aR = 70   # hand on the cannon fuse
+        if "boom" in ev and ev["boom"] <= t < ev["boom"] + 1.0:
+            hop = [-20, 0][fi % 2] if c in ("pip", "mb", "dot", "brittany", "chadsr") else hop
+            if c in ("pip", "mb"):
+                aL, aR = -160, 160
+        if c in ("chadsr", "brittany") and t >= ev.get("boom", 1e9) + 0.2:
+            hk = (hk[0], hk[1], hk[2], frozenset(set(hk[3]) | {"soot"}))
+        if c == "chadsr" and H.lines_with("Bigger cannon", "chadsr"):
+            ln = H.lines_with("Bigger cannon", "chadsr")[0]
+            if ln["t0"] <= t:
+                hk = (hk[0], hk[1], "smug", hk[3])
+        return (hop, j, ang, (aL, aR), hk, sq, rot, extra)
+
+    def shakes():
+        ev = G["ev"]
+        return [(ev["boom"], 1.6)] if "boom" in ev else []
+
+    def sfx(fx, music, ev, lines):
+        if "boom" in ev:
+            b = ev["boom"]
+            C2.thud(fx, b, 1.0)
+            add(fx, C2.noise_burst(1.6, 0.5, 44, 2), b + 0.02, 0.6)
+            for k in range(6):   # siren in the distance after the blast
+                add(fx, C2.tone(960, 0.36, 0.08), b + 1.0 + k * 0.72)
+                add(fx, C2.tone(770, 0.36, 0.08), b + 1.36 + k * 0.72)
+
+    return dict(title="GENDER REVEAL", end=["WORST GENDER", "REVEAL YOU'VE", "SEEN?"], seq=seq,
+                scenes={"yard": dict(layout=yard_layout, bg=yard_bg)},
+                where=where, pre=pre, post=post, pose_hook=pose_hook, shakes=shakes, sfx=sfx)
+
+
+def kitchen_layout(L):
+    vert = L["H"] > L["W"]
+    if vert:
+        xs = dict(sage=120, pip=390, mb=630, dot=870, tank=1150)
+        return dict(cast=xs, wide=(640, 1240, 0.8))
+    xs = dict(sage=320, pip=700, mb=960, dot=1220, tank=1600)
+    return dict(cast=xs, wide=(960, 600, 1.0))
+
+
+def kitchen_bg(L, cam, scene):
+    W, H_, z = L["W"], L["H"], cam.z
+    K, F = L["K"], L["feet"]
+    rng = np.random.default_rng(151)
+    img = Image.new("RGBA", (W, H_))
+    paper(img, cam.pts([(-900, -900), (2600, -900), (2600, 3000), (-900, 3000)]), (236, 230, 206), rng, z,
+          shadow=False, jitter=False, edge=False)
+    wall_b = F - 260 * K
+    for k in range(-8, 30):   # tile backsplash
+        for r in range(4):
+            x, y = k * 70 + (r % 2) * 35, wall_b - 330 * K - r * 50
+            paper(img, cam.pts([(x, y), (x + 64, y), (x + 64, y + 44), (x, y + 44)]), (200, 226, 222), rng, z,
+                  shadow=False, jitter=False, edge=False)
+    for k in range(-3, 9):   # upper cabinets
+        x = k * 260
+        paper(img, cam.pts([(x, wall_b - 900 * K), (x + 240, wall_b - 900 * K), (x + 240, wall_b - 600 * K),
+                            (x, wall_b - 600 * K)]), (190, 140, 96), rng, z, sh=5)
+        paper(img, cam.pts(ell(x + 200, wall_b - 640 * K, 8, 8)), (60, 60, 60), rng, z, shadow=False)
+    paper(img, cam.pts([(-900, wall_b - 40 * K), (2600, wall_b - 40 * K), (2600, wall_b), (-900, wall_b)]),
+          (90, 90, 96), rng, z, sh=4)   # counter edge
+    paper(img, cam.pts([(-900, wall_b), (2600, wall_b), (2600, 3000), (-900, 3000)]), (210, 200, 180), rng, z,
+          shadow=False)
+    for k in range(-8, 30):
+        paper(img, cam.pts(strip([(k * 120, wall_b), (k * 120 - 200, F + 400)], 4)), (190, 180, 160), rng, z,
+              shadow=False)
+    fx = 1700 if W > H_ else 1350   # fridge
+    paper(img, cam.pts([(fx - 160, wall_b - 820 * K), (fx + 160, wall_b - 820 * K), (fx + 160, wall_b + 40),
+                        (fx - 160, wall_b + 40)]), (240, 240, 244), rng, z, sh=8)
+    paper(img, cam.pts(strip([(fx - 160, wall_b - 520 * K), (fx + 160, wall_b - 520 * K)], 6)), (200, 200, 206), rng, z,
+          shadow=False)
+    d = ImageDraw.Draw(img)
+    d.text(cam.p(fx, wall_b - 680 * K), "NO MEAT", font=ImageFont.truetype(FONT, int(30 * z * K)), fill=(80, 140, 80),
+           anchor="mm")
+    d.text(cam.p(fx, wall_b - 380 * K), "ONLY MEAT", font=ImageFont.truetype(FONT, int(30 * z * K)),
+           fill=(200, 40, 32), anchor="mm")
+    return C.vignette(img)
+
+
+def ep7():
+    seq = [
+        ("gag", "intro", 2.4, "kitchen", "wide"),
+        ("line", "mb", "Two people. One kitchen. And I'm the only one here who is literally food.", None,
+         dict(scene="kitchen", cams=[(0, "cu_mb")], gap=0.2)),
+        ("line", "sage", "I don't eat anything with a face.", None, dict(scene="kitchen", cams=[(0, "cu_sage")],
+                                                                        gap=0.2)),
+        ("line", "mb", "I'm a meatball. I have a face. Pick a side.", None,
+         dict(scene="kitchen", cams=[(0, "cu_mb")], gap=0.0)),
+        ("hold", 0.4, "cu_sage"),
+        ("line", "tank", "Bro, I eat forty eggs a day. My blood is just protein shake.", None,
+         dict(scene="kitchen", cams=[(0, "cu_tank")], gap=0.2)),
+        ("line", "dot", "Your blood is ninety percent creatine and ten percent bad decisions.", None,
+         dict(scene="kitchen", cams=[(0, "cu_dot")], gap=0.0)),
+        ("hold", 0.4, "cu_tank"),
+        ("line", "sage", "Did you know I'm vegan?", None, dict(scene="kitchen", cams=[(0, "cu_sage")], gap=0.2)),
+        ("line", "pip", "Yes. You told us. In the driveway. And the mailbox. And my dreams.", None,
+         dict(scene="kitchen", cams=[(0, "cu_pip")], gap=0.0)),
+        ("hold", 0.4, "cu_sage"),
+        ("line", "tank", "I don't do cardio, bro. Cardio is for people who can't afford steroids.", None,
+         dict(scene="kitchen", cams=[(0, "cu_tank")], gap=0.2)),
+        ("line", "sage", "Your body is a temple, Tank.", None, dict(scene="kitchen", cams=[(0, "cu_sage")], gap=0.2)),
+        ("line", "tank", "My body's a warehouse store, bro. Bulk.", None,
+         dict(scene="kitchen", cams=[(0, "cu_tank")], gap=0.2)),
+        ("line", "sage", "Meat is murder.", None, dict(scene="kitchen", cams=[(0, "cu_sage")], gap=0.2)),
+        ("line", "tank", "Then I'm a serial killer, bro. Leg day is a crime scene.", None,
+         dict(scene="kitchen", cams=[(0, "cu_tank")], gap=0.0)),
+        ("hold", 0.7, "wide"),
+        ("gag", "stare", 1.4, "kitchen", "cu_mb"),
+        ("line", "sage", "Is Meatball meat?", "...Is Meatball meat?",
+         dict(scene="kitchen", cams=[(0, "cu_sage")], gap=0.2)),
+        ("line", "tank", "Only one way to find out, bro.", None,
+         dict(scene="kitchen", cams=[(0, "cu_tank")], gap=0.0)),
+        ("hold", 0.4, "cu_mb"),
+        ("line", "mb", "Pip, if I die in here, you can have my shoes.", None,
+         dict(scene="kitchen", cams=[(0, "cu_mb")], gap=0.2)),
+        ("line", "pip", "Finally.", None,
+         dict(scene="kitchen", cams=[(0, "cu_pip")], gap=0.0, voice="kokoro:aud-pip-b@speed=1.2,pause=0.14")),
+        ("hold", 0.7, "wide"),
+        ("gag", "end", 3.0, "kitchen", "wide"),
+    ]
+
+    def stare_win():
+        ev = G["ev"]
+        if "stare" not in ev:
+            return (1e9, 1e9)
+        end_ = H.lines_with("one way", "tank")
+        return (ev["stare"] - 0.7, end_[0]["start"] + end_[0]["dur"] + 0.6 if end_ else ev["stare"] + 1.4)
+
+    def pose_hook(c, t, fi, li, scene, p):
+        hop, j, ang, (aL, aR), hk, sq, rot, extra = p
+        a, b = stare_win()
+        if c == "sage":
+            aL, extra["item"] = min(aL, -50), ("oatmilk", "L", 0)
+        if c == "tank":
+            aR, extra["item"] = max(aR, 60), ("shaker", "R", 0)
+            ln = H.lines_with("one way", "tank")
+            if ln and ln[0]["t0"] <= t:
+                aR, extra["item"] = 150, ("fork", "R", 0)
+        if a <= t < b and c in ("sage", "tank"):   # both turn to look at Meatball
+            hk = (hk[0], hk[1], "wide" if c == "sage" else "smug", hk[3])
+            ang = 6 if c == "sage" else -6
+        if a <= t < b and c == "mb":
+            hk = (hk[0], hk[1], hk[2], "wide")
+        return (hop, j, ang, (aL, aR), hk, sq, rot, extra)
+
+    def post(fr, cam, t, fi, li, scene, L):
+        a, b = stare_win()
+        if a <= t < b:   # a sweat drop on Meatball
+            K = L["K"]
+            x, y = cam.p(L[scene]["cast"]["mb"] + 110 * K, L["feet"] - (300 - ((fi % 6) * 6)) * K)
+            r = 14 * cam.z * K
+            ImageDraw.Draw(fr).polygon([(x, y - r * 2.2), (x + r, y), (x, y + r), (x - r, y)], fill=(120, 190, 250),
+                                       outline=INK)
+
+    def sfx(fx, music, ev, lines):
+        if "stare" in ev:   # a slow, dumb "dun dun"
+            add(fx, ks(hz("D3"), 0.6, 0.995, 0.6, 30), ev["stare"] + 0.1, 0.5)
+            add(fx, ks(hz("C#3"), 0.9, 0.995, 0.6, 31), ev["stare"] + 0.6, 0.5)
+
+    def silences():
+        ev = G["ev"]
+        return [(ev["stare"], ev["stare"] + 1.4)] if "stare" in ev else []
+
+    return dict(title="VEGAN VS GYM BRO", end=["TEAM VEGAN", "OR TEAM", "GYM BRO?"], seq=seq,
+                scenes={"kitchen": dict(layout=kitchen_layout, bg=kitchen_bg)},
+                pose_hook=pose_hook, post=post, sfx=sfx, silences=silences)
+
+
+EPISODES = {"ep3": ep3, "ep4": ep4, "ep5": ep5, "ep6": ep6, "ep7": ep7, "ep8": ep8}
 
 
 # ------------------------------------------------------------------------------------------------ engine
