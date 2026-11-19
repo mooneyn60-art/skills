@@ -369,7 +369,8 @@ SEQ_V7 = [   # v7: side-hustles/channels/scripts/cutout-black-friday-v7.md (v6 +
      dict(scene="outside", cams=[(0, "cu_pip")], gap=0.12)),
     ("line", "dot", "My mom said if I come home, she's renting out my room. On Airbed.", None,
      dict(scene="outside", cams=[(0, "cu_dot")], gap=0.15)),
-    ("line", "pip", "Your mom's a genius.", None, dict(scene="outside", cams=[(0, "cu_pip")], gap=0.12)),
+    ("line", "pip", "Your mom's a genius.", None,
+     dict(scene="outside", cams=[(0, "cu_pip")], gap=0.12, voice="kokoro:aud-pip-b@speed=1.25,pause=0.14")),
     ("line", "dot", "My mom's a landlord, Pip. It's worse.", None,
      dict(scene="outside", cams=[(0, "cu_dot")], gap=0.2)),
     ("line", "mb", "My dad left to get Black Friday deals six years ago. Still hasn't come back.", None,
@@ -390,7 +391,8 @@ SEQ_V7 = [   # v7: side-hustles/channels/scripts/cutout-black-friday-v7.md (v6 +
     ("line", "mb", "Pip, if you die in here, can I have your shoes?", None,
      dict(scene="outside", cams=[(0, "cu_mb_flat")], gap=0.12)),
     ("line", "pip", "I'm not dead!", None, dict(scene="outside", cams=[(0, "cu_pip_flat")], gap=0.12)),
-    ("line", "mb", "Yet. Shoes, Pip.", None, dict(scene="outside", cams=[(0, "cu_mb_flat")], gap=0.3)),
+    ("line", "mb", "Yet. Shoes, Pip.", None,
+     dict(scene="outside", cams=[(0, "cu_mb_flat")], gap=0.3, voice="kokoro:adam-puck@speed=1.15")),
     ("line", "dot", "You didn't need it. You've never used it.", None,
      dict(scene="outside", cams=[(0, "cu_dot_flat")], gap=0.0)),
     ("hold", 0.45, "cu_pip_flat"),
@@ -489,12 +491,59 @@ SEQ_V7 = [   # v7: side-hustles/channels/scripts/cutout-black-friday-v7.md (v6 +
     ("gag", "end", 2.6, "dawn", "wide"),
 ]
 
-SEQ = list(SEQ_V7)   # the script build() renders; use_script() swaps it
+SEQ_V8 = [   # v8 SHORT (~60 s): side-hustles/channels/scripts/cutout-black-friday-v8-short.md
+    ("gag", "intro", 1.5, "outside", "wide"),
+    ("line", "mb", "Black Friday. The one day a year we fight a stranger over a toaster.", None,
+     dict(scene="outside", cams=[(0, "wide"), (6, "cu_mb")], gap=0.1)),
+    ("line", "pip", "My mom said if I don't come home with the TV, don't come home.", None,
+     dict(scene="outside", cams=[(0, "cu_pip")], gap=0.1)),
+    ("line", "dot", "My mom's renting out my room. On Airbed.", None,
+     dict(scene="outside", cams=[(0, "cu_dot")], gap=0.1)),
+    ("gag", "stampede", 1.0, "outside", "wide"),
+    ("line", "pip", "There goes my fucking spleen.", None,
+     dict(scene="outside", cams=[(0, "cu_pip_flat")], gap=0.1, voice="kokoro:aud-pip-b@speed=1.3,pause=0.14")),
+    ("line", "mb", "If you die in here, can I have your shoes?", None,
+     dict(scene="outside", cams=[(0, "cu_mb_flat")], gap=0.0)),
+    ("hold", 0.3, "cu_pip_flat"),
+    ("gag", "ceo_in", 0.35, "ceo", "wide"),
+    ("line", "ceo", "We raised every price forty percent last week, so sixty percent off is a gift from my heart.", None,
+     dict(scene="ceo", cams=[(0, "cu_ceo")], gap=0.15)),
+    ("line", "ceo", "And every TV is assembled by hand. Small hands. Very affordable hands.", None,
+     dict(scene="ceo", cams=[(0, "cu_ceo")], gap=0.0)),
+    ("hold", 0.3, "wide"),
+    ("gag", "slam", 0.8, "inside", "wide"),
+    ("line", "pip", "Holy shit! A grandma just body-slammed me!", None,
+     dict(scene="inside", cams=[(0, "cu_pip_down")], gap=0.1)),
+    ("line", "grandma", "I've buried two husbands. One was still breathing. You're a speed bump.", None,
+     dict(scene="inside", cams=[(0, "cu_grandma")], gap=0.0)),
+    ("hold", 0.3, "cu_mb"),
+    ("gag", "checkout", 0.4, "checkout", "wide"),
+    ("line", "kiosk", "Unexpected. Item. In the bagging area.", None,
+     dict(scene="checkout", cams=[(0, "cu_kiosk")], gap=0.1, beep=0.3)),
+    ("line", "grandma", "The unexpected item is my God-damn fist.", "The unexpected item is my goddamn fist.",
+     dict(scene="checkout", cams=[(0, "cu_grandma")], gap=0.0)),
+    ("gag", "punch", 0.8, "checkout", "wide"),
+    ("line", "ceo", "There are no workers. We replaced them with you. Merry fucking Christmas.", None,
+     dict(scene="ceo", cams=[(0, "cu_ceo")], gap=0.0)),
+    ("hold", 0.3, "cu_ceo"),
+    ("gag", "dawn", 0.6, "dawn", "wide"),
+    ("line", "pip", "I got a free sock. Somebody's foot is still in it.", None,
+     dict(scene="dawn", cams=[(0, "cu_pip")], gap=0.1)),
+    ("line", "dot", "When I die, scatter my ashes in a MegaMart. So I can finally get returned.", None,
+     dict(scene="dawn", cams=[(0, "cu_dot")], gap=0.0)),
+    ("hold", 0.3, "cu_dot"),
+    ("line", "pip", "Same time next year?", None,
+     dict(scene="dawn", cams=[(0, "wide")], gap=0.1, voice="kokoro:aud-pip-b@speed=1.3,pause=0.14")),
+    ("line", "all", "Fuck yeah.", None, dict(scene="dawn", cams=[(0, "wide")], gap=0.15)),
+    ("gag", "end", 1.5, "dawn", "wide"),
+]
+
+SEQ = list(SEQ_V8)   # the script build() renders; use_script() swaps it
 
 
 def use_script(name):
     """Pick the script (and the voices it was cast with)."""
-    SEQ[:] = {"v2": SEQ_V2, "v3": SEQ_V3, "v4": SEQ_V4, "v5": SEQ_V5, "v6": SEQ_V6, "v7": SEQ_V7}[name]
+    SEQ[:] = {"v2": SEQ_V2, "v3": SEQ_V3, "v4": SEQ_V4, "v5": SEQ_V5, "v6": SEQ_V6, "v7": SEQ_V7, "v8": SEQ_V8}[name]
     if name in ("v2", "v3", "v4"):
         V.update(V_OLD)
 
@@ -1374,7 +1423,7 @@ def kid_pose(c, t, fi, li):
     squash, rot, extra = 1.0, 0.0, {}
     ln = lines[li] if li is not None else None
     spk = ln is not None and (ln["who"] == c or ln["who"] == "all")
-    if t < 3.0:
+    if t < GD.get("intro", 2.9):
         beat = int(t / BEAT)
         if beat % 3 == {"pip": 0, "mb": 1, "dot": 2}[c] and (t % BEAT) < 0.17:
             hop = -16
@@ -1426,8 +1475,8 @@ def kid_pose(c, t, fi, li):
         if li is not None and say and "dignity" in say and c == "mb" and t < st:
             expr = "smug"
     if scene == "inside":
-        tv = ev["tv"]
-        if t < tv + GD["tv"] + 0.5:
+        tv = ev.get("tv", -99.0)
+        if t < tv + GD.get("tv", 0) + 0.5:
             expr, gaze = ("wide" if c != "dot" else "deadpan"), "r"
         sl = ev["slam"]
         if c == "pip" and t >= sl + 0.55:
@@ -1667,7 +1716,7 @@ def frame(fi):
         tvx, tvy = cam.p(tx, ty)
         paste(fr, spr("tv", zz), tvx, tvy)
         screen_glow(fr, cam, tx - 254 * ts, ty - 324 * ts, tx + 254 * ts, ty - 56 * ts, t, ts)
-        if t < ev["tv"] + GD["tv"]:   # choppy sparkles on the reveal
+        if "tv" in ev and t < ev["tv"] + GD["tv"]:   # choppy sparkles on the reveal
             for k in range(6):
                 a = k * 60 + (fi % 3) * 20
                 r = 260 * ts + (fi % 2) * 20
@@ -1867,7 +1916,7 @@ def draw_stampede(fr, cam, t):
     S = G["L"]["outside"]
     st = G["ev"]["stampede"]
     d = t - st
-    if d < 0.3 or d > 2.8:
+    if d < 0.3 or d > min(2.8, GD.get("stampede", 2.8) + 0.5):
         return
     dx, dw = S["doors"]
     g = S["ground"]
@@ -2111,8 +2160,10 @@ def draw_banners(fr, t):
         return [-700, -320, 40, -12, 0][k] if k < 5 else 0
 
     end = G["ev"]["end"]
-    items = [(0.15, 2.85, "MEATBALL MYTHS", big, (200, 40, 32), WHITE, -3, 0),
-             (0.85, 2.85, "BLACK FRIDAY", int(big * 0.7), (20, 20, 24), (252, 214, 74), 2, int(big * 1.25))]
+    it_ = GD.get("intro", 2.9)
+    items = [(0.1, it_ - 0.05, "MEATBALL MYTHS", big, (200, 40, 32), WHITE, -3, 0),
+             (min(0.85, it_ * 0.3), it_ - 0.05, "BLACK FRIDAY", int(big * 0.7), (20, 20, 24), (252, 214, 74), 2,
+              int(big * 1.25))]
     eb = int(big * 0.52)
     for i, txt in enumerate(END_TEXT):
         items.append((end + 0.2 + 0.25 * i, end + 99, txt, eb, (252, 250, 240), INK, [-2, 2, -1][i],
@@ -2186,24 +2237,30 @@ def mix(end):
     music = np.zeros(int((end + 1) * SR), np.float32)
     mel1 = [(0, "E5", 1), (1, "G5", 0.5), (1.5, "A5", 0.5), (2, "G5", 1), (3, "E5", 0.5), (3.5, "C#5", 0.5)]
     mel2 = [(0, "D5", 0.5), (0.5, "F#5", 0.5), (1, "A5", 1), (2, "B5", 0.5), (2.5, "A5", 0.5), (3, "G5", 1)]
+    short = GD.get("intro", 2.9) < 2.0   # v8: a one-bar jingle and the bed under everything
     jingle_bar(music, 0.0, ["C", "A7"], 0.32, mel1, seed=1)
-    jingle_bar(music, 4 * BEAT, ["D7", "G7"], 0.32, mel2, seed=2)
-    strum(music, 8 * BEAT, "C", 0.4, seed=3)
-    add(music, ks(hz("C6"), 1.0, 0.996, 0.85, 4), 8 * BEAT, 0.35)
-    for t0 in (0.15, 0.85):
+    if short:
+        stab = 4 * BEAT
+    else:
+        jingle_bar(music, 4 * BEAT, ["D7", "G7"], 0.32, mel2, seed=2)
+        stab = 8 * BEAT
+    strum(music, stab, "C", 0.4, seed=3)
+    add(music, ks(hz("C6"), 1.0, 0.996, 0.85, 4), stab, 0.35)
+    for t0 in (0.1, min(0.85, GD.get("intro", 2.9) * 0.3)):
         sfx_slap(music, t0 + 2 / FPS, 0.25, int(t0 * 10))
     # bed (-22 dB) everywhere except the gags that carry their own sound
     bed = np.zeros_like(music)
     prog = [["C"], ["A7"], ["D7"], ["G7"]]
-    t, k = 9 * BEAT, 0
+    t, k = stab + BEAT, 0
     while t < ev["end"]:
         jingle_bar(bed, t, prog[k % 4], 0.32, None, drums=True, seed=10 + k)
         t += 4 * BEAT
         k += 1
     gate = np.ones_like(bed)
-    gate[:int(9 * BEAT * SR)] = 0
-    for name, d0, d1 in (("sadpluck", -0.2, 1.0), ("stampede", 0, 3.6), ("tv", 0, GD["tv"]), ("punch", 0, 1.0), ("dawn", 0, GD["dawn"] - 0.2)):
-        if name in ev:
+    gate[:int((stab + BEAT) * SR)] = 0
+    for name, d0, d1 in (("sadpluck", -0.2, 1.0), ("stampede", 0, 3.6), ("tv", 0, GD.get("tv", 0)), ("punch", 0, 1.0),
+                         ("dawn", 0, GD.get("dawn", 1.2) - 0.2)):
+        if name in ev and not short:
             gate[int((ev[name] + d0) * SR):int((ev[name] + d1) * SR)] = 0
     gate[int(ev["end"] * SR):] = 0
     gate = np.convolve(gate, np.ones(4410) / 4410, "same").astype(np.float32)
@@ -2214,9 +2271,10 @@ def mix(end):
     thud(fx, st + 0.25, 0.9)
     add(fx, noise_burst(0.5, 0.12, 9, 2), st + 0.27, 0.35)
     rng = np.random.default_rng(4)
-    for k in range(60):
-        kick(fx, st + 0.4 + rng.uniform(0, 2.1), 0.25)
-    n = int(2.3 * SR)
+    sd = min(2.3, GD.get("stampede", 2.8) + 0.4)
+    for k in range(int(60 * sd / 2.3)):
+        kick(fx, st + 0.4 + rng.uniform(0, sd - 0.2), 0.25)
+    n = int(sd * SR)
     roar = np.convolve(np.random.default_rng(5).normal(0, 1, n), np.ones(30) / 30, "same")
     roar -= np.convolve(roar, np.ones(200) / 200, "same")
     am = 0.6 + 0.4 * np.sin(2 * np.pi * 3.1 * np.arange(n) / SR) * np.sin(2 * np.pi * 0.7 * np.arange(n) / SR)
@@ -2225,9 +2283,11 @@ def mix(end):
     thud(fx, st + FLAT, 0.8)   # flattened
     sfx_slap(fx, st + FLAT + 0.02, 0.5, 7)
     # peel off the floor: a tape rip
-    pl = lines[4]
-    add(fx, noise_burst(0.4, 0.15, 11, 1), pl["t0"] - 0.5, 0.12)
-    add(fx, choir(GD["tv"] + 0.2), ev["tv"] + 0.05, 0.42)
+    pl = next((l_ for l_ in lines if l_["who"] == "pip" and l_["t0"] > st), None)
+    if pl is not None:
+        add(fx, noise_burst(0.4, 0.15, 11, 1), max(st + FLAT + 0.1, pl["t0"] - 0.5), 0.12)
+    if "tv" in ev:
+        add(fx, choir(GD["tv"] + 0.2), ev["tv"] + 0.05, 0.42)
     # grandma slam: whistle-in, impact
     sl = ev["slam"]
     tt = np.arange(int(0.55 * SR)) / SR
@@ -2243,7 +2303,8 @@ def mix(end):
             add(fx, tone(1560, 0.16, 0.3), ln["t0"] + 0.05)
         for a, b in ln.get("bwins", ()):
             add(fx, tone(1000, b - a - 0.03, 0.34), a + 0.015)
-    add(fx, tone(1560, 0.12, 0.25), ev["checkout"] + 0.6)
+    if not short:
+        add(fx, tone(1560, 0.12, 0.25), ev["checkout"] + 0.6)
     pu = ev["punch"]
     thud(fx, pu + 0.35, 1.0)
     add(fx, noise_burst(0.6, 0.15, 13, 1), pu + 0.36, 0.3)
@@ -2353,7 +2414,7 @@ if __name__ == "__main__":
     ap.add_argument("--sheet")
     ap.add_argument("--times", type=float, nargs="*")
     ap.add_argument("--timeline", action="store_true")
-    ap.add_argument("--script", default="v7", choices=["v2", "v3", "v4", "v5", "v6", "v7"])
+    ap.add_argument("--script", default="v8", choices=["v2", "v3", "v4", "v5", "v6", "v7", "v8"])
     a = ap.parse_args()
     use_script(a.script)
     if a.timeline:
