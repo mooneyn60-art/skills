@@ -28,13 +28,21 @@ import free_voice as fv  # noqa: E402
 from cutout import (FONT, INK, WHITE, PUPIL, MOUTH, ell, strip, lumpy, paper, render_shapes, add, ks, hz,  # noqa
                     strum, snare, kick, jingle_bar, sfx_slap, load_audio, BEAT, SR, FPS, OUT_FPS, TMP)
 
-V = {"mb": "kokoro:adam-puck@speed=1.36", "pip": "kokoro:pip@speed=1.34,pause=0.16",
-     "dot": "kokoro:dot@speed=1.2,pause=0.16", "grandma": "kokoro:grandma@speed=1.18,pause=0.16",
-     "kiosk": "kokoro:kiosk@speed=1.0,pause=0.15", "ceo": "kokoro:ceo@speed=1.3,pause=0.16"}
+# Cast voices (Nolan's audition picks 11/19: Meatball A, Pip B, Dot C, Grandma C, CEO B, Self-checkout C).
+V = {"mb": "kokoro:adam-puck@speed=1.36",                      # American smartass kid (am_adam .6 + am_puck .4)
+     "pip": "kokoro:aud-pip-b@speed=1.42,pause=0.14",          # nervous, higher, faster (am_puck .4 + af_bella .6)
+     "dot": "kokoro:aud-dot-c@speed=1.1,pause=0.3",            # dry, bored, British (bf_emma .7 + af_river .3)
+     "grandma": "kokoro:aud-gran-c@speed=1.0,pause=0.4",       # sweet then scary, British (bf_emma .5 + bf_isabella .5)
+     "kiosk": "kokoro:aud-bot-c@speed=0.92,pause=0.35",        # monotone machine (am_echo .5 + af_alloy .5)
+     "ceo": "kokoro:aud-ceo-b@speed=1.15,pause=0.25"}          # posh British announcer (bm_george .7 + bm_lewis .3)
+# The voices v2-v4 were rendered with (--script v2|v3|v4 swaps these back in).
+V_OLD = {"mb": "kokoro:adam-puck@speed=1.36", "pip": "kokoro:pip@speed=1.34,pause=0.16",
+         "dot": "kokoro:dot@speed=1.2,pause=0.16", "grandma": "kokoro:grandma@speed=1.18,pause=0.16",
+         "kiosk": "kokoro:kiosk@speed=1.0,pause=0.15", "ceo": "kokoro:ceo@speed=1.3,pause=0.16"}
 
 # Items: ("line", who, say, caption, opts) | ("gag", name, seconds, scene, cam) | ("hold", seconds, cam)
 # opts: scene, cams [(word index, cam)], gap (s after the line)
-SEQ = [   # v2 HARD script: side-hustles/channels/scripts/cutout-black-friday-v2-hard.md
+SEQ_V2 = [   # v2 HARD script: side-hustles/channels/scripts/cutout-black-friday-v2-hard.md
     ("gag", "intro", 2.9, "outside", "wide"),
     ("line", "mb", "Black Friday. The one day a year we fight a stranger over a toaster.", None,
      dict(scene="outside", cams=[(0, "wide"), (6, "cu_mb")])),
@@ -216,6 +224,78 @@ SEQ_V4 = [   # v4 uncensored: side-hustles/channels/scripts/cutout-black-friday-
     ("line", "all", "Obviously. Fuck yeah.", None, dict(scene="dawn", cams=[(0, "wide")], gap=0.25)),
     ("gag", "end", 2.6, "dawn", "wide"),
 ]
+SEQ_V5 = [   # v5: v4 words, the new cast voices, delivery punctuation for Grandma 10 and the robot 16
+    ("gag", "intro", 2.9, "outside", "wide"),
+    ("line", "mb", "Black Friday. The one day a year we fight a stranger over a toaster.", None,
+     dict(scene="outside", cams=[(0, "wide"), (6, "cu_mb")])),
+    ("line", "pip", "My mom said if I don't come home with the TV, don't come home.", None,
+     dict(scene="outside", cams=[(0, "cu_pip")], gap=0.12)),
+    ("line", "dot", "My mom said if I come home, she's renting out my room. On Airbed.", None,
+     dict(scene="outside", cams=[(0, "cu_dot")], gap=0.35)),
+    ("line", "mb", "Relax. We go in fast, grab the damn TV, and leave with our dignity.", None,
+     dict(scene="outside", cams=[(0, "cu_mb"), (1, "wide")], gap=0.1, voice="kokoro:adam-puck@speed=1.2")),
+    ("gag", "stampede", 2.8, "outside", "wide"),
+    ("line", "pip", "There goes our dignity. And my fucking spleen.", None,
+     dict(scene="outside", cams=[(0, "cu_pip_flat")], gap=0.1)),
+    ("hold", 0.4, "wide"),
+    ("gag", "ceo_in", 0.5, "ceo", "wide"),
+    ("line", "ceo", "Welcome, shoppers! We raised every price forty percent last week, so today's sixty percent off "
+     "is a gift from my heart.", None, dict(scene="ceo", cams=[(0, "cu_ceo"), (13, "wide"), (18, "cu_ceo")],
+                                            gap=0.2)),
+    ("line", "dot", "That's not a sale, you jackass. That's a hostage situation with coupons.", None,
+     dict(scene="ceo", cams=[(0, "cu_dot")], gap=0.0)),
+    ("hold", 0.4, "cu_dot"),
+    ("gag", "tv", 1.5, "inside", "cu_tv"),
+    ("line", "mb", "There it is. Seventy-five inches. Ninety-nine dollars. Probably made of cardboard and child tears. "
+     "I don't give a crap.",
+     None, dict(scene="inside", cams=[(0, "wide"), (3, "cu_tv"), (7, "cu_mb")], gap=0.1)),
+    ("hold", 0.4, "cu_mb"),
+    ("gag", "slam", 1.4, "inside", "wide"),
+    ("line", "pip", "Holy shit! A grandma just body-slammed me!", None,
+     dict(scene="inside", cams=[(0, "cu_pip_down")], gap=0.2)),
+    ("line", "grandma", "Back off... you little shit. I've been training since July. And I have nothing. Left. To lose.",
+     "Back off, you little shit. I've been training since July and I have nothing left to lose.",
+     dict(scene="inside", cams=[(0, "cu_grandma")], gap=0.35)),
+    ("line", "mb", "New plan. Grandma takes the TV, we follow her home, and we watch it through her window.", None,
+     dict(scene="inside", cams=[(0, "cu_mb")], gap=0.2)),
+    ("line", "dot", "That's called stalking, dumbass.", None, dict(scene="inside", cams=[(0, "cu_dot")], gap=0.15)),
+    ("line", "mb", "It's called a payment plan.", None, dict(scene="inside", cams=[(0, "cu_mb")], gap=0.0)),
+    ("hold", 0.45, "cu_dot"),
+    ("gag", "checkout", 0.7, "checkout", "wide"),
+    ("line", "kiosk", "Unexpected item in the bagging area.", None,
+     dict(scene="checkout", cams=[(0, "cu_kiosk")], gap=0.25, beep=0.35)),
+    ("line", "grandma", "The unexpected item is my God-damn fist.", "The unexpected item is my goddamn fist.",
+     dict(scene="checkout", cams=[(0, "cu_grandma")], gap=0.05)),
+    ("gag", "punch", 1.0, "checkout", "wide"),
+    ("line", "kiosk", "Please. Wait. For. An. Associate.", "Please... wait... for an associate.",
+     dict(scene="checkout", cams=[(0, "cu_kiosk")], gap=0.2)),
+    ("line", "ceo", "There are no associates. We replaced them with you.", None,
+     dict(scene="ceo", cams=[(0, "cu_ceo")], gap=0.0)),
+    ("hold", 0.4, "cu_ceo"),
+    ("gag", "dawn", 1.2, "dawn", "wide"),
+    ("line", "mb", "You know, guys, Black Friday taught us something. It's not about the stuff. It's about the people...",
+     None, dict(scene="dawn", cams=[(0, "wide"), (5, "cu_mb")], gap=0.25)),
+    ("line", "pip", "I got a free sock. Holy crap, somebody's foot is still in it.", None,
+     dict(scene="dawn", cams=[(0, "cu_pip")], gap=0.25)),
+    ("line", "mb", "we stepped on to get the stuff.", "...we stepped on to get the stuff.",
+     dict(scene="dawn", cams=[(0, "cu_mb")], gap=0.0, voice="kokoro:adam-puck@speed=1.2")),
+    ("hold", 0.45, "wide"),
+    ("line", "dot", "Well, that got dark as hell.", None, dict(scene="dawn", cams=[(0, "cu_dot")], gap=0.0)),
+    ("hold", 0.4, "cu_dot"),
+    ("line", "pip", "Same time next year?", None, dict(scene="dawn", cams=[(0, "wide")], gap=0.2)),
+    ("line", "all", "Obviously. Fuck yeah.", None, dict(scene="dawn", cams=[(0, "wide")], gap=0.25)),
+    ("gag", "end", 2.6, "dawn", "wide"),
+]
+SEQ = list(SEQ_V5)   # the script build() renders; use_script() swaps it
+
+
+def use_script(name):
+    """Pick the script (and the voices it was cast with)."""
+    SEQ[:] = {"v2": SEQ_V2, "v3": SEQ_V3, "v4": SEQ_V4, "v5": SEQ_V5}[name]
+    if name in ("v2", "v3", "v4"):
+        V.update(V_OLD)
+
+
 FLAT = 1.0   # stampede: seconds from the doors to the kids getting flattened
 END_TEXT = ["WHAT'S THE DUMBEST THING", "YOU'D FIGHT FOR", "ON BLACK FRIDAY?"]
 
@@ -263,7 +343,11 @@ def cams(L):
     vert = H > W
     out = {}
     for scene in ("outside", "inside", "checkout", "dawn", "ceo"):
-        c = {"wide": (W / 2, H / 2, 1.0) if not vert or scene == "ceo" else (W / 2, 1160, 1.18)}
+        if scene == "ceo":
+            wide = (W / 2, H / 2, 1.0)
+        else:   # wides sit low and zoomed in so the kids read big (both formats)
+            wide = (W / 2, 1160, 1.18) if vert else (W / 2, 612, 1.18)
+        c = {"wide": wide}
         S = L[scene]
         z = L["cu"]
         for k, x in S.get("kids", {}).items():
@@ -458,6 +542,10 @@ def spr(name, z, *key):
                               ("p", strip([(-22, -20), (22, -20)], 5), (110, 100, 106), False),
                               ("p", strip([(-20, 0), (20, 0)], 5), (110, 100, 106), False),
                               ("p", strip([(-12, 46), (14, 46)], 5), (110, 100, 106), False)], z, 90, 13)
+    if name == "palm":
+        hand = C.CAST[key[0]]["hand"]
+        return render_shapes([("e", (0, 0, 36, 32), hand), ("e", (-32, 10, 12, 17, 0, 360, None, 20), hand)], z, 70,
+                             14)
     if name == "sock":
         return render_shapes([("p", [(-14, -40), (14, -40), (14, 20), (40, 26), (40, 46), (-14, 46)], WHITE),
                               ("p", [(-14, -40), (14, -40), (14, -26), (-14, -26)], (200, 40, 32), False),
@@ -925,6 +1013,20 @@ def kid_pose(c, t, fi, li):
                     expr = "wide"
         if c == "dot" and not spk:
             aL, aR = -10, 22
+    # punchline poses: point and facepalm
+    vert = G["L"]["H"] > G["L"]["W"]
+    if spk and c == "mb" and scene == "inside" and say and "Seventy" in say:
+        wi = max([j for j, (s, _, _) in enumerate(ln["words"]) if s <= t + 0.01] or [0])
+        if wi <= 2:   # "There it is." points at the TV
+            aL, aR = -15, (145 if vert else 95)
+    if spk and c == "dot" and say and "dumbass" in say and t >= ln["words"][-1][0] - 0.05:
+        aL, aR = -95, 12   # points at Meatball
+    if c == "dot" and scene == "inside" and li is None and len(lines) > 12 and \
+            lines[12]["start"] + lines[12]["dur"] < t < ev["checkout"]:
+        aR, extra["palm"] = 150, True   # "It's called a payment plan." -> facepalm
+    if c == "mb" and scene == "ceo" and spk is False and ln is not None and ln["who"] == "ceo" and \
+            len(ln["words"]) > 15 and t >= ln["words"][13][0]:
+        aR, extra["palm"] = 150, True   # the CEO's "gift from my heart"
     if c == "dot" and spk and say and "dark" in say:
         expr = "wide"
     if spk and any(a <= t < b for a, b in ln.get("bwins", ())):
@@ -950,6 +1052,9 @@ def compose_kid(c, z, pose):
             hy = o + (sy + L_ * math.cos(math.radians(a))) * z
             paste(im, spr("sock", z), hx, hy - 40 * z, 10 + extra.get("wig", 0))
     paste(im, C.sprite(c, "head", z, *hk), o + (k["neck"][0] + jx) * z, o + (k["neck"][1] + jy) * z, ang)
+    if extra.get("palm"):   # facepalm: the mitten over the eyes (the arm is up behind the head)
+        hc = {"mb": 108, "pip": 92, "dot": 70}[c]
+        paste(im, spr("palm", z, c), o + (k["neck"][0] + jx + 8) * z, o + (k["neck"][1] + jy - hc) * z, 8)
     if extra.get("foot"):   # a stampede footprint stays on Pip's face
         paste(im, spr("foot", z), o + (k["neck"][0] + jx + 30) * z, o + (k["neck"][1] + jy - 120) * z, -25)
     return im
@@ -1563,12 +1668,9 @@ if __name__ == "__main__":
     ap.add_argument("--sheet")
     ap.add_argument("--times", type=float, nargs="*")
     ap.add_argument("--timeline", action="store_true")
-    ap.add_argument("--script", default="v2", choices=["v2", "v3", "v4"])
+    ap.add_argument("--script", default="v5", choices=["v2", "v3", "v4", "v5"])
     a = ap.parse_args()
-    if a.script == "v3":
-        SEQ[:] = SEQ_V3
-    elif a.script == "v4":
-        SEQ[:] = SEQ_V4
+    use_script(a.script)
     if a.timeline:
         timeline(a.fmt)
     elif a.sheet:
