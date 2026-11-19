@@ -731,7 +731,8 @@ def ep8():
         ("hold", 0.4, "cu_dot"),
         ("gag", "dna", 1.3, "dna", "wide"),
         ("line", "pip", "Rick, you're thirty percent Mexican.", None,
-         dict(scene="table", cams=[(0, "cu_pip"), (2, "chart/wide")], gap=0.1)),
+         dict(scene="table", cams=[(0, "cu_pip"), (2, "chart/wide")], gap=0.1,
+              voice="kokoro:aud-pip-b@speed=1.2,pause=0.14")),
         ("line", "rick", "That's a lie spread by the envelope!", None,
          dict(scene="table", cams=[(0, "cu_rick")], gap=0.2)),
         ("line", "mb", "You built a wall in your backyard, Rick. You walled off your own cousins.", None,
@@ -1252,7 +1253,7 @@ def kitchen_layout(L):
     vert = L["H"] > L["W"]
     if vert:
         xs = dict(sage=120, pip=390, mb=630, dot=870, tank=1150)
-        return dict(cast=xs, wide=(640, 1240, 0.8))
+        return dict(cast=xs, wide=(640, 1380, 0.85))
     xs = dict(sage=320, pip=700, mb=960, dot=1220, tank=1600)
     return dict(cast=xs, wide=(960, 600, 1.0))
 
@@ -1365,7 +1366,7 @@ def ep7():
         a, b = stare_win()
         if a <= t < b:   # a sweat drop on Meatball
             K = L["K"]
-            x, y = cam.p(L[scene]["cast"]["mb"] + 110 * K, L["feet"] - (300 - ((fi % 6) * 6)) * K)
+            x, y = cam.p(L[scene]["cast"]["mb"] + 92 * K, L["feet"] - (370 - ((fi % 6) * 6)) * K)
             r = 14 * cam.z * K
             ImageDraw.Draw(fr).polygon([(x, y - r * 2.2), (x + r, y), (x, y + r), (x - r, y)], fill=(120, 190, 250),
                                        outline=INK)
