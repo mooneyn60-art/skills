@@ -220,6 +220,23 @@ H.body_shapes = lambda c: NEW[c][0]() if c in NEW else _body(c)
 H.head_shapes = lambda c, *k: NEW[c][1](*k) if c in NEW else _head(c, *k)
 H.arm_shapes = lambda c: NEW[c][2](c) if c in NEW else _arm(c)
 
+
+def _head_plus(c, *k):
+    s = NEW[c][1](*k) if c in NEW else _head(c, *k)
+    if c == "rick" and "hats" in k[3]:   # ep8: a wide straw hat with a green top hat stacked on it
+        cy = -108
+        s += [("e", (0, cy - 64, 190, 34), (226, 196, 120)),
+              ("pts", ell(0, cy - 76, 84, 70, 180, 360) + [(84, cy - 72)], (226, 196, 120)),
+              ("p", [(-84, cy - 96), (84, cy - 96), (84, cy - 80), (-84, cy - 80)], (200, 60, 50), False),
+              ("e", (0, cy - 140, 80, 14), (40, 120, 60)),
+              ("p", [(-52, cy - 250), (52, cy - 250), (60, cy - 142), (-60, cy - 142)], (40, 130, 70)),
+              ("p", [(-58, cy - 170), (58, cy - 170), (60, cy - 150), (-60, cy - 150)], (30, 30, 30), False),
+              ("p", [(-14, cy - 172), (14, cy - 172), (14, cy - 148), (-14, cy - 148)], (240, 200, 60), False)]
+    return s
+
+
+H.head_shapes = _head_plus
+
 SKIN = [(242, 198, 164), (139, 92, 62), (200, 150, 110), (250, 214, 190), (176, 120, 84), (230, 180, 150)]
 register("karen", person(SKIN[3], "bob", (236, 206, 120), "polo", (150, 200, 210), (120, 120, 150),
                          (240, 240, 240), acc=("sunglasses_head",), eyes=("norm", 0.25)))
@@ -340,8 +357,11 @@ def table_layout(cast_x):
         K, F = L["K"], L["feet"]
         xs = dict(cast_x[1 if vert else 0])
         full = dict(xs)
-        for k in ("kaylee", "pip", "mb", "dot", "brad"):
-            full.setdefault(k, xs.get(k, 0))
+        mids = sorted(v for k, v in xs.items() if k not in ("rick", "grandma", "dadbot", "dad"))
+        full.setdefault("kaylee", mids[0])   # bg_table sizes the table from kaylee .. brad
+        full.setdefault("brad", mids[-1])
+        for k in ("pip", "mb", "dot"):
+            full.setdefault(k, xs.get(k, mids[len(mids) // 2]))
         lo, hi = min(xs.values()), max(xs.values())
         mid = (lo + hi) / 2
         wide = (mid, 1250, 0.9) if vert else (960, 600, 1.0)
@@ -679,7 +699,194 @@ def ep4():
                 where=where, pre=pre, post=post, pose_hook=pose_hook, sfx=sfx)
 
 
-EPISODES = {"ep3": ep3, "ep4": ep4}
+def card_bg(draw):
+    """A cutaway card scene: dark backing, a big paper card; draw(img, d, x0, y0, x1, y1, L) fills it."""
+    def bg_(L, cam, scene):
+        W, H_ = L["W"], L["H"]
+        rng = np.random.default_rng(131)
+        img = Image.new("RGBA", (W, H_))
+        paper(img, [(-20, -20), (W + 20, -20), (W + 20, H_ + 20), (-20, H_ + 20)], (50, 44, 70), rng, 1.0,
+              shadow=False, jitter=False)
+        cw, ch = (W * 0.62, H_ * 0.84) if W > H_ else (W * 0.88, H_ * 0.62)
+        x0, y0 = W / 2 - cw / 2, H_ / 2 - ch / 2
+        paper(img, [(x0, y0), (x0 + cw, y0 + 8), (x0 + cw - 4, y0 + ch), (x0 + 4, y0 + ch - 6)], (250, 248, 240), rng,
+              2.0, sh=14)
+        draw(img, ImageDraw.Draw(img), x0, y0, x0 + cw, y0 + ch, L)
+        return img
+    return bg_
+
+
+def ep8():
+    xs = (dict(rick=200, pip=620, mb=960, dot=1300, grandma=1660),
+          dict(rick=40, pip=330, mb=600, dot=870, grandma=1140))
+    seq = [
+        ("gag", "intro", 2.4, "table", "wide"),
+        ("line", "mb", "Uncle Rick took a DNA test. Rick has opinions about DNA.", None,
+         dict(scene="table", cams=[(0, "cu_mb")], gap=0.2)),
+        ("line", "rick", "I'm one hundred percent American. Pure. Like a bald eagle eating a cheeseburger.", None,
+         dict(scene="table", cams=[(0, "cu_rick")], gap=0.2)),
+        ("line", "dot", "Eagles don't eat cheeseburgers, Rick.", None, dict(scene="table", cams=[(0, "cu_dot")],
+                                                                             gap=0.2)),
+        ("line", "rick", "Mine do.", None, dict(scene="table", cams=[(0, "cu_rick")], gap=0.0)),
+        ("hold", 0.4, "cu_dot"),
+        ("gag", "dna", 1.3, "dna", "wide"),
+        ("line", "pip", "Rick, you're thirty percent Mexican.", None,
+         dict(scene="table", cams=[(0, "cu_pip"), (2, "chart/wide")], gap=0.1)),
+        ("line", "rick", "That's a lie spread by the envelope!", None,
+         dict(scene="table", cams=[(0, "cu_rick")], gap=0.2)),
+        ("line", "mb", "You built a wall in your backyard, Rick. You walled off your own cousins.", None,
+         dict(scene="table", cams=[(0, "cu_mb"), (3, "wall/wide"), (8, "table/cu_mb")], gap=0.0)),
+        ("hold", 0.4, "cu_rick"),
+        ("line", "pip", "Twenty percent Nigerian.", None, dict(scene="chart", cams=[(0, "wide")], gap=0.0)),
+        ("hold", 1.1, "table/cu_rick"),
+        ("line", "rick", "That explains why I can't dance. Wait, no it doesn't.",
+         "...That explains why I can't dance. Wait, no it doesn't.",
+         dict(scene="table", cams=[(0, "cu_rick")], gap=0.2)),
+        ("line", "dot", "It explains nothing, Rick. You can't dance because you're Rick.", None,
+         dict(scene="table", cams=[(0, "cu_dot")], gap=0.0)),
+        ("hold", 0.4, "cu_rick"),
+        ("line", "pip", "And fifteen percent Irish.", None, dict(scene="chart", cams=[(0, "wide")], gap=0.1)),
+        ("line", "rick", "Finally. Something I can be proud of.", None,
+         dict(scene="table", cams=[(0, "cu_rick")], gap=0.0)),
+        ("hold", 0.4, "cu_grandma"),
+        ("line", "grandma", "Richard. Your grandfather was a Mexican Irishman who sold fireworks out of a church van.",
+         None, dict(scene="table", cams=[(0, "cu_grandma")], gap=0.0)),
+        ("hold", 0.5, "cu_rick"),
+        ("line", "rick", "So what am I?", None, dict(scene="table", cams=[(0, "cu_rick")], gap=0.2)),
+        ("line", "mb", "Rick, you're everything you ever complained about. Happy Thanksgiving.", None,
+         dict(scene="table", cams=[(0, "cu_mb")], gap=0.0)),
+        ("gag", "hats", 0.9, "table", "cu_rick"),
+        ("line", "rick", "I contain multitudes.", "...I contain multitudes.",
+         dict(scene="table", cams=[(0, "cu_rick")], gap=0.0)),
+        ("hold", 0.4, "cu_dot"),
+        ("line", "dot", "Take those off, Rick. That's how you got here.", None,
+         dict(scene="table", cams=[(0, "cu_dot")], gap=0.0)),
+        ("hold", 0.6, "wide"),
+        ("gag", "end", 3.0, "table", "wide"),
+    ]
+
+    def dna_card(img, d, x0, y0, x1, y1, L):
+        cx, cy = (x0 + x1) / 2, (y0 + y1) / 2
+        rng = np.random.default_rng(5)
+        ew, eh = (x1 - x0) * 0.8, (y1 - y0) * 0.36
+        paper(img, [(cx - ew / 2, cy - eh / 2), (cx + ew / 2, cy - eh / 2), (cx + ew / 2, cy + eh / 2),
+                    (cx - ew / 2, cy + eh / 2)], (236, 226, 200), rng, 2.0, sh=10)
+        paper(img, [(cx - ew / 2, cy - eh / 2), (cx + ew / 2, cy - eh / 2), (cx, cy + eh * 0.1)], (220, 206, 176),
+              rng, 2.0, sh=4)
+        f = ImageFont.truetype(FONT, int(ew / 9))
+        d.text((cx, cy + eh * 0.28), "DNA RESULTS", font=f, fill=(200, 40, 32), anchor="mm")
+        d.text((cx, y0 + (y1 - y0) * 0.14), "CONFIDENTIAL", font=ImageFont.truetype(FONT, int(ew / 14)),
+               fill=(60, 60, 70), anchor="mm")
+        d.text((cx, y1 - (y1 - y0) * 0.12), "To: RICK", font=ImageFont.truetype(BOLD, int(ew / 14)), fill=INK,
+               anchor="mm")
+
+    def chart_card(img, d, x0, y0, x1, y1, L):
+        d.text(((x0 + x1) / 2, y0 + (y1 - y0) * 0.09), "RICK'S DNA", font=ImageFont.truetype(FONT, int((x1 - x0) / 9)),
+               fill=INK, anchor="mm")
+
+    def wall_card(img, d, x0, y0, x1, y1, L):
+        rng = np.random.default_rng(7)
+        paper(img, [(x0 + 10, y0 + 10), (x1 - 10, y0 + 10), (x1 - 10, y1 - 10), (x0 + 10, y1 - 10)], (160, 210, 236),
+              rng, 1.0, shadow=False, jitter=False)
+        gy = y0 + (y1 - y0) * 0.62
+        paper(img, [(x0 + 10, gy), (x1 - 10, gy), (x1 - 10, y1 - 10), (x0 + 10, y1 - 10)], (120, 186, 96), rng, 1.0,
+              shadow=False)
+        wx0, wx1 = x0 + (x1 - x0) * 0.2, x1 - (x1 - x0) * 0.08
+        wt = gy - (y1 - y0) * 0.16
+        bh = (gy - wt) / 4
+        for r in range(4):
+            for k in range(12):
+                bx = wx0 + k * (wx1 - wx0) / 12 + (r % 2) * (wx1 - wx0) / 24
+                if bx >= wx1 - 5:
+                    continue
+                paper(img, [(bx, wt + r * bh), (min(wx1, bx + (wx1 - wx0) / 12 - 4), wt + r * bh),
+                            (min(wx1, bx + (wx1 - wx0) / 12 - 4), wt + (r + 1) * bh - 4), (bx, wt + (r + 1) * bh - 4)],
+                      (186, 80, 60), rng, 1.0, sh=2)
+        sw, sh_ = (x1 - x0) * 0.3, (y1 - y0) * 0.08
+        sx, sy = (wx0 + wx1) / 2, wt - sh_ * 0.4
+        paper(img, [(sx - sw / 2, sy - sh_ / 2), (sx + sw / 2, sy - sh_ / 2), (sx + sw / 2, sy + sh_ / 2),
+                    (sx - sw / 2, sy + sh_ / 2)], WHITE, rng, 1.5, sh=4)
+        d.text((sx, sy), "KEEP OUT", font=ImageFont.truetype(FONT, int(sw / 6)), fill=(200, 40, 32), anchor="mm")
+        gx = x0 + (x1 - x0) * 0.1
+        paper(img, [(gx - 40, gy - 90), (gx + 40, gy - 90), (gx + 30, gy - 40), (gx - 30, gy - 40)], (40, 40, 46), rng,
+              1.0, sh=4)   # grill
+        paper(img, strip([(gx - 20, gy - 40), (gx - 30, gy)], 6), (40, 40, 46), rng, 1.0)
+        paper(img, strip([(gx + 20, gy - 40), (gx + 30, gy)], 6), (40, 40, 46), rng, 1.0)
+        d.text(((x0 + x1) / 2, y0 + (y1 - y0) * 0.1), "RICK'S BACKYARD", font=ImageFont.truetype(FONT,
+                                                                                             int((x1 - x0) / 11)),
+               fill=INK, anchor="mm")
+
+    SEGS = [("Mexican", 0.30, (60, 160, 80), "30% MEXICAN"), ("Nigerian", 0.20, (240, 150, 50), "20% NIGERIAN"),
+            ("Irish", 0.15, (150, 210, 90), "15% IRISH")]
+
+    def reveal(t):
+        out = []
+        for key, frac, col, lab in SEGS:
+            ln = H.lines_with(key, "pip")
+            if ln and t >= H.word_t(ln[0], key, ln[0]["start"]) - 0.1:
+                out.append((frac, col, lab))
+        return out
+
+    def post(fr, cam, t, fi, li, scene, L):
+        if scene == "chart":   # the pie fills in as Pip reads
+            W, H_ = L["W"], L["H"]
+            r = min(W, H_) * (0.28 if W > H_ else 0.36)
+            cx, cy = W / 2, H_ * (0.47 if W > H_ else 0.45)
+            d = ImageDraw.Draw(fr)
+            d.ellipse((cx - r, cy - r, cx + r, cy + r), fill=(200, 200, 205), outline=INK, width=4)
+            a = -90.0
+            shown = reveal(t)
+            for frac, col, lab in shown:
+                d.pieslice((cx - r, cy - r, cx + r, cy + r), a, a + frac * 360, fill=col, outline=INK, width=4)
+                a += frac * 360
+            d.text((cx, cy + r * 0.55), "???" if len(shown) < 3 else "35% ???", font=ImageFont.truetype(FONT,
+                                                                                                 int(r / 5)),
+                   fill=(90, 90, 100), anchor="mm")
+            f = ImageFont.truetype(FONT, int(r / 6.5))
+            for k, (frac, col, lab) in enumerate(shown):
+                y = cy + r * 1.18 + k * r * 0.22
+                d.rectangle((cx - r * 0.75, y - r * 0.07, cx - r * 0.61, y + r * 0.07), fill=col, outline=INK)
+                d.text((cx - r * 0.52, y), lab, font=f, fill=INK, anchor="lm")
+        if scene == "table" and G["ev"].get("hats", 1e9) <= t < G["ev"]["hats"] + 0.3:
+            K = L["K"]
+            x, y = cam.p(L[scene]["cast"]["rick"] + 60 * K, L["feet"] - 520 * K)
+            paste(fr, C2.spr("star", round(cam.z * K * 0.9, 2), "TA-DA"), x, y, 0)
+
+    def pose_hook(c, t, fi, li, scene, p):
+        hop, j, ang, (aL, aR), hk, sq, rot, extra = p
+        ev = G["ev"]
+        if c == "pip" and ev.get("dna", 1e9) <= t:
+            aL, extra["item"] = -110, ("results", "L", 0)
+        if c == "rick" and t >= ev.get("hats", 1e9):
+            hk = (hk[0], hk[1], hk[2], frozenset(set(hk[3]) | {"hats"}))
+            if t < ev["hats"] + 0.5:
+                aL, aR = -160, 160
+        return (hop, j, ang, (aL, aR), hk, sq, rot, extra)
+
+    def sfx(fx, music, ev, lines):
+        if "dna" in ev:
+            sfx_slap(fx, ev["dna"], 0.4, 3)
+            add(fx, C2.choir(1.4), ev["dna"] + 0.1, 0.4)
+        for key, _, _, _ in SEGS:   # a stab as each slice appears
+            ln = H.lines_with(key, "pip")
+            if ln:
+                add(fx, ks(hz("C4"), 0.5, 0.99, 0.7, 7), H.word_t(ln[0], key, ln[0]["start"]) - 0.1, 0.35)
+        if "hats" in ev:
+            for k, nt in enumerate(["C5", "E5", "G5"]):
+                add(fx, ks(hz(nt), 0.4, 0.995, 0.9, 20 + k), ev["hats"] + k * 0.12, 0.3)
+
+    def silences():
+        ln = H.lines_with("dance", "rick")
+        return [(ln[0]["t0"] - 1.1, ln[0]["t0"])] if ln else []
+
+    return dict(title="RICK'S DNA TEST", end=["WHAT WOULD YOUR", "UNCLE'S DNA", "TEST SAY?"], seq=seq,
+                scenes={"table": dict(layout=table_layout(xs), bg=table_bg),
+                        "dna": dict(bg=card_bg(dna_card)), "chart": dict(bg=card_bg(chart_card)),
+                        "wall": dict(bg=card_bg(wall_card))},
+                post=post, pose_hook=pose_hook, sfx=sfx, silences=silences)
+
+
+EPISODES = {"ep3": ep3, "ep4": ep4, "ep8": ep8}
 
 
 # ------------------------------------------------------------------------------------------------ engine

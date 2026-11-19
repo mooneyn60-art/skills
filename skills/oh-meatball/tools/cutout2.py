@@ -884,6 +884,16 @@ def spr(name, z, *key):
                               ("e", (-170, -40, 18, 18), (170, 170, 180), False),
                               ("e", (170, -40, 18, 18), (170, 170, 180), False),
                               ("e", (262, -120, 14, 10), (252, 230, 120))], z, 420, 41)
+    if name == "results":   # a paper of DNA results (episode 8)
+        img = render_shapes([("p", [(-34, -46), (34, -48), (36, 46), (-32, 48)], WHITE)], z, 70, 19)
+        d = ImageDraw.Draw(img)
+        c = img.size[0] / 2
+        d.text((c, c - 30 * z), "DNA", font=ImageFont.truetype(FONT, max(6, int(16 * z))), fill=(200, 40, 32),
+               anchor="mm")
+        for k in range(4):
+            d.line([(c - 24 * z, c + (-10 + k * 14) * z), (c + 24 * z, c + (-10 + k * 14) * z)], fill=(150, 150, 150),
+                   width=max(1, int(3 * z)))
+        return img
     if name == "slice":   # a slice of cold pie (episode 2, dawn)
         return render_shapes([("p", [(-30, -20), (30, -24), (0, 40)], (178, 92, 60)),
                               ("p", strip([(-32, -20), (32, -24)], 12), (226, 180, 110))], z, 60, 18)
