@@ -32,7 +32,11 @@ def main():
     ap.add_argument("media")
     ap.add_argument("--min", type=float, default=0.6)
     a = ap.parse_args()
-    c.use_script(a.script)
+    if a.script == "holy":   # episode 2 lives in cutout_holy.py
+        import cutout_holy
+        cutout_holy.use()
+    else:
+        c.use_script(a.script)
     lines, _, _, _ = c.build()
     fd, wav = tempfile.mkstemp(suffix=".wav", dir="/dev/shm" if os.path.isdir("/dev/shm") else None)
     os.close(fd)

@@ -40,125 +40,50 @@ def L_(o, **k):
     return dict(o, **k)
 
 
-SEQ_HOLY = [
-    ("gag", "intro", 2.9, "table", "wide"),
-    ("line", "rick", "Before we eat, I just want to say: I'm not racist, but...", None,
-     dict(scene="table", cams=[(0, "cu_rick")], gap=0.1)),
-    ("line", "mb", "Every sentence that starts like that ends with Grandma leaving the table.", None,
-     dict(scene="table", cams=[(0, "cu_mb")], gap=0.0)),
-    ("gag", "pie", 1.5, "table", "wide"),
-    ("line", "rick", "All I'm saying is, people should stay where they came from.", None,
-     dict(scene="table", cams=[(0, "cu_rick")], gap=0.15)),
-    ("line", "dot", "You're from Ohio, Rick. Please go back.", None, dict(scene="table", cams=[(0, "cu_dot")], gap=0.0)),
-    ("hold", 0.4, "cu_rick"),
-    ("line", "rick", "I love this country. I've got the flag on my hat, my truck, and my swim trunks.", None,
-     dict(scene="table", cams=[(0, "cu_rick")], gap=0.15)),
-    ("line", "pip", "The tag on your hat says made overseas.", None,
-     dict(scene="table", cams=[(0, "cu_pip"), (6, "tag/wide")], gap=0.0)),
-    ("hold", 0.4, "tag/wide"),
-    ("hold", 1.0, "table/cu_rick"),
-    ("line", "rick", "That's a lie spread by the media.", "...That's a lie spread by the media.",
-     dict(scene="table", cams=[(0, "cu_rick")], gap=0.15)),
-    ("line", "mb", "Rick, you hate foreigners, but your whole personality was shipped in a container.", None,
-     dict(scene="table", cams=[(0, "cu_mb")], gap=0.0)),
-    ("hold", 0.4, "cu_rick"),
-    ("line", "rick", "Everybody knows immigrants are stealing all the jobs.", None,
-     dict(scene="table", cams=[(0, "cu_rick")], gap=0.15)),
-    ("line", "dot", "Rick, you got fired for sleeping in a forklift.", None,
-     dict(scene="table", cams=[(0, "cu_dot")], gap=0.15)),
-    ("line", "rick", "A forklift an immigrant probably drove better than me!", None,
-     dict(scene="table", cams=[(0, "cu_rick")], gap=0.3)),
-    ("line", "pip", "That's not the point you think it is, Rick.", "...That's not the point you think it is, Rick.",
-     dict(scene="table", cams=[(0, "cu_pip")], gap=0.0)),
-    ("hold", 0.4, "cu_rick"),
-    ("line", "kaylee", "Hey besties! Today I'm detoxing from turkey with my seventy-dollar celery juice. Link in bio.",
-     None, dict(scene="table", cams=[(0, "cu_kaylee")], gap=0.15)),
-    ("line", "mb", "Kaylee, your detox tea is just a laxative with a ring light.", None,
-     dict(scene="table", cams=[(0, "cu_mb")], gap=0.2)),
-    ("line", "kaylee", "I'm like, super spiritual. I did yoga in Bali once.", None,
-     dict(scene="table", cams=[(0, "cu_kaylee")], gap=0.15)),
-    ("line", "dot", "You took a selfie with a monk and made it your whole personality.", None,
-     dict(scene="table", cams=[(0, "cu_dot"), (3, "selfie/wide")], gap=0.0)),
-    ("hold", 0.45, "selfie/wide"),
-    ("line", "brad", "Bro, Thanksgiving is a bear market for carbs. I'm all in on protein.", None,
-     dict(scene="table", cams=[(0, "cu_brad")], gap=0.15)),
+SEQ_HOLY = [   # SHORT (~63 s): side-hustles/channels/scripts/cutout-holy-black-friday-short.md
+    ("gag", "intro", 2.4, "table", "wide"),
+    ("line", "rick", "I'm not racist. I've got plenty of Black friends.", None,
+     dict(scene="table", cams=[(0, "cu_rick")], gap=0.2)),
+    ("line", "pip", "Name one.", None, dict(scene="table", cams=[(0, "cu_pip")], gap=0.0)),
+    ("hold", 1.4, "cu_rick"),
+    ("line", "rick", "Black Friday.", "...Black Friday.", dict(scene="table", cams=[(0, "cu_rick")], gap=0.25)),
+    ("line", "dot", "That's a sale, Rick. You're friends with a sale.", None,
+     dict(scene="table", cams=[(0, "cu_dot")], gap=0.0)),
+    ("hold", 1.0, "cu_rick"),
+    ("line", "rick", "Okay, here's a good one. So a guy from Mexico, a guy from China and a...", None,
+     dict(scene="table", cams=[(0, "cu_rick"), (5, "wide")], gap=0.0)),
+    ("gag", "gravy", 2.0, "table", "wide"),
+    ("line", "grandma", "Not at my table, Richard.", None, dict(scene="table", cams=[(0, "cu_grandma")], gap=0.0)),
+    ("hold", 1.0, "cu_dot"),
+    ("line", "kaylee", "I don't take medicine, besties. I manifest.", None,
+     dict(scene="table", cams=[(0, "cu_kaylee")], gap=0.2)),
+    ("line", "dot", "You manifested a rash, Kaylee. It's on your face.", None,
+     dict(scene="table", cams=[(0, "cu_dot"), (3, "cu_kaylee")], gap=0.0)),
+    ("hold", 1.1, "cu_kaylee"),
     ("line", "grandma", "Bradley, you lost your house on a coin named after a dog.", None,
      dict(scene="table", cams=[(0, "cu_grandma"), (7, "coin/wide")], gap=0.0)),
-    ("hold", 0.5, "coin/wide"),
-    ("line", "rick", "Look, I don't even see color.", None, dict(scene="table", cams=[(0, "cu_rick")], gap=0.15)),
-    ("line", "dot", "You can't see your own feet, Rick.", None, dict(scene="table", cams=[(0, "cu_dot")], gap=0.25)),
-    ("line", "rick", "And I'm not racist. I've got plenty of Black friends.", None,
-     dict(scene="table", cams=[(0, "cu_rick")], gap=0.15)),
-    ("line", "pip", "Name one.", None, dict(scene="table", cams=[(0, "cu_pip")], gap=0.0)),
-    ("hold", 1.0, "cu_rick"),
-    ("line", "rick", "Black Friday.", "...Black Friday.", dict(scene="table", cams=[(0, "cu_rick")], gap=0.2)),
-    ("line", "dot", "That's a sale, Rick. You're friends with a sale.", None,
-     dict(scene="table", cams=[(0, "cu_dot")], gap=0.3)),
-    ("line", "rick", "Okay, okay, here's a good one. So a guy from Mexico, a guy from China and a...", None,
-     dict(scene="table", cams=[(0, "cu_rick"), (6, "wide")], gap=0.0)),
-    ("gag", "gravy", 1.6, "table", "wide"),
-    ("line", "grandma", "Not at my table, Richard.", None, dict(scene="table", cams=[(0, "cu_grandma")], gap=0.0)),
-    ("hold", 0.45, "cu_dot"),
-    ("line", "rick", "Kids today are always on their phones.", None,
-     dict(scene="table", cams=[(0, "cu_rick")], gap=0.15)),
-    ("line", "mb", "Rick, you have four hundred friends online and all of them are scam bots named Jessica.", None,
-     dict(scene="table", cams=[(0, "cu_mb")], gap=0.15)),
-    ("line", "rick", "Jessica gets me.", None, dict(scene="table", cams=[(0, "jessica/wide")], gap=0.0)),
-    ("hold", 0.45, "table/cu_mb"),
-    ("line", "kaylee", "I don't take medicine, I manifest.", None,
-     dict(scene="table", cams=[(0, "cu_kaylee")], gap=0.15)),
-    ("line", "dot", "Kaylee, you manifested a rash. It's on your face.", None,
-     dict(scene="table", cams=[(0, "cu_dot"), (5, "cu_kaylee")], gap=0.0)),
-    ("hold", 0.4, "cu_kaylee"),
-    ("line", "grandma", "I've outlived three husbands, two hips and every one of my enemies. Rick, you're next.",
-     None, dict(scene="table", cams=[(0, "cu_grandma")], gap=0.0)),
-    ("hold", 0.5, "cu_rick"),
-    ("gag", "tvon", 1.4, "table", "cu_tv"),
-    ("line", "chad", "Friends! The Lord spoke to me this morning. He said, Chad, you need a fourth jet.", None,
-     dict(scene="studio", cams=[(0, "wide"), (1, "cu_chad")], gap=0.2)),
-    ("line", "chad", "And He said the good people watching should pay for it.", None,
-     dict(scene="studio", cams=[(0, "cu_chad")], gap=0.2)),
+    ("hold", 0.9, "coin/wide"),
+    ("hold", 1.0, "table/cu_brad"),
+    ("gag", "tvon", 1.5, "table", "cu_tv"),
+    ("line", "chad", "The Lord told me I need a fourth jet. And He said you should pay for it.", None,
+     dict(scene="studio", cams=[(0, "wide"), (2, "cu_chad")], gap=0.2)),
+    ("line", "dot", "God talks to you a lot for a guy with three DUIs.", None,
+     dict(scene="table", cams=[(0, "cu_dot")], gap=0.0)),
+    ("hold", 1.0, "studio/cu_chad"),
     ("line", "chad", "Jesus turned water into wine. I turn your grandma's pension into a sports car.", None,
-     dict(scene="studio", cams=[(0, "cu_chad")], gap=0.15)),
-    ("line", "grandma", "Over my dead body.", None, dict(scene="table", cams=[(0, "cu_grandma")], gap=0.15)),
+     dict(scene="studio", cams=[(0, "cu_chad")], gap=0.2)),
+    ("line", "grandma", "Over my dead body.", None, dict(scene="table", cams=[(0, "cu_grandma")], gap=0.2)),
     ("line", "chad", "That's the premium package, ma'am.", None,
      dict(scene="studio", cams=[(0, "cu_chad")], gap=0.0)),
-    ("hold", 0.35, "cu_chad"),
-    ("line", "dot", "God talks to you a lot for a guy with three DUIs.", None,
-     dict(scene="table", cams=[(0, "cu_dot")], gap=0.2)),
-    ("line", "chad", "Sow a ninety-nine dollar seed, and the Lord will bless you with this seventy-five-inch TV!",
-     None, dict(scene="studio", cams=[(0, "cu_chad"), (9, "wide")], gap=0.15)),
-    ("line", "pip", "That's the same TV from MegaMart.", None, dict(scene="table", cams=[(0, "cu_pip")], gap=0.15)),
-    ("line", "chad", "The Lord shops sales, Pip.", None, dict(scene="studio", cams=[(0, "cu_chad")], gap=0.2)),
-    ("line", "chad", "And the Lord says: never pay them. Send that money to me instead.", None,
-     dict(scene="studio", cams=[(0, "cu_chad")], gap=0.0)),
-    ("gag", "dial", 0.8, "table", "cu_rick"),
-    ("line", "rick", "Finally, a man of God who gets me.", None, dict(scene="table", cams=[(0, "cu_rick")], gap=0.15)),
-    ("line", "mb", "Rick. He just took your rent money live on TV and called it a blessing.", None,
-     dict(scene="table", cams=[(0, "cu_mb")], gap=0.15)),
-    ("line", "rick", "That's between me and my lord and savior, Chad.", None,
-     dict(scene="table", cams=[(0, "cu_rick")], gap=0.0)),
-    ("hold", 0.45, "cu_mb"),
-    ("gag", "lot", 1.4, "lot", "wide"),
-    ("line", "grandma", "I've gone to church every Sunday for sixty years. I go for the free coffee and to judge the "
-     "hats.", None, dict(scene="lot", cams=[(0, "cu_grandma")], gap=0.2)),
-    ("line", "grandma", "Your hat is shit, sweetie.", None,
-     dict(scene="lot", cams=[(0, "cu_chad"), (3, "cu_grandma")], gap=0.0)),
-    ("hold", 0.3, "cu_chad"),
-    ("gag", "cops", 1.4, "lot", "wide"),
+    ("hold", 1.2, "cu_chad"),
+    ("gag", "cops", 1.6, "lot", "wide"),
     ("line", "chad", "This isn't fraud! It's a miracle with paperwork!", None,
-     dict(scene="lot", cams=[(0, "cu_chad")], gap=0.15)),
-    ("line", "dot", "It's a pyramid scheme with a choir.", None, dict(scene="lot", cams=[(0, "cu_dot")], gap=0.2)),
-    ("line", "rick", "So I'm not getting the TV?", None, dict(scene="lot", cams=[(0, "cu_rick")], gap=0.15)),
-    ("line", "mb", "No, Rick. But you did get scammed by a guy in a gold suit, so you finally have something in "
-     "common with everybody.", None, dict(scene="lot", cams=[(0, "cu_mb")], gap=0.0)),
-    ("hold", 0.5, "cu_rick"),
-    ("gag", "dawn", 1.4, "dawn", "wide"),
-    ("line", "mb", "You know what this taught us? ...Nope. Not a damn thing. Pass the pie.", None,
-     dict(scene="dawn", cams=[(0, "cu_mb")], gap=0.2)),
-    ("line", "pip", "Same time next year?", None, dict(scene="dawn", cams=[(0, "wide")], gap=0.2)),
-    ("line", "all", "Obviously.", None, dict(scene="dawn", cams=[(0, "wide")], gap=0.3)),
-    ("gag", "end", 3.0, "dawn", "wide"),
+     dict(scene="lot", cams=[(0, "cu_chad")], gap=0.0)),
+    ("hold", 1.2, "cu_chad"),
+    ("gag", "dawn", 1.2, "dawn", "wide"),
+    ("line", "mb", "Happy Thanksgiving. Somebody pass the damn pie.", None,
+     dict(scene="dawn", cams=[(0, "cu_mb")], gap=0.8)),
+    ("gag", "end", 3.2, "dawn", "wide"),
 ]
 # Lines 14a's sign: the script's line text is the spoken part only.
 END_TEXT = ["WHO'S THE WORST PERSON", "AT YOUR", "THANKSGIVING TABLE?"]
@@ -478,7 +403,7 @@ def pose(c, t, fi, li, scene):
     lvl, hop, aL, aR, expr, ang = 0, 0.0, -12.0, 12.0, base, 0.0
     jit = {"pip": 2.2, "mb": 1.2, "dot": 0.6}.get(c, 1.0)
     extra = {"fi": fi}
-    if t < 2.9:
+    if t < C2.GD.get("intro", 2.9):
         beat = int(t / BEAT)
         if beat % 3 == hash(c) % 3 and (t % BEAT) < 0.17:
             hop = -14
@@ -1106,8 +1031,9 @@ def banners(fr, t):
         return [-700, -320, 40, -12, 0][k] if k < 5 else 0
 
     end = G["ev"]["end"]
-    items = [(0.15, 2.85, "MEATBALL MYTHS", big, (200, 40, 32), WHITE, -3, 0),
-             (0.85, 2.85, "HOLY BLACK FRIDAY", int(big * 0.62), (20, 20, 24), (252, 214, 74), 2, int(big * 1.25))]
+    it_ = C2.GD.get("intro", 2.9)
+    items = [(0.1, it_ - 0.05, "MEATBALL MYTHS", big, (200, 40, 32), WHITE, -3, 0),
+             (0.6, it_ - 0.05, "HOLY BLACK FRIDAY", int(big * 0.62), (20, 20, 24), (252, 214, 74), 2, int(big * 1.25))]
     eb = int(big * 0.52)
     for i, txt in enumerate(END_TEXT):
         items.append((end + 0.2 + 0.25 * i, end + 99, txt, eb, (252, 250, 240), INK, [-2, 2, -1][i],
@@ -1138,24 +1064,21 @@ def mix(end):
     music = np.zeros(int((end + 1) * SR), np.float32)
     mel1 = [(0, "E5", 1), (1, "G5", 0.5), (1.5, "A5", 0.5), (2, "G5", 1), (3, "E5", 0.5), (3.5, "C#5", 0.5)]
     mel2 = [(0, "D5", 0.5), (0.5, "F#5", 0.5), (1, "A5", 1), (2, "B5", 0.5), (2.5, "A5", 0.5), (3, "G5", 1)]
-    jingle_bar(music, 0.0, ["C", "A7"], 0.32, mel1, seed=1)
-    jingle_bar(music, 4 * BEAT, ["D7", "G7"], 0.32, mel2, seed=2)
-    strum(music, 8 * BEAT, "C", 0.4, seed=3)
-    add(music, ks(hz("C6"), 1.0, 0.996, 0.85, 4), 8 * BEAT, 0.35)
-    for t0 in (0.15, 0.85):
+    jingle_bar(music, 0.0, ["C", "A7"], 0.32, mel1, seed=1)   # one bar + a stab: the short-cut intro
+    stab = 4 * BEAT
+    strum(music, stab, "C", 0.4, seed=3)
+    add(music, ks(hz("C6"), 1.0, 0.996, 0.85, 4), stab, 0.35)
+    for t0 in (0.1, 0.6):
         sfx_slap(music, t0 + 2 / FPS, 0.25, int(t0 * 10))
     bed = np.zeros_like(music)
     prog = [["C"], ["A7"], ["D7"], ["G7"]]
-    t, k = 9 * BEAT, 0
+    t, k = stab + BEAT, 0
     while t < ev["end"]:
         jingle_bar(bed, t, prog[k % 4], 0.32, None, drums=True, seed=10 + k)
         t += 4 * BEAT
         k += 1
     gate = np.ones_like(bed)
-    gate[:int(9 * BEAT * SR)] = 0
-    for name, d0, d1 in (("pie", 0, 1.5), ("gravy", 0, 1.6), ("tvon", 0, 1.4), ("cops", 0, 1.4), ("dawn", 0, 1.0)):
-        if name in ev:
-            gate[int((ev[name] + d0) * SR):int((ev[name] + d1) * SR)] = 0
+    gate[:int((stab + BEAT) * SR)] = 0
     for nm in ("That's a lie", "Black Friday."):   # the long pauses are silent
         ll = lines_with(nm, "rick")
         if ll:
