@@ -70,7 +70,7 @@ SEQ_COOK = [
     ("line", "zuck", "Processing.", None, dict(scene="nonna", cams=[(0, "cu_zuck")], gap=0.5)),
     ("gag", "feed", 0.9, "nonna", "two"),
     ("gag", "bsod", 2.0, "nonna", "cu_zuck"),
-    ("line", "mb", "Relatable.", None, dict(scene="nonna", cams=[(0, "cu_mb")], gap=0.45, voice="kokoro:adam-puck@speed=1.15")),   # 1.36 drops the t,
+    ("line", "mb", "Relatable.", None, dict(scene="nonna", cams=[(0, "cu_mb")], gap=0.45, voice="kokoro:adam-puck@speed=1.15")),   # 1.36 drops the t
     ("gag", "tvon", 0.5, "tv", "tv"),
     ("line", "anchor", "Breaking: unprecedented crisis. Again. For the fifth time today.", None,
      dict(scene="tv", cams=[(0, "tv")], gap=0.9)),
