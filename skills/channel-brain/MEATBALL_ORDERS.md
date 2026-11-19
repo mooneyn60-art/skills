@@ -8,6 +8,11 @@ This session does not do Etsy, FurEver Faces, Printify, or Shopify work. Ignore 
 
 Daily and tactical notes stay in the shared notebook under **[MEATBALL]**. The rules below are the standing channel orders copied here so they live in this repo, not only in the shared notebook.
 
+## Flagship fixes from the 11/19 review of House Bugs Ranked (Studio d2cf686): apply to the next Wednesday long-form, cutout style included
+- 4:00-4:45, ONE question, not a list. End screen at most 15 s, with a callback line and one moving element; never empty black boxes.
+- Break the repeated per-item pattern by mid-video; a stake line every 30-60 s.
+- Cards: at most 3 words at >=6% of frame height, or say the fact and drop the card. Any background at most 3 times per video.
+
 ## 11/18 3:45 PM DIRECTION CHANGE (Studio 5fa0964 + fdab8fd, Moondog88 by voice): replaces the topic plan where they conflict
 - **Stopped:** the 11/25 Christmas tree build, flagship cut-downs, holiday fact packs, tick yard test, comment-roast pilot, philosophy niche research, Sat re-render. Already scheduled posts stay until Studio says otherwise. The philosophy test (Ship of Theseus) goes on: live only on KEEP.
 - **Style-led, not topic-led:** the art style, voice and joke format are the product; topics rotate (philosophy, politics, events, news, media). Look: crude paper-cutout animation, flat and choppy (South Park-STYLE reference only). Our own original voice, jokes and characters. NEVER South Park voices, impressions, characters, music, clips or any copyrighted material; original or royalty-free music only.
