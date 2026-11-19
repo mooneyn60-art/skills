@@ -44,15 +44,16 @@ SEQ_HOLY = [   # SHORT (~63 s): side-hustles/channels/scripts/cutout-holy-black-
     ("gag", "intro", 2.4, "table", "wide"),
     ("line", "rick", "I'm not racist. I've got plenty of Black friends.", None,
      dict(scene="table", cams=[(0, "cu_rick")], gap=0.2)),
-    ("line", "pip", "Name one.", None, dict(scene="table", cams=[(0, "cu_pip")], gap=0.0)),
+    ("line", "pip", "Name one.", None,
+     dict(scene="table", cams=[(0, "cu_pip")], gap=0.0, voice="kokoro:aud-pip-b@speed=1.2,pause=0.14")),
     ("hold", 1.4, "cu_rick"),
     ("line", "rick", "Black Friday.", "...Black Friday.", dict(scene="table", cams=[(0, "cu_rick")], gap=0.25)),
     ("line", "dot", "That's a sale, Rick. You're friends with a sale.", None,
      dict(scene="table", cams=[(0, "cu_dot")], gap=0.0)),
     ("hold", 1.0, "cu_rick"),
     ("line", "rick", "Okay, here's a good one. So a guy from Mexico, a guy from China and a...", None,
-     dict(scene="table", cams=[(0, "cu_rick"), (5, "wide")], gap=0.0)),
-    ("gag", "gravy", 2.0, "table", "wide"),
+     dict(scene="table", cams=[(0, "cu_rick"), (5, "wide_all")], gap=0.0)),
+    ("gag", "gravy", 2.0, "table", "wide_all"),
     ("line", "grandma", "Not at my table, Richard.", None, dict(scene="table", cams=[(0, "cu_grandma")], gap=0.0)),
     ("hold", 1.0, "cu_dot"),
     ("line", "kaylee", "I don't take medicine, besties. I manifest.", None,
@@ -98,7 +99,7 @@ def layout(fmt):
                     table=dict(x=xs, top=F - 170, tv=(1690, 250), window=(500, 240), x0=-200, x1=2120),
                     studio=dict(chad=(760, F), tv=(1480, F - 246), panel=(1180, 90, 1850, 330)),
                     lot=dict(chad=(820, F), grandma=(600, F), x=dict(rick=1110, pip=1340, mb=1560, dot=1780),
-                             door=820, car=(1530, F - 170)),
+                             door=820, car=(1450, F + 130)),
                     wide_table=(960, 600, 1.0), wide_lot=(960, 560, 1.0))
     K, F = 1.28, 1640
     xs = dict(rick=40, kaylee=330, pip=610, mb=880, dot=1150, brad=1420, grandma=1690)
@@ -106,15 +107,16 @@ def layout(fmt):
                 table=dict(x=xs, top=F - 170 * K, tv=(1180, 720), window=(560, 720), x0=-500, x1=2300),
                 studio=dict(chad=(380, F), tv=(830, F - 246), panel=(60, 180, 1020, 520)),
                 lot=dict(chad=(420, F), grandma=(200, F), x=dict(rick=660, pip=900, mb=1140, dot=1380),
-                         door=420, car=(1100, F - 200)),
-                wide_table=(865, 1180, 0.56), wide_lot=(760, 1260, 0.72))
+                         door=420, car=(760, F + 230)),
+                wide_table=(880, 1250, 0.9), wide_lot=(760, 1260, 0.72))
 
 
 def cams(L):
     K, F, vert = L["K"], L["feet"], L["H"] > L["W"]
     z = L["cu"]
     out = {}
-    t = {"wide": L["wide_table"]}
+    t = {"wide": L["wide_table"],   # wide_all: the whole table, Rick to Grandma (the gravy throw)
+         "wide_all": (865, 1180, 0.56) if vert else L["wide_table"]}
     for c, x in L["table"]["x"].items():
         h = {"grandma": 150, "rick": 300}.get(c, 270)
         t["cu_" + c] = (x, F - h * K, z * (1.15 if c == "grandma" else 1.0))
@@ -397,7 +399,7 @@ def pose(c, t, fi, li, scene):
     lines, ev = G["lines"], G["ev"]
     rng = np.random.default_rng(fi * 31 + hash(c) % 997)
     ln = lines[li] if li is not None else None
-    spk = ln is not None and (ln["who"] == c or (ln["who"] == "all" and c in KIDS))
+    spk = ln is not None and (ln["who"] == c or (ln["who"] == "all" and c in KIDS) or c in ln["who"].split("+"))
     base = {"mb": "norm", "pip": "worried", "dot": "deadpan", "rick": "norm", "kaylee": "norm", "brad": "smug",
             "chad": "norm"}.get(c, "norm")
     lvl, hop, aL, aR, expr, ang = 0, 0.0, -12.0, 12.0, base, 0.0
@@ -994,10 +996,6 @@ def draw_lot(fr, cam, t, fi, li):
     S = L["lot"]
     ev = G["ev"]
     cops = ev.get("cops", 1e9)
-    if t >= cops:   # the police car slides in, behind everyone
-        f = min(1.0, int((t - cops) / 0.6 * 6) / 6)
-        carx = S["car"][0] + (1 - f) * 900
-        paste(fr, prop("car", round(cam.z * K * 0.9, 3)), *cam.p(carx, S["car"][1]))
     gx = S["grandma"][0]
     lt = ev.get("lot", 0)
     if t < lt + 1.2:   # Grandma cuts the line: walks in from the right
@@ -1015,8 +1013,12 @@ def draw_lot(fr, cam, t, fi, li):
     C2.draw_granny(fr, cam, gx, F, hk[0], "mean", aL, aR, ang=ang, hop=hop)
     for c, x in S["x"].items():
         draw_any(fr, cam, c, x, F, pose(c, t, fi, li, "lot"))
+    if t >= cops:   # the police car slides in, in front of everyone
+        f = min(1.0, int((t - cops) / 0.6 * 6) / 6)
+        carx = S["car"][0] + (1 - f) * 1200
+        paste(fr, prop("car", round(cam.z * K * 0.9, 3)), *cam.p(carx, S["car"][1]))
     if t >= cops:   # red/blue wash
-        col = (255, 40, 40, 60) if int(t * FPS) % 4 < 2 else (40, 80, 255, 60)
+        col = (255, 40, 40, 85) if int(t * FPS) % 4 < 2 else (40, 80, 255, 85)
         fr.alpha_composite(Image.new("RGBA", fr.size, col))
 
 

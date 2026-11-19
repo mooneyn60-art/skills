@@ -35,6 +35,9 @@ def main():
     if a.script == "holy":   # episode 2 lives in cutout_holy.py
         import cutout_holy
         cutout_holy.use()
+    elif a.script.startswith("ep"):   # episodes 3+ live in cutout_eps.py
+        import cutout_eps
+        cutout_eps.use(a.script)
     else:
         c.use_script(a.script)
     lines, _, _, _ = c.build()

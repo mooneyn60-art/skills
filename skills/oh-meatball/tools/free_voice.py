@@ -49,6 +49,15 @@ BLENDS = {  # name -> [(kokoro voice, weight)]; C is Nolan's pick (research/39-v
     "rick": [("am_onyx", 0.6), ("am_fenrir", 0.4)],       # Uncle Rick: loud, gruff American
     "kaylee": [("af_bella", 0.6), ("af_heart", 0.4)],     # Cousin Kaylee: bubbly wellness influencer
     "brad": [("am_puck", 0.5), ("am_liam", 0.5)],         # Cousin Brad: finance bro
+    # cutout episodes 3-8: new original characters (no effects; the voice choice does the work)
+    "karen": [("af_sarah", 0.6), ("af_kore", 0.4)],       # Karen: HOA, clipped and entitled
+    "dad": [("am_michael", 0.5), ("am_fenrir", 0.5)],     # Meatball's dad: tired, warm
+    "dadbot": [("am_echo", 0.7), ("am_onyx", 0.3)],       # Dadbot: flat machine dad
+    "chadsr": [("am_adam", 0.6), ("am_liam", 0.4)],       # Chad Sr.: suburban bro dad
+    "brittany": [("af_nova", 0.7), ("af_jessica", 0.3)],  # Brittany: influencer mom
+    "firefighter": [("am_onyx", 0.5), ("am_santa", 0.5)], # Firefighter: gruff, done with this
+    "sage": [("af_nicole", 0.6), ("af_river", 0.4)],      # Sage: airy vegan
+    "tank": [("am_fenrir", 0.6), ("am_puck", 0.4)],       # Tank: loud gym bro
 }
 SPEED = 1.05
 # Per-blend overrides: speed, and "pause" = the longest silence kept inside a line (s). The drawn animal

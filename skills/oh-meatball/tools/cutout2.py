@@ -884,6 +884,9 @@ def spr(name, z, *key):
                               ("e", (-170, -40, 18, 18), (170, 170, 180), False),
                               ("e", (170, -40, 18, 18), (170, 170, 180), False),
                               ("e", (262, -120, 14, 10), (252, 230, 120))], z, 420, 41)
+    if name == "slice":   # a slice of cold pie (episode 2, dawn)
+        return render_shapes([("p", [(-30, -20), (30, -24), (0, 40)], (178, 92, 60)),
+                              ("p", strip([(-32, -20), (32, -24)], 12), (226, 180, 110))], z, 60, 18)
     if name == "palm":
         hand = C.CAST[key[0]]["hand"]
         return render_shapes([("e", (0, 0, 48, 36), hand), ("e", (-42, 12, 13, 19, 0, 360, None, 20), hand)], z, 80,
@@ -1318,6 +1321,12 @@ def voice_line(who, say, o):
         if seg:
             if who == "all":
                 a_, _ = all_take(seg)
+                w_ = None
+            elif "+" in who:   # two characters in unison ("rick+kaylee")
+                parts = [voice(k, seg)[0] * 0.65 for k in who.split("+")]
+                a_ = np.zeros(max(len(x) for x in parts), np.float32)
+                for x in parts:
+                    a_[:len(x)] += x
                 w_ = None
             else:
                 a_, w_ = voice(who, seg, o.get("voice"))
