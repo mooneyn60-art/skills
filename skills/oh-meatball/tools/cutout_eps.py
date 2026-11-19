@@ -830,8 +830,8 @@ def ep8():
     def post(fr, cam, t, fi, li, scene, L):
         if scene == "chart":   # the pie fills in as Pip reads
             W, H_ = L["W"], L["H"]
-            r = min(W, H_) * (0.28 if W > H_ else 0.36)
-            cx, cy = W / 2, H_ * (0.47 if W > H_ else 0.45)
+            r = min(W, H_) * (0.24 if W > H_ else 0.3)
+            cx, cy = (W / 2 - r * 0.6, H_ * 0.5) if W > H_ else (W / 2, H_ * 0.47)
             d = ImageDraw.Draw(fr)
             d.ellipse((cx - r, cy - r, cx + r, cy + r), fill=(200, 200, 205), outline=INK, width=4)
             a = -90.0
@@ -844,7 +844,7 @@ def ep8():
                    fill=(90, 90, 100), anchor="mm")
             f = ImageFont.truetype(FONT, int(r / 6.5))
             for k, (frac, col, lab) in enumerate(shown):
-                y = cy + r * 1.18 + k * r * 0.22
+                y = cy + r * 1.14 + k * r * 0.2
                 d.rectangle((cx - r * 0.75, y - r * 0.07, cx - r * 0.61, y + r * 0.07), fill=col, outline=INK)
                 d.text((cx - r * 0.52, y), lab, font=f, fill=INK, anchor="lm")
         if scene == "table" and G["ev"].get("hats", 1e9) <= t < G["ev"]["hats"] + 0.3:
@@ -907,6 +907,15 @@ def use(name, fmt="vertical"):
         for i in holds:
             it = C2.SEQ[i]
             C2.SEQ[i] = (it[0], round(max(0.25, it[1] + per), 2), it[2])
+        rem = TARGET - end - per * len(holds)
+        lines_ = [i for i, it in enumerate(C2.SEQ) if it[0] == "line"]
+        if rem > 0.2 and lines_:   # still short: breathe a little after every line too
+            g = min(0.45, rem / len(lines_))
+            for i in lines_:
+                it = C2.SEQ[i]
+                o = dict(it[4])
+                o["gap"] = round(o.get("gap", 0.15) + g, 2)
+                C2.SEQ[i] = it[:4] + (o,)
 
 
 def bg(scene, cam_name):
