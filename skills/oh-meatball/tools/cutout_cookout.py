@@ -91,7 +91,7 @@ SEQ_COOK = [
     ("hold", 0.9, "congress/cu_lobby"),
     ("gag", "red", 2.0, "red", "wide"),
     ("line", "mb", "If the world ends, who's got the best last meal?", None,   # Studio's cut, 11/19
-     dict(scene="red", cams=[(0, "cu_mb"), (4, "ecu_mb")], gap=0.35)),
+     dict(scene="red", cams=[(0, "cu_mb"), (4, "ecu_mb")], gap=0.35, voice="kokoro:adam-puck@speed=1.25")),
     ("gag", "land", 0.6, "red", "wide"),
     ("gag", "done", 2.0, "done", "cu_dog"),
     ("line", "todd", "Worth it.", None, dict(scene="done", cams=[(0, "cu_todd")], gap=1.3)),
@@ -1175,7 +1175,7 @@ def sc_done(fr, cam, st):
     e = t - G["lines"][-1]["t0"]
     if e >= 0:   # the end text: the question, and a paper arrow down to the comments
         k = int(e * FPS)
-        paste(fr, C.banner_img(END_TEXT, 112, RED, WHITE, 44), W / 2, 250 + [-90, 14, 0][min(2, k)], -2)
+        paste(fr, C.banner_img(END_TEXT, 90, RED, WHITE, 44), W / 2, 250 + [-90, 14, 0][min(2, k)], -2)
         if e >= 0.25:
             x, ay = W * 0.78, 370 + (10 if fi % 4 < 2 else 0)
             paper(fr, [(x - 34, ay), (x + 34, ay), (x + 34, ay + 70), (x + 80, ay + 70), (x, ay + 150), (x - 80, ay + 70),
@@ -1325,9 +1325,9 @@ def mix(end):
     add(fx, sweep(110, 70, 1.2, 0.2, (1, 0.5, 0.3)), Rd)
     t = Rd
     while t < Ld:   # a quiet two-tone alarm and a low rumble under the question
-        add(fx, C2.tone(620, 0.3, 0.035), t)
-        add(fx, C2.tone(470, 0.3, 0.035), t + 0.3)
-        kick(fx, t, 0.22)
+        add(fx, C2.tone(620, 0.3, 0.025), t)
+        add(fx, C2.tone(470, 0.3, 0.025), t + 0.3)
+        kick(fx, t, 0.15)
         t += 0.6
     rum = C2.noise_burst(Ld - Rd + 0.6, 30.0, 9, 40)
     add(fx, rum * np.linspace(0.3, 1.0, len(rum)) * 10, Rd, 0.07)
