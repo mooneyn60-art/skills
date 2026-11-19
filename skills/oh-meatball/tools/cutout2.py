@@ -155,6 +155,67 @@ SEQ_V3 = [   # v3 cursing: side-hustles/channels/scripts/cutout-black-friday-v3-
     ("line", "all", "Obviously. [BLEEP] yeah.", None, dict(scene="dawn", cams=[(0, "wide")], gap=0.25)),
     ("gag", "end", 2.6, "dawn", "wide"),
 ]
+SEQ_V4 = [   # v4 uncensored: side-hustles/channels/scripts/cutout-black-friday-v4-uncensored.md
+    ("gag", "intro", 2.9, "outside", "wide"),
+    ("line", "mb", "Black Friday. The one day a year we fight a stranger over a toaster.", None,
+     dict(scene="outside", cams=[(0, "wide"), (6, "cu_mb")])),
+    ("line", "pip", "My mom said if I don't come home with the TV, don't come home.", None,
+     dict(scene="outside", cams=[(0, "cu_pip")], gap=0.12)),
+    ("line", "dot", "My mom said if I come home, she's renting out my room. On Airbed.", None,
+     dict(scene="outside", cams=[(0, "cu_dot")], gap=0.35)),
+    ("line", "mb", "Relax. We go in fast, grab the damn TV, and leave with our dignity.", None,
+     dict(scene="outside", cams=[(0, "cu_mb"), (1, "wide")], gap=0.1, voice="kokoro:adam-puck@speed=1.2")),
+    ("gag", "stampede", 2.8, "outside", "wide"),
+    ("line", "pip", "There goes our dignity. And my fucking spleen.", None,
+     dict(scene="outside", cams=[(0, "cu_pip_flat")], gap=0.1, voice="kokoro:pip@speed=1.22,pause=0.16")),
+    ("hold", 0.4, "wide"),
+    ("gag", "ceo_in", 0.5, "ceo", "wide"),
+    ("line", "ceo", "Welcome, shoppers! We raised every price forty percent last week, so today's sixty percent off "
+     "is a gift from my heart.", None, dict(scene="ceo", cams=[(0, "cu_ceo"), (13, "wide"), (18, "cu_ceo")],
+                                            gap=0.2)),
+    ("line", "dot", "That's not a sale, you jackass. That's a hostage situation with coupons.", None,
+     dict(scene="ceo", cams=[(0, "cu_dot")], gap=0.0)),
+    ("hold", 0.4, "cu_dot"),
+    ("gag", "tv", 1.5, "inside", "cu_tv"),
+    ("line", "mb", "There it is. Seventy-five inches. Ninety-nine dollars. Probably made of cardboard and child tears. "
+     "I don't give a crap.",
+     None, dict(scene="inside", cams=[(0, "wide"), (3, "cu_tv"), (7, "cu_mb")], gap=0.1)),
+    ("hold", 0.4, "cu_mb"),
+    ("gag", "slam", 1.4, "inside", "wide"),
+    ("line", "pip", "Holy shit! A grandma just body-slammed me!", None,
+     dict(scene="inside", cams=[(0, "cu_pip_down")], gap=0.2)),
+    ("line", "grandma", "Back off, you little shit. I've been training since July and I have nothing left to lose.", None,
+     dict(scene="inside", cams=[(0, "cu_grandma")], gap=0.35)),
+    ("line", "mb", "New plan. Grandma takes the TV, we follow her home, and we watch it through her window.", None,
+     dict(scene="inside", cams=[(0, "cu_mb")], gap=0.2)),
+    ("line", "dot", "That's called stalking, dumbass.", None, dict(scene="inside", cams=[(0, "cu_dot")], gap=0.15)),
+    ("line", "mb", "It's called a payment plan.", None, dict(scene="inside", cams=[(0, "cu_mb")], gap=0.0)),
+    ("hold", 0.45, "cu_dot"),
+    ("gag", "checkout", 0.7, "checkout", "wide"),
+    ("line", "kiosk", "Unexpected item in the bagging area.", None,
+     dict(scene="checkout", cams=[(0, "cu_kiosk")], gap=0.25, beep=0.35)),
+    ("line", "grandma", "The unexpected item is my God-damn fist.", "The unexpected item is my goddamn fist.",
+     dict(scene="checkout", cams=[(0, "cu_grandma")], gap=0.05)),
+    ("gag", "punch", 1.0, "checkout", "wide"),
+    ("line", "kiosk", "Please... wait... for an associate.", None,
+     dict(scene="checkout", cams=[(0, "cu_kiosk")], gap=0.2)),
+    ("line", "ceo", "There are no associates. We replaced them with you.", None,
+     dict(scene="ceo", cams=[(0, "cu_ceo")], gap=0.0)),
+    ("hold", 0.4, "cu_ceo"),
+    ("gag", "dawn", 1.2, "dawn", "wide"),
+    ("line", "mb", "You know, guys, Black Friday taught us something. It's not about the stuff. It's about the people...",
+     None, dict(scene="dawn", cams=[(0, "wide"), (5, "cu_mb")], gap=0.25)),
+    ("line", "pip", "I got a free sock. Holy crap, somebody's foot is still in it.", None,
+     dict(scene="dawn", cams=[(0, "cu_pip")], gap=0.25)),
+    ("line", "mb", "we stepped on to get the stuff.", "...we stepped on to get the stuff.",
+     dict(scene="dawn", cams=[(0, "cu_mb")], gap=0.0, voice="kokoro:adam-puck@speed=1.2")),
+    ("hold", 0.45, "wide"),
+    ("line", "dot", "Well, that got dark as hell.", None, dict(scene="dawn", cams=[(0, "cu_dot")], gap=0.0)),
+    ("hold", 0.4, "cu_dot"),
+    ("line", "pip", "Same time next year?", None, dict(scene="dawn", cams=[(0, "wide")], gap=0.2)),
+    ("line", "all", "Obviously. Fuck yeah.", None, dict(scene="dawn", cams=[(0, "wide")], gap=0.25)),
+    ("gag", "end", 2.6, "dawn", "wide"),
+]
 FLAT = 1.0   # stampede: seconds from the doors to the kids getting flattened
 END_TEXT = ["WHAT'S THE DUMBEST THING", "YOU'D FIGHT FOR", "ON BLACK FRIDAY?"]
 
@@ -1502,10 +1563,12 @@ if __name__ == "__main__":
     ap.add_argument("--sheet")
     ap.add_argument("--times", type=float, nargs="*")
     ap.add_argument("--timeline", action="store_true")
-    ap.add_argument("--script", default="v2", choices=["v2", "v3"])
+    ap.add_argument("--script", default="v2", choices=["v2", "v3", "v4"])
     a = ap.parse_args()
     if a.script == "v3":
         SEQ[:] = SEQ_V3
+    elif a.script == "v4":
+        SEQ[:] = SEQ_V4
     if a.timeline:
         timeline(a.fmt)
     elif a.sheet:

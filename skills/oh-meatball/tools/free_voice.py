@@ -31,6 +31,19 @@ BLENDS = {  # name -> [(kokoro voice, weight)]; C is Nolan's pick (research/39-v
     "grandma": [("bf_isabella", 0.6), ("af_heart", 0.4)],  # cutout test 2: tiny sweet grandma, turned ruthless
     "kiosk": [("am_echo", 0.6), ("bm_george", 0.4)],      # cutout test 2: flat self-checkout robot (no effects)
     "ceo": [("am_michael", 0.5), ("bm_lewis", 0.5)],      # cutout test 2 v2: smug fictional MEGAMART CEO
+    # voice audition 11/19 (cutout cast, "different accents"): candidates B and C per character
+    "aud-mb-b": [("am_puck", 1.0)],
+    "aud-mb-c": [("bm_fable", 0.6), ("am_puck", 0.4)],
+    "aud-pip-b": [("am_puck", 0.4), ("af_bella", 0.6)],
+    "aud-pip-c": [("bf_lily", 0.5), ("am_puck", 0.5)],
+    "aud-dot-b": [("af_nicole", 0.7), ("af_river", 0.3)],
+    "aud-dot-c": [("bf_emma", 0.7), ("af_river", 0.3)],
+    "aud-gran-b": [("bf_alice", 1.0)],
+    "aud-gran-c": [("bf_emma", 0.5), ("bf_isabella", 0.5)],
+    "aud-ceo-b": [("bm_george", 0.7), ("bm_lewis", 0.3)],
+    "aud-ceo-c": [("am_onyx", 0.5), ("am_eric", 0.5)],
+    "aud-bot-b": [("bm_daniel", 1.0)],
+    "aud-bot-c": [("am_echo", 0.5), ("af_alloy", 0.5)],
 }
 SPEED = 1.05
 # Per-blend overrides: speed, and "pause" = the longest silence kept inside a line (s). The drawn animal
