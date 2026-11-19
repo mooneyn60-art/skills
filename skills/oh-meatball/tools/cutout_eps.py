@@ -1441,8 +1441,144 @@ def ep7():
                 scenes={"kitchen": dict(layout=kitchen_layout, bg=kitchen_bg)},
                 pose_hook=pose_hook, post=post, sfx=sfx, silences=silences)
 
+def ep7v3():
+    """Punch-up (Studio 2d6f861): suffering contest set piece, the vegan bites Meatball."""
+    K_ = dict(scene="kitchen")
 
-EPISODES = {"ep3": ep3, "ep4": ep4, "ep5": ep5, "ep6": ep6, "ep7": ep7, "ep8": ep8}
+    def ln(who, text, cam, gap=0.1, cap=None, **kw):
+        return ("line", who, text, cap, dict(K_, cams=[(0, cam)], gap=gap, **kw))
+
+    seq = [
+        ("gag", "intro", 2.2, "kitchen", "wide"),
+        ln("mb", "Two roommates. One fridge. And I'm the only one here who is literally food.", "cu_mb", 0.12),
+        ln("sage", "I don't eat anything with a face.", "cu_sage"),
+        ln("mb", "I have a face, Sage. Stop looking at it.", "cu_mb", 0.12),
+        ln("tank", "Bro, I eat forty eggs a day. My doctor called my blood, a gravy.", "cu_tank",
+           cap='Bro, I eat forty eggs a day. My doctor called my blood "a gravy."'),
+        ln("dot", "Your heart is working overtime for a guy who can't spell overtime.", "cu_dot", 0.12),
+        ln("sage", "Did I mention I'm vegan?", "cu_sage"),
+        ln("pip", "At my grandpa's funeral, Sage. During the eulogy.", "cu_pip", 0.1,
+           voice="kokoro:aud-pip-b@speed=1.25,pause=0.14"),
+        ln("sage", "He'd still be here if he'd tried lentils.", "cu_sage", 0.0),
+        ("hold", 0.3, "cu_pip"),
+        ln("tank", "I can't put my arms down, bro. Haven't since March.", "cu_tank"),
+        ln("pip", "How do you wipe?", "cu_pip", 0.1, voice="kokoro:aud-pip-b@speed=1.25,pause=0.14"),
+        ln("tank", "My mom comes Tuesdays.", "cu_tank", 0.0),
+        ("hold", 0.3, "cu_pip"),
+        ln("sage", "I make my own deodorant.", "cu_sage"),
+        ln("mb", "We know, Sage. The birds left.", "cu_mb", 0.12),
+        ln("sage", "I haven't had protein since twenty nineteen. I fainted at my own wedding.", "cu_sage"),
+        ln("tank", "I haven't had a feeling since twenty nineteen. I flexed at my dad's funeral.", "cu_tank"),
+        ln("sage", "I buried my cat in the compost. She's tomatoes now.", "cu_sage"),
+        ln("tank", "My left pec has its own heartbeat, bro. Doctor says that's the bad one.", "cu_tank", 0.12),
+        ln("dot", "Damn. You two are one salad and one push-up away from a coroner.", "cu_dot", 0.0,
+           cap="D#@n. You two are one salad and one push-up away from a coroner."),
+        ("gag", "stare", 1.0, "kitchen", "cu_mb"),
+        ln("sage", "Nine years, Tank. I dream about ham.", "cu_sage"),
+        ln("tank", "Bro, I've never eaten a vegetable. I'm scared.", "cu_tank", 0.0),
+        ("hold", 0.3, "cu_mb"),
+        ln("mb", "Pip, if I die in here, you get my shoes.", "cu_mb"),
+        ln("pip", "I'm already wearing them.", "cu_pip", 0.0, voice="kokoro:aud-pip-b@speed=1.2,pause=0.14"),
+        ("gag", "chomp", 0.9, "kitchen", "cu_mb"),
+        ln("mb", "She bit me! The vegan bit me!", "cu_mb", 0.1, cap="She BIT me! The vegan bit me!"),
+        ln("tank", "How's he taste?", "cu_tank"),
+        ln("sage", "Like nine years of lies.", "cu_sage", 0.0),
+        ("hold", 0.3, "wide"),
+        ("gag", "end", 2.5, "kitchen", "wide"),
+    ]
+    DARK = 0.5   # the lights are off for this long at the start of the chomp gag
+
+    def stare_win():
+        ev = G["ev"]
+        if "stare" not in ev:
+            return (1e9, 1e9)
+        end_ = H.lines_with("scared", "tank")
+        return (ev["stare"] - 0.3, end_[0]["start"] + end_[0]["dur"] + 0.4 if end_ else ev["stare"] + 1.0)
+
+    def bitten(t):
+        return "chomp" in G["ev"] and t >= G["ev"]["chomp"] + DARK
+
+    def pose_hook(c, t, fi, li, scene, p):
+        hop, j, ang, (aL, aR), hk, sq, rot, extra = p
+        a, b = stare_win()
+        if c == "sage":
+            aL, extra["item"] = min(aL, -50), ("oatmilk", "L", 0)
+        if c == "tank":
+            aR, extra["item"] = max(aR, 60), ("shaker", "R", 0)
+            if a <= t:
+                aR, extra["item"] = 150, ("fork", "R", 0)
+        if a <= t < b and c in ("sage", "tank"):   # both turn to look at Meatball
+            hk = (hk[0], hk[1], "wide" if c == "sage" else "smug", hk[3])
+            ang = 6 if c == "sage" else -6
+        if (a <= t < b or bitten(t)) and c == "mb":
+            hk = (hk[0], hk[1], hk[2], "wide")
+        return (hop, j, ang, (aL, aR), hk, sq, rot, extra)
+
+    def post(fr, cam, t, fi, li, scene, L):
+        a, b = stare_win()
+        K = L["K"]
+        d = ImageDraw.Draw(fr)
+        cast = L[scene]["cast"]
+        if a <= t < b:   # a sweat drop on Meatball
+            x, y = cam.p(cast["mb"] + 92 * K, L["feet"] - (370 - ((fi % 6) * 6)) * K)
+            r = 14 * cam.z * K
+            d.polygon([(x, y - r * 2.2), (x + r, y), (x, y + r), (x - r, y)], fill=(120, 190, 250), outline=INK)
+        if bitten(t):
+            z = cam.z * K
+            # a bite out of Meatball's side: three scallops, sauce inside
+            bx, by = cam.p(cast["mb"] + MB_BITE[0] * K, L["feet"] - MB_BITE[1] * K)
+            for k, (dx, dy, r) in enumerate([(0, -26, 26), (12, 0, 29), (0, 28, 26)]):
+                d.ellipse([bx + (dx - r) * z, by + (dy - r) * z, bx + (dx + r) * z, by + (dy + r) * z],
+                          fill=(150, 30, 24), outline=INK, width=max(2, int(5 * z)))
+            for k, (dx, dy) in enumerate([(-30, 70), (-10, 96), (-44, 108)]):   # sauce drips
+                r = (10 - 2 * k) * z
+                d.ellipse([bx + dx * z - r, by + dy * z - r, bx + dx * z + r, by + dy * z + r * 1.5],
+                          fill=(200, 40, 32), outline=INK, width=max(1, int(3 * z)))
+            # sauce around Sage's mouth
+            sx, sy = cam.p(cast["sage"] + SAGE_MOUTH[0] * K, L["feet"] - SAGE_MOUTH[1] * K)
+            for (dx, dy, r) in [(-26, 0, 16), (22, 6, 14), (0, 22, 13), (-8, -14, 9), (34, -10, 8)]:
+                d.ellipse([sx + (dx - r) * z, sy + (dy - r) * z, sx + (dx + r) * z, sy + (dy + r) * z],
+                          fill=(200, 40, 32), outline=INK, width=max(1, int(3 * z)))
+        if "chomp" in G["ev"] and G["ev"]["chomp"] <= t < G["ev"]["chomp"] + DARK:   # lights off
+            fr.paste((8, 8, 14, 255), [0, 0, fr.size[0], fr.size[1]])
+            x0, y0 = cam.p(cast["mb"], L["feet"] - 330 * K)
+            for dx in (-26, 26):   # Meatball's eyes in the dark
+                r = 15 * cam.z * K
+                d.ellipse([x0 + dx * cam.z * K - r, y0 - r, x0 + dx * cam.z * K + r, y0 + r], fill=WHITE)
+                d.ellipse([x0 + dx * cam.z * K - r * .4, y0 - r * .4, x0 + dx * cam.z * K + r * .4, y0 + r * .4],
+                          fill=INK)
+
+    def sfx(fx, music, ev, lines):
+        if "stare" in ev:   # a slow, dumb "dun dun", then a stomach growl
+            add(fx, ks(hz("D3"), 0.6, 0.995, 0.6, 30), ev["stare"] + 0.1, 0.5)
+            add(fx, ks(hz("C#3"), 0.9, 0.995, 0.6, 31), ev["stare"] + 0.6, 0.5)
+        if "chomp" in ev:
+            t0 = ev["chomp"]
+            add(fx, C2.tone(90, 0.05, 0.5), t0 + 0.02)            # light switch click
+            rng = np.random.default_rng(7)
+            n = int(0.16 * SR)
+            crunch = (rng.standard_normal(n) * np.exp(-np.linspace(0, 9, n))).astype(np.float32)
+            add(fx, crunch, t0 + 0.22, 0.9)                       # CHOMP
+            add(fx, ks(hz("G2"), 0.3, 0.99, 0.5, 33), t0 + 0.22, 0.6)
+            add(fx, C2.tone(90, 0.05, 0.5), t0 + DARK)            # lights back on
+
+    def silences():
+        ev = G["ev"]
+        out = [(ev["stare"], ev["stare"] + 1.0)] if "stare" in ev else []
+        if "chomp" in ev:
+            out.append((ev["chomp"], ev["chomp"] + 0.9))
+        return out
+
+    return dict(title="VEGAN VS GYM BRO", end=["TEAM VEGAN", "OR TEAM", "GYM BRO?"], seq=seq,
+                scenes={"kitchen": dict(layout=kitchen_layout, bg=kitchen_bg)},
+                pose_hook=pose_hook, post=post, sfx=sfx, silences=silences)
+
+
+MB_BITE = (-100, 250)     # where the bite sits on Meatball (x from his centre, y above the feet), layout units
+SAGE_MOUTH = (0, 276)    # Sage's mouth
+
+
+EPISODES = {"ep3": ep3, "ep4": ep4, "ep5": ep5, "ep6": ep6, "ep7": ep7, "ep8": ep8, "ep7v3": ep7v3}
 
 
 # ------------------------------------------------------------------------------------------------ engine
