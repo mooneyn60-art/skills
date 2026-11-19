@@ -361,12 +361,140 @@ SEQ_V6 = [   # v6: side-hustles/channels/scripts/cutout-black-friday-v6.md (29 l
     ("gag", "end", 2.6, "dawn", "wide"),
 ]
 
-SEQ = list(SEQ_V6)   # the script build() renders; use_script() swaps it
+SEQ_V7 = [   # v7: side-hustles/channels/scripts/cutout-black-friday-v7.md (v6 + 3b, 3c, 12b, 12c, 19b, 19c, 27b)
+    ("gag", "intro", 2.9, "outside", "wide"),
+    ("line", "mb", "Black Friday. The one day a year we fight a stranger over a toaster.", None,
+     dict(scene="outside", cams=[(0, "wide"), (6, "cu_mb")])),
+    ("line", "pip", "My mom said if I don't come home with the TV, don't come home.", None,
+     dict(scene="outside", cams=[(0, "cu_pip")], gap=0.12)),
+    ("line", "dot", "My mom said if I come home, she's renting out my room. On Airbed.", None,
+     dict(scene="outside", cams=[(0, "cu_dot")], gap=0.15)),
+    ("line", "pip", "Your mom's a genius.", None, dict(scene="outside", cams=[(0, "cu_pip")], gap=0.12)),
+    ("line", "dot", "My mom's a landlord, Pip. It's worse.", None,
+     dict(scene="outside", cams=[(0, "cu_dot")], gap=0.2)),
+    ("line", "mb", "My dad left to get Black Friday deals six years ago. Still hasn't come back.", None,
+     dict(scene="outside", cams=[(0, "cu_mb")], gap=0.12)),
+    ("line", "pip", "Maybe there's a really long line.", None, dict(scene="outside", cams=[(0, "cu_pip")], gap=0.15)),
+    ("line", "mb", "There's a new family, Pip. It's a very long line.", None,
+     dict(scene="outside", cams=[(0, "cu_mb")], gap=0.0)),
+    ("gag", "sadpluck", 0.9, "outside", "cu_mb"),
+    ("line", "mb", "Relax. We go in fast, grab the damn TV, and leave with our dignity.", None,
+     dict(scene="outside", cams=[(0, "cu_mb"), (1, "wide")], gap=0.25, voice="kokoro:adam-puck@speed=1.2")),
+    ("line", "pip", "I peed a little.", None, dict(scene="outside", cams=[(0, "cu_pip")], gap=0.12)),
+    ("line", "dot", "You peed a lot, Pip. It's in my boot.", None,
+     dict(scene="outside", cams=[(0, "cu_dot")], gap=0.1)),
+    ("hold", 0.35, "cu_dot"),
+    ("gag", "stampede", 2.8, "outside", "wide"),
+    ("line", "pip", "There goes our dignity. And my fucking spleen.", None,
+     dict(scene="outside", cams=[(0, "cu_pip_flat")], gap=0.15, voice="kokoro:aud-pip-b@speed=1.3,pause=0.14")),
+    ("line", "mb", "Pip, if you die in here, can I have your shoes?", None,
+     dict(scene="outside", cams=[(0, "cu_mb_flat")], gap=0.12)),
+    ("line", "pip", "I'm not dead!", None, dict(scene="outside", cams=[(0, "cu_pip_flat")], gap=0.12)),
+    ("line", "mb", "Yet. Shoes, Pip.", None, dict(scene="outside", cams=[(0, "cu_mb_flat")], gap=0.3)),
+    ("line", "dot", "You didn't need it. You've never used it.", None,
+     dict(scene="outside", cams=[(0, "cu_dot_flat")], gap=0.0)),
+    ("hold", 0.45, "cu_pip_flat"),
+    ("gag", "ceo_in", 0.5, "ceo", "wide"),
+    ("line", "ceo", "Welcome, shoppers! We raised every price forty percent last week, so today's sixty percent off "
+     "is a gift from my heart.", None, dict(scene="ceo", cams=[(0, "cu_ceo"), (13, "wide"), (18, "cu_ceo")],
+                                            gap=0.2)),
+    ("line", "dot", "That's not a sale, you jackass. That's a hostage situation with coupons.", None,
+     dict(scene="ceo", cams=[(0, "cu_dot")], gap=0.25)),
+    ("line", "ceo", "And remember: if you get trampled, that's not an injury. That's engagement.", None,
+     dict(scene="ceo", cams=[(0, "cu_ceo")], gap=0.25)),
+    ("line", "ceo", "Our staff gave up Thanksgiving to be here. We thanked them with a pizza party. One slice. "
+     "They're sharing it.", None, dict(scene="ceo", cams=[(0, "cu_ceo"), (13, "pizza/wide")], gap=0.0)),
+    ("hold", 0.45, "pizza/wide"),
+    ("line", "ceo", "And every TV is assembled by hand! Small hands. Very affordable hands.", None,
+     dict(scene="ceo", cams=[(0, "cu_ceo")], gap=0.25)),
+    ("line", "ceo", "And our return policy is simple: you can return anything. Except your childhood. We kept that.", None,
+     dict(scene="ceo", cams=[(0, "cu_ceo")], gap=0.0)),
+    ("hold", 0.5, "cu_ceo"),
+    ("hold", 0.4, "wide"),
+    ("line", "mb", "This guy is the biggest piece of shit I've ever seen, and I've seen Pip's science project.", None,
+     dict(scene="ceo", cams=[(0, "cu_mb")], gap=0.1)),
+    ("line", "pip", "It was a volcano!", None, dict(scene="ceo", cams=[(0, "cu_pip")], gap=0.1)),
+    ("line", "mb", "It was a turd in a cup, Pip.", None,
+     dict(scene="ceo", cams=[(0, "cu_mb"), (3, "cup/wide")], gap=0.0)),
+    ("hold", 0.6, "cup/wide"),
+    ("hold", 0.3, "ceo/cu_pip"),
+    ("line", "pip", "It got a ribbon!", None, dict(scene="ceo", cams=[(0, "cu_pip")], gap=0.1)),
+    ("line", "dot", "It got a participation ribbon. The judge threw up.", None,
+     dict(scene="ceo", cams=[(0, "cu_dot"), (5, "cup/wide")], gap=0.0)),
+    ("hold", 0.55, "cup/wide"),
+    ("hold", 0.35, "ceo/cu_pip"),
+    ("gag", "tv", 1.5, "inside", "cu_tv"),
+    ("line", "mb", "There it is. Seventy-five inches. Ninety-nine dollars. Probably made of cardboard and child tears. "
+     "I don't give a crap.",
+     None, dict(scene="inside", cams=[(0, "wide"), (3, "cu_tv"), (7, "cu_mb")], gap=0.1)),
+    ("hold", 0.35, "cu_mb"),
+    ("gag", "slam", 1.4, "inside", "wide"),
+    ("line", "pip", "Holy shit! A grandma just body-slammed me!", None,
+     dict(scene="inside", cams=[(0, "cu_pip_down")], gap=0.2)),
+    ("line", "grandma", "Back off... you little shit. I've been training since July. And I have nothing. Left. To lose.",
+     None, dict(scene="inside", cams=[(0, "cu_grandma")], gap=0.25)),
+    ("line", "grandma", "I've buried two husbands, sweetie. One of them was still breathing. You're a speed bump.", None,
+     dict(scene="inside", cams=[(0, "cu_grandma")], gap=0.3)),
+    ("line", "dot", "Respect.", None, dict(scene="inside", cams=[(0, "cu_dot")], gap=0.0)),
+    ("hold", 0.6, "cu_dot"),
+    ("line", "mb", "Okay. I would sell Pip's kidney for this TV.", None,
+     dict(scene="inside", cams=[(0, "cu_mb")], gap=0.12)),
+    ("line", "pip", "You already sold one for a game console!", None,
+     dict(scene="inside", cams=[(0, "cu_pip_down")], gap=0.12)),
+    ("line", "mb", "And I'd do it again, Pip.", None, dict(scene="inside", cams=[(0, "cu_mb")], gap=0.0)),
+    ("hold", 0.45, "cu_pip_down"),
+    ("line", "mb", "New plan. Grandma takes the TV, we follow her home, and we watch it through her window.", None,
+     dict(scene="inside", cams=[(0, "cu_mb")], gap=0.2)),
+    ("line", "dot", "That's called stalking, dumbass.", None, dict(scene="inside", cams=[(0, "cu_dot")], gap=0.15)),
+    ("line", "mb", "It's called a payment plan.", None, dict(scene="inside", cams=[(0, "cu_mb")], gap=0.0)),
+    ("hold", 0.45, "cu_dot"),
+    ("line", "pip", "Is that legal?", None, dict(scene="inside", cams=[(0, "cu_pip_down")], gap=0.15)),
+    ("line", "mb", "On Black Friday, nothing is legal. It's a riot with a loyalty card.", None,
+     dict(scene="inside", cams=[(0, "cu_mb")], gap=0.0)),
+    ("hold", 0.5, "cu_mb"),
+    ("gag", "checkout", 0.7, "checkout", "wide"),
+    ("line", "kiosk", "Unexpected. Item. In the bagging area.", None,
+     dict(scene="checkout", cams=[(0, "cu_kiosk")], gap=0.25, beep=0.35)),
+    ("line", "grandma", "The unexpected item is my God-damn fist.", "The unexpected item is my goddamn fist.",
+     dict(scene="checkout", cams=[(0, "cu_grandma")], gap=0.05)),
+    ("gag", "punch", 1.0, "checkout", "wide"),
+    ("line", "kiosk", "Please. Wait. For. An. Associate.", None,
+     dict(scene="checkout", cams=[(0, "cu_kiosk")], gap=0.25)),
+    ("line", "kiosk", "Would you like to round up. To buy the CEO. A third yacht.", None,
+     dict(scene="checkout", cams=[(0, "cu_kiosk")], gap=0.2)),
+    ("line", "ceo", "There are no associates. We replaced them with you. Merry fucking Christmas.", None,
+     dict(scene="ceo", cams=[(0, "cu_ceo")], gap=0.0)),
+    ("hold", 0.5, "cu_ceo"),
+    ("gag", "dawn", 1.2, "dawn", "wide"),
+    ("line", "mb", "You know, guys, Black Friday taught us something. It's not about the stuff. It's about the people...",
+     None, dict(scene="dawn", cams=[(0, "wide"), (5, "cu_mb")], gap=0.25)),
+    ("line", "pip", "I got a free sock. Holy crap, somebody's foot is still in it.", None,
+     dict(scene="dawn", cams=[(0, "cu_pip")], gap=0.25)),
+    ("line", "mb", "we stepped on to get the stuff.", "...we stepped on to get the stuff.",
+     dict(scene="dawn", cams=[(0, "cu_mb")], gap=0.0, voice="kokoro:adam-puck@speed=1.2")),
+    ("hold", 0.45, "wide"),
+    ("line", "dot", "Well, that got dark as hell.", None, dict(scene="dawn", cams=[(0, "cu_dot")], gap=0.0)),
+    ("hold", 0.3, "cu_dot"),
+    ("line", "dot", "When I die, I want my ashes scattered in a MegaMart. So I can finally get returned.", None,
+     dict(scene="dawn", cams=[(0, "cu_dot")], gap=0.0)),
+    ("hold", 0.45, "cu_dot"),
+    ("gag", "cart", 0.5, "dawn", "wide"),
+    ("line", "grandma", "Suck it, children!", None, dict(scene="dawn", cams=[(0, "wide")], gap=0.1)),
+    ("gag", "bump", 1.5, "dawn", "wide"),
+    ("line", "grandma", "Not today. I have the extended warranty.", None,
+     dict(scene="dawn", cams=[(0, "cu_granny_lot")], gap=0.0)),
+    ("hold", 0.45, "wide"),
+    ("line", "pip", "Same time next year?", None, dict(scene="dawn", cams=[(0, "wide")], gap=0.2)),
+    ("line", "all", "Obviously. Fuck yeah.", None, dict(scene="dawn", cams=[(0, "wide")], gap=0.25)),
+    ("gag", "end", 2.6, "dawn", "wide"),
+]
+
+SEQ = list(SEQ_V7)   # the script build() renders; use_script() swaps it
 
 
 def use_script(name):
     """Pick the script (and the voices it was cast with)."""
-    SEQ[:] = {"v2": SEQ_V2, "v3": SEQ_V3, "v4": SEQ_V4, "v5": SEQ_V5, "v6": SEQ_V6}[name]
+    SEQ[:] = {"v2": SEQ_V2, "v3": SEQ_V3, "v4": SEQ_V4, "v5": SEQ_V5, "v6": SEQ_V6, "v7": SEQ_V7}[name]
     if name in ("v2", "v3", "v4"):
         V.update(V_OLD)
 
@@ -386,6 +514,7 @@ def layout(fmt):
                     checkout=dict(floor=700, kiosk=(1300, 1010), grandma=(880, 1010)),
                     ceo=dict(kids={"pip": 330, "mb": 960, "dot": 1590}, floor=700, screen=(560, 80, 1360, 590)),
                     cup=dict(table=760, cup=(1000, 760)),
+                    pizza=dict(table=820, cx=960),
                     dawn=dict(kids={"pip": 600, "mb": 960, "dot": 1300}, horizon=660))
     W, H, K = 1080, 1920, 1.28
     return dict(W=W, H=H, K=K, feet=1640, cu=1.85, cap_y=1470, cap_size=84, banner_y=380,
@@ -396,6 +525,7 @@ def layout(fmt):
                 checkout=dict(floor=1150, kiosk=(700, 1640), grandma=(300, 1640)),
                 ceo=dict(kids={"pip": 225, "mb": 540, "dot": 855}, floor=1150, screen=(50, 200, 1030, 960)),
                 cup=dict(table=1260, cup=(560, 1260)),
+                pizza=dict(table=1250, cx=540),
                 dawn=dict(kids={"pip": 225, "mb": 540, "dot": 855}, horizon=1120))
 
 
@@ -419,9 +549,11 @@ def cams(L):
     W, H, K, F = L["W"], L["H"], L["K"], L["feet"]
     vert = H > W
     out = {}
-    for scene in ("outside", "inside", "checkout", "dawn", "ceo", "cup"):
+    for scene in ("outside", "inside", "checkout", "dawn", "ceo", "cup", "pizza"):
         if scene == "ceo":
             wide = (W / 2, H / 2, 1.0)
+        elif scene == "pizza":
+            wide = (L["pizza"]["cx"], L["pizza"]["table"] - 220, 1.35 if not vert else 1.55)
         elif scene == "cup":
             cx_, tb_ = L["cup"]["cup"][0], L["cup"]["table"]
             wide = (cx_, tb_ - 210, 1.5) if vert else (cx_, tb_ - 190, 1.55)
@@ -436,14 +568,19 @@ def cams(L):
     o = out["outside"]
     px = L["outside"]["kids"]["pip"]
     o["cu_pip_flat"] = (clampcx(L, px + 40, L["cu"]), F - 180 * K, L["cu"])
+    mx_ = L["outside"]["kids"]["mb"]
+    o["cu_mb_flat"] = (clampcx(L, mx_, L["cu"] * 1.15), F - 120 * K, L["cu"] * 1.15)
+    lx, ly = granny_lot(L)
+    out["dawn"]["cu_granny_lot"] = (clampcx(L, lx, 2.2), ly - 150 * K, 2.2 if not vert else 1.9)
     dx_ = L["outside"]["kids"]["dot"]
     o["cu_dot_flat"] = (clampcx(L, dx_, L["cu"] * 1.15), F - 120 * K, L["cu"] * 1.15)
     i = out["inside"]
     tx, ty, ts = L["inside"]["tv"]
     i["cu_tv"] = (tx, ty - 50 * ts, 1.45 if not vert else 1.2)
     gx, gy = L["inside"]["grandma_land"]
+    go = granny_on(L)
     i["cu_pip_down"] = (clampcx(L, gx + 230 * K, L["cu"]), gy - 200 * K, L["cu"])
-    i["cu_grandma"] = (clampcx(L, gx + 210 * K, 2.4), gy - 260 * K, 2.4 if not vert else 2.1)
+    i["cu_grandma"] = (clampcx(L, gx + go * K, 2.4), gy - 260 * K, 2.4 if not vert else 2.1)
     x0, y0, x1, y1 = L["ceo"]["screen"]
     zc = min(W * 0.96 / (x1 - x0 + 60), H * 0.94 / (y1 - y0 + 60)) if not vert else 1.04
     out["ceo"]["cu_ceo"] = ((x0 + x1) / 2, (y0 + y1) / 2 + (0 if not vert else 120), zc)
@@ -628,6 +765,71 @@ def spr(name, z, *key):
                               ("p", strip([(-22, -20), (22, -20)], 5), (110, 100, 106), False),
                               ("p", strip([(-20, 0), (20, 0)], 5), (110, 100, 106), False),
                               ("p", strip([(-12, 46), (14, 46)], 5), (110, 100, 106), False)], z, 90, 13)
+    if name == "boot":
+        return render_shapes([("p", [(-30, -80), (30, -80), (26, 48), (-30, 48)], (200, 52, 44)),
+                              ("p", [(-30, 16), (64, 16), (70, 54), (-30, 54)], (200, 52, 44)),
+                              ("e", (-2, -80, 32, 11), (120, 30, 28), False)], z, 120, 15)
+    if name == "ribbon":
+        img = render_shapes([("p", [(-14, 0), (-30, 70), (-6, 56), (0, 0)], (90, 140, 210)),
+                             ("p", [(14, 0), (30, 70), (6, 56), (0, 0)], (90, 140, 210)),
+                             ("pts", lumpy(0, -10, 36, [(3, 12, 0)]), (90, 140, 210))], z, 90, 16)
+        d = ImageDraw.Draw(img)
+        c = img.size[0] / 2
+        d.text((c, c - 10 * z), "TRIED", font=ImageFont.truetype(FONT, max(6, int(15 * z))), fill=WHITE, anchor="mm")
+        return img
+    if name == "judge":   # science-fair judge, upper body over the table edge (y = 0), turning green
+        green, suit = (150, 196, 110), (70, 74, 90)
+        return render_shapes([("p", [(-80, -250), (80, -250), (96, 0), (-96, 0)], suit),
+                              ("p", [(-26, -250), (26, -250), (0, -170)], WHITE),
+                              ("p", [(-8, -240), (8, -240), (12, -160), (0, -150), (-12, -160)], (200, 40, 32)),
+                              ("e", (0, -340, 72, 78), green),
+                              ("pts", ell(0, -372, 74, 50, 180, 360) + [(74, -372)], (200, 200, 205)),
+                              ("e", (-46, -312, 20, 16), (176, 220, 136), False),
+                              ("e", (46, -312, 20, 16), (176, 220, 136), False),
+                              ("p", strip([(-44, -352), (-24, -344), (-44, -336)], 5), INK, False),
+                              ("p", strip([(44, -352), (24, -344), (44, -336)], 5), INK, False),
+                              ("p", strip([(-60, -230), (-30, -300)], 26), suit), ("e", (-20, -306, 24, 22), green),
+                              ("p", [(60, -200), (150, -210), (150, -90), (60, -80)], (150, 104, 60)),
+                              ("p", [(70, -190), (140, -198), (140, -100), (70, -92)], WHITE, False),
+                              ("p", strip([(80, -170), (130, -174)], 3), (150, 150, 150), False),
+                              ("p", strip([(80, -150), (130, -154)], 3), (150, 150, 150), False),
+                              ("p", strip([(64, -230), (100, -170)], 26), suit)], z, 420, 17)
+    if name == "worker":   # sad MEGAMART staffer at the one-slice pizza party (key: variant)
+        k = key[0]
+        skin = [(242, 198, 164), (139, 92, 62), (200, 150, 110), (250, 214, 190), (176, 120, 84), (230, 180, 150)][k]
+        shapes = [("p", [(-60, -220), (60, -220), (70, 0), (-70, 0)], (236, 234, 226)),
+                  ("p", [(-56, -216), (-26, -216), (-34, -10), (-64, -10)], (214, 44, 36)),
+                  ("p", [(26, -216), (56, -216), (64, -10), (34, -10)], (214, 44, 36)),
+                  ("p", [(-20, -160), (20, -160), (20, -130), (-20, -130)], (252, 214, 74), False),
+                  ("e", (0, -290, 62, 64), skin),
+                  ("pts", ell(0, -322, 64, 40, 180, 360) + [(90, -322)], (214, 44, 36)),
+                  ("e", (-22, -292, 12, 13), WHITE), ("e", (22, -292, 12, 13), WHITE),
+                  ("e", (-22, -288, 5, 5), PUPIL, False), ("e", (22, -288, 5, 5), PUPIL, False),
+                  ("p", strip([(-36, -316), (-12, -306)], 5), INK, False),
+                  ("p", strip([(36, -316), (12, -306)], 5), INK, False),
+                  ("p", strip([(-16, -252), (0, -258), (16, -252)], 5), MOUTH, False)]
+        if k == 2:   # the one party hat
+            shapes.append(("p", [(-20, -350), (20, -350), (0, -420)], (252, 214, 74)))
+        return render_shapes(shapes, z, 450, 30 + k)
+    if name == "cart_back":   # golf cart: canopy, poles, the strapped-on TV box
+        img = render_shapes([("p", strip([(-180, -150), (-180, -360)], 12), (200, 200, 205)),
+                             ("p", strip([(180, -150), (180, -360)], 12), (200, 200, 205)),
+                             ("p", [(-230, -390), (230, -390), (240, -350), (-240, -350)], (70, 150, 90)),
+                             ("p", [(-300, -300), (-150, -300), (-150, -150), (-300, -150)], (196, 156, 104)),
+                             ("p", strip([(-300, -230), (-150, -230)], 6), (90, 70, 50), False),
+                             ("p", strip([(-230, -300), (-230, -150)], 6), (90, 70, 50), False)], z, 420, 40)
+        d = ImageDraw.Draw(img)
+        c = img.size[0] / 2
+        d.text((c - 225 * z, c - 262 * z), "TV", font=ImageFont.truetype(FONT, max(6, int(40 * z))), fill=INK,
+               anchor="mm")
+        return img
+    if name == "cart_front":
+        return render_shapes([("p", [(-260, -160), (250, -160), (270, -50), (-270, -50)], (246, 244, 236)),
+                              ("p", [(-270, -90), (270, -90), (272, -70), (-272, -70)], (70, 150, 90), False),
+                              ("e", (-170, -40, 46, 46), (40, 40, 46)), ("e", (170, -40, 46, 46), (40, 40, 46)),
+                              ("e", (-170, -40, 18, 18), (170, 170, 180), False),
+                              ("e", (170, -40, 18, 18), (170, 170, 180), False),
+                              ("e", (262, -120, 14, 10), (252, 230, 120))], z, 420, 41)
     if name == "palm":
         hand = C.CAST[key[0]]["hand"]
         return render_shapes([("e", (0, 0, 48, 36), hand), ("e", (-42, 12, 13, 19, 0, 360, None, 20), hand)], z, 80,
@@ -808,8 +1010,12 @@ def draw_screen(fr, cam, t, li):
     sc = (y1 - y0) / 1000
     hop = -8 if ln is not None and ln["who"] == "ceo" and any(0 <= t - s < 0.09 for s, _, _ in ln["words"]) else 0
     k_ = (y1 - y0 - 40) / 560
-    cx, cy = cam.p((x0 + x1) / 2, y0 + 30 + 180 * k_ + hop)
+    hands0 = G.get("hands_from", 1e9) <= t < G.get("hands_until", 0)
+    cx, cy = cam.p((x0 + x1) / 2 - (x1 - x0) * (0.2 if hands0 else 0), y0 + 30 + 180 * k_ + hop)
     wink = ln is not None and ln["who"] == "ceo" and any(w[2].startswith("Merry") and t >= w[0] for w in ln["words"])
+    hands = G.get("hands_from", 1e9) <= t < G.get("hands_until", 0)
+    if hands:
+        lvl = max(lvl, 1)   # the grin widens
     held = (not wink) and G.get("wink_from", 1e9) <= t < G.get("wink_until", 0)
     img = spr("ceo", round(cam.z * k_, 3), lvl, wink or held)
     # clip the CEO to the screen
@@ -820,6 +1026,30 @@ def draw_screen(fr, cam, t, li):
     box = (max(0, int(a)), max(0, int(b)), min(fr.size[0], int(c_)), min(fr.size[1], int(d)))
     if box[2] > box[0] and box[3] > box[1]:
         fr.alpha_composite(layer.crop(box), box[:2])
+    if hands:   # a paper "factory photo" inset: a conveyor of TVs and a row of tiny mitten hands, no faces
+        px0, py0 = x0 + (x1 - x0) * 0.58, y0 + (y1 - y0) * 0.1
+        pw, ph = (x1 - x0) * 0.36, (y1 - y0) * 0.42
+        rng2 = np.random.default_rng(5)
+        paper(fr, cam.pts([(px0 - 8, py0 - 8), (px0 + pw + 8, py0 - 6), (px0 + pw + 6, py0 + ph + 8),
+                           (px0 - 6, py0 + ph + 6)]), (250, 250, 244), rng2, cam.z, sh=5)
+        paper(fr, cam.pts([(px0, py0), (px0 + pw, py0), (px0 + pw, py0 + ph), (px0, py0 + ph)]), (150, 154, 160), rng2,
+              cam.z, shadow=False, jitter=False)
+        bel = py0 + ph * 0.55
+        paper(fr, cam.pts([(px0, bel), (px0 + pw, bel), (px0 + pw, bel + ph * 0.12), (px0, bel + ph * 0.12)]),
+              (60, 60, 66), rng2, cam.z, shadow=False, jitter=False)
+        for k in range(3):   # TVs on the belt
+            tx_ = px0 + pw * (0.12 + 0.3 * k)
+            paper(fr, cam.pts([(tx_, bel - ph * 0.26), (tx_ + pw * 0.2, bel - ph * 0.26), (tx_ + pw * 0.2, bel),
+                               (tx_, bel)]), (30, 30, 36), rng2, cam.z, shadow=False)
+        for k in range(9):   # tiny mittens reaching up from below the belt
+            hx_ = px0 + pw * (0.07 + 0.105 * k)
+            hy_ = bel + ph * (0.22 + 0.05 * ((k + int(t * FPS)) % 2))
+            paper(fr, cam.pts(ell(hx_, hy_, pw * 0.03, ph * 0.045)), (240, 196, 160), rng2, cam.z, shadow=False)
+            paper(fr, cam.pts(strip([(hx_, hy_ + ph * 0.04), (hx_, py0 + ph)], pw * 0.025)), (110, 120, 140), rng2,
+                  cam.z, shadow=False)
+        dr = ImageDraw.Draw(fr)
+        dr.text(cam.p(px0 + pw / 2, py0 + ph + 30 * k_), "MADE WITH LOVE*", font=ImageFont.truetype(
+            FONT, max(8, int(24 * cam.z * k_))), fill=WHITE, anchor="mm", stroke_width=2, stroke_fill=INK)
     if wink or held:   # gold sparkles around the grin
         dr = ImageDraw.Draw(fr)
         for k in range(5):
@@ -890,6 +1120,52 @@ def bg_cup(L, cam):
     paper(img, cam.pts([(rx + 16, ry), (rx + 30, ry + 70), (rx + 6, ry + 56), (rx, ry)]), (90, 140, 210), rng, z)
     paper(img, cam.pts(ell(rx, ry - 10, 34, 34)), (90, 140, 210), rng, z)
     d.text(cam.p(rx, ry - 10), "TRIED", font=ImageFont.truetype(FONT, int(14 * z)), fill=WHITE, anchor="mm")
+    return C.vignette(img)
+
+
+def bg_pizza(L, cam):
+    """Cutaway: the staff 'pizza party'. Six sad staffers, one slice, a drooping banner."""
+    W, H, z = L["W"], L["H"], cam.z
+    S = L["pizza"]
+    K = L["K"]
+    rng = np.random.default_rng(71)
+    img = Image.new("RGBA", (W, H))
+    tb, cx = S["table"], S["cx"]
+    paper(img, cam.pts([(-400, -400), (W + 400, -400), (W + 400, H + 400), (-400, H + 400)]), (214, 206, 180), rng, z,
+          shadow=False, jitter=False, edge=False)
+    paper(img, cam.pts([(-400, tb - 60), (W + 400, tb - 60), (W + 400, H + 400), (-400, H + 400)]), (150, 150, 156),
+          rng, z, shadow=False)
+    # drooping bunting + banner
+    span = 620 if W > H else 460
+    pts = [(cx - span + i * span / 6, tb - 640 + 70 * math.sin(math.pi * i / 12)) for i in range(13)]
+    paper(img, cam.pts(strip(pts, 5)), (90, 90, 96), rng, z, shadow=False)
+    for i in range(12):
+        (ax, ay), (bx, by) = pts[i], pts[i + 1]
+        paper(img, cam.pts([(ax + 4, ay), (bx - 4, by), ((ax + bx) / 2, (ay + by) / 2 + 50)]),
+              [(214, 44, 36), (252, 214, 74), (90, 140, 210)][i % 3], rng, z, sh=3)
+    paper(img, cam.pts([(cx - 230, tb - 520), (cx + 230, tb - 540), (cx + 236, tb - 470), (cx - 224, tb - 440)]),
+          (252, 250, 240), rng, z, sh=6)
+    d = ImageDraw.Draw(img)
+    d.text(cam.p(cx, tb - 490), "PIZZA PARTY!", font=ImageFont.truetype(FONT, int(50 * z)), fill=(214, 44, 36),
+           anchor="mm")
+    # six staffers behind the table
+    xs = [-330, -200, -70, 70, 200, 330] if W > H else [-300, -180, -60, 60, 180, 300]
+    for k, dx in enumerate(xs):
+        paste(img, spr("worker", round(z * K * 0.9, 3), k), *cam.p(cx + dx * K * 0.9, tb + 110 - (k % 2) * 30))
+    # table, plate, one slice
+    paper(img, cam.pts([(cx - 440 * K, tb), (cx + 440 * K, tb), (cx + 450 * K, tb + 230 * K),
+                        (cx - 450 * K, tb + 230 * K)]), (240, 238, 230), rng, z, sh=8)   # paper tablecloth
+    for j in range(-4, 5):
+        paper(img, cam.pts([(cx + (j * 100 - 22) * K, tb + 10), (cx + (j * 100 + 22) * K, tb + 10),
+                            (cx + (j * 100 + 24) * K, tb + 220 * K), (cx + (j * 100 - 24) * K, tb + 220 * K)]),
+              (214, 44, 36), rng, z, shadow=False)
+    paper(img, cam.pts(ell(cx, tb + 10, 90 * K, 22 * K)), (250, 250, 246), rng, z, sh=4)
+    sl = [(cx - 50 * K, tb + 2), (cx + 50 * K, tb - 6), (cx + 6 * K, tb + 22)]
+    paper(img, cam.pts(sl), (250, 206, 90), rng, z, sh=3)
+    paper(img, cam.pts(strip([(cx - 52 * K, tb + 2), (cx + 52 * K, tb - 6)], 9 * K)), (200, 140, 70), rng, z, sh=2)
+    for (px, py) in ((-14, 4), (14, 2), (2, 12)):
+        paper(img, cam.pts(ell(cx + px * K, tb + py * K - 2, 6 * K, 4 * K)), (200, 52, 44), rng, z, shadow=False,
+              jitter=False, edge=False)
     return C.vignette(img)
 
 
@@ -1139,10 +1415,10 @@ def kid_pose(c, t, fi, li):
                 peel = next((l_ for l_ in lines if l_["who"] == "pip" and l_["t0"] > st), None)
                 if c == "pip" and peel is not None and t > peel["start"] + peel["dur"]:
                     squash = 1.0
-            if c == "dot" and spk:
-                squash = [0.3, 0.38][fi % 2]   # deadpan from the floor, face readable
+            if c in ("dot", "mb") and spk:
+                squash = [0.3, 0.38][fi % 2]   # talking from the floor, face readable
             if squash < 1:
-                expr = "wide" if c != "dot" else "deadpan"
+                expr = "wide" if c == "pip" else "deadpan" if c == "dot" else "smug"
         elif st <= t < st + FLAT:
             expr, gaze = "wide", "r" if G["L"]["W"] > G["L"]["H"] else "u"
             if t > st + 0.5:
@@ -1169,6 +1445,14 @@ def kid_pose(c, t, fi, li):
             expr, ang, aL, aR = "norm", 0, -40, 40
         if c == "mb" and spk and say and "stepped" in say:
             expr = "smug"
+        cx_ = cart_x(t)
+        gs = granny_cart_state(t)
+        if gs[0] != "cart":
+            cx_ = gs[1]
+        if cx_ is not None and not spk:
+            gaze = "l" if cx_ < kids[c] else "r"
+            ang = (6 if cx_ < kids[c] else -6)
+            expr = "wide" if c != "dot" else "deadpan"
         if t > ev["end"]:
             gaze = "c"
     if scene == "ceo" and not spk:
@@ -1189,6 +1473,34 @@ def kid_pose(c, t, fi, li):
             aL, aR = -10, 22
     # punchline poses: point and facepalm
     vert = G["L"]["H"] > G["L"]["W"]
+    extra["fi"] = fi
+    boot = next((l_ for l_ in lines if l_["who"] == "dot" and "boot" in " ".join(w[2] for w in l_["words"])), None)
+    if c == "dot" and boot is not None and scene == "outside" and \
+            boot["words"][min(5, len(boot["words"]) - 1)][0] <= t < ev["stampede"]:
+        aR, extra["item"] = 130, ("boot", "R", -10)   # lifts the wet boot
+        expr = "deadpan"
+    if c == "pip" and boot is not None and scene == "outside" and boot["t0"] - 1.0 <= t < ev["stampede"]:
+        expr = "worried"
+    rib = next((l_ for l_ in lines if l_["who"] == "pip" and "ribbon" in " ".join(w[2] for w in l_["words"])), None)
+    if c == "pip" and rib is not None and scene == "ceo" and rib["t0"] <= t < rib["start"] + rib["dur"] + 0.4:
+        aL, extra["item"], expr = -140, ("ribbon", "L", 0), "norm"   # proud
+    kid = next((l_ for l_ in lines if l_["who"] == "pip" and "console" in " ".join(w[2] for w in l_["words"])), None)
+    if c == "pip" and kid is not None and kid["t0"] <= t < kid["start"] + kid["dur"] + 1.3:
+        extra["bandaid"] = True
+    if spk and c == "mb" and say and "kidney" in say:
+        aL, aR = -95, 15   # points at Pip
+    if spk and c == "mb" and say and "do it again" in say:
+        expr = "smug"
+    dad = [l_ for l_ in lines if l_["who"] == "mb" and ("dad left" in " ".join(w[2] for w in l_["words"]) or
+                                                        "new family" in " ".join(w[2] for w in l_["words"]))]
+    if c == "mb" and dad and dad[0]["t0"] <= t < ev.get("sadpluck", 0) + 0.9:
+        expr, gaze, ang, hop, aL, aR = "smug", "c", 0.0, 0.0, -10, 10   # deadpan, dead still
+        extra["still"] = True
+    if c == "pip" and dad and dad[0]["t0"] <= t < ev.get("sadpluck", 0) + 0.9 and not spk:
+        expr = "worried"
+    if spk and c == "mb" and say and "loyalty" in say:   # deadpan to camera
+        expr, gaze, ang, hop, aL, aR, jx_off = "smug", "c", 0.0, 0.0, -12, 12, True
+        extra["still"] = True
     if spk and c == "mb" and scene == "inside" and say and "Seventy" in say:
         wi = max([j for j, (s, _, _) in enumerate(ln["words"]) if s <= t + 0.01] or [0])
         if wi <= 2:   # "There it is." points at the TV
@@ -1197,7 +1509,7 @@ def kid_pose(c, t, fi, li):
         aL, aR = -95, 12   # points at Meatball
     pay = next((l_ for l_ in lines if "payment" in " ".join(w[2] for w in l_["words"])), None)
     if c == "dot" and scene == "inside" and li is None and pay is not None and \
-            pay["start"] + pay["dur"] < t < ev["checkout"]:
+            pay["start"] + pay["dur"] < t < min(ev["checkout"], pay["start"] + pay["dur"] + 0.6):
         aR, extra["palm"] = 150, True   # "It's called a payment plan." -> facepalm
     if c == "mb" and scene == "ceo" and spk is False and ln is not None and ln["who"] == "ceo" and \
             len(ln["words"]) > 15 and t >= ln["words"][13][0]:
@@ -1221,6 +1533,8 @@ def kid_pose(c, t, fi, li):
     if spk and any(a <= t < b for a, b in ln.get("bwins", ())):
         ang, lvl = [-7, 7][fi % 2], 2
     blink = (int(t * FPS) + {"mb": 0, "pip": 17, "dot": 29}[c]) % 41 == 0
+    if extra.get("still"):
+        jit = 0.0
     return (hop, (float(rng.uniform(-jit, jit)), float(rng.uniform(-jit, jit))), ang, (aL, aR),
             (lvl, gaze, blink, expr), squash, rot, extra)
 
@@ -1233,14 +1547,34 @@ def compose_kid(c, z, pose):
     im = Image.new("RGBA", (S, S))
     o = S / 2
     paste(im, C.sprite(c, "body", z), o, o)
+    held = []
     for (sx, sy), a in zip(k["sh"], (aL, aR)):
         paste(im, C.sprite(c, "arm", z), o + sx * z, o + sy * z, a)
+        it = extra.get("item")
+        if it and ((it[1] == "L") == (sx < 0)):
+            L_ = k["arm_len"] + 30
+            hx = o + (sx + L_ * math.sin(math.radians(a))) * z
+            hy = o + (sy + L_ * math.cos(math.radians(a))) * z
+            held.append((it, hx, hy))
         if extra.get("sock") and a == aL and sx < 0:
             L_ = k["arm_len"] + 30
             hx = o + (sx + L_ * math.sin(math.radians(a))) * z
             hy = o + (sy + L_ * math.cos(math.radians(a))) * z
             paste(im, spr("sock", z), hx, hy - 40 * z, 10 + extra.get("wig", 0))
     paste(im, C.sprite(c, "head", z, *hk), o + (k["neck"][0] + jx) * z, o + (k["neck"][1] + jy) * z, ang)
+    for it, hx, hy in held:   # held items go over the head (Dot's hood would hide them)
+        paste(im, spr(it[0], z), hx, hy - 30 * z, it[2])
+        if it[0] == "boot":   # it drips
+            d_ = ImageDraw.Draw(im)
+            for j in range(3):
+                yy = hy + (20 + ((extra.get("fi", 0) * 9 + j * 23) % 70)) * z
+                xx = hx + (-6 + j * 8) * z
+                d_.ellipse((xx - 5 * z, yy - 7 * z, xx + 5 * z, yy + 5 * z), fill=(252, 226, 70))
+    if extra.get("bandaid"):   # shirt lifted: skin and a paper band-aid where a kidney used to be
+        sk = render_shapes([("p", [(-50, -150), (50, -150), (54, -100), (-54, -100)], C.SKIN_P),
+                            ("p", [(-46, -138), (-2, -146), (2, -122), (-42, -114)], (236, 200, 150)),
+                            ("e", (-22, -130, 7, 6), (210, 170, 120), False)], z, 200, 50)
+        paste(im, sk, o, o)
     if extra.get("palm"):   # facepalm: the mitten over the eyes (the arm is up behind the head)
         hc = {"mb": 108, "pip": 92, "dot": 70}[c]
         paste(im, spr("palm", z, c), o + (k["neck"][0] + jx) * z, o + (k["neck"][1] + jy - hc) * z, 6)
@@ -1289,13 +1623,16 @@ def bg(scene, cam_name):
         cam = C.Cam if False else None
         cam = Cam(G["L"], cx, cy, z)
         G["bg"][key] = (bg_outside(G["L"], cam) if scene == "outside" else bg_ceo(G["L"], cam) if scene == "ceo" else
-                        bg_cup(G["L"], cam) if scene == "cup" else
+                        bg_cup(G["L"], cam) if scene == "cup" else bg_pizza(G["L"], cam) if scene == "pizza" else
                         bg_dawn(G["L"], cam) if scene == "dawn" else bg_inside(G["L"], cam, scene))
     return G["bg"][key]
 
 
 def shake(t):
-    for name, dt in (("stampede", 0.25), ("stampede", FLAT), ("slam", 0.55), ("punch", 0.35)):
+    for name, dt in (("stampede", 0.25), ("stampede", FLAT), ("slam", 0.55), ("punch", 0.35), ("bump", 0.0),
+                     ("bump", 0.5)):
+        if name not in G["ev"]:
+            continue
         d = t - (G["ev"][name] + dt)
         if 0 <= d < 2 / FPS:
             return (22, -14) if d < 1 / FPS else (-12, 8)
@@ -1347,7 +1684,15 @@ def frame(fi):
         S = L["ceo"]
         for c in ("pip", "mb", "dot"):
             draw_kid(fr, cam, c, S["kids"][c], F, kid_pose(c, t, fi, li))
+    elif scene == "pizza":
+        pass   # a cutaway: everything is in the background
     elif scene == "cup":
+        if t >= G.get("judge_from", 1e9):
+            S = L["cup"]
+            jx = S["cup"][0] - (400 if L["W"] > L["H"] else 255)
+            green_shake = (int(t * FPS) % 2) * 4
+            paste(fr, spr("judge", round(z * (0.9 if L["W"] > L["H"] else 0.8), 3)),
+                  *cam.p(jx + green_shake, S["table"]))
         draw_flies(fr, cam, t)
     elif scene == "checkout":
         S = L["checkout"]
@@ -1364,11 +1709,113 @@ def frame(fi):
             draw_kid(fr, cam, c, S["kids"][c], F, pose)
             if c == "dot":
                 draw_receipt(fr, cam, S["kids"]["dot"], F, pose)
+        draw_cart(fr, cam, t, li)
         if ev["dawn"] <= t < ev["dawn"] + GD["dawn"]:
             draw_tag(fr, "6:12 AM", L["W"] / 2, L["H"] * (0.18 if L["W"] > L["H"] else 0.2), 0, 1.0)
     draw_banners(fr, t)
     draw_caption(fr, t, cam_name)
     return np.asarray(fr.convert("RGB")).tobytes()
+
+
+def cart_x(t):
+    """Grandma's golf cart crossing the lot, left to right, choppy (None when off-screen). With a speed bump
+    (v7) it reaches the bump at ev["bump"] and rolls on off the right edge without her."""
+    win = G.get("cart")
+    if not win or not (win[0] <= t < win[1]):
+        return None
+    L = G["L"]
+    W = L["W"]
+    q = lambda f: int(f * 12) / 12   # noqa: E731  (choppy)
+    bump = G["ev"].get("bump")
+    if bump is None:
+        return -500 + (W + 1000) * q((t - win[0]) / (win[1] - win[0]))
+    xb = bump_x(L)
+    if t < bump:
+        return -500 + (xb + 500) * q((t - win[0]) / (bump - win[0]))
+    return xb + (W + 600 - xb) * q(min(1.0, (t - bump) / 0.9))
+
+
+def bump_x(L):
+    return granny_lot(L)[0] - 260 * L["K"]
+
+
+def granny_cart_state(t):
+    """(where, x, y, rot) for Grandma at dawn: in the cart, flying, lying flat, or sat bolt upright."""
+    ev = G["ev"]
+    if "bump" not in ev:
+        return ("cart", None, None, 0)
+    L = G["L"]
+    K = L["K"]
+    b = ev["bump"]
+    lx, ly = granny_lot(L)
+    if t < b:
+        return ("cart", None, None, 0)
+    d = t - b
+    if d < 0.5:   # launched: arc from the cart seat to the asphalt, tumbling
+        f = int(d / 0.5 * 6) / 6
+        sx, sy = bump_x(L) + 40 * K * 0.85, L["feet"] + 80 * K - 175 * K * 0.85
+        x = sx + (lx - sx) * f
+        y = sy + (ly - sy) * f - math.sin(f * math.pi) * 320 * K
+        return ("fly", x, y, -360 * f)
+    up = next((l_["t0"] for l_ in G["lines"] if l_["who"] == "grandma" and "warranty" in
+               " ".join(w[2] for w in l_["words"])), b + 1.5)
+    if t < up:
+        return ("down", lx, ly, 90)   # lies still
+    return ("up", lx, ly, 0)   # bolt upright
+
+
+def draw_bump(fr, cam, t):
+    win = G.get("cart")
+    if not win or "bump" not in G["ev"] or not (win[0] <= t < G["ev"]["bump"] + 4.0):
+        return
+    L = G["L"]
+    K = L["K"]
+    x, y = bump_x(L), L["feet"] + 80 * K
+    rng = np.random.default_rng(3)
+    paper(fr, cam.pts(ell(x, y, 120 * K, 26 * K, 180, 360) + [(x + 120 * K, y)]), (252, 214, 74), rng, cam.z, sh=4)
+    for k in range(-2, 3):
+        paper(fr, cam.pts(strip([(x + k * 44 * K - 8 * K, y - 20 * K), (x + k * 44 * K + 8 * K, y - 4 * K)], 10 * K)),
+              (40, 40, 46), rng, cam.z, shadow=False)
+
+
+def draw_granny_lot(fr, cam, t, li):
+    where, x, y, rot = granny_cart_state(t)
+    if where == "cart":
+        return
+    ln = G["lines"][li] if li is not None else None
+    lvl = mouth_level(ln, t) if ln is not None and ln["who"] == "grandma" else 0
+    if where == "fly":
+        draw_granny(fr, cam, x, y, 2, "mean", -160, 160, rot=rot)
+    elif where == "down":
+        draw_granny(fr, cam, x, y, 0, "mean", -20, 20, rot=rot)
+    else:
+        aR = 140 if ln is not None and ln["who"] == "grandma" else 30
+        draw_granny(fr, cam, x, y, lvl, "mean", -20, aR, ang=[-2, 2][int(t * FPS) % 2])
+
+
+def draw_cart(fr, cam, t, li):
+    draw_bump(fr, cam, t)
+    draw_granny_lot(fr, cam, t, li)
+    x = cart_x(t)
+    if x is None:
+        return
+    L = G["L"]
+    K = L["K"]
+    z = round(cam.z * K * 0.85, 3)
+    y = L["feet"] + 80 * K
+    rng = np.random.default_rng(int(t * FPS))
+    for k in range(3):   # speed lines
+        yy = y - (120 + 60 * k) * K
+        paper(fr, cam.pts(strip([(x - 330 * K, yy), (x - (520 + 60 * k) * K, yy)], 7)), (250, 250, 240), rng, cam.z,
+              shadow=False, jitter=False, edge=False)
+    px, py = cam.p(x, y)
+    paste(fr, spr("cart_back", z), px, py)
+    ln = G["lines"][li] if li is not None else None
+    lvl = mouth_level(ln, t) if ln is not None and ln["who"] == "grandma" else 0
+    if granny_cart_state(t)[0] == "cart":
+        draw_granny(fr, cam, x + 40 * K * 0.85, y - 175 * K * 0.85, lvl, "mean", -20,
+                    [150, 170][int(t * FPS) % 2], ang=[-4, 4][int(t * FPS) % 2])
+    paste(fr, spr("cart_front", z), px, py)
 
 
 def draw_receipt(fr, cam, x, F, pose):
@@ -1451,6 +1898,17 @@ def draw_stampede(fr, cam, t):
             paper(fr, cam.pts(lumpy(x, y, 40, [(6, 5, k)])), (230, 226, 216), rng, cam.z, sh=3)
 
 
+def granny_lot(L):
+    """Where Grandma lands after the speed bump (world x, ground y): in front of the kids, right of centre."""
+    return (L["W"] * 0.66 if L["W"] > L["H"] else L["W"] * 0.62), L["feet"] + 120 * L["K"]
+
+
+def granny_on(L):
+    """Where Grandma stands on Pip after the slam (units from his feet): on his chest in 16:9; on his shins in
+    vertical, where the kids stand close and she would otherwise cover Meatball's close-ups."""
+    return 210 if L["W"] > L["H"] else 40
+
+
 def granny_flight(t):
     """Grandma's position during the slam: off-screen left -> arc -> onto Pip."""
     S = G["L"]["inside"]
@@ -1462,10 +1920,10 @@ def granny_flight(t):
         return None
     if d < 0.55:
         p = int(d / 0.55 * 7) / 7
-        x = -200 + (gx + 210 * K + 200) * p
+        x = -200 + (gx + granny_on(G["L"]) * K + 200) * p
         y = gy - 400 * K - math.sin(p * math.pi) * 260 * K + 200 * K * p
         return x, y, 360 * p * 2
-    return gx + 210 * K, gy - 58 * K, 0
+    return gx + granny_on(G["L"]) * K, gy - 58 * K, 0
 
 
 def draw_granny_inside(fr, cam, t, li):
@@ -1539,7 +1997,18 @@ def draw_kiosk(fr, cam, t, li):
             d.line(pts, fill=(255, 220, 60), width=max(2, int(5 * cam.z)))
             d.ellipse((pts[-1][0] - 6 * zz, pts[-1][1] - 6 * zz, pts[-1][0] + 6 * zz, pts[-1][1] + 6 * zz),
                       fill=(255, 250, 200))
-        txt = ("PLEASE WAIT" if fi % 4 < 3 else "PL3A5E W@IT") if talking else "ERROR"
+        if talking and "yacht" in " ".join(w[2] for w in ln["words"]):   # a little paper yacht on the cracked screen
+            yx, yy = kx + 70 * K, ky - 500 * K
+            yr = np.random.default_rng(9)
+            paper(fr, cam.pts([(yx - 46 * K, yy), (yx + 46 * K, yy), (yx + 30 * K, yy + 20 * K),
+                               (yx - 30 * K, yy + 20 * K)]), WHITE, yr, cam.z, sh=2)
+            paper(fr, cam.pts([(yx - 4 * K, yy - 4 * K), (yx - 4 * K, yy - 60 * K), (yx + 34 * K, yy - 4 * K)]),
+                  (252, 214, 74), yr, cam.z, sh=2)
+            d.text(cam.p(kx - 40 * K, ky - 520 * K), "x3", font=ImageFont.truetype(FONT, int(26 * zz)),
+                   fill=(255, 230, 120), anchor="mm")
+            txt = "ROUND UP?" if fi % 4 < 3 else "R0UND UP?"
+        else:
+            txt = ("PLEASE WAIT" if fi % 4 < 3 else "PL3A5E W@IT") if talking else "ERROR"
         d.text(cam.p(kx + (fi % 2) * 4, ky - 395 * K), txt, font=ImageFont.truetype(FONT, int(24 * zz)),
                fill=(255, 230, 230), anchor="mm")
         return
@@ -1733,8 +2202,9 @@ def mix(end):
         k += 1
     gate = np.ones_like(bed)
     gate[:int(9 * BEAT * SR)] = 0
-    for name, d0, d1 in (("stampede", 0, 3.6), ("tv", 0, GD["tv"]), ("punch", 0, 1.0), ("dawn", 0, GD["dawn"] - 0.2)):
-        gate[int((ev[name] + d0) * SR):int((ev[name] + d1) * SR)] = 0
+    for name, d0, d1 in (("sadpluck", -0.2, 1.0), ("stampede", 0, 3.6), ("tv", 0, GD["tv"]), ("punch", 0, 1.0), ("dawn", 0, GD["dawn"] - 0.2)):
+        if name in ev:
+            gate[int((ev[name] + d0) * SR):int((ev[name] + d1) * SR)] = 0
     gate[int(ev["end"] * SR):] = 0
     gate = np.convolve(gate, np.ones(4410) / 4410, "same").astype(np.float32)
     music += bed * gate * 10 ** (-22 / 20) * 1.6
@@ -1780,11 +2250,22 @@ def mix(end):
     tt = np.arange(int(0.35 * SR)) / SR
     add(fx, (np.sign(np.sin(2 * np.pi * np.cumsum(600 - 500 * tt / 0.35) / SR)) * 0.06 *
              np.exp(-tt / 0.15)).astype(np.float32), pu + 0.45, 1.0)   # power-down
+    if "bump" in ev:   # speed bump: clunk, a whistle up, a thud down
+        thud(fx, ev["bump"], 0.8)
+        tt = np.arange(int(0.45 * SR)) / SR
+        add(fx, (np.sin(2 * np.pi * np.cumsum(600 + 900 * tt / 0.45) / SR) * 0.25).astype(np.float32),
+            ev["bump"] + 0.03, 0.4)
+        thud(fx, ev["bump"] + 0.5, 1.0)
+        sfx_slap(fx, ev["bump"] + 0.52, 0.5, 9)
     # dawn: a bird
     for k in range(3):
         tt = np.arange(int(0.09 * SR)) / SR
         add(fx, (np.sin(2 * np.pi * np.cumsum(3800 - 1500 * tt / 0.09) / SR) * np.sin(np.pi * tt / 0.09) *
                  0.2).astype(np.float32), ev["dawn"] + 0.3 + k * 0.14)
+    if "sadpluck" in ev:
+        for k2, nt in enumerate(["G4", "F#4", "F4", "E4"]):
+            add(music, ks(hz(nt), 1.0 if k2 == 3 else 0.5, 0.996, 0.7, 70 + k2), ev["sadpluck"] + 0.05 + k2 * 0.22,
+                0.42 if k2 < 3 else 0.5)
     # end sting
     o = ev["end"] + 0.1
     strum(music, o, "G7", 0.35, seed=40)
@@ -1811,6 +2292,14 @@ def setup(fmt):
     merry = [l_ for l_ in lines if l_["who"] == "ceo" and any(w[2].startswith("Merry") for w in l_["words"])]
     G["wink_until"] = merry[0]["start"] + merry[0]["dur"] + 0.6 if merry else 0
     G["wink_from"] = merry[0]["start"] + merry[0]["dur"] if merry else 0
+    hl = [l_ for l_ in lines if l_["who"] == "ceo" and "affordable" in " ".join(w[2] for w in l_["words"])]
+    G["hands_from"] = next((w[0] for w in hl[0]["words"] if w[2].startswith("Small")), 1e9) - 0.05 if hl else 1e9
+    G["hands_until"] = hl[0]["start"] + hl[0]["dur"] + 0.5 if hl else 0
+    jl = [l_ for l_ in lines if "judge" in " ".join(w[2] for w in l_["words"])]
+    G["judge_from"] = next((w[0] for w in jl[0]["words"] if w[2] == "The"), jl[0]["start"]) - 0.05 if jl else 1e9
+    cl = [l_ for l_ in lines if l_["who"] == "grandma" and "children" in " ".join(w[2] for w in l_["words"])]
+    G["cart"] = ((ev["cart"], ev["bump"] + 1.0) if "bump" in ev else
+                 (ev["cart"], cl[0]["start"] + cl[0]["dur"] + 0.8)) if cl and "cart" in ev else None
     for (_, scene, cam) in segs:   # build backgrounds before forking
         bg(scene, cam)
 
@@ -1864,7 +2353,7 @@ if __name__ == "__main__":
     ap.add_argument("--sheet")
     ap.add_argument("--times", type=float, nargs="*")
     ap.add_argument("--timeline", action="store_true")
-    ap.add_argument("--script", default="v6", choices=["v2", "v3", "v4", "v5", "v6"])
+    ap.add_argument("--script", default="v7", choices=["v2", "v3", "v4", "v5", "v6", "v7"])
     a = ap.parse_args()
     use_script(a.script)
     if a.timeline:

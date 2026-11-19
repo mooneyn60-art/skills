@@ -44,6 +44,9 @@ BLENDS = {  # name -> [(kokoro voice, weight)]; C is Nolan's pick (research/39-v
     "aud-ceo-c": [("am_onyx", 0.5), ("am_eric", 0.5)],
     "aud-bot-b": [("bm_daniel", 1.0)],
     "aud-bot-c": [("am_echo", 0.5), ("af_alloy", 0.5)],
+    # cutout episode 2 (Holy Black Friday): new original characters
+    "chad": [("am_michael", 0.7), ("am_eric", 0.3)],      # Pastor Chad: slick American TV preacher
+    "rick": [("am_onyx", 0.6), ("am_fenrir", 0.4)],       # Uncle Rick: loud, gruff American
 }
 SPEED = 1.05
 # Per-blend overrides: speed, and "pause" = the longest silence kept inside a line (s). The drawn animal
