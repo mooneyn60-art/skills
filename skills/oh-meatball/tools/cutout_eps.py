@@ -590,47 +590,59 @@ def kiosk(fr, cam, t, fi, li, L, scene):
 
 
 def ep4():
-    seq = [
-        ("gag", "intro", 2.4, "street", "wide"),
+    seq = [   # v2 (Nolan 11/19: too much dead air): extra lines, gaps 0.1, holds 0.3
+        ("gag", "intro", 2.2, "street", "wide"),
         ("line", "mb", "Every neighborhood has one. Ours has a clipboard.", None,
-         dict(scene="street", cams=[(0, "cu_mb"), (4, "cu_karen")], gap=0.2)),
+         dict(scene="street", cams=[(0, "cu_mb"), (4, "cu_karen")], gap=0.12)),
         ("line", "karen", "Excuse me. Your lemonade stand is in violation of section forty-two.", None,
-         dict(scene="street", cams=[(0, "cu_karen")], gap=0.2)),
-        ("line", "pip", "It's lemonade. It's a dollar.", None, dict(scene="street", cams=[(0, "cu_pip")], gap=0.2)),
+         dict(scene="street", cams=[(0, "cu_karen")], gap=0.1)),
+        ("line", "pip", "It's lemonade. It's a dollar.", None, dict(scene="street", cams=[(0, "cu_pip")], gap=0.1)),
+        ("line", "karen", "Is it organic? Gluten free? Did the lemons consent?", None,
+         dict(scene="street", cams=[(0, "cu_karen")], gap=0.1)),
+        ("line", "dot", "The lemons are fine, Karen. Are you?", None, dict(scene="street", cams=[(0, "cu_dot")], gap=0.12)),
         ("line", "karen", "Do you have a permit? A health inspection? A vendor license? A soul?", None,
-         dict(scene="street", cams=[(0, "cu_karen")], gap=0.2)),
+         dict(scene="street", cams=[(0, "cu_karen")], gap=0.1)),
         ("line", "dot", "Do you have a husband? Because he left.", None,
          dict(scene="street", cams=[(0, "cu_dot")], gap=0.0)),
-        ("hold", 0.8, "cu_karen"),
+        ("hold", 0.3, "cu_karen"),
+        ("line", "karen", "Gary is on a business trip!", None, dict(scene="street", cams=[(0, "cu_karen")], gap=0.1)),
+        ("line", "mb", "For six years, Karen. Gary lives in Arizona with a woman named Destiny.", None,
+         dict(scene="street", cams=[(0, "cu_mb")], gap=0.12)),
         ("line", "karen", "I'd like to speak to your manager.", None,
-         dict(scene="street", cams=[(0, "cu_karen")], gap=0.2)),
+         dict(scene="street", cams=[(0, "cu_karen")], gap=0.1)),
         ("line", "mb", "We're nine.", None, dict(scene="street", cams=[(0, "cu_mb")], gap=0.0)),
-        ("hold", 0.7, "cu_karen"),
+        ("hold", 0.3, "cu_karen"),
         ("line", "karen", "Then I'd like to speak to your parents' manager.", None,
+         dict(scene="street", cams=[(0, "cu_karen")], gap=0.12)),
+        ("line", "karen", "I pay four hundred dollars a month in HOA fees!", None,
+         dict(scene="street", cams=[(0, "cu_karen")], gap=0.1)),
+        ("line", "pip", "For what?", None,
+         dict(scene="street", cams=[(0, "cu_pip")], gap=0.1, voice="kokoro:aud-pip-b@speed=1.25,pause=0.14")),
+        ("line", "karen", "For the right to ruin your day.", None,
          dict(scene="street", cams=[(0, "cu_karen")], gap=0.0)),
-        ("hold", 0.6, "wide"),
-        ("gag", "checkout", 0.7, "checkout", "wide"),
+        ("gag", "checkout", 0.6, "checkout", "wide"),
         ("line", "kiosk", "Unexpected. Item. In the bagging area.", None,
-         dict(scene="checkout", cams=[(0, "cu_kiosk")], gap=0.2, beep=0.3)),
+         dict(scene="checkout", cams=[(0, "cu_kiosk")], gap=0.1, beep=0.3)),
         ("line", "karen", "I'd like to speak to the manager.", None,
-         dict(scene="checkout", cams=[(0, "cu_karen")], gap=0.2)),
+         dict(scene="checkout", cams=[(0, "cu_karen")], gap=0.1)),
         ("line", "kiosk", "I. Am. The manager.", None, dict(scene="checkout", cams=[(0, "cu_kiosk")], gap=0.0)),
-        ("hold", 0.6, "cu_karen"),
+        ("hold", 0.3, "cu_karen"),
         ("line", "karen", "Then I'd like to speak to your manager.", "Then I'd like to speak to YOUR manager.",
-         dict(scene="checkout", cams=[(0, "cu_karen")], gap=0.2)),
+         dict(scene="checkout", cams=[(0, "cu_karen")], gap=0.1)),
         ("line", "kiosk", "He is on. His third yacht.", None, dict(scene="checkout", cams=[(0, "cu_kiosk")],
-                                                                    gap=0.0)),
-        ("hold", 0.5, "cu_karen"),
+                                                                    gap=0.1)),
         ("line", "karen", "This is the worst day of my life!", None,
-         dict(scene="checkout", cams=[(0, "wide")], gap=0.2)),
+         dict(scene="checkout", cams=[(0, "wide")], gap=0.1)),
         ("line", "grandma", "Sweetie, I've buried two husbands. Sit down.", None,
-         dict(scene="checkout", cams=[(0, "cu_grandma")], gap=0.0)),
-        ("hold", 0.7, "cu_karen"),
-        ("gag", "back", 0.6, "street", "wide"),
+         dict(scene="checkout", cams=[(0, "cu_grandma")], gap=0.1)),
+        ("line", "karen", "I'm calling the police!", None, dict(scene="checkout", cams=[(0, "cu_karen")], gap=0.0)),
+        ("gag", "back", 0.4, "street", "wide"),
+        ("line", "dot", "They blocked your number, Karen. So did Gary.", None,
+         dict(scene="street", cams=[(0, "cu_dot")], gap=0.12)),
         ("line", "dot", "Lemonade's two dollars now. Karen tax.", None,
          dict(scene="street", cams=[(0, "cu_dot")], gap=0.0)),
-        ("hold", 0.8, "wide"),
-        ("gag", "end", 3.0, "street", "wide"),
+        ("hold", 0.3, "wide"),
+        ("gag", "end", 2.8, "street", "wide"),
     ]
 
     def scream():
@@ -1132,41 +1144,55 @@ def yard_bg(L, cam, scene):
 
 
 def ep6():
-    seq = [
-        ("gag", "intro", 2.4, "yard", "wide"),
+    seq = [   # v2 (Nolan 11/19: too much dead air): extra lines, gaps 0.1, holds 0.3
+        ("gag", "intro", 2.2, "yard", "wide"),
         ("line", "mb", "My neighbors are having a baby. So naturally, they bought explosives.", None,
-         dict(scene="yard", cams=[(0, "cu_mb")], gap=0.2)),
+         dict(scene="yard", cams=[(0, "cu_mb")], gap=0.12)),
         ("line", "brittany", "This reveal is gonna go viral, babe!", None,
-         dict(scene="yard", cams=[(0, "cu_brittany")], gap=0.2)),
+         dict(scene="yard", cams=[(0, "cu_brittany")], gap=0.1)),
         ("line", "chadsr", "I got two hundred pounds of blue powder and a cannon from a guy named Scooter.", None,
-         dict(scene="yard", cams=[(0, "cu_chadsr")], gap=0.2)),
+         dict(scene="yard", cams=[(0, "cu_chadsr")], gap=0.1)),
+        ("line", "pip", "Is Scooter a professional?", None,
+         dict(scene="yard", cams=[(0, "cu_pip")], gap=0.1, voice="kokoro:aud-pip-b@speed=1.25,pause=0.14")),
+        ("line", "chadsr", "He's got nine fingers and a dream.", None,
+         dict(scene="yard", cams=[(0, "cu_chadsr")], gap=0.12)),
         ("line", "dot", "That's not a party. That's a war crime with balloons.", None,
-         dict(scene="yard", cams=[(0, "cu_dot")], gap=0.2)),
-        ("line", "pip", "Why can't you just say it's a boy?", None, dict(scene="yard", cams=[(0, "cu_pip")], gap=0.2)),
+         dict(scene="yard", cams=[(0, "cu_dot")], gap=0.12)),
+        ("line", "pip", "Why can't you just say it's a boy?", None, dict(scene="yard", cams=[(0, "cu_pip")], gap=0.1)),
         ("line", "brittany", "Because then how would strangers on the internet know?", None,
-         dict(scene="yard", cams=[(0, "cu_brittany")], gap=0.0)),
-        ("gag", "boom", 2.2, "yard", "cu_cannon"),
+         dict(scene="yard", cams=[(0, "cu_brittany")], gap=0.1)),
+        ("line", "brittany", "We already named him. Braxtyn. With a Y. And a second Y nobody asked for.", None,
+         dict(scene="yard", cams=[(0, "cu_brittany")], gap=0.1)),
+        ("line", "dot", "That kid's getting bullied by his own birth certificate.", None,
+         dict(scene="yard", cams=[(0, "cu_dot")], gap=0.0)),
+        ("gag", "boom", 1.8, "yard", "cu_cannon"),
         ("line", "chadsr", "It's a boy!", None, dict(scene="yard", cams=[(0, "cu_chadsr")], gap=0.1)),
-        ("line", "dot", "It's a felony.", None, dict(scene="yard", cams=[(0, "cu_dot")], gap=0.0)),
-        ("hold", 0.6, "wide"),
+        ("line", "dot", "It's a felony.", None, dict(scene="yard", cams=[(0, "cu_dot")], gap=0.12)),
+        ("line", "brittany", "Did we get the shot?", None, dict(scene="yard", cams=[(0, "cu_brittany")], gap=0.1)),
+        ("line", "mb", "You got the shot, the fire department, and the evening news.", None,
+         dict(scene="yard", cams=[(0, "cu_mb")], gap=0.12)),
         ("line", "firefighter", "Whose idea was the cannon?", None,
-         dict(scene="yard", cams=[(0, "cu_firefighter")], gap=0.2)),
-        ("line", "chadsr", "Scooter's.", None, dict(scene="yard", cams=[(0, "cu_chadsr")], gap=0.2)),
+         dict(scene="yard", cams=[(0, "cu_firefighter")], gap=0.1)),
+        ("line", "chadsr", "Scooter's.", None, dict(scene="yard", cams=[(0, "cu_chadsr")], gap=0.1)),
         ("line", "firefighter", "Scooter's in jail, sir. Again.", None,
          dict(scene="yard", cams=[(0, "cu_firefighter")], gap=0.0)),
-        ("hold", 0.4, "cu_chadsr"),
+        ("hold", 0.3, "cu_chadsr"),
         ("line", "brittany", "Can you film me crying? From my good side?", None,
-         dict(scene="yard", cams=[(0, "cu_brittany")], gap=0.2)),
+         dict(scene="yard", cams=[(0, "cu_brittany")], gap=0.12)),
         ("line", "grandma", "In my day we found out when the baby came out. And we were happy it had a pulse.", None,
-         dict(scene="yard", cams=[(0, "cu_grandma")], gap=0.0)),
-        ("hold", 0.4, "cu_mb"),
+         dict(scene="yard", cams=[(0, "cu_grandma")], gap=0.12)),
+        ("line", "chadsr", "Worth it. Do you know how many likes this got?", None,
+         dict(scene="yard", cams=[(0, "cu_chadsr")], gap=0.1)),
+        ("line", "firefighter", "Eleven, sir. And one is from your insurance company.", None,
+         dict(scene="yard", cams=[(0, "cu_firefighter")], gap=0.0)),
+        ("hold", 0.3, "cu_mb"),
         ("line", "mb", "Congratulations. Your son's first word is gonna be evacuation.", None,
-         dict(scene="yard", cams=[(0, "cu_mb")], gap=0.2)),
+         dict(scene="yard", cams=[(0, "cu_mb")], gap=0.12)),
         ("line", "pip", "What about the next baby?", None,
-         dict(scene="yard", cams=[(0, "cu_pip")], gap=0.2, voice="kokoro:aud-pip-b@speed=1.25,pause=0.14")),
+         dict(scene="yard", cams=[(0, "cu_pip")], gap=0.1, voice="kokoro:aud-pip-b@speed=1.25,pause=0.14")),
         ("line", "chadsr", "Bigger cannon.", None, dict(scene="yard", cams=[(0, "cu_chadsr")], gap=0.0)),
-        ("hold", 0.7, "wide"),
-        ("gag", "end", 3.0, "yard", "wide"),
+        ("hold", 0.3, "wide"),
+        ("gag", "end", 2.8, "yard", "wide"),
     ]
 
     def where(c, t, scene, L):
@@ -1297,45 +1323,59 @@ def kitchen_bg(L, cam, scene):
 
 
 def ep7():
-    seq = [
-        ("gag", "intro", 2.4, "kitchen", "wide"),
+    seq = [   # v2 (Nolan 11/19: too much dead air): extra lines, gaps 0.1, holds 0.3
+        ("gag", "intro", 2.2, "kitchen", "wide"),
         ("line", "mb", "Two people. One kitchen. And I'm the only one here who is literally food.", None,
-         dict(scene="kitchen", cams=[(0, "cu_mb")], gap=0.2)),
+         dict(scene="kitchen", cams=[(0, "cu_mb")], gap=0.12)),
         ("line", "sage", "I don't eat anything with a face.", None, dict(scene="kitchen", cams=[(0, "cu_sage")],
-                                                                        gap=0.2)),
+                                                                        gap=0.1)),
         ("line", "mb", "I'm a meatball. I have a face. Pick a side.", None,
-         dict(scene="kitchen", cams=[(0, "cu_mb")], gap=0.0)),
-        ("hold", 0.4, "cu_sage"),
+         dict(scene="kitchen", cams=[(0, "cu_mb")], gap=0.12)),
+        ("line", "sage", "I also don't own a TV. Or a couch. Or joy.", None,
+         dict(scene="kitchen", cams=[(0, "cu_sage")], gap=0.1)),
+        ("line", "dot", "We can tell.", None, dict(scene="kitchen", cams=[(0, "cu_dot")], gap=0.0)),
+        ("hold", 0.3, "cu_sage"),
         ("line", "tank", "Bro, I eat forty eggs a day. My blood is just protein shake.", None,
-         dict(scene="kitchen", cams=[(0, "cu_tank")], gap=0.2)),
+         dict(scene="kitchen", cams=[(0, "cu_tank")], gap=0.1)),
         ("line", "dot", "Your blood is ninety percent creatine and ten percent bad decisions.", None,
-         dict(scene="kitchen", cams=[(0, "cu_dot")], gap=0.0)),
-        ("hold", 0.4, "cu_tank"),
-        ("line", "sage", "Did you know I'm vegan?", None, dict(scene="kitchen", cams=[(0, "cu_sage")], gap=0.2)),
+         dict(scene="kitchen", cams=[(0, "cu_dot")], gap=0.12)),
+        ("line", "tank", "I can't put my arms down, bro. Haven't since March.", None,
+         dict(scene="kitchen", cams=[(0, "cu_tank")], gap=0.1)),
+        ("line", "pip", "How do you wipe?", None,
+         dict(scene="kitchen", cams=[(0, "cu_pip")], gap=0.1, voice="kokoro:aud-pip-b@speed=1.25,pause=0.14")),
+        ("line", "tank", "Teamwork, bro.", None, dict(scene="kitchen", cams=[(0, "cu_tank")], gap=0.0)),
+        ("hold", 0.3, "cu_pip"),
+        ("line", "sage", "Did you know I'm vegan?", None, dict(scene="kitchen", cams=[(0, "cu_sage")], gap=0.1)),
         ("line", "pip", "Yes. You told us. In the driveway. And the mailbox. And my dreams.", None,
-         dict(scene="kitchen", cams=[(0, "cu_pip")], gap=0.0)),
-        ("hold", 0.4, "cu_sage"),
+         dict(scene="kitchen", cams=[(0, "cu_pip")], gap=0.12)),
         ("line", "tank", "I don't do cardio, bro. Cardio is for people who can't afford steroids.", None,
-         dict(scene="kitchen", cams=[(0, "cu_tank")], gap=0.2)),
-        ("line", "sage", "Your body is a temple, Tank.", None, dict(scene="kitchen", cams=[(0, "cu_sage")], gap=0.2)),
+         dict(scene="kitchen", cams=[(0, "cu_tank")], gap=0.1)),
+        ("line", "sage", "Your body is a temple, Tank.", None, dict(scene="kitchen", cams=[(0, "cu_sage")], gap=0.1)),
         ("line", "tank", "My body's a warehouse store, bro. Bulk.", None,
-         dict(scene="kitchen", cams=[(0, "cu_tank")], gap=0.2)),
-        ("line", "sage", "Meat is murder.", None, dict(scene="kitchen", cams=[(0, "cu_sage")], gap=0.2)),
+         dict(scene="kitchen", cams=[(0, "cu_tank")], gap=0.12)),
+        ("line", "sage", "I make my own deodorant.", None, dict(scene="kitchen", cams=[(0, "cu_sage")], gap=0.1)),
+        ("line", "mb", "We know, Sage. The whole street knows.", None,
+         dict(scene="kitchen", cams=[(0, "cu_mb")], gap=0.0)),
+        ("hold", 0.3, "cu_sage"),
+        ("line", "sage", "Meat is murder.", None, dict(scene="kitchen", cams=[(0, "cu_sage")], gap=0.1)),
         ("line", "tank", "Then I'm a serial killer, bro. Leg day is a crime scene.", None,
+         dict(scene="kitchen", cams=[(0, "cu_tank")], gap=0.12)),
+        ("line", "sage", "I haven't had protein since two thousand nineteen.", None,
+         dict(scene="kitchen", cams=[(0, "cu_sage")], gap=0.1)),
+        ("line", "tank", "I haven't had a feeling since two thousand nineteen.", None,
          dict(scene="kitchen", cams=[(0, "cu_tank")], gap=0.0)),
-        ("hold", 0.7, "wide"),
-        ("gag", "stare", 1.4, "kitchen", "cu_mb"),
+        ("gag", "stare", 1.0, "kitchen", "cu_mb"),
         ("line", "sage", "Is Meatball meat?", "...Is Meatball meat?",
-         dict(scene="kitchen", cams=[(0, "cu_sage")], gap=0.2)),
+         dict(scene="kitchen", cams=[(0, "cu_sage")], gap=0.1)),
         ("line", "tank", "Only one way to find out, bro.", None,
          dict(scene="kitchen", cams=[(0, "cu_tank")], gap=0.0)),
-        ("hold", 0.4, "cu_mb"),
+        ("hold", 0.3, "cu_mb"),
         ("line", "mb", "Pip, if I die in here, you can have my shoes.", None,
-         dict(scene="kitchen", cams=[(0, "cu_mb")], gap=0.2)),
+         dict(scene="kitchen", cams=[(0, "cu_mb")], gap=0.1)),
         ("line", "pip", "Finally.", None,
          dict(scene="kitchen", cams=[(0, "cu_pip")], gap=0.0, voice="kokoro:aud-pip-b@speed=1.2,pause=0.14")),
-        ("hold", 0.7, "wide"),
-        ("gag", "end", 3.0, "kitchen", "wide"),
+        ("hold", 0.3, "wide"),
+        ("gag", "end", 2.8, "kitchen", "wide"),
     ]
 
     def stare_win():
@@ -1343,7 +1383,7 @@ def ep7():
         if "stare" not in ev:
             return (1e9, 1e9)
         end_ = H.lines_with("one way", "tank")
-        return (ev["stare"] - 0.7, end_[0]["start"] + end_[0]["dur"] + 0.6 if end_ else ev["stare"] + 1.4)
+        return (ev["stare"] - 0.3, end_[0]["start"] + end_[0]["dur"] + 0.4 if end_ else ev["stare"] + 1.0)
 
     def pose_hook(c, t, fi, li, scene, p):
         hop, j, ang, (aL, aR), hk, sq, rot, extra = p
@@ -1378,7 +1418,7 @@ def ep7():
 
     def silences():
         ev = G["ev"]
-        return [(ev["stare"], ev["stare"] + 1.4)] if "stare" in ev else []
+        return [(ev["stare"], ev["stare"] + 1.0)] if "stare" in ev else []
 
     return dict(title="VEGAN VS GYM BRO", end=["TEAM VEGAN", "OR TEAM", "GYM BRO?"], seq=seq,
                 scenes={"kitchen": dict(layout=kitchen_layout, bg=kitchen_bg)},
@@ -1389,7 +1429,8 @@ EPISODES = {"ep3": ep3, "ep4": ep4, "ep5": ep5, "ep6": ep6, "ep7": ep7, "ep8": e
 
 
 # ------------------------------------------------------------------------------------------------ engine
-TARGET = 63.0   # TikTok + Shorts: a bit over a minute (Nolan 11/19: 62-66 s, never under 61)
+TARGET = 62.6   # TikTok + Shorts: a bit over a minute (Nolan 11/19: 62-66 s, never under 61)
+HOLD_MAX = 0.45   # the auto-fit never stretches a reaction hold past this
 
 
 def use(name, fmt="vertical"):
@@ -1400,26 +1441,21 @@ def use(name, fmt="vertical"):
     C2.SEQ[:] = EP["seq"]
     H.place = lambda scene: (G["L"][scene].get("cast", {}) if scene in G.get("L", {}) else {})
     _, _, _, end = C2.build()
+    # Nolan 11/19 ("too much dead air"): holds never stretch past HOLD_MAX; a short cut is padded with the
+    # end card, never with dead air mid-video.
+    deficit = TARGET - end
     holds = [i for i, it in enumerate(C2.SEQ) if it[0] == "hold"]
-    if holds and abs(TARGET - end) > 0.2:
-        per = max(-0.25, min(0.9, (TARGET - end) / len(holds)))
+    if deficit > 0.05 and holds:
+        per = deficit / len(holds)
         for i in holds:
             it = C2.SEQ[i]
-            C2.SEQ[i] = (it[0], round(max(0.25, it[1] + per), 2), it[2])
-        rem = TARGET - end - per * len(holds)
-        lines_ = [i for i, it in enumerate(C2.SEQ) if it[0] == "line"]
-        if rem > 0.2 and lines_:   # still short: breathe a little after every line too
-            g = min(0.45, rem / len(lines_))
-            for i in lines_:
-                it = C2.SEQ[i]
-                o = dict(it[4])
-                o["gap"] = round(o.get("gap", 0.15) + g, 2)
-                C2.SEQ[i] = it[:4] + (o,)
-            rem -= g * len(lines_)
-            if rem > 0.2:   # a short script: the rest goes into the reaction holds
-                for i in holds:
-                    it = C2.SEQ[i]
-                    C2.SEQ[i] = (it[0], round(it[1] + rem / len(holds), 2), it[2])
+            add_ = max(0.0, min(per, HOLD_MAX - it[1]))
+            C2.SEQ[i] = (it[0], round(it[1] + add_, 2), it[2])
+            deficit -= add_
+    if deficit > 0.05:
+        for i, it in enumerate(C2.SEQ):
+            if it[0] == "gag" and it[1] == "end":
+                C2.SEQ[i] = (it[0], it[1], round(it[2] + deficit, 2)) + it[3:]
 
 
 def bg(scene, cam_name):

@@ -89,15 +89,15 @@ SEQ_COOK = [
     ("line", "congress", "I don't see color. I only see green.", None,
      dict(scene="congress", cams=[(0, "cu_congress"), (4, "two")], gap=0.1)),
     ("hold", 0.9, "congress/cu_lobby"),
-    ("gag", "red", 1.7, "red", "wide"),
-    ("line", "mb", "Okay, real question. If the world ends, who's got the best last meal? Comment your culture's "
-                   "food. Wrong answers get roasted next episode.", None,
-     dict(scene="red", cams=[(0, "cu_mb"), (13, "ecu_mb"), (17, "cu_mb")], gap=0.15)),
+    ("gag", "red", 2.0, "red", "wide"),
+    ("line", "mb", "If the world ends, who's got the best last meal?", None,   # Studio's cut, 11/19
+     dict(scene="red", cams=[(0, "cu_mb"), (4, "ecu_mb")], gap=0.35)),
     ("gag", "land", 0.6, "red", "wide"),
-    ("gag", "done", 1.6, "done", "cu_dog"),
-    ("line", "todd", "Worth it.", None, dict(scene="done", cams=[(0, "cu_todd")], gap=0.6)),
+    ("gag", "done", 2.0, "done", "cu_dog"),
+    ("line", "todd", "Worth it.", None, dict(scene="done", cams=[(0, "cu_todd")], gap=1.3)),
 ]
 TITLE = ["THE COOKOUT", "AT THE END", "OF THE WORLD"]
+END_TEXT = "BEST LAST MEAL?"
 W, H, K, F = 1080, 1920, 1.28, 1640
 LAYOUT = dict(W=W, H=H, K=K, feet=F, cap_y=1470, cap_size=84)
 X = dict(yard=dict(mb=540), smoker=dict(todd=290, smoker=740, mb=-700), ray=dict(ray=300, elon=850),
@@ -1142,7 +1142,7 @@ def sc_red(fr, cam, st):
         rig(fr, cam, c, x, st, y=F - 150, scale=0.74, aL=-158 + (10 if fi % 2 else 0), aR=158 - (10 if fi % 2 else 0),
             lvl=2, hop=-22 if (fi + CI[c]) % 2 else 0, jit=3, items=(), expr="wide", flags=())
     spk, _, wi = state("mb", st)
-    smug = spk and wi >= 17
+    smug = False
     meat(fr, cam, X["red"]["mb"], st, expr="smug" if smug else ("wide" if not spk else "norm"),
          gaze="u" if (not spk and ld is None) else "c")
     if ld is not None:   # it comes down
@@ -1172,6 +1172,14 @@ def sc_done(fr, cam, st):
     elif d < 0.75:
         px, py = cam.p(hx + 10, hy - 250 * K)
         paste(fr, C2.spr("star", round(1.5 if fi % 2 else 1.3, 2), "DING!"), px, py, (fi % 2) * 8)
+    e = t - G["lines"][-1]["t0"]
+    if e >= 0:   # the end text: the question, and a paper arrow down to the comments
+        k = int(e * FPS)
+        paste(fr, C.banner_img(END_TEXT, 112, RED, WHITE, 44), W / 2, 250 + [-90, 14, 0][min(2, k)], -2)
+        if e >= 0.25:
+            x, ay = W * 0.78, 370 + (10 if fi % 4 < 2 else 0)
+            paper(fr, [(x - 34, ay), (x + 34, ay), (x + 34, ay + 70), (x + 80, ay + 70), (x, ay + 150), (x - 80, ay + 70),
+                       (x - 34, ay + 70)], (252, 214, 74), np.random.default_rng(3), 1.5, sh=6)
 
 
 SCENES = dict(yard=sc_yard, smoker=sc_smoker, ray=sc_ray, karen=sc_ray, nonna=sc_nonna, tv=sc_tv, pastor=sc_pastor,
@@ -1331,6 +1339,7 @@ def mix(end):
     add(fx, C2.noise_burst(0.9, 0.4, 13, 1) * 0.4, Dn + 0.3, 0.07)
     last = lines[-1]
     strum(music, last["start"] + last["dur"] + 0.02, "C", 0.35, seed=60)
+    sfx_slap(fx, last["t0"] + 0.02, 0.3, 9)
     vo = np.zeros(n, np.float32)
     for ln in lines:
         add(vo, ln["audio"], ln["start"], 1.0)
