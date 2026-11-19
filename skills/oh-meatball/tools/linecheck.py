@@ -22,8 +22,27 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import cutout2 as c  # noqa: E402
 
 
+ONES = "zero one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen " \
+       "seventeen eighteen nineteen".split()
+TENS = "_ _ twenty thirty forty fifty sixty seventy eighty ninety".split()
+
+
+def num_words(n):
+    n = int(n)
+    if n < 20:
+        return ONES[n]
+    if n < 100:
+        return TENS[n // 10] + ("" if n % 10 == 0 else " " + ONES[n % 10])
+    if n == 100:
+        return "one hundred"
+    return str(n)
+
+
 def norm(s):
-    return re.sub(r"[^a-z0-9 ]", "", s.lower().replace("-", " ").replace("...", " "))
+    """Lower case, words only; whisper writes "20%" and "$99" where the script says the words."""
+    s = s.lower().replace("%", " percent").replace("$", "")
+    s = re.sub(r"\d+", lambda m: " " + num_words(m.group()) + " ", s)
+    return re.sub(r"[^a-z ]", "", s.replace("-", " ").replace("...", " "))
 
 
 def main():

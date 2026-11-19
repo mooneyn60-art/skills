@@ -527,11 +527,11 @@ def street_bg(L, cam, scene):
     for k in range(5):
         paper(front, cam.pts(strip([(a, top + k * 40 * K + 20), (b, top + k * 40 * K + 20)], 4)), (170, 126, 74),
               rng, z, shadow=False)
-    px = (a + b) / 2 + 120 * K
+    px = a + 60 * K   # pitcher and cups at the ends of the counter, clear of the kids' faces
     paper(front, cam.pts([(px - 30 * K, top - 90 * K), (px + 30 * K, top - 90 * K), (px + 36 * K, top),
                           (px - 36 * K, top)]), (250, 236, 120), rng, z, sh=3)
     for k in range(3):
-        cx_ = (a + b) / 2 - 160 * K + k * 60 * K
+        cx_ = b - 160 * K + k * 50 * K
         paper(front, cam.pts([(cx_ - 16 * K, top - 46 * K), (cx_ + 16 * K, top - 46 * K), (cx_ + 12 * K, top),
                               (cx_ - 12 * K, top)]), WHITE, rng, z, sh=2)
     return C.vignette(back), front
@@ -886,7 +886,161 @@ def ep8():
                 post=post, pose_hook=pose_hook, sfx=sfx, silences=silences)
 
 
-EPISODES = {"ep3": ep3, "ep4": ep4, "ep8": ep8}
+@eprop("deskbox")
+def _deskbox(z):
+    return render_shapes([("p", [(-60, -40), (60, -40), (56, 40), (-56, 40)], (196, 156, 104)),
+                          ("p", strip([(-30, -40), (-24, -110)], 6), (60, 140, 70)),
+                          ("e", (-24, -116, 20, 14), (80, 170, 90)), ("e", (-40, -100, 14, 10), (80, 170, 90)),
+                          ("p", [(10, -70), (40, -70), (40, -40), (10, -40)], WHITE),
+                          ("p", [(-60, -40), (60, -40), (60, -26), (-60, -26)], (170, 130, 84), False)], z, 140, 510)
+
+
+@eprop("reportcard")
+def _rc(z):
+    img = render_shapes([("p", [(-46, -60), (46, -62), (48, 60), (-44, 62)], WHITE)], z, 90, 511)
+    d = ImageDraw.Draw(img)
+    c = img.size[0] / 2
+    d.text((c, c - 30 * z), "REPORT", font=ImageFont.truetype(FONT, max(6, int(14 * z))), fill=INK, anchor="mm")
+    d.text((c, c + 14 * z), "D-", font=ImageFont.truetype(FONT, max(6, int(40 * z))), fill=(200, 40, 32), anchor="mm")
+    return img
+
+
+def office_layout(L):
+    vert = L["H"] > L["W"]
+    K = L["K"]
+    if vert:
+        scr = (50, 200, 1030, 960)
+        return dict(screen=scr, floor=1150, kids={}, cast=dict(dad=540), wide=(540, 960, 1.0),
+                    cams={"cu_ceo": ((scr[0] + scr[2]) / 2, (scr[1] + scr[3]) / 2 + 120, 1.04)})
+    scr = (560, 80, 1360, 590)
+    zc = min(1920 * 0.96 / (scr[2] - scr[0] + 60), 1080 * 0.94 / (scr[3] - scr[1] + 60))
+    return dict(screen=scr, floor=700, kids={}, cast=dict(dad=1500), wide=(960, 540, 1.0),
+                cams={"cu_ceo": ((scr[0] + scr[2]) / 2, (scr[1] + scr[3]) / 2, zc)})
+
+
+def office_bg(L, cam, scene):
+    sv = L.get("ceo")
+    L["ceo"] = L[scene]
+    try:
+        return C2.bg_ceo(L, cam)
+    finally:
+        if sv is not None:
+            L["ceo"] = sv
+
+
+def ep5():
+    xs = (dict(dadbot=220, pip=640, mb=960, dot=1280, dad=1660),
+          dict(dadbot=60, pip=340, mb=610, dot=880, dad=1150))
+    seq = [
+        ("gag", "intro", 2.4, "home", "wide"),
+        ("line", "mb", "My dad got replaced by AI. At work. And then at home.", None,
+         dict(scene="home", cams=[(0, "cu_mb")], gap=0.0)),
+        ("gag", "ceo_in", 0.5, "ceo", "wide"),
+        ("line", "dad", "Twenty years at MegaMart, and they replaced me with a chatbot named Gary.", None,
+         dict(scene="ceo", cams=[(0, "cu_dad")], gap=0.2)),
+        ("line", "ceo", "Gary doesn't need lunch, health insurance, or a soul. Gary is the future.", None,
+         dict(scene="ceo", cams=[(0, "cu_ceo")], gap=0.2)),
+        ("line", "dad", "Gary told a customer to put glue on pizza.", None,
+         dict(scene="ceo", cams=[(0, "cu_dad"), (6, "glue/wide")], gap=0.2)),
+        ("line", "ceo", "And sales went up four percent.", None, dict(scene="ceo", cams=[(0, "cu_ceo")], gap=0.0)),
+        ("hold", 0.5, "cu_dad"),
+        ("gag", "home_in", 0.6, "home", "wide"),
+        ("line", "dadbot", "Hello son. I have analyzed your report card.", None,
+         dict(scene="home", cams=[(0, "cu_dadbot")], gap=0.2)),
+        ("line", "dadbot", "I am not angry. I am disappointed at a level no human father can reach.", None,
+         dict(scene="home", cams=[(0, "cu_dadbot")], gap=0.0)),
+        ("hold", 0.4, "cu_mb"),
+        ("line", "mb", "Holy shit. That's way worse.", None, dict(scene="home", cams=[(0, "cu_mb")], gap=0.2)),
+        ("line", "pip", "My dad never even read my report card.", None,
+         dict(scene="home", cams=[(0, "cu_pip")], gap=0.2)),
+        ("line", "dot", "My dad never read anything. He thinks books are long tweets.", None,
+         dict(scene="home", cams=[(0, "cu_dot")], gap=0.0)),
+        ("hold", 0.4, "cu_pip"),
+        ("line", "dadbot", "I have also scheduled your future. Plumber. Robots cannot do plumbing. Yet.", None,
+         dict(scene="home", cams=[(0, "cu_dadbot")], gap=0.2)),
+        ("line", "dad", "What do I do now?", None, dict(scene="home", cams=[(0, "cu_dad")], gap=0.2)),
+        ("line", "dadbot", "Have you tried learning to code?", None,
+         dict(scene="home", cams=[(0, "cu_dadbot")], gap=0.0)),
+        ("hold", 0.4, "cu_dad"),
+        ("line", "dad", "I coded you, Gary.", "I CODED YOU, GARY.", dict(scene="home", cams=[(0, "cu_dad")], gap=0.2)),
+        ("line", "dadbot", "And I have replaced you. Merry Christmas.", None,
+         dict(scene="home", cams=[(0, "cu_dadbot")], gap=0.0)),
+        ("hold", 0.5, "cu_mb"),
+        ("line", "mb", "So, same time next year, Dad? If you still exist?", None,
+         dict(scene="home", cams=[(0, "cu_mb")], gap=0.0)),
+        ("hold", 0.6, "wide"),
+        ("gag", "end", 3.0, "home", "wide"),
+    ]
+
+    def glue_card(img, d, x0, y0, x1, y1, L):
+        cx, cy = (x0 + x1) / 2, (y0 + y1) / 2
+        rng = np.random.default_rng(8)
+        r = (x1 - x0) * 0.36
+        paper(img, ell(cx, cy, r, r), (226, 170, 90), rng, 2.0, sh=8)
+        paper(img, ell(cx, cy, r * 0.86, r * 0.86), (230, 90, 60), rng, 1.5, shadow=False)
+        paper(img, ell(cx, cy, r * 0.8, r * 0.8), (250, 220, 120), rng, 1.5, shadow=False)
+        for a in range(0, 360, 60):
+            px_, py_ = cx + r * 0.5 * math.cos(math.radians(a)), cy + r * 0.5 * math.sin(math.radians(a))
+            paper(img, ell(px_, py_, r * 0.12, r * 0.12), (190, 50, 40), rng, 1.0, shadow=False)
+        for k in range(5):   # glue drips
+            gx = cx - r * 0.6 + k * r * 0.3
+            paper(img, [(gx - 12, cy - r * 0.6), (gx + 12, cy - r * 0.6), (gx + 8, cy + r * 0.2 + k * 10),
+                        (gx - 8, cy + r * 0.2 + k * 10)], (250, 250, 250), rng, 1.0, sh=2)
+        bx, by = x1 - (x1 - x0) * 0.2, y0 + (y1 - y0) * 0.2
+        paper(img, [(bx - 70, by - 120), (bx + 70, by - 120), (bx + 70, by + 120), (bx - 70, by + 120)], WHITE, rng,
+              1.5, sh=6)
+        paper(img, [(bx - 20, by - 180), (bx + 20, by - 180), (bx + 10, by - 120), (bx - 10, by - 120)],
+              (240, 140, 40), rng, 1.0)
+        d.text((bx, by), "GLUE", font=ImageFont.truetype(FONT, 50), fill=(40, 90, 200), anchor="mm")
+        d.text((cx, y1 - (y1 - y0) * 0.1), "GARY'S RECIPE", font=ImageFont.truetype(FONT, int((x1 - x0) / 11)),
+               fill=INK, anchor="mm")
+
+    def where(c, t, scene, L):
+        if c == "dad" and scene == "home":
+            ln = H.lines_with("What do I do", "dad")
+            if not ln or t < ln[0]["t0"] - 0.8:
+                return None   # Dad is not home yet
+        return (L[scene]["cast"][c], L["feet"])
+
+    def pre(fr, cam, t, fi, li, scene, L):
+        if scene == "ceo":
+            sv = L.get("ceo")
+            C2.draw_screen(fr, cam, t, li)
+
+    def pose_hook(c, t, fi, li, scene, p):
+        hop, j, ang, (aL, aR), hk, sq, rot, extra = p
+        if c == "dad" and scene == "ceo":
+            aL, aR, extra["item"] = -60, 60, ("deskbox", "R", 0)
+        if c == "dadbot":
+            ln = H.lines_with("report card", "dadbot")
+            if ln and ln[0]["t0"] <= t < ln[0]["start"] + ln[0]["dur"] + 4:
+                aR, extra["item"] = 120, ("reportcard", "R", 0)
+        if c == "dad" and scene == "home":
+            ln = H.lines_with("coded", "dad")
+            if ln and ln[0]["t0"] <= t <= ln[0]["start"] + ln[0]["dur"]:
+                aL, aR, hop = -160, 160, [-10, 0][fi % 2]
+                hk = (hk[0], hk[1], "wide", hk[3])
+        return (hop, j, ang, (aL, aR), hk, sq, rot, extra)
+
+    def sfx(fx, music, ev, lines):
+        if "ceo_in" in ev:
+            add(fx, C2.noise_burst(0.3, 0.3, 21, 1), ev["ceo_in"], 0.15)
+        ln = H.lines_with("coded", "dad")
+        if ln:
+            C2.thud(fx, ln[0]["t0"], 0.6)
+        for ln in lines:   # Dadbot boots up each time it talks
+            if ln["who"] == "dadbot":
+                add(fx, C2.tone(880, 0.06, 0.18) + 0, ln["t0"])
+                add(fx, C2.tone(1320, 0.06, 0.18), ln["t0"] + 0.07)
+
+    return dict(title="AI TOOK DAD'S JOB", end=["WOULD YOU LET", "AN AI RAISE", "YOUR KID?"], seq=seq,
+                scenes={"home": dict(layout=table_layout(xs), bg=table_bg),
+                        "ceo": dict(layout=office_layout, bg=office_bg),
+                        "glue": dict(bg=card_bg(glue_card))},
+                where=where, pre=pre, pose_hook=pose_hook, sfx=sfx)
+
+
+EPISODES = {"ep3": ep3, "ep4": ep4, "ep5": ep5, "ep8": ep8}
 
 
 # ------------------------------------------------------------------------------------------------ engine
@@ -916,6 +1070,11 @@ def use(name, fmt="vertical"):
                 o = dict(it[4])
                 o["gap"] = round(o.get("gap", 0.15) + g, 2)
                 C2.SEQ[i] = it[:4] + (o,)
+            rem -= g * len(lines_)
+            if rem > 0.2:   # a short script: the rest goes into the reaction holds
+                for i in holds:
+                    it = C2.SEQ[i]
+                    C2.SEQ[i] = (it[0], round(it[1] + rem / len(holds), 2), it[2])
 
 
 def bg(scene, cam_name):
