@@ -492,50 +492,55 @@ SEQ_V7 = [   # v7: side-hustles/channels/scripts/cutout-black-friday-v7.md (v6 +
 ]
 
 SEQ_V8 = [   # v8 SHORT (~60 s): side-hustles/channels/scripts/cutout-black-friday-v8-short.md
-    ("gag", "intro", 1.5, "outside", "wide"),
+    ("gag", "intro", 2.2, "outside", "wide"),
     ("line", "mb", "Black Friday. The one day a year we fight a stranger over a toaster.", None,
-     dict(scene="outside", cams=[(0, "wide"), (6, "cu_mb")], gap=0.1)),
+     dict(scene="outside", cams=[(0, "wide"), (6, "cu_mb")], gap=0.0)),
+    ("hold", 0.6, "cu_dot"),
     ("line", "pip", "My mom said if I don't come home with the TV, don't come home.", None,
-     dict(scene="outside", cams=[(0, "cu_pip")], gap=0.1)),
+     dict(scene="outside", cams=[(0, "cu_pip")], gap=0.2)),
     ("line", "dot", "My mom's renting out my room. On Airbed.", None,
-     dict(scene="outside", cams=[(0, "cu_dot")], gap=0.1)),
-    ("gag", "stampede", 1.0, "outside", "wide"),
+     dict(scene="outside", cams=[(0, "cu_dot")], gap=0.0)),
+    ("hold", 0.6, "cu_pip"),
+    ("gag", "stampede", 1.6, "outside", "wide"),
     ("line", "pip", "There goes my fucking spleen.", None,
-     dict(scene="outside", cams=[(0, "cu_pip_flat")], gap=0.1, voice="kokoro:aud-pip-b@speed=1.3,pause=0.14")),
+     dict(scene="outside", cams=[(0, "cu_pip_flat")], gap=0.2, voice="kokoro:aud-pip-b@speed=1.3,pause=0.14")),
     ("line", "mb", "If you die in here, can I have your shoes?", None,
      dict(scene="outside", cams=[(0, "cu_mb_flat")], gap=0.0)),
-    ("hold", 0.3, "cu_pip_flat"),
-    ("gag", "ceo_in", 0.35, "ceo", "wide"),
+    ("hold", 0.9, "cu_pip_flat"),
+    ("gag", "ceo_in", 0.5, "ceo", "wide"),
     ("line", "ceo", "We raised every price forty percent last week, so sixty percent off is a gift from my heart.", None,
-     dict(scene="ceo", cams=[(0, "cu_ceo")], gap=0.15)),
+     dict(scene="ceo", cams=[(0, "cu_ceo")], gap=0.0)),
+    ("hold", 0.5, "wide"),
     ("line", "ceo", "And every TV is assembled by hand. Small hands. Very affordable hands.", None,
      dict(scene="ceo", cams=[(0, "cu_ceo")], gap=0.0)),
-    ("hold", 0.3, "wide"),
-    ("gag", "slam", 0.8, "inside", "wide"),
+    ("hold", 1.0, "wide"),
+    ("gag", "slam", 1.2, "inside", "wide"),
     ("line", "pip", "Holy shit! A grandma just body-slammed me!", None,
-     dict(scene="inside", cams=[(0, "cu_pip_down")], gap=0.1)),
+     dict(scene="inside", cams=[(0, "cu_pip_down")], gap=0.0)),
+    ("hold", 0.4, "cu_pip_down"),
     ("line", "grandma", "I've buried two husbands. One was still breathing. You're a speed bump.", None,
      dict(scene="inside", cams=[(0, "cu_grandma")], gap=0.0)),
-    ("hold", 0.3, "cu_mb"),
-    ("gag", "checkout", 0.4, "checkout", "wide"),
+    ("hold", 1.0, "cu_mb"),
+    ("gag", "checkout", 0.6, "checkout", "wide"),
     ("line", "kiosk", "Unexpected. Item. In the bagging area.", None,
-     dict(scene="checkout", cams=[(0, "cu_kiosk")], gap=0.1, beep=0.3)),
+     dict(scene="checkout", cams=[(0, "cu_kiosk")], gap=0.4, beep=0.3)),
     ("line", "grandma", "The unexpected item is my God-damn fist.", "The unexpected item is my goddamn fist.",
      dict(scene="checkout", cams=[(0, "cu_grandma")], gap=0.0)),
-    ("gag", "punch", 0.8, "checkout", "wide"),
+    ("gag", "punch", 1.1, "checkout", "wide"),
     ("line", "ceo", "There are no workers. We replaced them with you. Merry fucking Christmas.", None,
      dict(scene="ceo", cams=[(0, "cu_ceo")], gap=0.0)),
-    ("hold", 0.3, "cu_ceo"),
-    ("gag", "dawn", 0.6, "dawn", "wide"),
+    ("hold", 1.0, "cu_ceo"),
+    ("gag", "dawn", 1.0, "dawn", "wide"),
     ("line", "pip", "I got a free sock. Somebody's foot is still in it.", None,
-     dict(scene="dawn", cams=[(0, "cu_pip")], gap=0.1)),
+     dict(scene="dawn", cams=[(0, "cu_pip")], gap=0.0)),
+    ("hold", 0.5, "cu_mb"),
     ("line", "dot", "When I die, scatter my ashes in a MegaMart. So I can finally get returned.", None,
      dict(scene="dawn", cams=[(0, "cu_dot")], gap=0.0)),
-    ("hold", 0.3, "cu_dot"),
+    ("hold", 1.0, "cu_dot"),
     ("line", "pip", "Same time next year?", None,
-     dict(scene="dawn", cams=[(0, "wide")], gap=0.1, voice="kokoro:aud-pip-b@speed=1.3,pause=0.14")),
-    ("line", "all", "Fuck yeah.", None, dict(scene="dawn", cams=[(0, "wide")], gap=0.15)),
-    ("gag", "end", 1.5, "dawn", "wide"),
+     dict(scene="dawn", cams=[(0, "wide")], gap=0.2, voice="kokoro:aud-pip-b@speed=1.3,pause=0.14")),
+    ("line", "all", "Fuck yeah.", None, dict(scene="dawn", cams=[(0, "wide")], gap=0.5)),
+    ("gag", "end", 3.0, "dawn", "wide"),
 ]
 
 SEQ = list(SEQ_V8)   # the script build() renders; use_script() swaps it
@@ -1916,16 +1921,18 @@ def draw_stampede(fr, cam, t):
     S = G["L"]["outside"]
     st = G["ev"]["stampede"]
     d = t - st
-    if d < 0.3 or d > min(2.8, GD.get("stampede", 2.8) + 0.5):
+    sd = GD.get("stampede", 2.8)
+    if d < 0.2 or d > min(2.8, sd + 0.5 if sd >= 2.5 else sd):
         return
+    fct = min(1.0, max(0.45, (sd - 0.3) / 2.5))   # a short stampede runs the same crowd faster
     dx, dw = S["doors"]
     g = S["ground"]
     W, H, K = G["L"]["W"], G["L"]["H"], G["L"]["K"]
     F = G["L"]["feet"]
     items = []
     for k in range(16):
-        t0 = 0.28 + k * 0.08
-        p = (d - t0) / 1.3
+        t0 = 0.28 * fct + k * 0.08 * fct
+        p = (d - t0) / (1.3 * max(0.6, fct))
         if p < 0 or p > 1:
             continue
         p = int(p * 12) / 12   # choppy
@@ -2237,7 +2244,7 @@ def mix(end):
     music = np.zeros(int((end + 1) * SR), np.float32)
     mel1 = [(0, "E5", 1), (1, "G5", 0.5), (1.5, "A5", 0.5), (2, "G5", 1), (3, "E5", 0.5), (3.5, "C#5", 0.5)]
     mel2 = [(0, "D5", 0.5), (0.5, "F#5", 0.5), (1, "A5", 1), (2, "B5", 0.5), (2.5, "A5", 0.5), (3, "G5", 1)]
-    short = GD.get("intro", 2.9) < 2.0   # v8: a one-bar jingle and the bed under everything
+    short = GD.get("intro", 2.9) < 2.5   # v8: a one-bar jingle and the bed under everything
     jingle_bar(music, 0.0, ["C", "A7"], 0.32, mel1, seed=1)
     if short:
         stab = 4 * BEAT
