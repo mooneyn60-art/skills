@@ -25,6 +25,7 @@ Every agent works toward this first. The plan, based on our research (beginner-s
 | Christmas Wish List v2 (Want/Need/Wear/Read) | 4620448127 | $2.99 |
 | Christmas Elf Arrival Letter | 4617961567 | $3.29 |
 | Christmas Elf Letter Bundle (4 letters) | 4620465174 | $4.99 |
+| Christmas Eve Box Pack (5 pages) | 4620620821 | $3.99 |
 | Santa's Little Helpers Coloring Book | 4619864564 | $3.99 |
 | Holly Jolly wall art | 4619864570 | $2.99 |
 | 2027 Planner | 4617986184 | $5.99 |

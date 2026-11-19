@@ -211,6 +211,21 @@ L["elf-letter-bundle"] = dict(
 • Fill-in blanks for your child's name and your elf's name
 """)
 
+L["christmas-eve-box-pack"] = dict(
+    title="Christmas Eve Box Printables, Magic Reindeer Food Tags, Santa's Magic Key, Cookies for Santa Note, Kids Christmas Eve Pack PDF",
+    price="3.99", publish="yes",
+    imgs=["cebox-01-thumbnail", "cebox-02-included", "cebox-03-pages", "cebox-04-reindeer-food"],
+    tags="christmas eve box,reindeer food tag,santa magic key,cookies for santa,christmas eve,magic reindeer food,santa key tag,christmas printable,milk for santa,kids christmas,christmas eve night,christmas tradition,christmas labels",
+    intro="""Christmas Eve Box Printable Pack: everything you need for a magical night before Christmas, in one instant download! Print tonight, cut out, and fill your Christmas Eve box.
+
+🎁 WHAT'S INCLUDED (5 pages, US Letter AND A4 PDF)
+1. Christmas Eve Box lid labels: "Special Delivery for ____" (2 designs)
+2. Magic Reindeer Food recipe card + 6 tags (bird-safe recipe, no glitter)
+3. "Cookies for Santa" plate note + "Milk for Santa" and "Carrots for the Reindeer" tags
+4. Santa's Magic Key tags: "No chimney? No problem!"
+5. Night Before Christmas checklist for kids
+""")
+
 def send(slug):
     d = L[slug]
     if slug == "bundle":
