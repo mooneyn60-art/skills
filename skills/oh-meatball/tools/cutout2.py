@@ -236,7 +236,7 @@ SEQ_V5 = [   # v5: v4 words, the new cast voices, delivery punctuation for Grand
      dict(scene="outside", cams=[(0, "cu_mb"), (1, "wide")], gap=0.1, voice="kokoro:adam-puck@speed=1.2")),
     ("gag", "stampede", 2.8, "outside", "wide"),
     ("line", "pip", "There goes our dignity. And my fucking spleen.", None,
-     dict(scene="outside", cams=[(0, "cu_pip_flat")], gap=0.1)),
+     dict(scene="outside", cams=[(0, "cu_pip_flat")], gap=0.1, voice="kokoro:aud-pip-b@speed=1.3,pause=0.14")),
     ("hold", 0.4, "wide"),
     ("gag", "ceo_in", 0.5, "ceo", "wide"),
     ("line", "ceo", "Welcome, shoppers! We raised every price forty percent last week, so today's sixty percent off "
@@ -346,7 +346,7 @@ def cams(L):
         if scene == "ceo":
             wide = (W / 2, H / 2, 1.0)
         else:   # wides sit low and zoomed in so the kids read big (both formats)
-            wide = (W / 2, 1160, 1.18) if vert else (W / 2, 612, 1.18)
+            wide = (W / 2, 1160, 1.18) if vert else (W / 2, 575, 1.12)
         c = {"wide": wide}
         S = L[scene]
         z = L["cu"]
@@ -544,7 +544,7 @@ def spr(name, z, *key):
                               ("p", strip([(-12, 46), (14, 46)], 5), (110, 100, 106), False)], z, 90, 13)
     if name == "palm":
         hand = C.CAST[key[0]]["hand"]
-        return render_shapes([("e", (0, 0, 36, 32), hand), ("e", (-32, 10, 12, 17, 0, 360, None, 20), hand)], z, 70,
+        return render_shapes([("e", (0, 0, 48, 36), hand), ("e", (-42, 12, 13, 19, 0, 360, None, 20), hand)], z, 80,
                              14)
     if name == "sock":
         return render_shapes([("p", [(-14, -40), (14, -40), (14, 20), (40, 26), (40, 46), (-14, 46)], WHITE),
@@ -1054,7 +1054,7 @@ def compose_kid(c, z, pose):
     paste(im, C.sprite(c, "head", z, *hk), o + (k["neck"][0] + jx) * z, o + (k["neck"][1] + jy) * z, ang)
     if extra.get("palm"):   # facepalm: the mitten over the eyes (the arm is up behind the head)
         hc = {"mb": 108, "pip": 92, "dot": 70}[c]
-        paste(im, spr("palm", z, c), o + (k["neck"][0] + jx + 8) * z, o + (k["neck"][1] + jy - hc) * z, 8)
+        paste(im, spr("palm", z, c), o + (k["neck"][0] + jx) * z, o + (k["neck"][1] + jy - hc) * z, 6)
     if extra.get("foot"):   # a stampede footprint stays on Pip's face
         paste(im, spr("foot", z), o + (k["neck"][0] + jx + 30) * z, o + (k["neck"][1] + jy - 120) * z, -25)
     return im
@@ -1540,7 +1540,7 @@ def mix(end):
         k += 1
     gate = np.ones_like(bed)
     gate[:int(9 * BEAT * SR)] = 0
-    for name, d0, d1 in (("stampede", 0, 2.8), ("tv", 0, GD["tv"]), ("punch", 0, 1.0), ("dawn", 0, GD["dawn"] - 0.2)):
+    for name, d0, d1 in (("stampede", 0, 3.6), ("tv", 0, GD["tv"]), ("punch", 0, 1.0), ("dawn", 0, GD["dawn"] - 0.2)):
         gate[int((ev[name] + d0) * SR):int((ev[name] + d1) * SR)] = 0
     gate[int(ev["end"] * SR):] = 0
     gate = np.convolve(gate, np.ones(4410) / 4410, "same").astype(np.float32)
