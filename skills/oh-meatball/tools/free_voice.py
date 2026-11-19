@@ -47,6 +47,8 @@ BLENDS = {  # name -> [(kokoro voice, weight)]; C is Nolan's pick (research/39-v
     # cutout episode 2 (Holy Black Friday): new original characters
     "chad": [("am_michael", 0.7), ("am_eric", 0.3)],      # Pastor Chad: slick American TV preacher
     "rick": [("am_onyx", 0.6), ("am_fenrir", 0.4)],       # Uncle Rick: loud, gruff American
+    "kaylee": [("af_bella", 0.6), ("af_heart", 0.4)],     # Cousin Kaylee: bubbly wellness influencer
+    "brad": [("am_puck", 0.5), ("am_liam", 0.5)],         # Cousin Brad: finance bro
 }
 SPEED = 1.05
 # Per-blend overrides: speed, and "pause" = the longest silence kept inside a line (s). The drawn animal
