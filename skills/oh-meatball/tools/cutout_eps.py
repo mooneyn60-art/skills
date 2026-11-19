@@ -690,8 +690,11 @@ def ep4():
     def pose_hook(c, t, fi, li, scene, p):
         hop, j, ang, (aL, aR), hk, sq, rot, extra = p
         if c == "karen":
-            extra["item"] = ("clipboard", "L", 0)
+            # at checkout Grandma stands to Karen's left: the clipboard goes in the other hand so it never covers her
+            extra["item"] = ("clipboard", "R" if scene == "checkout" else "L", 0)
             aL = min(aL, -40) if aL > -40 else aL
+            if scene == "checkout":
+                aL = 12   # arm down: never across Grandma's face
             s0 = scream()
             flags = set(hk[3])
             if t >= s0:
