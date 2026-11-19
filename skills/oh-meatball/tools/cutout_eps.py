@@ -1577,8 +1577,173 @@ def ep7v3():
 MB_BITE = (-100, 250)     # where the bite sits on Meatball (x from his centre, y above the feet), layout units
 SAGE_MOUTH = (0, 276)    # Sage's mouth
 
+def lively(c, t, li, p, xs, amp=1.0):
+    """More movement (Nolan 11/19 "more animation"): the speaker waves and bounces, everyone else leans in."""
+    hop, j, ang, (aL, aR), hk, sq, rot, extra = p
+    lines = G.get("lines", [])
+    if li is None or li >= len(lines):
+        return p
+    who = lines[li]["who"]
+    ph = t * 9.0
+    if c in who.split("+"):
+        aL = aL - (22 + 26 * abs(math.sin(ph))) * amp
+        aR = aR + (22 + 26 * abs(math.sin(ph + 1.3))) * amp
+        ang = ang + 3.5 * math.sin(ph * 0.5) * amp
+        hop = hop + 7 * abs(math.sin(ph * 0.5)) * amp
+    else:
+        sp = who.split("+")[0]
+        if sp in xs and c in xs:
+            ang = ang + (5 if xs[sp] > xs[c] else -5)
+    return (hop, j, ang, (aL, aR), hk, sq, rot, extra)
 
-EPISODES = {"ep3": ep3, "ep4": ep4, "ep5": ep5, "ep6": ep6, "ep7": ep7, "ep8": ep8, "ep7v3": ep7v3}
+
+def ep3v3():
+    """Punch-up 2 (Studio 2d6f861 + Nolan "more animation, stir the pot"): both sides get it, silence contest, podcast."""
+    xs = (dict(rick=170, kaylee=450, pip=720, mb=960, dot=1200, brad=1470, grandma=1760),
+          dict(rick=40, kaylee=330, pip=610, mb=880, dot=1150, brad=1420, grandma=1690))
+    T_ = dict(scene="table")
+
+    def ln(who, text, cam=None, gap=0.08, cap=None):
+        return ("line", who, text, cap, dict(T_, cams=[(0, cam or "cu_" + who)], gap=gap))
+
+    seq = [
+        ("gag", "intro", 2.2, "table", "wide"),
+        ln("mb", "Thanksgiving. The one day your family remembers why they moved away."),
+        ln("rick", "Pass the potatoes. And don't pass any socialism."),
+        ln("kaylee", "Potatoes are colonialism, Rick."),
+        ln("dot", "You posted eat the rich from a twelve hundred dollar phone, Kaylee.",
+           cap='You posted "eat the rich" from a twelve hundred dollar phone, Kaylee.'),
+        ln("kaylee", "Billionaires shouldn't exist!"),
+        ln("pip", "Your dad owns nine apartment buildings."),
+        ln("kaylee", "That's different. That's my money.", gap=0.0),
+        ("hold", 0.3, "cu_rick"),
+        ln("rick", "I'm pro-life. Every child is a blessing."),
+        ln("grandma", "Richard, you owe child support in three states.", gap=0.0),
+        ("hold", 0.3, "cu_rick"),
+        ln("rick", "The government is spying on me through my microwave."),
+        ln("grandma", "They listened for one week and asked to be transferred."),
+        ln("rick", "They're coming for my guns!"),
+        ln("dot", "You shot your own foot, Rick. Twice. Same foot.", gap=0.0),
+        ("hold", 0.3, "cu_kaylee"),
+        ln("kaylee", "I speak for the voiceless."),
+        ln("mb", "They asked you to stop, Kaylee. In writing."),
+        ln("brad", "I don't vote. I'm a sovereign citizen."),
+        ln("grandma", "You're forty and you live in my basement, Bradley. You're barely a tenant."),
+        ln("grandma", "I'm eighty-six. The house goes to whoever shuts up first.", gap=0.0),
+        ("gag", "hush", 1.3, "table", "two"),
+        ln("rick", "Taxation is theft!", "two", gap=0.05),
+        ln("kaylee", "That's problematic!", "two", gap=0.05),
+        ("line", "grandma", "You're both out. The turkey gets the house. He's the only one here who died for something.",
+         None, dict(T_, cams=[(0, "cu_grandma"), (3, "wide")], gap=0.08)),
+        ln("rick+kaylee", "The will is rigged!", "two", gap=0.0),
+        ("gag", "pod", 0.7, "table", "two"),
+        ln("mb", "They started a podcast. It has two million listeners.", "two"),
+        ln("grandma", "Oh, hell. Give the turkey the car too.", gap=0.0, cap="Oh, h#@l. Give the turkey the car too."),
+        ("hold", 0.3, "wide"),
+        ("gag", "end", 2.6, "table", "wide"),
+    ]
+
+    base = table_layout(xs)
+
+    def layout(L):
+        S = base(L)
+        x = S["cast"]
+        S["cams"]["two"] = ((x["rick"] + x["kaylee"]) / 2, L["feet"] - 290 * L["K"], L["cu"] * 0.62)
+        return S
+
+    def hush(t):
+        ev = G["ev"]
+        return "hush" in ev and ev["hush"] <= t < ev["hush"] + 1.3
+
+    def pod(t):
+        return "pod" in G["ev"] and t >= G["ev"]["pod"] and t < G["ev"]["end"]
+
+    def turkey(t):
+        l_ = H.lines_with("turkey gets", "grandma")
+        return bool(l_) and t >= l_[0]["start"] + 1.0
+
+    def where(c, t, scene, L):
+        x = L[scene]["cast"][c]
+        if hush(t) and c in ("rick", "kaylee"):   # shaking with the effort of saying nothing
+            k = (t - G["ev"]["hush"]) / 1.3
+            fi = int(t * FPS)
+            return (x + (6 + 16 * k) * (1 if fi % 2 else -1) * (1 if c == "rick" else -1), L["feet"])
+        return (x, L["feet"])
+
+    def pose_hook(c, t, fi, li, scene, p):
+        p = lively(c, t, li, p, G["L"][scene]["cast"])
+        hop, j, ang, (aL, aR), hk, sq, rot, extra = p
+        if hush(t) and c in ("rick", "kaylee"):
+            hk = (hk[0], hk[1], hk[2], "wide")
+            aL, aR = -30, 30
+        if pod(t) and c in ("rick", "kaylee") and li is None:
+            aL, aR = (-140, 40) if c == "rick" else (-40, 140)
+        return (hop, j, ang, (aL, aR), hk, sq, rot, extra)
+
+    def post(fr, cam, t, fi, li, scene, L):
+        K, S = L["K"], L[scene]
+        d = ImageDraw.Draw(fr)
+        z = cam.z * K
+        if hush(t):   # sweat flying off both of them, more each frame
+            k = (t - G["ev"]["hush"]) / 1.3
+            rng = np.random.default_rng(fi)
+            for c in ("rick", "kaylee"):
+                for n in range(int(2 + 7 * k)):
+                    x, y = cam.p(S["cast"][c] + rng.uniform(-130, 130) * K, L["feet"] - rng.uniform(330, 520) * K)
+                    r = 11 * z
+                    d.polygon([(x, y - r * 2.2), (x + r, y), (x, y + r), (x - r, y)], fill=(120, 190, 250),
+                              outline=INK)
+        tk = (S["x"]["pip"] + S["x"]["mb"]) / 2
+        if turkey(t):   # the turkey gets a crown and a deed
+            x, y = cam.p(tk, S["top"] - 150 * K)
+            w = 60 * z
+            d.polygon([(x - w, y), (x - w, y - w * 0.9), (x - w * 0.5, y - w * 0.4), (x, y - w * 1.1),
+                       (x + w * 0.5, y - w * 0.4), (x + w, y - w * 0.9), (x + w, y)], fill=(252, 214, 74),
+                      outline=INK, width=max(2, int(4 * z)))
+            dx, dy = cam.p(tk + 120 * K, S["top"] - 60 * K)
+            d.rectangle([dx - 55 * z, dy - 70 * z, dx + 55 * z, dy + 70 * z], fill=(252, 250, 240), outline=INK,
+                        width=max(2, int(4 * z)))
+            f = ImageFont.truetype(C.FONT, max(8, int(34 * z)))
+            d.text((dx, dy - 30 * z), "DEED", fill=INK, anchor="mm", font=f)
+            for q in range(3):
+                d.line([dx - 35 * z, dy + q * 18 * z, dx + 35 * z, dy + q * 18 * z], fill=INK,
+                       width=max(1, int(3 * z)))
+        if pod(t):   # ON AIR sign and a microphone between Rick and Kaylee
+            mx = (S["cast"]["rick"] + S["cast"]["kaylee"]) / 2
+            x, y = cam.p(mx, L["feet"] - 640 * K)
+            on = int(t * 4) % 2 == 0
+            d.rounded_rectangle([x - 250 * z, y - 70 * z, x + 250 * z, y + 70 * z], radius=int(18 * z),
+                                fill=(200, 40, 32) if on else (120, 24, 20), outline=INK, width=max(3, int(6 * z)))
+            f = ImageFont.truetype(C.FONT, max(8, int(84 * z)))
+            d.text((x, y), "ON AIR", fill=WHITE, anchor="mm", font=f)
+            x2, y2 = cam.p(mx, L["feet"] - 60 * K)
+            f2 = ImageFont.truetype(C.FONT, max(8, int(38 * z)))
+            d.rectangle([x2 - 290 * z, y2 - 44 * z, x2 + 290 * z, y2 + 44 * z], fill=(20, 20, 24), outline=INK,
+                        width=max(2, int(5 * z)))
+            d.text((x2, y2), "RIGGED with Rick & Kaylee", fill=(252, 214, 74), anchor="mm", font=f2)
+            x3, y3 = cam.p(mx, L["feet"] - 250 * K)
+            d.line([x3, y3, x3, y3 + 150 * z], fill=INK, width=max(3, int(10 * z)))
+            d.ellipse([x3 - 34 * z, y3 - 60 * z, x3 + 34 * z, y3 + 30 * z], fill=(90, 90, 100), outline=INK,
+                      width=max(2, int(5 * z)))
+
+    def sfx(fx, music, ev, lines):
+        if "hush" in ev:   # clock ticks, then a rising squeak
+            for k in range(4):
+                add(fx, C2.tone(1900 if k % 2 else 1500, 0.03, 0.4), ev["hush"] + 0.1 + k * 0.3)
+        if "pod" in ev:   # radio sting
+            for k, nt in enumerate(["C5", "E5", "G5", "C6"]):
+                add(fx, ks(hz(nt), 0.4, 0.995, 0.85, 70 + k), ev["pod"] + 0.05 + k * 0.12, 0.4)
+
+    def silences():
+        ev = G["ev"]
+        return [(ev["hush"], ev["hush"] + 1.3)] if "hush" in ev else []
+
+    return dict(title="THANKSGIVING POLITICS", end=["WHO'S WORSE,", "RICK OR", "KAYLEE?"], seq=seq,
+                scenes={"table": dict(layout=layout, bg=table_bg)},
+                post=post, pose_hook=pose_hook, where=where, sfx=sfx, silences=silences)
+
+
+EPISODES = {"ep3": ep3, "ep4": ep4, "ep5": ep5, "ep6": ep6, "ep7": ep7, "ep8": ep8, "ep7v3": ep7v3, "ep3v3": ep3v3}
 
 
 # ------------------------------------------------------------------------------------------------ engine
