@@ -154,6 +154,56 @@ def person(skin, hair="short", hair_col=(60, 40, 30), top="tee", top_col=(90, 12
     return rig, body, head, arm
 
 
+EPROPS = {}
+
+
+def eprop(name):
+    """Register an episode prop builder (shapes at z) so held items work through cutout_holy.prop."""
+    def deco(fn):
+        EPROPS[name] = fn
+        return fn
+    return deco
+
+
+_prop = H.prop
+_pcache = {}
+
+
+def _eprop(name, z, *k):
+    if name in EPROPS:
+        key = (name, z, k)
+        if key not in _pcache:
+            _pcache[key] = EPROPS[name](z, *k)
+        return _pcache[key]
+    return _prop(name, z, *k)
+
+
+H.prop = _eprop
+
+
+@eprop("clipboard")
+def _clip(z):
+    img = render_shapes([("p", [(-40, -56), (40, -56), (40, 56), (-40, 56)], (150, 104, 60)),
+                         ("p", [(-32, -44), (32, -44), (32, 48), (-32, 48)], WHITE, False),
+                         ("p", [(-14, -62), (14, -62), (14, -48), (-14, -48)], (150, 150, 160), False)], z, 80, 500)
+    d = ImageDraw.Draw(img)
+    c = img.size[0] / 2
+    for k in range(4):
+        d.line([(c - 24 * z, c + (-26 + k * 16) * z), (c + 24 * z, c + (-26 + k * 16) * z)], fill=(150, 150, 150),
+               width=max(1, int(3 * z)))
+    d.text((c, c + 38 * z), "HOA", font=ImageFont.truetype(FONT, max(6, int(14 * z))), fill=(200, 40, 32), anchor="mm")
+    return img
+
+
+@eprop("bobhair")
+def _bob(z):
+    cy = 0
+    hair_col = (236, 206, 120)
+    return render_shapes([("pts", ell(0, cy - 20, 104, 92, 180, 360) + [(104, cy + 70), (70, cy + 74), (60, cy - 10),
+                                                                        (-70, cy - 30), (-96, cy + 20), (-104, cy - 20)],
+                           hair_col)], z, 140, 501)
+
+
 NEW = {}
 
 
@@ -407,7 +457,229 @@ def ep3():
                 post=post, pose_hook=pose_hook, sfx=sfx)
 
 
-EPISODES = {"ep3": ep3}
+def street_layout(L):
+    vert = L["H"] > L["W"]
+    K, F = L["K"], L["feet"]
+    xs = dict(karen=180, pip=480, mb=740, dot=1000) if vert else dict(karen=360, pip=860, mb=1150, dot=1440)
+    return dict(cast=xs, wide=(590, 1250, 0.85) if vert else (960, 600, 1.0), stand=(xs["pip"] - 190, xs["dot"] + 190),
+                top=F - 170 * K)
+
+
+def street_bg(L, cam, scene):
+    W, H_, z = L["W"], L["H"], cam.z
+    S = L[scene]
+    K, F = L["K"], L["feet"]
+    rng = np.random.default_rng(121)
+    back = Image.new("RGBA", (W, H_))
+    paper(back, cam.pts([(-900, -900), (2600, -900), (2600, 3000), (-900, 3000)]), (160, 210, 236), rng, z,
+          shadow=False, jitter=False, edge=False)
+    paper(back, cam.pts(ell(1500 if W > H_ else 1000, F - 1200 * K, 80, 80)), (252, 214, 74), rng, z)
+    hz_ = F - 330 * K
+    cols = [(236, 200, 160), (180, 210, 200), (230, 180, 190), (210, 200, 236)]
+    for k in range(5):   # houses
+        hx = -300 + k * 560 * K
+        hw = 420 * K
+        top = hz_ - 300 * K
+        paper(back, cam.pts([(hx, top), (hx + hw, top), (hx + hw, hz_), (hx, hz_)]), cols[k % 4], rng, z, sh=6)
+        paper(back, cam.pts([(hx - 30, top), (hx + hw + 30, top), (hx + hw / 2, top - 170 * K)]),
+              (150, 80, 70) if k % 2 else (90, 90, 110), rng, z)
+        for wx in (0.2, 0.62):
+            paper(back, cam.pts([(hx + hw * wx, top + 60 * K), (hx + hw * wx + 90 * K, top + 60 * K),
+                                 (hx + hw * wx + 90 * K, top + 150 * K), (hx + hw * wx, top + 150 * K)]),
+                  (250, 236, 170), rng, z, sh=3)
+    paper(back, cam.pts([(-900, hz_), (2600, hz_), (2600, 3000), (-900, 3000)]), (120, 186, 96), rng, z, shadow=False)
+    paper(back, cam.pts([(-900, F - 120 * K), (2600, F - 120 * K), (2600, F + 60 * K), (-900, F + 60 * K)]),
+          (200, 200, 196), rng, z, shadow=False)
+    for k in range(-4, 16):
+        x = k * 220
+        paper(back, cam.pts(strip([(x, F - 120 * K), (x, F + 60 * K)], 4)), (170, 170, 168), rng, z, shadow=False)
+    # front: the lemonade stand (counter, poles, striped awning above the kids)
+    front = Image.new("RGBA", (W, H_))
+    a, b = S["stand"]
+    top = S["top"]
+    for x in (a + 20, b - 20):
+        paper(front, cam.pts(strip([(x, top), (x, F - 640 * K)], 14)), (230, 220, 200), rng, z, sh=3)
+    for k in range(8):
+        x0 = a + (b - a) * k / 8
+        paper(front, cam.pts([(x0, F - 690 * K), (x0 + (b - a) / 8, F - 690 * K), (x0 + (b - a) / 8, F - 600 * K),
+                              (x0, F - 600 * K)]), (250, 214, 74) if k % 2 else (250, 250, 240), rng, z, sh=3)
+    paper(front, cam.pts([(a, top), (b, top), (b, F + 40 * K), (a, F + 40 * K)]), (200, 156, 100), rng, z, sh=8)
+    for k in range(5):
+        paper(front, cam.pts(strip([(a, top + k * 40 * K + 20), (b, top + k * 40 * K + 20)], 4)), (170, 126, 74),
+              rng, z, shadow=False)
+    px = (a + b) / 2 + 120 * K
+    paper(front, cam.pts([(px - 30 * K, top - 90 * K), (px + 30 * K, top - 90 * K), (px + 36 * K, top),
+                          (px - 36 * K, top)]), (250, 236, 120), rng, z, sh=3)
+    for k in range(3):
+        cx_ = (a + b) / 2 - 160 * K + k * 60 * K
+        paper(front, cam.pts([(cx_ - 16 * K, top - 46 * K), (cx_ + 16 * K, top - 46 * K), (cx_ + 12 * K, top),
+                              (cx_ - 12 * K, top)]), WHITE, rng, z, sh=2)
+    return C.vignette(back), front
+
+
+def checkout_layout(L):
+    vert = L["H"] > L["W"]
+    K, F = L["K"], L["feet"]
+    if vert:
+        return dict(cast=dict(grandma=110, karen=330), floor=1150, kiosk=(740, F), wide=(540, 1250, 1.0),
+                    cams={"cu_kiosk": (740, F - 330 * K, 1.7)})
+    return dict(cast=dict(grandma=560, karen=880), floor=700, kiosk=(1300, F), wide=(960, 560, 1.0),
+                cams={"cu_kiosk": (1300, F - 330 * K, 2.0)})
+
+
+def checkout_bg(L, cam, scene):
+    return C2.bg_inside(L, cam, "checkout")
+
+
+def kiosk(fr, cam, t, fi, li, L, scene):
+    """The self-checkout robot: red screen face, equalizer mouth, a word or an icon on its screen."""
+    S = L[scene]
+    K = L["K"]
+    kx, ky = S["kiosk"]
+    z = round(cam.z * K, 3)
+    paste(fr, C2.spr("kiosk", z), *cam.p(kx, ky))
+    x0, y0, x1, y1 = kx - 128 * K, ky - 568 * K, kx + 128 * K, ky - 372 * K
+    rng = np.random.default_rng(1)
+    paper(fr, cam.pts([(x0, y0), (x1, y0), (x1, y1), (x0, y1)]), (214, 44, 36), rng, cam.z, shadow=False, jitter=False,
+          edge=False)
+    d = ImageDraw.Draw(fr)
+    ln = G["lines"][li] if li is not None else None
+    talking = ln is not None and ln["who"] == "kiosk"
+    lvl = C2.mouth_level(ln, t) if talking else 0
+    zz = cam.z * K
+    for side in (-1, 1):
+        ex, ey = cam.p(kx + side * 50 * K, ky - 510 * K)
+        s_ = 16 * zz
+        d.rectangle((ex - s_, ey - s_ * 0.6, ex + s_, ey + s_ * 0.6), fill=WHITE)
+    for b in range(7):
+        h = (6 + (lvl * 14) * (0.4 + 0.6 * abs(math.sin(b * 1.7 + t * 30)))) if lvl else 4
+        bx, by = cam.p(kx + (b - 3) * 22 * K, ky - 440 * K)
+        d.rectangle((bx - 7 * zz, by - h * zz, bx + 7 * zz, by + h * zz), fill=WHITE)
+    say = " ".join(w[2] for w in ln["words"]) if talking else ""
+    txt = "UNEXPECTED ITEM" if "Unexpected" in say else "MANAGER" if "manager" in say else ""
+    if "yacht" in say:
+        txt = "YACHT #3"
+        yx, yy = kx + 80 * K, ky - 520 * K
+        yr = np.random.default_rng(9)
+        paper(fr, cam.pts([(yx - 34 * K, yy), (yx + 34 * K, yy), (yx + 22 * K, yy + 16 * K), (yx - 22 * K, yy + 16 * K)]),
+              WHITE, yr, cam.z, sh=2)
+        paper(fr, cam.pts([(yx - 3 * K, yy - 3 * K), (yx - 3 * K, yy - 44 * K), (yx + 26 * K, yy - 3 * K)]),
+              (252, 214, 74), yr, cam.z, sh=2)
+    if txt:
+        d.text(cam.p(kx, ky - 395 * K), txt, font=ImageFont.truetype(FONT, int(20 * zz)), fill=WHITE, anchor="mm")
+
+
+def ep4():
+    seq = [
+        ("gag", "intro", 2.4, "street", "wide"),
+        ("line", "mb", "Every neighborhood has one. Ours has a clipboard.", None,
+         dict(scene="street", cams=[(0, "cu_mb"), (4, "cu_karen")], gap=0.2)),
+        ("line", "karen", "Excuse me. Your lemonade stand is in violation of section forty-two.", None,
+         dict(scene="street", cams=[(0, "cu_karen")], gap=0.2)),
+        ("line", "pip", "It's lemonade. It's a dollar.", None, dict(scene="street", cams=[(0, "cu_pip")], gap=0.2)),
+        ("line", "karen", "Do you have a permit? A health inspection? A vendor license? A soul?", None,
+         dict(scene="street", cams=[(0, "cu_karen")], gap=0.2)),
+        ("line", "dot", "Do you have a husband? Because he left.", None,
+         dict(scene="street", cams=[(0, "cu_dot")], gap=0.0)),
+        ("hold", 0.8, "cu_karen"),
+        ("line", "karen", "I'd like to speak to your manager.", None,
+         dict(scene="street", cams=[(0, "cu_karen")], gap=0.2)),
+        ("line", "mb", "We're nine.", None, dict(scene="street", cams=[(0, "cu_mb")], gap=0.0)),
+        ("hold", 0.7, "cu_karen"),
+        ("line", "karen", "Then I'd like to speak to your parents' manager.", None,
+         dict(scene="street", cams=[(0, "cu_karen")], gap=0.0)),
+        ("hold", 0.6, "wide"),
+        ("gag", "checkout", 0.7, "checkout", "wide"),
+        ("line", "kiosk", "Unexpected. Item. In the bagging area.", None,
+         dict(scene="checkout", cams=[(0, "cu_kiosk")], gap=0.2, beep=0.3)),
+        ("line", "karen", "I'd like to speak to the manager.", None,
+         dict(scene="checkout", cams=[(0, "cu_karen")], gap=0.2)),
+        ("line", "kiosk", "I. Am. The manager.", None, dict(scene="checkout", cams=[(0, "cu_kiosk")], gap=0.0)),
+        ("hold", 0.6, "cu_karen"),
+        ("line", "karen", "Then I'd like to speak to your manager.", "Then I'd like to speak to YOUR manager.",
+         dict(scene="checkout", cams=[(0, "cu_karen")], gap=0.2)),
+        ("line", "kiosk", "He is on. His third yacht.", None, dict(scene="checkout", cams=[(0, "cu_kiosk")],
+                                                                    gap=0.0)),
+        ("hold", 0.5, "cu_karen"),
+        ("line", "karen", "This is the worst day of my life!", None,
+         dict(scene="checkout", cams=[(0, "wide")], gap=0.2)),
+        ("line", "grandma", "Sweetie, I've buried two husbands. Sit down.", None,
+         dict(scene="checkout", cams=[(0, "cu_grandma")], gap=0.0)),
+        ("hold", 0.7, "cu_karen"),
+        ("gag", "back", 0.6, "street", "wide"),
+        ("line", "dot", "Lemonade's two dollars now. Karen tax.", None,
+         dict(scene="street", cams=[(0, "cu_dot")], gap=0.0)),
+        ("hold", 0.8, "wide"),
+        ("gag", "end", 3.0, "street", "wide"),
+    ]
+
+    def scream():
+        ln = H.lines_with("worst day", "karen")
+        return ln[0]["start"] if ln else 1e9
+
+    def where(c, t, scene, L):
+        if c == "karen" and scene == "street" and t >= G["ev"].get("back", 1e9):
+            return None   # Karen does not come back
+        return (L[scene]["cast"][c], L["feet"])
+
+    def pre(fr, cam, t, fi, li, scene, L):
+        if scene == "checkout":
+            kiosk(fr, cam, t, fi, li, L, scene)
+
+    def post(fr, cam, t, fi, li, scene, L):
+        K = L["K"]
+        if scene == "street":   # the price sign on the stand
+            S = L[scene]
+            a, b = S["stand"]
+            two = t >= G["ev"].get("back", 1e9)
+            x, y = cam.p((a + b) / 2, S["top"] + 70 * K)
+            sz = int(46 * cam.z * K)
+            d = ImageDraw.Draw(fr)
+            txt = "LEMONADE  $2" if two else "LEMONADE  $1"
+            f = ImageFont.truetype(FONT, max(8, sz))
+            w = f.getlength(txt)
+            d.rectangle((x - w / 2 - 14 * cam.z, y - sz * 0.75, x + w / 2 + 14 * cam.z, y + sz * 0.75), fill=WHITE,
+                        outline=INK, width=max(1, int(3 * cam.z)))
+            d.text((x, y), txt, font=f, fill=(200, 40, 32), anchor="mm")
+            if two:
+                d.text((x, y + sz * 1.3), "(KAREN TAX)", font=ImageFont.truetype(FONT, max(8, int(sz * 0.5))),
+                       fill=INK, anchor="mm")
+        if scene == "checkout":   # Karen's hair takes off
+            s0 = scream()
+            if s0 <= t < s0 + 1.6:
+                f = (int((t - s0) * FPS)) / FPS
+                kx = L[scene]["cast"]["karen"] + 260 * K * f
+                ky = L["feet"] - (354 + 700 * f) * K
+                paste(fr, H.prop("bobhair", round(cam.z * K, 3)), *cam.p(kx, ky), f * 540)
+
+    def pose_hook(c, t, fi, li, scene, p):
+        hop, j, ang, (aL, aR), hk, sq, rot, extra = p
+        if c == "karen":
+            extra["item"] = ("clipboard", "L", 0)
+            aL = min(aL, -40) if aL > -40 else aL
+            s0 = scream()
+            flags = set(hk[3])
+            if t >= s0:
+                flags.add("nohair")
+            if s0 <= t < s0 + 1.8:
+                aL, aR, hop = -160, 160, [-14, 0][fi % 2]
+                hk = (hk[0], hk[1], "wide", hk[3])
+            hk = (hk[0], hk[1], hk[2], frozenset(flags))
+        return (hop, j, ang, (aL, aR), hk, sq, rot, extra)
+
+    def sfx(fx, music, ev, lines):
+        s0 = scream()
+        if s0 < 1e8:
+            tt = np.arange(int(0.5 * SR)) / SR
+            add(fx, (np.sin(2 * np.pi * np.cumsum(500 + 1500 * tt / 0.5) / SR) * 0.2).astype(np.float32), s0, 1.0)
+
+    return dict(title="HOA KAREN", end=["TAG THE KAREN", "IN YOUR", "NEIGHBORHOOD"], seq=seq,
+                scenes={"street": dict(layout=street_layout, bg=street_bg),
+                        "checkout": dict(layout=checkout_layout, bg=checkout_bg)},
+                where=where, pre=pre, post=post, pose_hook=pose_hook, sfx=sfx)
+
+
+EPISODES = {"ep3": ep3, "ep4": ep4}
 
 
 # ------------------------------------------------------------------------------------------------ engine
@@ -547,6 +819,9 @@ def mix(end):
     fx = np.zeros_like(music)
     if "sfx" in EP:
         EP["sfx"](fx, music, ev, lines)
+    for ln in lines:
+        if ln["beep"]:
+            add(fx, C2.tone(1560, 0.16, 0.3), ln["t0"] + 0.05)
     o = ev["end"] + 0.1
     strum(music, o, "G7", 0.35, seed=40)
     for k2, nt in enumerate(["B5", "D6", "G5", "E5"]):
