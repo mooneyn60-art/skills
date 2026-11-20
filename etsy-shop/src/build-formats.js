@@ -47,8 +47,8 @@ const V = {};
 // =====================================================================================
 // 1. TEXTING SANTA — iMessage-style chat, cozy lo-fi beat, send/receive blips + typing clicks -> Santa Mail Set
 // =====================================================================================
-{
-  const msgs = [  // [side, html, time, dotsFrom]
+const mkChat = (NAME, c = {}) => {
+  const msgs = c.msgs || [  // [side, html, time, dotsFrom]
     ['R', 'Santa… are you even real?? 🤨', .5],
     ['L', 'Ho ho ho! 🎅 Very real. And I have a surprise for you…', 2.3, 1.3],
     ['R', 'WHAT surprise 😳😳', 3.6],
@@ -57,40 +57,41 @@ const V = {};
     ['R', 'MOM!!! 😭😭😭', 7.4],
     ['L', 'Tell her it prints in 2 minutes 😉🖨️', 8.7, 8.0],
   ];
-  const bubble = (side, html, t, att) => E(html, { flow: 1, t0: t, fx: 'pop', d: .3, style: `max-width:760px;padding:${att ? '16px' : '22px 34px'};border-radius:44px;font-family:Inter;font-weight:500;font-size:54px;line-height:1.25;${side === 'R' ? 'background:#2f7cf6;color:#fff;transform-origin:100% 100%' : 'background:#e5e5ea;color:#111;transform-origin:0 100%'}` });
+  const bubble = (side, html, t, att) => E(html, { flow: 1, t0: t, fx: 'pop', d: .3, style: `max-width:760px;padding:${att ? '16px' : '22px 34px'};border-radius:44px;font-family:Inter;font-weight:500;font-size:54px;line-height:1.25;${side === 'R' ? `background:${c.blue || '#2f7cf6'};color:#fff;`+'transform-origin:100% 100%' : 'background:#e5e5ea;color:#111;transform-origin:0 100%'}` });
   const dots = (a, b) => E(`<span class="dot">●</span><span class="dot">●</span><span class="dot">●</span>`, { x: 0, y: 0, t0: a, t1: b, fx: 'pop', d: .2, style: 'background:#e5e5ea;color:#8e8e93;font-size:30px;padding:22px 30px;border-radius:40px;letter-spacing:6px' });
   const chat = msgs.map(([s, h, t, d, att]) => `<div class="slot" data-ta="${d ?? t}" style="position:relative;display:flex;justify-content:${s === 'R' ? 'flex-end' : 'flex-start'};margin-bottom:22px">${bubble(s, h, t, att)}${d != null ? dots(d, t) : ''}</div>`).join('');
   const T0 = 9.9, T1 = 12.4, TE = 14.0;
-  V['text-santa'] = {
-    music: 'xmas-lofi.wav', musicVol: .75, dur: 18.0,
+  V[NAME] = {
+    music: c.music || 'xmas-lofi.wav', musicVol: .75, dur: 18.0,
     html: `${P('#f2f2f7', '', { fx: 'none' })}
-    ${E(`<div style="width:110px;height:110px;border-radius:50%;background:linear-gradient(#ff8a8a,#d7263d);margin:0 auto;font-size:70px;line-height:110px;text-align:center">🎅</div><div style="text-align:center;font-family:Inter;font-weight:600;font-size:40px;color:#111;margin-top:8px">Santa Claus</div><div style="text-align:center;font-family:Inter;font-size:28px;color:#8e8e93">North Pole · online</div>`, { x: 0, y: 160, w: 1080, h: 260, style: 'background:#f9f9fb;border-bottom:2px solid #ddd;padding-top:20px' })}
+    ${E(`<div style="width:110px;height:110px;border-radius:50%;background:${c.avBg || 'linear-gradient(#ff8a8a,#d7263d)'};margin:0 auto;font-size:70px;line-height:110px;text-align:center">${c.av || '🎅'}</div><div style="text-align:center;font-family:Inter;font-weight:600;font-size:40px;color:#111;margin-top:8px">${c.who || 'Santa Claus'}</div><div style="text-align:center;font-family:Inter;font-size:28px;color:#8e8e93">North Pole · online</div>`, { x: 0, y: 160, w: 1080, h: 260, style: 'background:#f9f9fb;border-bottom:2px solid #ddd;padding-top:20px' })}
     ${E(`<div id="chat" style="padding:30px 44px">${chat}</div>`, { x: 0, y: 420, w: 1080, h: 820, style: 'overflow:hidden' })}
-    ${E(`<div style="display:flex;align-items:center;gap:20px"><div style="flex:1;border:3px solid #d1d1d6;border-radius:40px;padding:16px 30px;font-family:Inter;font-size:38px;color:#b0b0b5;background:#fff">Message</div><div style="width:72px;height:72px;border-radius:50%;background:#2f7cf6;color:#fff;font-size:44px;text-align:center;line-height:72px">↑</div></div>`, { x: 44, y: 1270, w: 992 })}
-    ${E(`<div style="display:inline-block;max-width:940px;background:#FFD93D;color:#111;font-family:Fredoka;font-weight:700;font-size:78px;line-height:1.1;padding:20px 40px;border-radius:30px;box-shadow:0 10px 0 rgba(0,0,0,.18)">I texted Santa…<br>he ANSWERED 😳</div>`, { x: 0, w: 1080, y: 190, style: 'text-align:center', t0: -.3, t1: 3.3, fx: 'pop', rot: -2, z: 10 })}
-    ${P('radial-gradient(circle at 50% 35%,#24386e,#0b1022)', `
-      ${IMG('reply-from-santa-letter.png', { x: -210, y: 330, w: 1500, fx: 'none' })}
-      ${E(`<span style="font-family:Caveat;font-size:120px;color:#1d4fa0">Emma</span>`, { x: 250, y: 845, t0: T0 + .3, fx: 'write', d: .7, rot: -3 })}
-      ${pillE('Santa wrote back ✉️', '#fff', '#111', 64, { y: 200, t0: T0 + .05, fx: 'slam', d: .2 })}
-      ${pillE('$7.99 · 5-piece Santa Mail Set', '#FFD93D', '#111', 58, { y: 1260, t0: T0 + .6 })}`, { t0: T0, t1: T1, fx: 'slideR', d: .3, z: 20 })}
-    ${P('#2f7cf6', `
-      ${TX('+ Nice List, elf letter, wish list & Dear Santa 🎄', { y: 210, s: 62, t0: T1 + .05, fx: 'up' })}
-      ${['nice-list-certificate.png', 'christmas-elf-arrival-letter.png', 'christmas-wish-list.png', 'dear-santa.png'].map((f, k) => IMG(f, { x: [70, 560, 90, 560][k], y: [520, 470, 900, 880][k], w: f.startsWith('nice') ? 470 : 420, rot: [-6, 5, 4, -5][k], t0: T1 + .15 + k * .25, fx: 'pop' })).join('')}`, { t0: T1, t1: TE + .3, fx: 'slideL', d: .25, z: 21 })}
-    ${endCard(TE, { bg: 'linear-gradient(170deg,#2f7cf6,#1b4fb8)', l1: 'Their face when Santa writes back 🥹', price: '$7.99 · instant download', search: 'search “Santa Mail Set” on Etsy', fx: 'up' })}`,
+    ${E(`<div style="display:flex;align-items:center;gap:20px"><div style="flex:1;border:3px solid #d1d1d6;border-radius:40px;padding:16px 30px;font-family:Inter;font-size:38px;color:#b0b0b5;background:#fff">Message</div><div style="width:72px;height:72px;border-radius:50%;background:${c.blue || '#2f7cf6'};color:#fff;font-size:44px;text-align:center;line-height:72px">↑</div></div>`, { x: 44, y: 1270, w: 992 })}
+    ${E(`<div style="display:inline-block;max-width:940px;background:#FFD93D;color:#111;font-family:Fredoka;font-weight:700;font-size:78px;line-height:1.1;padding:20px 40px;border-radius:30px;box-shadow:0 10px 0 rgba(0,0,0,.18)">${c.hook || 'I texted Santa…<br>he ANSWERED 😳'}</div>`, { x: 0, w: 1080, y: 190, style: 'text-align:center', t0: -.3, t1: 3.3, fx: 'pop', rot: -2, z: 10 })}
+    ${P(c.zbg || 'radial-gradient(circle at 50% 35%,#24386e,#0b1022)', `
+      ${c.zoom || `${IMG('reply-from-santa-letter.png', { x: -210, y: 330, w: 1500, fx: 'none' })}
+      ${E(`<span style="font-family:Caveat;font-size:120px;color:#1d4fa0">Emma</span>`, { x: 250, y: 845, t0: T0 + .3, fx: 'write', d: .7, rot: -3 })}`}
+      ${pillE(c.zt || 'Santa wrote back ✉️', '#fff', '#111', 64, { y: 200, t0: T0 + .05, fx: 'slam', d: .2 })}
+      ${pillE(c.zp || '$7.99 · 5-piece Santa Mail Set', '#FFD93D', '#111', 58, { y: 1260, t0: T0 + .6 })}`, { t0: T0, t1: T1, fx: 'slideR', d: .3, z: 20 })}
+    ${P(c.blue || '#2f7cf6', `
+      ${TX(c.p2t || '+ Nice List, elf letter, wish list & Dear Santa 🎄', { y: 210, s: 62, t0: T1 + .05, fx: 'up' })}
+      ${(c.p2f || ['nice-list-certificate.png', 'christmas-elf-arrival-letter.png', 'christmas-wish-list.png', 'dear-santa.png']).map((f, k) => IMG(f, { x: [70, 560, 90, 560][k], y: [520, 470, 900, 880][k], w: f.startsWith('nice') ? 470 : 420, rot: [-6, 5, 4, -5][k], t0: T1 + .15 + k * .25, fx: 'pop' })).join('')}`, { t0: T1, t1: TE + .3, fx: 'slideL', d: .25, z: 21 })}
+    ${endCard(TE, c.end || { bg: 'linear-gradient(170deg,#2f7cf6,#1b4fb8)', l1: 'Their face when Santa writes back 🥹', price: '$7.99 · instant download', search: 'search “Santa Mail Set” on Etsy', fx: 'up' })}`,
     custom: `
       if(!window.SL){const H=820-60;window.SL=[...document.querySelectorAll('.slot')].map(s=>({ta:+s.dataset.ta,tg:Math.max(0,s.offsetTop+s.offsetHeight-H)}));}
       let cur=0;for(const s of SL){if(T<s.ta)break;cur=cur+(s.tg-cur)*E.outCubic(cl((T-s.ta)/.3));}
       document.getElementById('chat').style.transform='translateY('+(-cur)+'px)';
       document.querySelectorAll('.dot').forEach((d,k)=>d.style.opacity=.35+.65*Math.max(0,Math.sin(T*9-k*1.1)));`,
-    cues: [['send', .5, .55], ['typing', 1.3, .18], ['recv', 2.3, .6], ['send', 3.6, .55], ['typing', 4.3, .18], ['recv', 5.1, .6], ['recv', 6.2, .6], ['send', 7.4, .55], ['typing', 8.0, .18], ['recv', 8.7, .6], ['whoosh', T0 - .05, .4], ['ding', T0 + .6, .5], ['paper', T1, .4], ...endCues(TE)],
+    cues: [...msgs.flatMap(([sd, , t, d]) => [[sd === 'R' ? 'send' : 'recv', t, sd === 'R' ? .55 : .6], ...(d != null ? [['typing', d, .18]] : [])]), ['whoosh', T0 - .05, .4], ['ding', T0 + .6, .5], ['paper', T1, .4], ...endCues(TE)],
   };
-}
+};
+mkChat('text-santa');
 
 // =====================================================================================
 // 2. NOTES-APP CHECKLIST — "Christmas Eve box checklist", upbeat pop drums, typing + check ticks -> Christmas Eve Box Pack
 // =====================================================================================
-{
-  const items = ['🧦 new pajamas', '🍫 hot cocoa + a mug', '🎬 a Christmas movie', '📖 a new book', '🦌 magic reindeer food', '🍪 note for Santa’s cookies', '🗝️ Santa’s magic key'];
+const mkNotes = (NAME, c = {}) => {
+  const items = c.items || ['🧦 new pajamas', '🍫 hot cocoa + a mug', '🎬 a Christmas movie', '📖 a new book', '🦌 magic reindeer food', '🍪 note for Santa’s cookies', '🗝️ Santa’s magic key'];
   const tA = k => .5 + k * .5, tick = [4.2, 4.6, 5.0, 5.4], TW = 6.0, TP = 7.6, TPR = 10.9, TE = 12.6;
   const rows = items.map((it, k) => {
     const y = 520 + k * 100;
@@ -100,33 +101,34 @@ const V = {};
         ${E('', { x: 150, y: y + 32, w: 560, h: 5, t0: tick[k] + .05, fx: 'wipe', d: .25, style: 'background:#8d8774;border-radius:3px' })}`
       : E('?', { x: 70, y: y + 6, w: 54, h: 54, t0: TW, fx: 'tick', d: .25, style: 'background:#ff4d4d;border-radius:50%;color:#fff;font-family:Inter;font-weight:800;font-size:38px;text-align:center;line-height:54px' })}`;
   }).join('');
-  const pages = ['ceb-1.png', 'ceb-2.png', 'ceb-3.png', 'ceb-4.png', 'ceb-5.png'], labels = ['box labels ✔', 'reindeer food tags ✔', 'cookies for Santa ✔', 'Santa’s magic key ✔', 'night-before checklist ✔'];
+  const pages = c.pages || ['ceb-1.png', 'ceb-2.png', 'ceb-3.png', 'ceb-4.png', 'ceb-5.png'], labels = c.labels || ['box labels ✔', 'reindeer food tags ✔', 'cookies for Santa ✔', 'Santa’s magic key ✔', 'night-before checklist ✔'];
   const tp = k => TP + .3 + k * .55;
-  V['notes-evebox'] = {
-    music: 'xmas-popdrums.wav', musicVol: .7, dur: 16.6,
+  V[NAME] = {
+    music: c.music || 'xmas-popdrums.wav', musicVol: .7, dur: 16.6,
     html: `${P('repeating-linear-gradient(#fdfbf3 0 98px,#ece6d2 98px 100px)', '', { fx: 'none' })}
     ${E(`<span style="color:#d99a00">‹ Notes</span><span style="float:right;color:#d99a00">Done</span>`, { x: 60, y: 175, w: 960, style: 'font-family:Inter;font-weight:500;font-size:42px' })}
-    ${TX('Christmas Eve box checklist 🎁', { x: 70, y: 250, w: 940, a: 'left', s: 76, c: '#1d1d1d', f: 'Inter', wt: 800, t0: -.3, fx: 'pop' })}
-    ${TX('(the thing EVERYONE forgets 👀)', { x: 70, y: 430, w: 940, a: 'left', s: 42, c: '#8a8370', f: 'Inter', wt: 500, t0: .15, fx: 'fade' })}
+    ${TX(c.title || 'Christmas Eve box checklist 🎁', { x: 70, y: 250, w: 940, a: 'left', s: 76, c: '#1d1d1d', f: 'Inter', wt: 800, t0: -.3, fx: 'pop' })}
+    ${TX(c.sub || '(the thing EVERYONE forgets 👀)', { x: 70, y: 430, w: 940, a: 'left', s: 42, c: '#8a8370', f: 'Inter', wt: 500, t0: .15, fx: 'fade' })}
     ${rows}
-    ${E(`<div class="pill" style="background:#ff4d4d;color:#fff;font-family:Inter;font-weight:800;font-size:58px;padding:20px 36px;box-shadow:0 10px 0 rgba(0,0,0,.2)">WAIT… I forgot the PRINTABLES 😱</div>`, { x: 0, w: 1080, y: 1262, style: 'text-align:center', t0: TW + .1, fx: 'slam', d: .2, rot: -3 })}
-    ${P('radial-gradient(circle at 50% 30%,#fff0f3,#ffc9d6)', `
-      ${TX('Christmas Eve Box Pack 🎁', { y: 200, s: 64, c: '#b3123a', f: 'Inter', wt: 800, t0: TP + .05, fx: 'down' })}
-      ${labels.map((l, k) => pillE(l, '#fff', '#b3123a', 50, { y: 320, t0: tp(k), t1: k < 4 ? tp(k + 1) : TE, pstyle: 'font-family:Inter;font-weight:800' })).join('')}
+    ${E(`<div class="pill" style="background:#ff4d4d;color:#fff;font-family:Inter;font-weight:800;font-size:58px;padding:20px 36px;box-shadow:0 10px 0 rgba(0,0,0,.2)">${c.wait || 'WAIT… I forgot the PRINTABLES 😱'}</div>`, { x: 0, w: 1080, y: 1262, style: 'text-align:center', t0: TW + .1, fx: 'slam', d: .2, rot: -3 })}
+    ${P(c.pbg || 'radial-gradient(circle at 50% 30%,#fff0f3,#ffc9d6)', `
+      ${TX(c.ptitle || 'Christmas Eve Box Pack 🎁', { y: 200, s: 64, c: c.accent || '#b3123a', f: 'Inter', wt: 800, t0: TP + .05, fx: 'down' })}
+      ${labels.map((l, k) => pillE(l, '#fff', c.accent || '#b3123a', 50, { y: 320, t0: tp(k), t1: k < 4 ? tp(k + 1) : TE, pstyle: 'font-family:Inter;font-weight:800' })).join('')}
       ${pages.map((f, k) => IMG(f, { x: [60, 330, 600, 190, 470][k], y: [430, 450, 430, 800, 820][k], w: 420, rot: [-6, 3, 7, -3, 5][k], t0: tp(k), fx: ['slideL', 'drop', 'slideR', 'slideL', 'slideR'][k], d: .3 })).join('')}
-      ${E(`<div style="width:330px;height:330px;border-radius:50%;background:#FFD93D;box-shadow:0 14px 0 rgba(0,0,0,.2);text-align:center;font-family:Inter;color:#111;padding-top:70px"><div style="font-size:110px;font-weight:800;line-height:1">$3.99</div><div style="font-size:34px;font-weight:600">all 5 pages</div></div>`, { x: 680, y: 1000, t0: TPR, fx: 'stamp', rot: 8 })}
-      ${pillE('instant download · print tonight ⚡', '#b3123a', '#fff', 46, { y: 1350, t0: TPR + .3, pstyle: 'font-family:Inter;font-weight:800' })}`, { t0: TP, t1: TE + .3, fx: 'slideL', d: .3 })}
-    ${endCard(TE, { bg: '#ffd84d', c: '#222', l1: 'Christmas Eve box: DONE ✅', price: '$3.99 · 5 printable pages', pbg: '#fff', search: 'search “Christmas Eve Box printable” on Etsy', fx: 'up' })}`,
+      ${E(`<div style="width:330px;height:330px;border-radius:50%;background:#FFD93D;box-shadow:0 14px 0 rgba(0,0,0,.2);text-align:center;font-family:Inter;color:#111;padding-top:70px"><div style="font-size:110px;font-weight:800;line-height:1">${c.price || '$3.99'}</div><div style="font-size:34px;font-weight:600">${c.priceSub || 'all 5 pages'}</div></div>`, { x: 680, y: 1000, t0: TPR, fx: 'stamp', rot: 8 })}
+      ${pillE('instant download · print tonight ⚡', c.accent || '#b3123a', '#fff', 46, { y: 1350, t0: TPR + .3, pstyle: 'font-family:Inter;font-weight:800' })}`, { t0: TP, t1: TE + .3, fx: 'slideL', d: .3 })}
+    ${endCard(TE, c.end || { bg: '#ffd84d', c: '#222', l1: 'Christmas Eve box: DONE ✅', price: '$3.99 · 5 printable pages', pbg: '#fff', search: 'search “Christmas Eve Box printable” on Etsy', fx: 'up' })}`,
     cues: [['pop', 0, .4], ['typing', .5, .3], ['typing', 2.1, .3], ...tick.map(t => ['check', t, .6]), ['scratch', TW, .7], ['boom', TW + .1, .4], ['whoosh', TP, .4], ...pages.map((_, k) => ['paper', tp(k), .45]), ['ding', TPR, .55], ...endCues(TE)],
   };
-}
+};
+mkNotes('notes-evebox');
 
 // =====================================================================================
 // 3. RATING METER — "Rating our printables 1–10", purple neon, comedic pizzicato, rising meter SFX -> range of products
 // =====================================================================================
-{
+const mkRating = (NAME, c = {}) => {
   const S = [2.2, 4.8, 7.4, 10.0], TE = 13.4;
-  const items = [
+  const items = c.items || [
     { n: 'Holly Jolly wall art', p: '$2.99', s: 7, why: 'cute… but the kids don’t care 😅', imgs: [['hj.png', 290, 380, 500, 0]] },
     { n: 'Coloring book (20 pages)', p: '$3.99', s: 9, why: '20 minutes of QUIET ☕', imgs: [['cb-01.png', 140, 400, 400, -5], ['cb-06.png', 540, 380, 400, 5]] },
     { n: 'Nice List certificate', p: '$3.29', s: 10, why: 'their face when they read it 🥹', imgs: [['nice-list-certificate.png', 130, 430, 820, -2]] },
@@ -135,26 +137,27 @@ const V = {};
   const seg = (it, k) => {
     const s = S[k], e = k < 3 ? S[k + 1] : TE, fx = ['slideR', 'slideL', 'drop', 'stamp'][k];
     return `${TX(`#${k + 1} · ${it.n}`, { y: 210, s: 66, f: 'Bangers', wt: 400, t0: s, t1: e, fx: 'down', style: 'letter-spacing:2px;text-shadow:0 6px 0 #ff3ea5' })}
-      ${it.imgs.map(([f, x, y, w, r], j) => IMG(f, { x, y, w, rot: r, t0: s + j * .1, t1: e, fx, d: .3 })).join('')}
-      ${E(`<div class="pill" style="background:#FFD93D;color:#111;font-family:Bangers;font-weight:400;font-size:76px;padding:6px 30px">${it.p}</div>`, { x: 700, y: 330, t0: s + .3, t1: e, fx: 'stamp', rot: 10, z: 5 })}
+      ${it.imgs.map(([f, x, y, w, r], j) => f.endsWith('.png') ? IMG(f, { x, y, w, rot: r, t0: s + j * .1, t1: e, fx, d: .3 }) : E(`<span style="font-size:${w}px">${f}</span>`, { x, y, rot: r, t0: s + j * .1, t1: e, fx, d: .3 })).join('')}
+      ${it.p ? E(`<div class="pill" style="background:#FFD93D;color:#111;font-family:Bangers;font-weight:400;font-size:76px;padding:6px 30px">${it.p}</div>`, { x: 700, y: 330, t0: s + .3, t1: e, fx: 'stamp', rot: 10, z: 5 }) : ''}
       ${E('', { x: 110, y: 1150, w: 860, h: 70, t0: s, t1: e, style: 'background:rgba(255,255,255,.18);border-radius:35px;border:4px solid rgba(255,255,255,.5)' })}
       ${E('', { x: 110, y: 1150, w: 0, h: 70, t0: s + .5, t1: e, fx: 'fill', d: 1.0, attrs: `data-to="${it.s >= 10 ? 100 : it.s * 10}" data-W="860"`, style: 'border-radius:35px;background:linear-gradient(90deg,#3dff9e,#ffe14d,#ff3ea5);box-shadow:0 0 30px rgba(255,62,165,.7)' })}
       ${E('', { x: 110, y: 1250, t0: s + .5, t1: e, fx: 'count', d: 1.0, attrs: `data-from="0" data-to="${it.s}" data-suf="/10"`, style: 'font-family:Bangers;font-size:120px;color:#fff;line-height:1;text-shadow:0 6px 0 #ff3ea5' })}
       ${TX(it.why, { x: 430, y: 1262, w: 520, a: 'left', s: 46, f: 'Nunito', wt: 900, t0: s + 1.5, t1: e, fx: 'pop', lh: 1.1 })}
       ${k === 3 ? E('<span style="font-size:190px">💥</span>', { x: 830, y: 1080, t0: s + 1.5, t1: e, fx: 'pop', z: 6 }) : ''}`;
   };
-  V['rating-meter'] = {
-    music: 'xmas-pizzicato.wav', musicVol: .75, dur: 17.6,
-    html: `${P('linear-gradient(160deg,#2a1458,#6b2fa0)', '', { fx: 'none' })}
+  V[NAME] = {
+    music: c.music || 'xmas-pizzicato.wav', musicVol: .75, dur: 17.6,
+    html: `${P(c.bg || 'linear-gradient(160deg,#2a1458,#6b2fa0)', '', { fx: 'none' })}
     ${E('', { x: 0, y: 0, w: 1080, h: 1920, style: 'background:radial-gradient(circle at 20% 15%,rgba(255,62,165,.25),transparent 40%),radial-gradient(circle at 85% 70%,rgba(61,255,158,.18),transparent 45%)' })}
-    ${TX('Rating our Christmas printables 1–10 😬', { y: 210, s: 100, f: 'Bangers', wt: 400, t0: -.3, t1: S[0], fx: 'slam', d: .2, style: 'letter-spacing:2px;text-shadow:0 7px 0 #ff3ea5' })}
+    ${TX(c.title || 'Rating our Christmas printables 1–10 😬', { y: 210, s: 100, f: 'Bangers', wt: 400, t0: -.3, t1: S[0], fx: 'slam', d: .2, style: 'letter-spacing:2px;text-shadow:0 7px 0 #ff3ea5' })}
     ${TX('(brutally honest)', { y: 470, s: 50, f: 'Nunito', wt: 900, c: '#ffe14d', t0: .3, t1: S[0], fx: 'pop' })}
-    ${['hj.png', 'cb-01.png', 'nice-list-certificate.png', 'reply-from-santa-letter.png'].map((f, k) => IMG(f, { x: [70, 560, 80, 540][k], y: [620, 600, 1040, 990][k], w: f.startsWith('nice') ? 460 : 380, rot: [-7, 6, 5, -4][k], t0: .1 * k - .2, t1: S[0], fx: 'pop' })).join('')}
+    ${(c.hookImgs || ['hj.png', 'cb-01.png', 'nice-list-certificate.png', 'reply-from-santa-letter.png']).map((f, k) => IMG(f, { x: [70, 560, 80, 540][k], y: [620, 600, 1040, 990][k], w: f.startsWith('nice') ? 460 : 380, rot: [-7, 6, 5, -4][k], t0: .1 * k - .2, t1: S[0], fx: 'pop' })).join('')}
     ${items.map(seg).join('')}
-    ${endCard(TE, { bg: 'linear-gradient(160deg,#2a1458,#6b2fa0)', font: 'Bangers', l1s: 96, l1: 'Which one gets YOUR 10? 👇', price: 'from $2.99 · instant downloads', search: 'search “DoodleDesignAndCo” on Etsy', fx: 'stamp' })}`,
+    ${endCard(TE, c.end || { bg: 'linear-gradient(160deg,#2a1458,#6b2fa0)', font: 'Bangers', l1s: 96, l1: 'Which one gets YOUR 10? 👇', price: 'from $2.99 · instant downloads', search: 'search “DoodleDesignAndCo” on Etsy', fx: 'stamp' })}`,
     cues: [['boom', 0, .6], ['pop', .3, .4], ...S.flatMap((s, k) => [['whoosh', s - .05, .35], ['rise', s + .5, .35], ['pop', s + 1.5, .4]]), ['boom', S[3] + 1.5, .7], ['tada', S[3] + 1.55, .45], ...endCues(TE)],
   };
-}
+};
+mkRating('rating-meter');
 
 // =====================================================================================
 // 4. COMMENT REPLY — "Replying to: where do I get this??", pastel pink, "We Wish You a Merry Christmas" -> shop/bio/search how-to
