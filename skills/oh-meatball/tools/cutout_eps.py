@@ -264,94 +264,16 @@ register("doctor", person(SKIN[4], "short", (40, 30, 26), "labcoat", (246, 246, 
                           acc=("glasses",), eyes=("norm", 0.2)))
 register("bezos", person(SKIN[0], "bald", (60, 40, 30), "polo", (40, 50, 80), (50, 50, 60), (30, 30, 30),
                          eyes=("norm", 0.15)))
-def leader(spec, extra_head):
-    """A cutout likeness of a public figure: the stock paper person plus that person's own hair and mouth."""
-    rig, body, head, arm = spec
-
-    def head2(lvl, blink, expr, extra):
-        return head(lvl, blink, expr, extra) + extra_head(lvl, -104)
-    return rig, body, head2, arm
+def suit_body(skin, suit, tie, wide=1.15, tall=1.0, acc=()):
+    """A paper suit with waving arms and no head: the head is Studio's model picture, pasted on at the neck."""
+    rig, body, _, arm = person(skin, "bald", (0, 0, 0), "shirt_tie", suit, suit, (20, 20, 22), tall=tall, wide=wide,
+                               acc=acc, tie=tie)
+    return rig, body, (lambda lvl, blink, expr, extra: [("e", (0, -20, 2, 2), suit)]), arm
 
 
-def _trump_head(lvl, cy):
-    gold, hi = (246, 208, 96), (252, 228, 140)
-    s = [("pts", [(-104, cy - 30), (-96, cy - 96), (-20, cy - 128), (70, cy - 122), (118, cy - 84), (104, cy - 40),
-                  (60, cy - 64), (-20, cy - 58), (-80, cy - 40)], gold),                       # the swoop
-         ("pts", [(-60, cy - 74), (20, cy - 110), (96, cy - 86), (30, cy - 92)], hi, False),
-         ("e", (-98, cy - 6, 16, 30), gold), ("e", (98, cy - 6, 16, 30), gold),               # sides over the ears
-         ("e", (-32, cy + 6, 34, 30, 0, 360), (252, 226, 200), False)] [:3]
-    if lvl == 0:   # the pursed mouth
-        s += [("e", (0, cy + 62, 26, 12), (244, 176, 120), False), ("e", (0, cy + 62, 11, 9), MOUTH, False)]
-    return s
-
-
-def _xi_head(lvl, cy):
-    blk = (24, 22, 24)
-    s = [("pts", ell(0, cy - 58, 90, 50, 180, 360) + [(96, cy - 44), (88, cy - 20), (70, cy - 52), (-70, cy - 52),
-                                                      (-88, cy - 20), (-96, cy - 44)], blk),   # swept back, high hairline
-         ("p", strip([(-50, cy - 84), (50, cy - 92)], 4), (70, 70, 76), False),
-         ("e", (-64, cy + 44, 22, 16), (240, 170, 150), False), ("e", (64, cy + 44, 22, 16), (240, 170, 150), False)]
-    if lvl == 0:   # the slight smile
-        s += [("e", (0, cy + 62, 30, 10), SKIN[5], False),
-              ("p", strip([(-24, cy + 58), (0, cy + 66), (24, cy + 58)], 5), MOUTH, False)]
-    return s
-
-
-def _putin_head(lvl, cy):
-    hair = (206, 196, 176)
-    s = [("e", (-90, cy - 30, 18, 34), hair), ("e", (90, cy - 30, 18, 34), hair),              # receding: sides only
-         ("p", strip([(-40, cy - 96), (-10, cy - 100), (30, cy - 96)], 5), hair, False),
-         ("p", strip([(-62, cy - 26), (-12, cy - 12)], 7), (150, 140, 120), False),           # flat, cold brows
-         ("p", strip([(12, cy - 12), (62, cy - 26)], 7), (150, 140, 120), False)]
-    if lvl == 0:
-        s += [("p", strip([(-22, cy + 64), (22, cy + 64)], 5), MOUTH, False)]
-    return s
-
-
-register("trump", leader(person((244, 176, 120), "bald", (246, 208, 96), "shirt_tie", (30, 40, 80), (30, 40, 80),
-                                (20, 20, 22), tall=1.04, wide=1.18, eyes=("norm", 0.3), tie=(214, 40, 40)),
-                         _trump_head))
-def xi_parts():
-    """Xi from Studio's model sheet (channels/art/characters/xi-model-sheet-v1.jpg): wide round head, swept-back
-    charcoal hair with grey streaks, heavy lids, thick flat brows, small closed smile, navy suit, purple dotted tie."""
-    rig, body, _, arm = person((240, 200, 160), "bald", (44, 42, 46), "shirt_tie", (30, 40, 84), (30, 40, 84),
-                               (20, 20, 22), wide=1.22, acc=("pin",), tie=(84, 50, 120))
-    skin, hair, grey = (240, 200, 160), (44, 42, 46), (120, 118, 124)
-
-    def body2():
-        s = body()
-        nk = -250
-        for k in range(5):   # the dots on the tie
-            s.append(("e", ((-3 if k % 2 else 3), nk + 22 + k * 17, 2.4, 2.4), (170, 140, 200), False))
-        return s
-
-    def head(lvl, blink, expr, extra):
-        cy = -112
-        s = [("e", (-116, cy + 10, 16, 26), skin), ("e", (116, cy + 10, 16, 26), skin),
-             ("e", (0, cy + 6, 118, 108), skin),
-             ("pts", ell(0, cy - 34, 122, 96, 180, 360) + [(124, cy + 22), (104, cy + 10), (96, cy - 34), (44, cy - 62),
-                                                           (-56, cy - 58), (-96, cy - 30), (-104, cy + 10),
-                                                           (-124, cy + 22)], hair)]
-        for (x0, y0, x1, y1) in [(-70, -104, 20, -122), (-40, -92, 60, -112), (0, -84, 90, -98), (96, -70, 112, -10),
-                                 (-112, -60, -104, -6), (40, -116, 100, -92)]:
-            s.append(("p", strip([(x0, cy + y0), (x1, cy + y1)], 4), grey, False))
-        lids = 1.0 if blink else (0.2 if expr == "wide" else 0.46)
-        s += C.eyes(0, cy + 6, 38, 34, 27, "c", "norm", lids, skin, 0, hair)
-        s += [("p", strip([(-66, cy - 34), (-14, cy - 30)], 11), (70, 68, 72), False),     # thick, flat brows
-              ("p", strip([(14, cy - 30), (66, cy - 34)], 11), (70, 68, 72), False),
-              ("p", strip([(-30, cy + 96), (0, cy + 102), (30, cy + 96)], 3), (214, 172, 134), False)]   # soft chin
-        if lvl == 0:
-            s.append(("p", strip([(-22, cy + 62), (0, cy + 69), (22, cy + 62)], 5), MOUTH, False))   # small smile
-        else:
-            s += C.mouth(0, cy + 66, lvl, 30, "flat", "oval")
-        return s
-    return rig, body2, head, arm
-
-
-register("xi", xi_parts())
-register("putin", leader(person(SKIN[3], "bald", (200, 190, 170), "shirt_tie", (50, 54, 60), (50, 54, 60),
-                                (20, 20, 22), tall=0.9, wide=0.92, eyes=("norm", 0.5), tie=(40, 60, 120)),
-                         _putin_head))
+register("trump", suit_body((244, 176, 120), (28, 40, 86), (200, 40, 40), wide=1.3, tall=1.02))
+register("xi", suit_body((240, 200, 150), (28, 40, 86), (84, 50, 120), wide=1.3, acc=("pin",)))
+register("putin", suit_body((236, 196, 160), (40, 42, 48), (60, 76, 100), wide=1.12, tall=0.96))
 register("tank", person(SKIN[0], "buzz", (90, 60, 40), "tank", (240, 240, 240), (60, 60, 70), (240, 240, 240),
                         wide=1.4, arm_w=30, eyes=("norm", 0.2)))
 
@@ -2483,8 +2405,8 @@ def diner_layout(L):
     vert = L["H"] > L["W"]
     if vert:
         L["cap_y"] = 1290   # captions on the suit, clear of the name plate and the bottom 20%
-        return dict(cast=dict(trump=175, xi=520, putin=860, mb=1150), top=L["feet"] - 150 * L["K"],
-                    wide=(640, 1380, 0.85))
+        return dict(cast=dict(trump=230, xi=600, putin=950, mb=1250), top=L["feet"] - 150 * L["K"],
+                    wide=(715, 1400, 0.78))
     return dict(cast=dict(trump=420, xi=820, putin=1220, mb=1640), top=L["feet"] - 150 * L["K"],
                 wide=(960, 600, 1.0))
 
@@ -2635,10 +2557,10 @@ def draw_leader(fr, name, x0, y0, w, lvl, t, speaking, look=0, jolt=None):
     if (fi + spec["blink"]) % 38 < 2 or (jolt is not None and 0.25 <= jolt < 0.42):
         for (ex, ey, rx, ry) in spec["eyes"]:
             cx, cy = hp(ex, ey)
-            skin = im.getpixel((int(ex * w), int((ey - 0.085) * h)))
-            d.ellipse([cx - rx * w, cy - ry * h * 0.95, cx + rx * w, cy + ry * h * 0.95], fill=skin)
-            d.line([cx - rx * w * 0.8, cy + ry * h * 0.2, cx + rx * w * 0.8, cy + ry * h * 0.2],
-                   fill=(60, 40, 30), width=max(2, w // 220))
+            skin = im.getpixel((int(spec["mouth"][0] * w), int((spec["mouth"][1] + 0.05) * h)))
+            # a blink = the lid drops over the top of the eye (same for all three; never a line)
+            d.chord([cx - rx * w, cy - ry * h * 1.05, cx + rx * w, cy + ry * h * 1.05], 172, 368, fill=skin)
+            d.rectangle([cx - rx * w, cy - ry * h * 0.1, cx + rx * w, cy + ry * h * 0.28], fill=skin)
     if speaking and lvl > 0:
         mx, my = spec["mouth"]
         mw = spec["mw"] * w
@@ -2674,6 +2596,50 @@ def draw_leader(fr, name, x0, y0, w, lvl, t, speaking, look=0, jolt=None):
     fr.alpha_composite(canvas, (int(hx - pivot[0] + dx), int(hy - (pad + hd.size[1]) + dy)))
 
 
+def leader_head(name, w, lvl, t, speaking, look=0, wide_eyes=False):
+    """The head layer of Studio's picture (picture width w) with this frame's face on it: mouth, blink, pupils.
+    Returns (image, chin) where chin is the pivot point inside the image."""
+    im = leader_img(name, w)
+    _, head, box = leader_layers(name, w)
+    h = im.size[1]
+    spec = LEADERS[name]
+    fi = int(t * FPS)
+    hd = head.copy()
+    d = ImageDraw.Draw(hd)
+
+    def hp(fx, fy):
+        return fx * w - box[0], fy * h - box[1]
+
+    if look:
+        for (px_, py_) in spec["pupils"]:
+            cx, cy = hp(px_, py_)
+            rr = 0.0125 * w
+            white = im.getpixel((int(px_ * w), int(py_ * h + 0.028 * h)))
+            d.ellipse([cx - rr * 1.35, cy - rr * 1.35, cx + rr * 1.35, cy + rr * 1.35], fill=white)
+            d.ellipse([cx + 0.011 * w * look - rr, cy - rr, cx + 0.011 * w * look + rr, cy + rr], fill=(20, 18, 18))
+    if (fi + spec["blink"]) % 38 < 2 and not wide_eyes:
+        for (ex, ey, rx, ry) in spec["eyes"]:
+            cx, cy = hp(ex, ey)
+            skin = im.getpixel((int(spec["mouth"][0] * w), int((spec["mouth"][1] + 0.05) * h)))
+            # a blink = the lid drops over the top of the eye (same for all three; never a line)
+            d.chord([cx - rx * w, cy - ry * h * 1.05, cx + rx * w, cy + ry * h * 1.05], 172, 368, fill=skin)
+            d.rectangle([cx - rx * w, cy - ry * h * 0.1, cx + rx * w, cy + ry * h * 0.28], fill=skin)
+    if speaking and lvl > 0:
+        mx, my = spec["mouth"]
+        mw = spec["mw"] * w
+        cx, cy = hp(mx, my)
+        skin = im.getpixel((int(mx * w), int((my + 0.05) * h)))
+        d.ellipse([cx - mw * 0.62, cy - mw * 0.24, cx + mw * 0.62, cy + mw * 0.3], fill=skin)
+        ry = mw * (0.2 if lvl == 1 else 0.4)
+        d.ellipse([cx - mw * 0.42, cy - ry * 0.7, cx + mw * 0.42, cy + ry * 1.2], fill=MOUTH, outline=(60, 20, 20),
+                  width=max(1, w // 300))
+        if lvl == 2:
+            d.rectangle([cx - mw * 0.26, cy - ry * 0.62, cx + mw * 0.26, cy - ry * 0.3], fill=WHITE)
+        d.ellipse([cx - mw * 0.2, cy + ry * 0.5, cx + mw * 0.2, cy + ry * 1.1], fill=(226, 98, 104))
+    hd.putalpha(head.getchannel("A"))
+    return hd, (hd.size[0] / 2, hd.size[1] * 0.97)
+
+
 def push_in(fr, k, fy=0.42, amount=0.06):
     """A slow camera push: zoom the finished frame by up to `amount` around (centre, fy)."""
     z = 1 + amount * max(0.0, min(1.0, k))
@@ -2684,6 +2650,15 @@ def push_in(fr, k, fy=0.42, amount=0.06):
     cx, cy = W / 2, H_ * fy
     x0, y0 = min(max(0, cx - cw / 2), W - cw), min(max(0, cy - ch / 2), H_ - ch)
     fr.paste(fr.crop((int(x0), int(y0), int(x0 + cw), int(y0 + ch))).resize((W, H_), Image.BILINEAR), (0, 0))
+
+
+def curtain_bg(L, cam, scene):
+    """The red curtain from Studio's pictures, run across the whole frame, with a floor line."""
+    im = leader_img("putin", L["W"])
+    img = im.crop((0, 0, L["W"], 6)).resize((L["W"], L["H"]), Image.BILINEAR).convert("RGBA")
+    x, y = cam.p(0, L["feet"] + 40)
+    ImageDraw.Draw(img).rectangle([0, y, L["W"], L["H"]], fill=(70, 26, 24))
+    return C.vignette(img)
 
 
 def bill(short=False):
@@ -2739,82 +2714,102 @@ def bill(short=False):
     if short:   # 35 s cap on the YouTube cut: no reaction holds
         seq = [it for it in seq if it[0] != "hold"]
     ORDER = ("trump", "xi", "putin")
-
-    def cam_name(t):
-        return C2.seg_at(t)[2]
-
-    def mb_spot(t, L):
-        if cam_name(t) == "wide":   # the waiter stands in front of the table, bottom right
-            cx, cy, z = G["cams"]["diner"]["wide"]
-            return (cx + (L["W"] * 0.80 - L["W"] / 2) / z, cy + (L["H"] * 0.905 - L["H"] / 2) / z)
-        return (L["diner"]["cast"]["mb"], L["feet"])
-
-    def where(c, t, scene, L):
-        if c in LEADERS or cam_name(t) not in ("wide", "cu_mb"):
-            return None   # the leaders are the model pictures, drawn in pre(); Meatball stays out of their shots
-        return mb_spot(t, L)
-
-    def pre(fr, cam, t, fi, li, scene, L):
-        W, H_ = L["W"], L["H"]
-        name = cam_name(t)
-        who = G["lines"][li]["who"] if li is not None else None
-        lvl = C.mouth_level(G["lines"][li], t) if li is not None else 0
-        seg0 = C2.seg_at(t)[0]
-
-        def look(c):   # -1 / +1: turn toward the leader who is talking (seats: trump, xi, putin, waiter)
-            seat = {"trump": 0, "xi": 1, "putin": 2, "mb": 3}
-            if who is None or who == c or who not in seat:
-                return 0
-            return 1 if seat[who] > seat[c] else -1
-
-        if name == "wide":
-            w = W // 3
-            y0 = int(H_ * 0.36)
-            for k, c in enumerate(ORDER):
-                draw_leader(fr, c, k * w, y0, w if k < 2 else W - 2 * w, lvl, t, who == c, look(c))
-        elif name[3:] in LEADERS:
-            c = name[3:]
-            y0 = int(H_ * 0.12)
-            draw_leader(fr, c, 0, y0, W, lvl, t, who == c, look(c), jolt=(t - seg0) if who != c else None)
-            pooh = H.lines_with("Winnie", "trump")
-            if c == "xi" and pooh and li is not None and G["lines"][li] is pooh[0]:   # the honey pot pops up
-                k = min(1.0, (t - C2.seg_at(t)[0]) / 0.2)
-                d = ImageDraw.Draw(fr)
-                px, py, r = W * 0.84, y0 + W * 1.333 * 0.86 + (1 - k) * 200, W * 0.07
-                d.ellipse([px - r, py - r * 1.1, px + r, py + r * 0.9], fill=(214, 150, 50), outline=INK, width=5)
-                d.rectangle([px - r * 0.8, py - r * 1.3, px + r * 0.8, py - r * 0.9], fill=(170, 110, 40), outline=INK,
-                            width=5)
-                d.polygon([(px - r * 0.5, py - r * 1.3), (px + r * 0.5, py - r * 1.3), (px + r * 0.2, py - r * 0.5),
-                           (px - r * 0.3, py - r * 0.2)], fill=(252, 204, 60))
-                d.text((px, py + r * 0.1), "HONEY", font=ImageFont.truetype(FONT, int(r * 0.42)), fill=INK, anchor="mm")
-            push_in(fr, (t - C2.seg_at(t)[0]) / 2.5)
-        else:   # Meatball's close-up: the same curtain and tablecloth, nobody at the table
-            im = leader_img("putin", W)
-            h = im.size[1]
-            fr.paste(im.crop((0, 0, W, 6)).resize((W, int(H_ * 0.80)), Image.BILINEAR), (0, 0))
-            fr.paste(im.crop((0, h - 6, W, h)).resize((W, H_ - int(H_ * 0.80)), Image.BILINEAR), (0, int(H_ * 0.80)))
+    HEAD_W = {"trump": 300, "xi": 290, "putin": 250}   # head width in rig units (the kids' heads are about 200)
+    SEAT = {"trump": 0, "xi": 1, "putin": 2, "mb": 3}
 
     def pose_hook(c, t, fi, li, scene, p):
-        p = lively(c, t, li, p, G["L"][scene]["cast"], 0.8)
+        p = lively(c, t, li, p, G["L"][scene]["cast"], 1.0)
         hop, j, ang, (aL, aR), hk, sq, rot, extra_ = p
         tar = H.lines_with("tariff", "trump")
         if c == "mb" and tar and t >= tar[0]["t0"]:
             hk = (hk[0], hk[1], hk[2], "wide")
+        if c == "trump" and li is not None and G["lines"][li]["who"] == "trump":   # the pinch hand, up by his face
+            aL = -150 + 26 * math.sin(t * 9.0)
         return (hop, j, ang, (aL, aR), hk, sq, rot, extra_)
 
     def post(fr, cam, t, fi, li, scene, L):
-        K = L["K"]
+        K, S = L["K"], L[scene]
         z = cam.z * K
+        who = G["lines"][li]["who"] if li is not None else None
+        lvl = C.mouth_level(G["lines"][li], t) if li is not None else 0
+        seg0 = C2.seg_at(t)[0]
+        for c in ORDER:   # Studio's picture heads on the paper suits
+            x = S["cast"][c]
+            p = pose_hook(c, t, fi, li, scene, H.pose(c, t, fi, li, scene))
+            hop, (jx, jy), ang = p[0], p[1], p[2]
+            look = 0 if who in (None, c) or who not in SEAT else (1 if SEAT[who] > SEAT[c] else -1)
+            frac = LEADERS[c]["head"][2] * 2 * 1.06   # head width as a fraction of the picture
+            w = max(40, int(HEAD_W[c] * z / frac))
+            hd, piv = leader_head(c, w, lvl, t, who == c, look)
+            jolt = t - seg0 if (who != c and C2.seg_at(t)[2] == "cu_" + c) else None
+            if who == c:
+                ang = ang + 3.0 * math.sin(t * 5.3)
+                jy = jy - (4 + 5 * lvl)
+            if jolt is not None and jolt < 0.6:
+                kq = math.exp(-jolt * 7)
+                jy, ang = jy - 26 * kq, ang + 5.0 * kq * math.cos(jolt * 30)
+            pad = int(hd.size[0] * 0.12)
+            canvas = Image.new("RGBA", (hd.size[0] + 2 * pad, hd.size[1] + 2 * pad), (0, 0, 0, 0))
+            canvas.paste(hd, (pad, pad))
+            pv = (pad + piv[0], pad + piv[1])
+            canvas = canvas.rotate(ang - 1.5 * look, resample=Image.BICUBIC, center=pv)
+            nx, ny = cam.p(x, L["feet"] + hop * K)
+            rig = H.RIG[c]
+            hx = nx + (rig["neck"][0] + jx + 8 * look) * z
+            hy = ny + (rig["neck"][1] + jy + 34) * z
+            fr.alpha_composite(canvas, (int(hx - pv[0]), int(hy - pv[1])))
         d = ImageDraw.Draw(fr)
+        x0, y0 = cam.p(S["cast"]["trump"] - 230 * K, S["top"])   # the table, in front of the three
+        x1, y1 = cam.p(S["cast"]["putin"] + 210 * K, L["feet"] + 500 * K)
+        d.rectangle([x0, y0, x1, y1], fill=(232, 222, 206), outline=(190, 178, 160), width=max(2, int(4 * z)))
+        d.rectangle([x0, y0, x1, y0 + 30 * z], fill=(244, 236, 222))
+        for c, name in (("trump", "TRUMP"), ("xi", "XI"), ("putin", "PUTIN")):
+            cx_ = S["cast"][c]
+            fx, fy = cam.p(cx_ - 165 * K, S["top"] + 34 * K)   # desk flag
+            d.line([fx, fy, fx, fy - 96 * z], fill=(40, 40, 40), width=max(2, int(5 * z)))
+            d.ellipse([fx - 20 * z, fy - 6 * z, fx + 20 * z, fy + 6 * z], fill=(30, 30, 30))
+            wv = 3 * z * math.sin(t * 4 + cx_)
+            fl = [fx, fy - 96 * z, fx + 62 * z, fy - 54 * z + wv]
+            if c == "trump":
+                for q in range(6):
+                    d.rectangle([fl[0], fl[1] + q * 7 * z, fl[2], fl[1] + (q + 1) * 7 * z + wv * q / 6],
+                                fill=(190, 40, 44) if q % 2 == 0 else WHITE)
+                d.rectangle([fl[0], fl[1], fl[0] + 27 * z, fl[1] + 21 * z], fill=(40, 50, 110))
+            elif c == "xi":
+                d.rectangle(fl, fill=(206, 34, 30))
+                d.regular_polygon((fl[0] + 14 * z, fl[1] + 13 * z, 8 * z), 5, rotation=0, fill=(252, 214, 60))
+                for q in range(4):
+                    d.ellipse([fl[0] + (27 + (q % 2) * 5) * z, fl[1] + (5 + q * 6) * z, fl[0] + (31 + (q % 2) * 5) * z,
+                               fl[1] + (9 + q * 6) * z], fill=(252, 214, 60))
+            else:
+                for q, col in enumerate((WHITE, (40, 70, 170), (200, 40, 40))):
+                    d.rectangle([fl[0], fl[1] + q * 14 * z, fl[2], fl[1] + (q + 1) * 14 * z + wv * q / 3], fill=col)
+            if cam.z < 1.2:   # name plates on the wide shot (they crop in close-ups)
+                px_, py_ = cam.p(cx_ + 10 * K, S["top"] + 66 * K)
+                f = ImageFont.truetype(FONT, max(8, int(40 * z)))
+                wdt = d.textlength(name, font=f) / 2 + 18 * z
+                d.rectangle([px_ - wdt, py_ - 30 * z, px_ + wdt, py_ + 30 * z], fill=(250, 246, 236), outline=INK,
+                            width=max(2, int(4 * z)))
+                d.text((px_, py_), name, font=f, fill=INK, anchor="mm")
+        gx, gy = cam.p(S["cast"]["putin"] + 150 * K, S["top"] + 6 * K)   # Putin's shot glass
+        d.polygon([(gx - 20 * z, gy - 50 * z), (gx + 20 * z, gy - 50 * z), (gx + 15 * z, gy), (gx - 15 * z, gy)],
+                  fill=(214, 224, 232), outline=(120, 130, 140))
+        pooh = H.lines_with("Winnie", "trump")
+        if pooh and li is not None and G["lines"][li] is pooh[0] and C2.seg_at(t)[2] == "cu_xi":   # the honey pot
+            kq = min(1.0, (t - seg0) / 0.2)
+            px_, py_ = cam.p(S["cast"]["xi"] + 170 * K, S["top"] - 20 * K + (1 - kq) * 200)
+            r = 46 * z
+            d.ellipse([px_ - r, py_ - r * 1.1, px_ + r, py_ + r * 0.9], fill=(214, 150, 50), outline=INK, width=5)
+            d.rectangle([px_ - r * 0.8, py_ - r * 1.3, px_ + r * 0.8, py_ - r * 0.9], fill=(170, 110, 40), outline=INK,
+                        width=5)
+            d.text((px_, py_ + r * 0.1), "HONEY", font=ImageFont.truetype(FONT, max(8, int(r * 0.42))), fill=INK,
+                   anchor="mm")
         tar = H.lines_with("tariff", "trump")
-        if tar and cam_name(t) == "cu_mb" and 0 <= t - (tar[0]["start"] + tar[0]["dur"]) < 1.2:   # stamped
-            k = t - (tar[0]["start"] + tar[0]["dur"])
-            sc = 1.9 - 0.9 * min(1.0, k / 0.12)
-            paste(fr, C2.spr("star", round(z * 1.25 * sc, 2), "TARIFF!"), L["W"] * 0.5, L["H"] * 0.33, -12)
-        if cam_name(t) not in ("wide", "cu_mb"):
-            return
-        x, y = mb_spot(t, L)
-        mx, my = cam.p(x, y - 150 * K)   # the waiter's bow tie
+        if tar and C2.seg_at(t)[2] == "cu_mb" and 0 <= t - (tar[0]["start"] + tar[0]["dur"]) < 1.2:   # stamped
+            kq = t - (tar[0]["start"] + tar[0]["dur"])
+            paste(fr, C2.spr("star", round(z * 0.62 * (1.5 - 0.5 * min(1.0, kq / 0.12)), 2), "TARIFF!"), L["W"] * 0.5,
+                  L["H"] * 0.15, -12)
+        mx, my = cam.p(S["cast"]["mb"], L["feet"] - 150 * K)   # the waiter's bow tie
         d.polygon([(mx - 34 * z, my - 16 * z), (mx, my), (mx - 34 * z, my + 16 * z)], fill=(24, 24, 28))
         d.polygon([(mx + 34 * z, my - 16 * z), (mx, my), (mx + 34 * z, my + 16 * z)], fill=(24, 24, 28))
 
@@ -2826,8 +2821,8 @@ def bill(short=False):
     return dict(title="THE DINNER BILL", end=["WHO SKIPPED", "THE", "CHECK?"], seq=seq,
                 headline=["TRUMP, XI & PUTIN", "SPLIT THE DINNER BILL"], headline_size=1.45, headline_t=1.12,
                 target=0 if short else 62.1,
-                scenes={"diner": dict(layout=diner_layout, bg=diner_bg)},
-                where=where, pre=pre, pose_hook=pose_hook, post=post, sfx=sfx)
+                scenes={"diner": dict(layout=diner_layout, bg=curtain_bg)},
+                pose_hook=pose_hook, post=post, sfx=sfx)
 
 
 EPISODES = {"bill": bill, "billshort": lambda: bill(True), "t58": t58, "t58short": lambda: t58(True), "confession_nb": nobanner(confession, ["MEATBALL GOES", "TO CONFESSION"]), "confession": confession, "ozempic": ozempic, "ep6v4": ep6v4, "ep5v4": ep5v4, "ep7v4": ep7v4, "ep3": ep3, "ep4": ep4, "ep5": ep5, "ep6": ep6, "ep7": ep7, "ep8": ep8, "ep7v3": ep7v3, "ep3v3": ep3v3}
