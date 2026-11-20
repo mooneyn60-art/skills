@@ -2249,7 +2249,17 @@ def ozempic():
                 where=where, pose_hook=pose_hook, post=post, sfx=sfx, shakes=shakes)
 
 
-EPISODES = {"confession": confession, "ozempic": ozempic, "ep6v4": ep6v4, "ep5v4": ep5v4, "ep7v4": ep7v4, "ep3": ep3, "ep4": ep4, "ep5": ep5, "ep6": ep6, "ep7": ep7, "ep8": ep8, "ep7v3": ep7v3, "ep3v3": ep3v3}
+def nobanner(base, headline):
+    """The Studio 11/20 opening for any episode: 0.3 s in, the first line starts under one caps headline."""
+    def make():
+        ep = base()
+        ep["seq"] = [("gag", "intro", 0.3) + ep["seq"][0][3:]] + ep["seq"][1:]
+        ep["headline"] = headline
+        return ep
+    return make
+
+
+EPISODES = {"confession_nb": nobanner(confession, ["MEATBALL GOES", "TO CONFESSION"]), "confession": confession, "ozempic": ozempic, "ep6v4": ep6v4, "ep5v4": ep5v4, "ep7v4": ep7v4, "ep3": ep3, "ep4": ep4, "ep5": ep5, "ep6": ep6, "ep7": ep7, "ep8": ep8, "ep7v3": ep7v3, "ep3v3": ep3v3}
 
 
 # ------------------------------------------------------------------------------------------------ engine
@@ -2346,8 +2356,13 @@ def banners(fr, t):
 
     end = G["ev"]["end"]
     it_ = C2.GD.get("intro", 2.4)
-    items = [(0.1, it_ - 0.05, "MEATBALL MYTHS", big, (200, 40, 32), WHITE, -3, 0),
-             (0.6, it_ - 0.05, EP["title"], int(big * 0.62), (20, 20, 24), (252, 214, 74), 2, int(big * 1.25))]
+    if EP.get("headline"):   # Studio 11/20 format: no opening banner; frame 1 = one clean caps headline
+        hl = EP["headline"] if isinstance(EP["headline"], (list, tuple)) else [EP["headline"]]
+        items = [(-1.0, EP.get("headline_t", 2.6), txt, int(big * 0.6), (252, 214, 74), INK, [-2, 2][i % 2],
+                  int(i * big * 0.98)) for i, txt in enumerate(hl)]
+    else:
+        items = [(0.1, it_ - 0.05, "MEATBALL MYTHS", big, (200, 40, 32), WHITE, -3, 0),
+                 (0.6, it_ - 0.05, EP["title"], int(big * 0.62), (20, 20, 24), (252, 214, 74), 2, int(big * 1.25))]
     eb = int(big * 0.52)
     for i, txt in enumerate(EP["end"]):
         items.append((end + 0.2 + 0.25 * i, end + 99, txt, eb, (252, 250, 240), INK, [-2, 2, -1][i % 3],

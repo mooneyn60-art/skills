@@ -155,9 +155,13 @@ YEL, YEL_DK = (246, 198, 48), (206, 156, 28)
 WHITE, PUPIL = (250, 248, 240), (24, 22, 22)
 MOUTH, TONGUE = (92, 20, 26), (226, 98, 104)
 
+PIP_V2 = True   # Studio 11/20: the tall kid no longer wears a green flap hat
+PIP_JACKET, PIP_CAP = (236, 128, 44), (52, 104, 200)
+
 CAST = {
     "mb": dict(neck=(0, -182), sh=((-60, -170), (60, -170)), arm_col=(243, 235, 216), hand=MEAT, arm_len=62),
-    "pip": dict(neck=(0, -240), sh=((-52, -230), (52, -230)), arm_col=(122, 79, 176), hand=SKIN_P, arm_len=82),
+    "pip": dict(neck=(0, -240), sh=((-52, -230), (52, -230)), arm_col=PIP_JACKET if PIP_V2 else (122, 79, 176),
+                hand=SKIN_P, arm_len=82),
     "dot": dict(neck=(0, -148), sh=((-46, -136), (46, -136)), arm_col=YEL, hand=SKIN_D, arm_len=50),
 }
 
@@ -174,6 +178,16 @@ def body_shapes(c):
             ("e", (-14, -168, 6, 6), WHITE, False), ("e", (12, -164, 6, 6), WHITE, False),
             ("e", (0, -140, 6, 6), WHITE, False),
             ("e", (-16, -186, 14, 9), (214, 46, 40)), ("e", (16, -186, 14, 9), (214, 46, 40)),  # the knot
+        ]
+    if c == "pip" and PIP_V2:   # Studio 11/20: new look (orange zip jacket, blue jeans, red sneakers)
+        return [
+            ("p", [(-30, -74), (-6, -74), (-8, -14), (-28, -14)], (60, 84, 150)),
+            ("p", [(6, -74), (30, -74), (28, -14), (8, -14)], (60, 84, 150)),
+            ("e", (-24, -10, 28, 12), (200, 52, 44)), ("e", (24, -10, 28, 12), (200, 52, 44)),
+            ("p", [(-55, -246), (55, -246), (66, -66), (-66, -66)], PIP_JACKET),
+            ("p", strip([(0, -244), (0, -68)], 6), (250, 248, 240), False),                    # zipper
+            ("p", [(-66, -88), (66, -88), (66, -66), (-66, -66)], (190, 96, 30)),             # hem band
+            ("p", [(-30, -246), (30, -246), (22, -222), (-22, -222)], (250, 248, 240)),       # white collar
         ]
     if c == "pip":
         return [
@@ -288,6 +302,25 @@ def head_shapes(c, lvl, gaze, blink, expr):
         s = [("e", (0, cy, 100, 102), SKIN_P)]
         for (x, y) in [(-50, 34), (-38, 42), (-58, 46), (48, 34), (38, 43), (58, 46)]:
             s.append(("e", (x, cy + y, 4, 4), (198, 120, 86), False))
+        if PIP_V2:   # curly black hair, a blue baseball cap with the brim forward, round glasses
+            for (x, y, r) in [(-92, -30, 26), (-100, -4, 22), (92, -30, 26), (100, -4, 22), (-70, -52, 24),
+                              (70, -52, 24)]:
+                s.append(("e", (x, cy + y, r, r), (34, 26, 24)))
+            s.append(("pts", ell(0, cy - 50, 98, 78, 180, 360) + [(98, cy - 46), (-98, cy - 46)], PIP_CAP))
+            s.append(("pts", ell(0, cy - 54, 44, 50, 180, 360) + [(44, cy - 50), (-44, cy - 50)], (250, 248, 240),
+                      False))                                                                   # white front panel
+            s.append(("pts", [(-100, cy - 50), (30, cy - 50), (150, cy - 34), (146, cy - 20), (-98, cy - 30)],
+                      (30, 70, 150)))                                                           # the brim
+            s.append(("e", (0, cy - 128, 12, 8), (30, 70, 150)))
+            lids = 1.0 if blink else 0.0
+            brow = {"wide": 26, "worried": 22, "norm": 16}.get(expr, 16)
+            s += eyes(0, cy + 18, 30, 25, 30, gaze, "wide" if expr in ("wide", "worried") else "norm", lids, SKIN_P,
+                      brow, (34, 26, 24))
+            for side in (-1, 1):
+                s.append(("pts", strip(ell(side * 30, cy + 18, 31, 34, 0, 360, 24), 5), (40, 40, 46), False))
+            s.append(("p", strip([(-6, cy + 16), (6, cy + 16)], 5), (40, 40, 46), False))
+            s += mouth(0, cy + 72, lvl, 34, "frown", "oval")
+            return s
         s.append(("p", [(-92, cy - 38), (-112, cy - 20), (-86, cy - 14)], (120, 74, 44)))     # hair tufts
         s.append(("p", [(92, cy - 38), (114, cy - 22), (86, cy - 14)], (120, 74, 44)))
         s.append(("pts", ell(0, cy - 58, 104, 88, 180, 360) + [(118, cy - 52), (-104, cy - 52)], TEAL))
