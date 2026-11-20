@@ -2480,13 +2480,16 @@ def leader_layers(name, w):
         region = np.where(inside, yy < chin, yy < cy * h) & (np.abs(u) < 1.25)
         # Below the eye line only skin belongs to the head: the picture's own collar, tie and lapels must not
         # ride along on the rig's body. Close the holes the mouth and creases leave in the skin mask.
-        skin = (r > 165) & (g > 115) & (b > 70) & (r > b + 28) & (g > b + 6)
+        skin = (r > 165) & (g > 115) & (b > 70) & (r > b + 48) & (g > b + 14)
         lower = Image.fromarray(((region & skin & (yy >= cy * h - 0.06 * h)).astype(np.uint8) * 255), "L")
         kk = max(3, (w // 28) | 1)
         lower = lower.filter(ImageFilter.MaxFilter(kk)).filter(ImageFilter.MinFilter(kk))   # close the holes
         k2 = max(3, (w // 22) | 1)
         lower = lower.filter(ImageFilter.MinFilter(k2)).filter(ImageFilter.MaxFilter(k2))   # drop stray specks
-        low = np.asarray(lower) > 127
+        # keep only the piece of skin that is the face itself (connected to the mouth): no hands, no stray bits
+        mx_, my_ = LEADERS[name]["mouth"]
+        ImageDraw.floodfill(lower, (int(mx_ * w), int((my_ + 0.04) * h)), 128, thresh=10)
+        low = np.asarray(lower) == 128
         mask = (((region & ~curtain & (yy < cy * h)) | low).astype(np.uint8)) * 255
         m = Image.fromarray(mask, "L").filter(ImageFilter.GaussianBlur(1.4))
         ys, xs = np.nonzero(mask)
@@ -2790,7 +2793,7 @@ def bill(short=False):
                     aL, aR = -30, 140 + 30 * math.sin(f2 * 12)
                 hop = hop - 6 * abs(math.sin(f2 * 8))
                 if c == "trump":   # the pinch hand never rests
-                    aL = -150 + 26 * math.sin(f2 * 9.0)
+                    aL = -112 + 22 * math.sin(f2 * 9.0)
             else:   # listeners: lean in, and flinch when a punchline lands
                 pk = punch(t)
                 src = last_speaker(t)
@@ -2866,14 +2869,12 @@ def bill(short=False):
             canvas = Image.new("RGBA", (hd.size[0] + 2 * pad, hd.size[1] + 2 * pad), (0, 0, 0, 0))
             canvas.paste(hd, (pad, pad))
             pv = (pad + piv[0], pad + piv[1])
-            canvas = canvas.rotate(ang - 2.0 * look, resample=Image.BICUBIC, center=pv)
+            canvas = canvas.rotate(max(-7.0, min(7.0, ang - 1.5 * look)), resample=Image.BICUBIC, center=pv)
             nx, ny = cam.p(x, L["feet"] + hop * K)
             rig = H.RIG[c]
-            hx = nx + (rig["neck"][0] + jx + 10 * look) * z
-            hy = ny + (rig["neck"][1] + jy + 34) * z
-            nk = leader_img(c, 64).getpixel((int(LEADERS[c]["mouth"][0] * 64), int((LEADERS[c]["mouth"][1] + 0.05) * 85)))
-            ImageDraw.Draw(fr).rectangle([nx - 34 * z, hy - 40 * z, nx + 34 * z, ny + (rig["neck"][1] + 16) * z],
-                                         fill=tuple(max(0, v - 18) for v in nk[:3]))   # the neck, tucked in the collar
+            # the head sits centred on the shoulders, chin over the collar (no separate neck block)
+            hx = nx + (rig["neck"][0] + jx * 0.5) * z
+            hy = ny + (rig["neck"][1] + jy + 46) * z
             fr.alpha_composite(canvas, (int(hx - pv[0]), int(hy - pv[1])))
         d = ImageDraw.Draw(fr)
         calc = tline("bankrupt", "xi")   # Xi's giant calculator rises from under the table
