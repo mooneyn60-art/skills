@@ -76,6 +76,7 @@ Every run: stay within the Make budget (~1,000 ops/month). If a run hits an erro
   - Hook in the first 2 s, with a cut every ~2 s.
   - Show the price, "Shop on Etsy" and "link in bio".
   - Set commercialContentOwnBrand to true.
+  - **Always set Metricool `firstCommentText`**, e.g. "🔗 Link is in our bio! Or search \"<product search phrase>\" on Etsy 🎄 Instant download ⚡". Viewers keep asking for the link. Only the bio link is clickable on TikTok.
   - Don't repost the same video within 7 days.
   - TikTok Shop doesn't allow digital downloads, so always send buyers to Etsy.
 - **Pinterest:** 1000×1500 pins, keyword titles, link to the Etsy listing.

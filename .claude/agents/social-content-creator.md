@@ -13,7 +13,7 @@ Each content drop:
    - Check a few frames for overlaps before publishing.
 3. **Publish and schedule.**
    - Copy to `etsy-shop/media/`, commit, push, and check the raw URL returns 200.
-   - Schedule in Metricool: TikTok, commercialContentOwnBrand true, keyword captions plus 5–6 hashtags ending with #etsyfinds.
+   - Schedule in Metricool: TikTok, commercialContentOwnBrand true, a `firstCommentText` pointing to the bio link + Etsy search phrase, keyword captions plus 5–6 hashtags ending with #etsyfinds.
    - Don't reuse a video within 7 days.
    - After Dec 15, every caption leads with "No shipping, print it tonight ⚡".
 4. **Pinterest.** Make 2–3 pins (1000×1500) and post them with `etsy-shop/src/pinterest.py` to the matching boards.
