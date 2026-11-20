@@ -2404,9 +2404,9 @@ def t58(short=False):
 def diner_layout(L):
     vert = L["H"] > L["W"]
     if vert:
-        L["cap_y"] = 1290   # captions on the suit, clear of the name plate and the bottom 20%
+        L["cap_y"] = 1490   # captions on the tablecloth, clear of faces and of the bottom 20%
         return dict(cast=dict(trump=230, xi=600, putin=950, mb=1250), top=L["feet"] - 150 * L["K"],
-                    wide=(715, 1400, 0.78))
+                    wide=(715, 1400, 0.78), cams={"three": (590, L["feet"] - 400 * L["K"], 1.06)})
     return dict(cast=dict(trump=420, xi=820, putin=1220, mb=1640), top=L["feet"] - 150 * L["K"],
                 wide=(960, 600, 1.0))
 
@@ -2440,13 +2440,15 @@ LEADER_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets", 
 LEADERS = {   # all positions are fractions of the model picture (x of width, y of height)
     "trump": dict(mouth=(0.515, 0.497), mw=0.075, eyes=((0.405, 0.378, 0.088, 0.058), (0.55, 0.378, 0.088, 0.058)),
                   pupils=((0.469, 0.369), (0.553, 0.368)), head=(0.505, 0.43, 0.30, 0.265),
-                  hands=((0.17, 0.52, 0.40, 0.76),), blink=0),
+                  hands=((0.17, 0.52, 0.40, 0.76),), blink=0, brows=(0.345, 0.275, 0.675, 0.345)),
     "xi": dict(mouth=(0.502, 0.487), mw=0.11, eyes=((0.415, 0.385, 0.092, 0.052), (0.56, 0.385, 0.092, 0.052)),
                pupils=((0.47, 0.367), (0.551, 0.369)), head=(0.50, 0.44, 0.31, 0.228),
-               hands=((0.25, 0.755, 0.42, 0.875), (0.61, 0.755, 0.80, 0.875)), blink=13),
+               hands=((0.25, 0.755, 0.42, 0.875), (0.61, 0.755, 0.80, 0.875)), blink=13,
+               brows=(0.37, 0.275, 0.655, 0.328)),
     "putin": dict(mouth=(0.517, 0.502), mw=0.11, eyes=((0.425, 0.368, 0.068, 0.05), (0.575, 0.372, 0.068, 0.05)),
                   pupils=((0.446, 0.358), (0.569, 0.3585)), head=(0.51, 0.40, 0.275, 0.25),
-                  hands=((0.25, 0.765, 0.42, 0.875), (0.61, 0.765, 0.79, 0.875)), blink=27)}
+                  hands=((0.25, 0.765, 0.42, 0.875), (0.61, 0.765, 0.79, 0.875)), blink=27,
+                  brows=(0.35, 0.295, 0.675, 0.348))}
 _LIMG = {}
 
 
@@ -2596,7 +2598,7 @@ def draw_leader(fr, name, x0, y0, w, lvl, t, speaking, look=0, jolt=None):
     fr.alpha_composite(canvas, (int(hx - pivot[0] + dx), int(hy - (pad + hd.size[1]) + dy)))
 
 
-def leader_head(name, w, lvl, t, speaking, look=0, wide_eyes=False):
+def leader_head(name, w, lvl, t, speaking, look=0, wide_eyes=False, brow=0.0):
     """The head layer of Studio's picture (picture width w) with this frame's face on it: mouth, blink, pupils.
     Returns (image, chin) where chin is the pivot point inside the image."""
     im = leader_img(name, w)
@@ -2610,6 +2612,15 @@ def leader_head(name, w, lvl, t, speaking, look=0, wide_eyes=False):
     def hp(fx, fy):
         return fx * w - box[0], fy * h - box[1]
 
+    if brow:   # brows are a painted layer: skin over the old ones, then the brow strip moved up (+) or down (-)
+        a0, b0, a1, b1 = spec["brows"]
+        bx = (int(a0 * w), int(b0 * h), int(a1 * w), int(b1 * h))
+        strip_ = im.crop(bx)
+        skin = im.getpixel((int(spec["mouth"][0] * w), int((spec["mouth"][1] + 0.05) * h)))
+        x_, y_ = hp(a0, b0)
+        d.rectangle([x_, y_, x_ + strip_.size[0], y_ + strip_.size[1]], fill=skin)
+        hd.paste(strip_, (int(x_), int(y_ - brow * 0.022 * w)))
+        d = ImageDraw.Draw(hd)
     if look:
         for (px_, py_) in spec["pupils"]:
             cx, cy = hp(px_, py_)
@@ -2631,7 +2642,8 @@ def leader_head(name, w, lvl, t, speaking, look=0, wide_eyes=False):
         skin = im.getpixel((int(mx * w), int((my + 0.05) * h)))
         d.ellipse([cx - mw * 0.62, cy - mw * 0.24, cx + mw * 0.62, cy + mw * 0.3], fill=skin)
         ry = mw * (0.2 if lvl == 1 else 0.4)
-        d.ellipse([cx - mw * 0.42, cy - ry * 0.7, cx + mw * 0.42, cy + ry * 1.2], fill=MOUTH, outline=(60, 20, 20),
+        rxm = mw * (0.26 if (lvl == 1 and fi % 4 < 2) else 0.42)   # every other small frame is a round "o"
+        d.ellipse([cx - rxm, cy - ry * 0.7, cx + rxm, cy + ry * 1.2], fill=MOUTH, outline=(60, 20, 20),
                   width=max(1, w // 300))
         if lvl == 2:
             d.rectangle([cx - mw * 0.26, cy - ry * 0.62, cx + mw * 0.26, cy - ry * 0.3], fill=WHITE)
@@ -2662,22 +2674,25 @@ def curtain_bg(L, cam, scene):
 
 
 def bill(short=False):
-    """Studio batch 1 #2 (roast): TRUMP, XI & PUTIN SPLIT THE DINNER BILL. The three leaders are Studio's approved
-    model pictures, used as paper puppets (bob + mouth flap). Voices: Kokoro blends shaped by wording and rhythm."""
+    """Studio batch 1 #2 (roast): TRUMP, XI & PUTIN SPLIT THE DINNER BILL, v9 = Studio's full-animation rule
+    (3a39478, 482f483): rigs in parts, mostly the three-shot so listeners react, an action beat every 4-6 s."""
     D_ = dict(scene="diner")
 
-    def ln(who, text, gap=0.06, cap=None):
-        return ("line", who, text, cap, dict(D_, cams=[(0, "cu_" + who)], gap=gap))
+    def ln(who, text, gap=0.06, cap=None, cu=True, **kw):
+        n = len(text.split())
+        base = "wide" if who == "mb" else "three"
+        cams = [(0, base)] + ([(max(1, n - 3), "cu_" + who)] if (cu and n >= 6) else [])
+        return ("line", who, text, cap, dict(D_, cams=cams, gap=gap, **kw))
 
     extra = [] if short else [
         ln("putin", "In Russia, ve split bill three vays. I take all three.",
            cap="In Russia, we split bill three ways. I take all three."),
         ln("trump", "That's also how he does elections. Every time.", 0.0),
-        ("hold", 0.3, "cu_putin"),
+        ("hold", 0.3, "three"),
         ln("xi", "I cannot use my card. It is monitored."),
-        ln("trump", "Who the hell monitors your card?", cap="Who the h#@l monitors your card?"),
+        ln("trump", "Who the hell monitors your card?", cap="Who the h#@l monitors your card?", cu=False),
         ln("xi", "By me.", 0.0),
-        ("hold", 0.3, "cu_mb"),
+        ("hold", 0.3, "three"),
         ln("trump", "Nobody pays bills better than me. Nobody. People say it."),
         ln("xi", "Ask your contractors.", 0.0),
         ("hold", 0.3, "cu_trump"),
@@ -2685,87 +2700,177 @@ def bill(short=False):
         ln("xi", "Which home? The palace that is not yours?", 0.0),
         ("hold", 0.3, "cu_putin"),
         ln("mb", "Should I split it three ways?"),
-        ln("trump", "Four ways. Send one to NATO."),
+        ln("trump", "Four ways. Send one to NATO.", cu=False),
         ln("putin", "This vord, I do not like.", 0.0, cap="This word, I do not like."),
-        ("hold", 0.3, "cu_mb"),
+        ("hold", 0.3, "three"),
     ]
     seq = [
         ("gag", "intro", 0.3, "diner", "wide"),
-        ("line", "mb", "Gentlemen, your check.", None, dict(D_, cams=[(0, "wide")], gap=0.06)),
+        ln("mb", "Gentlemen, your check."),
         ln("trump", "Put it on China. Everything else is. Everything. Believe me."),
         ln("xi", "You want China to pay? You went bankrupt. Six times."),
         ("line", "trump", "Six times! And I'm still richer than your whole Winnie the Pooh fan club."
-         + ("" if short else " Much richer."), None, dict(D_, cams=[(0, "cu_trump"), (9, "cu_xi")], gap=0.06)),
-        ln("putin", "Relax. I pay. Vith Russian money.", cap="Relax. I pay. With Russian money."),
+         + ("" if short else " Much richer."), None, dict(D_, cams=[(0, "three"), (9, "cu_xi")], gap=0.06)),
+        ln("putin", "Relax. I pay. Vith Russian money.", cap="Relax. I pay. With Russian money.", cu=False),
         ln("trump", "Vlad. Vlad. Russian money is a Monopoly box with a shotgun in it."),
         ln("putin", "Says man who sold steaks, at Sharper Image.", 0.0, cap="Says man who sold steaks, at Sharper Image."),
         ("hold", 0.25, "cu_trump"),
     ] + extra + [
-        ln("xi", "Both of you. Be quiet. I will pay. Give me the waiter's data."),
+        ln("xi", "Both of you. Be quiet. I will pay. Give me the waiter's data.", cu=False),
         ("line", "mb", "I am a meatball!", "I AM a meatball!",
          dict(D_, cams=[(0, "cu_mb")], gap=0.06, voice="kokoro:adam-puck@speed=1.16")),
-        ln("trump", "Then we tariff the meatball. Big tariff.", 0.0),
+        ln("trump", "Then we tariff the meatball. Big tariff.", 0.0, cu=False),
         ("hold", 0.25, "cu_mb"),
-        ln("mb", "Moral of the story: three superpowers, zero wallets, and the meatball still gets screwed. Goddamn.",
-           0.0, cap="Moral of the story: three superpowers, zero wallets, and the meatball still gets screwed. G#@damn."),
+        ("line", "mb", "Moral of the story: three superpowers, zero wallets, and the meatball still gets screwed. "
+                       "Goddamn.",
+         "Moral of the story: three superpowers, zero wallets, and the meatball still gets screwed. G#@damn.",
+         dict(D_, cams=[(0, "cu_mb"), (8, "wide")], gap=0.0)),
         ("hold", 0.2, "wide"),
         ("gag", "end", 1.6 if short else 2.6, "diner", "wide"),
     ]
     if short:   # 35 s cap on the YouTube cut: no reaction holds
         seq = [it for it in seq if it[0] != "hold"]
     ORDER = ("trump", "xi", "putin")
-    HEAD_W = {"trump": 300, "xi": 290, "putin": 250}   # head width in rig units (the kids' heads are about 200)
+    HEAD_W = {"trump": 300, "xi": 290, "putin": 250}
     SEAT = {"trump": 0, "xi": 1, "putin": 2, "mb": 3}
+
+    def tline(text, who):
+        l_ = H.lines_with(text, who)
+        return l_[0] if l_ else None
+
+    def beat(text, who, frac):   # the time `frac` of the way through a line (an action beat), or None
+        l_ = tline(text, who)
+        return None if l_ is None else l_["start"] + l_["dur"] * frac
+
+    def slams():
+        out = [beat("Everything else", "trump", 0.62), beat("Nobody pays", "trump", 0.45),
+               beat("Vlad. Vlad.", "trump", 0.2)]
+        return [x for x in out if x is not None]
+
+    def punch(t):   # 1.0 right after any line ends, fading over 0.5 s: everybody else reacts
+        best = 0.0
+        for l_ in G["lines"]:
+            e = l_["start"] + l_["dur"]
+            if -0.25 <= t - e < 0.5:
+                best = max(best, 1.0 - max(0.0, t - e) / 0.5)
+        return best
+
+    def last_speaker(t):
+        who = None
+        for l_ in G["lines"]:
+            if l_["start"] <= t:
+                who = l_["who"]
+        return who
 
     def pose_hook(c, t, fi, li, scene, p):
         p = lively(c, t, li, p, G["L"][scene]["cast"], 1.0)
         hop, j, ang, (aL, aR), hk, sq, rot, extra_ = p
-        tar = H.lines_with("tariff", "trump")
-        if c == "mb" and tar and t >= tar[0]["t0"]:
-            hk = (hk[0], hk[1], hk[2], "wide")
-        if c == "trump" and li is not None and G["lines"][li]["who"] == "trump":   # the pinch hand, up by his face
-            aL = -150 + 26 * math.sin(t * 9.0)
+        who = G["lines"][li]["who"] if li is not None else None
+        f2 = (fi // 2) * 2 / FPS   # poses hold for two frames ("on twos")
+        if c in SEAT and c != "mb":
+            if who == c:   # the speaker gestures on every line: point, slam, shrug, wave, by turn
+                g = li % 4
+                if g == 0:   # point at whoever spoke before
+                    aR = 96 + 10 * math.sin(f2 * 14)
+                    aL = -20
+                elif g == 1:   # chop the table
+                    k = abs(math.sin(f2 * 7.0))
+                    aL, aR = -150 * k - 15, 150 * k + 15
+                elif g == 2:   # shrug
+                    aL, aR = -120 - 14 * math.sin(f2 * 9), 120 + 14 * math.sin(f2 * 9 + 1)
+                else:   # wave him off
+                    aL, aR = -30, 140 + 30 * math.sin(f2 * 12)
+                hop = hop - 6 * abs(math.sin(f2 * 8))
+                if c == "trump":   # the pinch hand never rests
+                    aL = -150 + 26 * math.sin(f2 * 9.0)
+            else:   # listeners: lean in, and flinch when a punchline lands
+                pk = punch(t)
+                src = last_speaker(t)
+                if pk > 0 and src and src != c and src in SEAT:
+                    away = -1 if SEAT[src] > SEAT[c] else 1
+                    ang = ang + 7 * pk * away
+                    hop = hop - 14 * pk
+                    aL, aR = aL - 60 * pk, aR + 60 * pk
+            for st in slams():   # Trump slams the table: both arms come down
+                if c == "trump" and -0.18 <= t - st < 0.22:
+                    aL, aR = (-160, 160) if t < st else (-12, 12)
+        tar = tline("tariff", "trump")
+        if c == "mb" and tar:
+            e = tar["start"] + tar["dur"]
+            if t >= tar["t0"]:
+                hk = (hk[0], hk[1], hk[2], "wide")
+            if 0 <= t - e < 0.5:   # stamped flat, then he springs back
+                k = (t - e) / 0.5
+                sq = 0.45 + 0.55 * k + 0.12 * math.sin(k * 12) * (1 - k)
         return (hop, j, ang, (aL, aR), hk, sq, rot, extra_)
+
+    def shakes():
+        out = [(st, 0.45) for st in slams()]
+        tar = tline("tariff", "trump")
+        if tar:
+            out.append((tar["start"] + tar["dur"], 0.6))
+        return out
 
     def post(fr, cam, t, fi, li, scene, L):
         K, S = L["K"], L[scene]
         z = cam.z * K
         who = G["lines"][li]["who"] if li is not None else None
         lvl = C.mouth_level(G["lines"][li], t) if li is not None else 0
-        seg0 = C2.seg_at(t)[0]
+        seg0, _, cname = C2.seg_at(t)
+        pk = punch(t)
+        src = last_speaker(t)
+        hopt = 0.0   # the table things hop when Trump slams
+        for st in slams():
+            if 0 <= t - st < 0.25:
+                hopt = -12 * (1 - (t - st) / 0.25)
         for c in ORDER:   # Studio's picture heads on the paper suits
             x = S["cast"][c]
             p = pose_hook(c, t, fi, li, scene, H.pose(c, t, fi, li, scene))
             hop, (jx, jy), ang = p[0], p[1], p[2]
             look = 0 if who in (None, c) or who not in SEAT else (1 if SEAT[who] > SEAT[c] else -1)
-            frac = LEADERS[c]["head"][2] * 2 * 1.06   # head width as a fraction of the picture
+            if who is None and src and src != c and src in SEAT:
+                look = 1 if SEAT[src] > SEAT[c] else -1
+            shocked = pk > 0.2 and src != c
+            brow = (1.0 * pk if shocked else 0.0)
+            if who == c:   # the speaker's brows work on the stressed syllables
+                brow = 0.9 if lvl == 2 else (-0.6 if (fi // 6) % 3 == 0 else 0.0)
+            frac = LEADERS[c]["head"][2] * 2 * 1.06
             w = max(40, int(HEAD_W[c] * z / frac))
-            hd, piv = leader_head(c, w, lvl, t, who == c, look)
-            jolt = t - seg0 if (who != c and C2.seg_at(t)[2] == "cu_" + c) else None
+            hd, piv = leader_head(c, w, 2 if (shocked and c == "trump") else lvl, t,
+                                  who == c or (shocked and c == "trump"), look, wide_eyes=shocked, brow=brow)
             if who == c:
-                ang = ang + 3.0 * math.sin(t * 5.3)
-                jy = jy - (4 + 5 * lvl)
-            if jolt is not None and jolt < 0.6:
-                kq = math.exp(-jolt * 7)
-                jy, ang = jy - 26 * kq, ang + 5.0 * kq * math.cos(jolt * 30)
-            pad = int(hd.size[0] * 0.12)
+                ang = ang + 6.0 * math.sin((fi // 2) * 2 / FPS * 5.3)
+                jy = jy - (4 + 6 * lvl)
+            pad = int(hd.size[0] * 0.14)
             canvas = Image.new("RGBA", (hd.size[0] + 2 * pad, hd.size[1] + 2 * pad), (0, 0, 0, 0))
             canvas.paste(hd, (pad, pad))
             pv = (pad + piv[0], pad + piv[1])
-            canvas = canvas.rotate(ang - 1.5 * look, resample=Image.BICUBIC, center=pv)
+            canvas = canvas.rotate(ang - 2.0 * look, resample=Image.BICUBIC, center=pv)
             nx, ny = cam.p(x, L["feet"] + hop * K)
             rig = H.RIG[c]
-            hx = nx + (rig["neck"][0] + jx + 8 * look) * z
+            hx = nx + (rig["neck"][0] + jx + 10 * look) * z
             hy = ny + (rig["neck"][1] + jy + 34) * z
             fr.alpha_composite(canvas, (int(hx - pv[0]), int(hy - pv[1])))
         d = ImageDraw.Draw(fr)
+        calc = tline("bankrupt", "xi")   # Xi's giant calculator rises from under the table
+        if calc and calc["start"] - 0.1 <= t < calc["start"] + calc["dur"] + 0.4:
+            k = min(1.0, (t - calc["start"] + 0.1) / 0.25)
+            cx_, cy_ = cam.p(S["cast"]["xi"] + 190 * K, S["top"] - (230 * k - 60) * K)
+            d.rounded_rectangle([cx_ - 80 * z, cy_ - 120 * z, cx_ + 80 * z, cy_ + 130 * z], radius=int(12 * z),
+                                fill=(52, 56, 64), outline=INK, width=max(2, int(5 * z)))
+            d.rectangle([cx_ - 62 * z, cy_ - 100 * z, cx_ + 62 * z, cy_ - 52 * z], fill=(170, 220, 160))
+            d.text((cx_ + 54 * z, cy_ - 76 * z), "6", font=ImageFont.truetype(FONT, max(8, int(44 * z))), fill=INK,
+                   anchor="rm")
+            for q in range(12):
+                bx_, by_ = cx_ + (q % 3 - 1) * 42 * z, cy_ + (q // 3) * 40 * z - 22 * z
+                d.rectangle([bx_ - 15 * z, by_ - 13 * z, bx_ + 15 * z, by_ + 13 * z], fill=(214, 216, 222))
         x0, y0 = cam.p(S["cast"]["trump"] - 230 * K, S["top"])   # the table, in front of the three
         x1, y1 = cam.p(S["cast"]["putin"] + 210 * K, L["feet"] + 500 * K)
         d.rectangle([x0, y0, x1, y1], fill=(232, 222, 206), outline=(190, 178, 160), width=max(2, int(4 * z)))
         d.rectangle([x0, y0, x1, y0 + 30 * z], fill=(244, 236, 222))
         for c, name in (("trump", "TRUMP"), ("xi", "XI"), ("putin", "PUTIN")):
             cx_ = S["cast"][c]
-            fx, fy = cam.p(cx_ - 165 * K, S["top"] + 34 * K)   # desk flag
+            fx, fy = cam.p(cx_ - 165 * K, S["top"] + (34 + hopt) * K)   # desk flag
             d.line([fx, fy, fx, fy - 96 * z], fill=(40, 40, 40), width=max(2, int(5 * z)))
             d.ellipse([fx - 20 * z, fy - 6 * z, fx + 20 * z, fy + 6 * z], fill=(30, 30, 30))
             wv = 3 * z * math.sin(t * 4 + cx_)
@@ -2784,29 +2889,46 @@ def bill(short=False):
             else:
                 for q, col in enumerate((WHITE, (40, 70, 170), (200, 40, 40))):
                     d.rectangle([fl[0], fl[1] + q * 14 * z, fl[2], fl[1] + (q + 1) * 14 * z + wv * q / 3], fill=col)
-            if cam.z < 1.2:   # name plates on the wide shot (they crop in close-ups)
-                px_, py_ = cam.p(cx_ + 10 * K, S["top"] + 66 * K)
+            if cam.z < 1.2:   # name plates on the wide and three-shot (they crop in close-ups)
+                px_, py_ = cam.p(cx_ + 10 * K, S["top"] + (66 + hopt) * K)
                 f = ImageFont.truetype(FONT, max(8, int(40 * z)))
                 wdt = d.textlength(name, font=f) / 2 + 18 * z
                 d.rectangle([px_ - wdt, py_ - 30 * z, px_ + wdt, py_ + 30 * z], fill=(250, 246, 236), outline=INK,
                             width=max(2, int(4 * z)))
                 d.text((px_, py_), name, font=f, fill=INK, anchor="mm")
-        gx, gy = cam.p(S["cast"]["putin"] + 150 * K, S["top"] + 6 * K)   # Putin's shot glass
+        gx, gy = cam.p(S["cast"]["putin"] + 150 * K, S["top"] + (6 + hopt) * K)   # Putin's shot glass
         d.polygon([(gx - 20 * z, gy - 50 * z), (gx + 20 * z, gy - 50 * z), (gx + 15 * z, gy), (gx - 15 * z, gy)],
                   fill=(214, 224, 232), outline=(120, 130, 140))
-        pooh = H.lines_with("Winnie", "trump")
-        if pooh and li is not None and G["lines"][li] is pooh[0] and C2.seg_at(t)[2] == "cu_xi":   # the honey pot
+        for st in slams():   # SLAM! on the table
+            if 0 <= t - st < 0.35:
+                px_, py_ = cam.p(S["cast"]["trump"] + 40 * K, S["top"] - 30 * K)
+                paste(fr, C2.spr("star", round(z * 0.5, 2), "SLAM!"), px_, py_, (fi % 2) * 8)
+        # the check: starts by Meatball, Putin slides it to Xi, Xi flicks it onto Meatball's head
+        sl = tline("Relax", "putin")
+        tos = tline("waiter's data", "xi")
+        chk = (S["cast"]["putin"] + 60 * K, S["top"] + 4 * K, 0)
+        if sl and t >= sl["start"]:
+            k = min(1.0, (t - sl["start"]) / max(0.3, sl["dur"] * 0.7))
+            chk = (S["cast"]["putin"] + 60 * K - k * (S["cast"]["putin"] - S["cast"]["xi"] - 40 * K), S["top"] + 4 * K, 0)
+        if tos and t >= tos["start"] + tos["dur"] * 0.6:
+            k = min(1.0, (t - tos["start"] - tos["dur"] * 0.6) / 0.45)
+            xa, xb = S["cast"]["xi"] + 100 * K, S["cast"]["mb"]
+            chk = (xa + (xb - xa) * k, S["top"] + 4 * K - (math.sin(k * math.pi) * 420 + k * 330) * K, k * 400)
+        kx, ky = cam.p(chk[0], chk[1])
+        paste(fr, _check_img(round(z, 2)), kx, ky - 14 * z, chk[2])
+        pooh = tline("Winnie", "trump")
+        if pooh and li is not None and G["lines"][li] is pooh and cname == "cu_xi":   # the honey pot, pinned
             kq = min(1.0, (t - seg0) / 0.2)
-            px_, py_ = cam.p(S["cast"]["xi"] + 170 * K, S["top"] - 20 * K + (1 - kq) * 200)
-            r = 46 * z
+            px_, py_ = cam.p(S["cast"]["xi"] + 170 * K, S["top"] - 20 * K)
+            r = 46 * z * kq
             d.ellipse([px_ - r, py_ - r * 1.1, px_ + r, py_ + r * 0.9], fill=(214, 150, 50), outline=INK, width=5)
             d.rectangle([px_ - r * 0.8, py_ - r * 1.3, px_ + r * 0.8, py_ - r * 0.9], fill=(170, 110, 40), outline=INK,
                         width=5)
             d.text((px_, py_ + r * 0.1), "HONEY", font=ImageFont.truetype(FONT, max(8, int(r * 0.42))), fill=INK,
                    anchor="mm")
-        tar = H.lines_with("tariff", "trump")
-        if tar and C2.seg_at(t)[2] == "cu_mb" and 0 <= t - (tar[0]["start"] + tar[0]["dur"]) < 1.2:   # stamped
-            kq = t - (tar[0]["start"] + tar[0]["dur"])
+        tar = tline("tariff", "trump")
+        if tar and cname == "cu_mb" and 0 <= t - (tar["start"] + tar["dur"]) < 1.2:   # stamped
+            kq = t - (tar["start"] + tar["dur"])
             paste(fr, C2.spr("star", round(z * 0.62 * (1.5 - 0.5 * min(1.0, kq / 0.12)), 2), "TARIFF!"), L["W"] * 0.5,
                   L["H"] * 0.15, -12)
         mx, my = cam.p(S["cast"]["mb"], L["feet"] - 150 * K)   # the waiter's bow tie
@@ -2814,15 +2936,41 @@ def bill(short=False):
         d.polygon([(mx + 34 * z, my - 16 * z), (mx, my), (mx + 34 * z, my + 16 * z)], fill=(24, 24, 28))
 
     def sfx(fx, music, ev, lines):
-        tar = H.lines_with("tariff", "trump")
+        tar = tline("tariff", "trump")
         if tar:
-            C2.thud(fx, tar[0]["start"] + tar[0]["dur"], 0.6)
+            C2.thud(fx, tar["start"] + tar["dur"], 0.9)
+        for st in slams():
+            C2.thud(fx, st, 0.7)
+        sl = tline("Relax", "putin")
+        if sl:
+            add(fx, C2.noise_burst(0.5, 0.3, 71, 3), sl["start"], 0.12)   # the check slides
+        tos = tline("waiter's data", "xi")
+        if tos:
+            add(fx, C2.noise_burst(0.2, 0.12, 72, 1), tos["start"] + tos["dur"] * 0.6, 0.2)   # flick
 
     return dict(title="THE DINNER BILL", end=["WHO SKIPPED", "THE", "CHECK?"], seq=seq,
                 headline=["TRUMP, XI & PUTIN", "SPLIT THE DINNER BILL"], headline_size=1.45, headline_t=1.12,
                 target=0 if short else 62.1,
                 scenes={"diner": dict(layout=diner_layout, bg=curtain_bg)},
-                pose_hook=pose_hook, post=post, sfx=sfx)
+                pose_hook=pose_hook, post=post, sfx=sfx, shakes=shakes)
+
+
+def _check_img(z):
+    key = ("check", z)
+    if key not in _LIMG:
+        s_ = int(160 * z) + 8
+        im = Image.new("RGBA", (s_, s_), (0, 0, 0, 0))
+        d = ImageDraw.Draw(im)
+        c = s_ / 2
+        d.rectangle([c - 44 * z, c - 62 * z, c + 44 * z, c + 62 * z], fill=(250, 248, 240), outline=INK,
+                    width=max(2, int(4 * z)))
+        d.text((c, c - 36 * z), "BILL", font=ImageFont.truetype(FONT, max(6, int(26 * z))), fill=(200, 40, 32),
+               anchor="mm")
+        for q in range(4):
+            d.line([c - 30 * z, c - 8 * z + q * 16 * z, c + 30 * z, c - 8 * z + q * 16 * z], fill=INK,
+                   width=max(1, int(3 * z)))
+        _LIMG[key] = im
+    return _LIMG[key]
 
 
 EPISODES = {"bill": bill, "billshort": lambda: bill(True), "t58": t58, "t58short": lambda: t58(True), "confession_nb": nobanner(confession, ["MEATBALL GOES", "TO CONFESSION"]), "confession": confession, "ozempic": ozempic, "ep6v4": ep6v4, "ep5v4": ep5v4, "ep7v4": ep7v4, "ep3": ep3, "ep4": ep4, "ep5": ep5, "ep6": ep6, "ep7": ep7, "ep8": ep8, "ep7v3": ep7v3, "ep3v3": ep3v3}
