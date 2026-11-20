@@ -543,12 +543,27 @@ SEQ_V8 = [   # v8 SHORT (~60 s): side-hustles/channels/scripts/cutout-black-frid
     ("gag", "end", 3.0, "dawn", "wide"),
 ]
 
+def _mask(seq, subs):
+    """Same audio, masked swears in the burned-in caption (Studio 11/20: v9)."""
+    out = []
+    for it in seq:
+        if it[0] == "line":
+            cap = it[3] or it[2]
+            for a, b in subs:
+                cap = cap.replace(a, b)
+            it = (it[0], it[1], it[2], cap if cap != it[2] else it[3], it[4])
+        out.append(it)
+    return out
+
+
+SEQ_V9 = _mask(SEQ_V8, [("fucking", "f#@%ing"), ("Fuck", "F#@k"), ("shit", "s#@t"), ("goddamn", "g#@damn")])
+
 SEQ = list(SEQ_V8)   # the script build() renders; use_script() swaps it
 
 
 def use_script(name):
     """Pick the script (and the voices it was cast with)."""
-    SEQ[:] = {"v2": SEQ_V2, "v3": SEQ_V3, "v4": SEQ_V4, "v5": SEQ_V5, "v6": SEQ_V6, "v7": SEQ_V7, "v8": SEQ_V8}[name]
+    SEQ[:] = {"v2": SEQ_V2, "v3": SEQ_V3, "v4": SEQ_V4, "v5": SEQ_V5, "v6": SEQ_V6, "v7": SEQ_V7, "v8": SEQ_V8, "v9": SEQ_V9}[name]
     if name in ("v2", "v3", "v4"):
         V.update(V_OLD)
 
@@ -2440,7 +2455,7 @@ if __name__ == "__main__":
     ap.add_argument("--sheet")
     ap.add_argument("--times", type=float, nargs="*")
     ap.add_argument("--timeline", action="store_true")
-    ap.add_argument("--script", default="v8", choices=["v2", "v3", "v4", "v5", "v6", "v7", "v8"])
+    ap.add_argument("--script", default="v8", choices=["v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9"])
     a = ap.parse_args()
     use_script(a.script)
     if a.timeline:

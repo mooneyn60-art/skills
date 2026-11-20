@@ -1743,7 +1743,15 @@ def ep3v3():
                 post=post, pose_hook=pose_hook, where=where, sfx=sfx, silences=silences)
 
 
-EPISODES = {"ep3": ep3, "ep4": ep4, "ep5": ep5, "ep6": ep6, "ep7": ep7, "ep8": ep8, "ep7v3": ep7v3, "ep3v3": ep3v3}
+def ep7v4():
+    """QA #15 F1: no pronoun in the bite line."""
+    ep = ep7v3()
+    ep["seq"] = [(it[0], it[1], "Sage bit me! The vegan bit me!", "Sage BIT me! The vegan bit me!", it[4])
+                 if it[0] == "line" and it[2].startswith("She bit me") else it for it in ep["seq"]]
+    return ep
+
+
+EPISODES = {"ep7v4": ep7v4, "ep3": ep3, "ep4": ep4, "ep5": ep5, "ep6": ep6, "ep7": ep7, "ep8": ep8, "ep7v3": ep7v3, "ep3v3": ep3v3}
 
 
 # ------------------------------------------------------------------------------------------------ engine
