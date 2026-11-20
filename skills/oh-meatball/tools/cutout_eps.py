@@ -2515,8 +2515,13 @@ def diner_bg(L, cam, scene):
 
 LEADER_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets", "leaders")
 #            mouth centre (x, y) and width, as fractions of the model picture
-LEADERS = {"trump": dict(mouth=(0.515, 0.497), mw=0.075), "xi": dict(mouth=(0.502, 0.487), mw=0.11),
-           "putin": dict(mouth=(0.517, 0.502), mw=0.11)}
+LEADERS = {
+    "trump": dict(mouth=(0.515, 0.497), mw=0.075, eyes=((0.405, 0.378, 0.088, 0.058), (0.55, 0.378, 0.088, 0.058)),
+                  hand=(0.17, 0.52, 0.40, 0.76), blink=0),
+    "xi": dict(mouth=(0.502, 0.487), mw=0.11, eyes=((0.415, 0.385, 0.092, 0.052), (0.56, 0.385, 0.092, 0.052)),
+               blink=13),
+    "putin": dict(mouth=(0.517, 0.502), mw=0.11, eyes=((0.425, 0.368, 0.068, 0.05), (0.575, 0.372, 0.068, 0.05)),
+                  blink=27)}
 _LIMG = {}
 
 
@@ -2529,32 +2534,85 @@ def leader_img(name, w):
     return _LIMG[key]
 
 
-def draw_leader(fr, name, x0, y0, w, lvl, t, speaking):
-    """Paste the picture with its curtain and tablecloth run on to the frame edges; bob and flap the mouth when
-    this leader talks. The table strip (bottom 17%) stays still."""
+def _oval_mask(w, h, feather):
+    key = ("mask", w, h, feather)
+    if key not in _LIMG:
+        from PIL import ImageFilter
+        m = Image.new("L", (w, h), 0)
+        ImageDraw.Draw(m).ellipse([feather, feather, w - feather, h - feather], fill=255)
+        _LIMG[key] = m.filter(ImageFilter.GaussianBlur(feather / 2))
+    return _LIMG[key]
+
+
+def draw_leader(fr, name, x0, y0, w, lvl, t, speaking, react=False):
+    """Studio's picture as a paper puppet. The curtain and tablecloth run on to the frame edges; the table strip
+    (bottom 17%) never moves. Talking: the upper body squashes and stretches with the voice, the mouth opens in two
+    sizes, Trump's pinch hand pumps. Always: blinks. react=True: a small startled hop."""
     im = leader_img(name, w)
     h = im.size[1]
     W, H_ = fr.size
-    top = im.crop((0, 0, w, 6)).resize((w, max(1, y0)), Image.BILINEAR)
-    fr.paste(top, (x0, 0))
+    fi = int(t * FPS)
+    spec = LEADERS[name]
+    fr.paste(im.crop((0, 0, w, 6)).resize((w, max(1, y0)), Image.BILINEAR), (x0, 0))
     if y0 + h < H_:
         fr.paste(im.crop((0, h - 6, w, h)).resize((w, H_ - y0 - h), Image.BILINEAR), (x0, y0 + h))
     fr.paste(im, (x0, y0))
-    dy = int(abs(math.sin(t * 9.0)) * w * 0.012) if speaking else 0
     cut = int(h * 0.83)
+    grow = 0.0
+    if speaking:
+        grow = 0.006 + 0.012 * lvl + 0.006 * abs(math.sin(t * 8.0))
+    elif react:
+        grow = 0.03 * max(0.0, 1 - (t % 1.0) * 6) if False else 0.0
+    nh = int(cut * (1 + grow))
     upper = im.crop((0, 0, w, cut))
-    if dy:
-        fr.paste(upper, (x0, y0 - dy))
+    if nh != cut:
+        upper = upper.resize((w, nh), Image.BILINEAR)
+    top = y0 + cut - nh
+    fr.paste(upper, (x0, top))
+    sy = nh / cut
+
+    def pt(fx, fy):   # a point of the picture, after the stretch
+        return x0 + fx * w, top + fy * h * sy
+
+    d = ImageDraw.Draw(fr)
+    if "hand" in spec and speaking:   # the pinch hand pumps on the beat
+        a, b, c, e = spec["hand"]
+        box = (int(a * w), int(b * h), int(c * w), int(e * h))
+        patch = im.crop(box)
+        dyh = -int(abs(math.sin(t * 8.0 + 0.6)) * w * 0.014)
+        px, py = pt(a, b)
+        fr.paste(patch, (int(px), int(py) + dyh), _oval_mask(patch.size[0], patch.size[1], max(4, w // 60)))
+    if (fi + spec["blink"]) % 38 < 2:   # a two-frame blink
+        for (ex, ey, rx, ry) in spec["eyes"]:
+            cx, cy = pt(ex, ey)
+            skin = im.getpixel((int(ex * w), int((ey - 0.085) * h)))
+            d.ellipse([cx - rx * w, cy - ry * h * 0.95, cx + rx * w, cy + ry * h * 0.95], fill=skin)
+            d.line([cx - rx * w * 0.8, cy + ry * h * 0.2, cx + rx * w * 0.8, cy + ry * h * 0.2],
+                   fill=(60, 40, 30), width=max(2, w // 220))
     if speaking and lvl > 0:
-        mx, my = LEADERS[name]["mouth"]
-        mw = LEADERS[name]["mw"] * w
-        cx, cy = x0 + mx * w, y0 + my * h - dy
+        mx, my = spec["mouth"]
+        mw = spec["mw"] * w
+        cx, cy = pt(mx, my)
         skin = im.getpixel((int(mx * w), int((my + 0.05) * h)))
-        d = ImageDraw.Draw(fr)
         d.ellipse([cx - mw * 0.62, cy - mw * 0.24, cx + mw * 0.62, cy + mw * 0.3], fill=skin)
-        ry = mw * (0.16 if lvl == 1 else 0.3)
-        d.ellipse([cx - mw * 0.4, cy - ry * 0.7, cx + mw * 0.4, cy + ry * 1.2], fill=MOUTH)
+        ry = mw * (0.16 if lvl == 1 else 0.32)
+        d.ellipse([cx - mw * 0.4, cy - ry * 0.7, cx + mw * 0.4, cy + ry * 1.2], fill=MOUTH,
+                  outline=(60, 20, 20), width=max(1, w // 300))
+        if lvl == 2:
+            d.rectangle([cx - mw * 0.26, cy - ry * 0.62, cx + mw * 0.26, cy - ry * 0.3], fill=WHITE)   # top teeth
         d.ellipse([cx - mw * 0.2, cy + ry * 0.5, cx + mw * 0.2, cy + ry * 1.1], fill=(226, 98, 104))
+
+
+def push_in(fr, k, fy=0.42, amount=0.06):
+    """A slow camera push: zoom the finished frame by up to `amount` around (centre, fy)."""
+    z = 1 + amount * max(0.0, min(1.0, k))
+    if z <= 1.001:
+        return
+    W, H_ = fr.size
+    cw, ch = W / z, H_ / z
+    cx, cy = W / 2, H_ * fy
+    x0, y0 = min(max(0, cx - cw / 2), W - cw), min(max(0, cy - ch / 2), H_ - ch)
+    fr.paste(fr.crop((int(x0), int(y0), int(x0 + cw), int(y0 + ch))).resize((W, H_), Image.BILINEAR), (0, 0))
 
 
 def bill(short=False):
@@ -2590,7 +2648,8 @@ def bill(short=False):
         ("line", "mb", "Gentlemen, your check.", None, dict(D_, cams=[(0, "wide")], gap=0.06)),
         ln("trump", "Put it on China. Everything else is. Everything. Believe me."),
         ln("xi", "You want China to pay? You went bankrupt. Six times."),
-        ln("trump", "Six times! And I'm still richer than your whole Winnie the Pooh fan club." + ("" if short else " Much richer.")),
+        ("line", "trump", "Six times! And I'm still richer than your whole Winnie the Pooh fan club."
+         + ("" if short else " Much richer."), None, dict(D_, cams=[(0, "cu_trump"), (9, "cu_xi")], gap=0.06)),
         ln("putin", "Relax. I pay. Vith Russian money.", cap="Relax. I pay. With Russian money."),
         ln("trump", "Vlad. Vlad. Russian money is a Monopoly box with a shotgun in it."),
         ln("putin", "Says man who sold steaks, at Sharper Image.", 0.0, cap="Says man who sold steaks, at Sharper Image."),
@@ -2635,7 +2694,21 @@ def bill(short=False):
             for k, c in enumerate(ORDER):
                 draw_leader(fr, c, k * w, y0, w if k < 2 else W - 2 * w, lvl, t, who == c)
         elif name[3:] in LEADERS:
-            draw_leader(fr, name[3:], 0, int(H_ * 0.12), W, lvl, t, who == name[3:])
+            c = name[3:]
+            y0 = int(H_ * 0.12)
+            draw_leader(fr, c, 0, y0, W, lvl, t, who == c)
+            pooh = H.lines_with("Winnie", "trump")
+            if c == "xi" and pooh and li is not None and G["lines"][li] is pooh[0]:   # the honey pot pops up
+                k = min(1.0, (t - C2.seg_at(t)[0]) / 0.2)
+                d = ImageDraw.Draw(fr)
+                px, py, r = W * 0.84, y0 + W * 1.333 * 0.86 + (1 - k) * 200, W * 0.07
+                d.ellipse([px - r, py - r * 1.1, px + r, py + r * 0.9], fill=(214, 150, 50), outline=INK, width=5)
+                d.rectangle([px - r * 0.8, py - r * 1.3, px + r * 0.8, py - r * 0.9], fill=(170, 110, 40), outline=INK,
+                            width=5)
+                d.polygon([(px - r * 0.5, py - r * 1.3), (px + r * 0.5, py - r * 1.3), (px + r * 0.2, py - r * 0.5),
+                           (px - r * 0.3, py - r * 0.2)], fill=(252, 204, 60))
+                d.text((px, py + r * 0.1), "HONEY", font=ImageFont.truetype(FONT, int(r * 0.42)), fill=INK, anchor="mm")
+            push_in(fr, (t - C2.seg_at(t)[0]) / 2.5)
         else:   # Meatball's close-up: the same curtain and tablecloth, nobody at the table
             im = leader_img("putin", W)
             h = im.size[1]
@@ -2654,6 +2727,11 @@ def bill(short=False):
         K = L["K"]
         z = cam.z * K
         d = ImageDraw.Draw(fr)
+        tar = H.lines_with("tariff", "trump")
+        if tar and cam_name(t) == "cu_mb" and 0 <= t - (tar[0]["start"] + tar[0]["dur"]) < 1.2:   # stamped
+            k = t - (tar[0]["start"] + tar[0]["dur"])
+            sc = 1.9 - 0.9 * min(1.0, k / 0.12)
+            paste(fr, C2.spr("star", round(z * 1.25 * sc, 2), "TARIFF!"), L["W"] * 0.5, L["H"] * 0.33, -12)
         if cam_name(t) not in ("wide", "cu_mb"):
             return
         x, y = mb_spot(t, L)
