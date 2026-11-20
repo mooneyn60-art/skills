@@ -2404,9 +2404,9 @@ def t58(short=False):
 def diner_layout(L):
     vert = L["H"] > L["W"]
     if vert:
-        L["cap_y"] = 1510   # captions on the tablecloth, clear of faces and of the bottom 20%
-        return dict(cast=dict(trump=230, xi=600, putin=950, mb=1250), top=L["feet"] - 150 * L["K"],
-                    wide=(715, 1400, 0.78), cams={"three": (590, L["feet"] - 400 * L["K"], 1.06)})
+        top = L["feet"] - 150 * L["K"]   # the table line sits at y=1500 on the three-shot and the wide
+        return dict(cast=dict(trump=215, xi=575, putin=915, mb=1245), top=top,
+                    wide=(715, top - 540 / 0.8, 0.8), cams={"three": (565, top - 540 / 1.0, 1.0)})
     return dict(cast=dict(trump=420, xi=820, putin=1220, mb=1640), top=L["feet"] - 150 * L["K"],
                 wide=(960, 600, 1.0))
 
@@ -2630,13 +2630,14 @@ def leader_head(name, w, lvl, t, speaking, look=0, wide_eyes=False, brow=0.0):
         d.rectangle([x_, y_, x_ + strip_.size[0], y_ + strip_.size[1]], fill=skin)
         hd.paste(strip_, (int(x_), int(y_ - brow * 0.022 * w)))
         d = ImageDraw.Draw(hd)
-    if look:
-        for (px_, py_) in spec["pupils"]:
-            cx, cy = hp(px_, py_)
-            rr = 0.0125 * w
-            white = im.getpixel((int(px_ * w), int(py_ * h + 0.028 * h)))
-            d.ellipse([cx - rr * 1.35, cy - rr * 1.35, cx + rr * 1.35, cy + rr * 1.35], fill=white)
-            d.ellipse([cx + 0.011 * w * look - rr, cy - rr, cx + 0.011 * w * look + rr, cy + rr], fill=(20, 18, 18))
+    for (px_, py_) in spec["pupils"]:   # pupils: always repainted, a size up so the eyes never read as blank discs
+        cx, cy = hp(px_, py_)
+        rr = 0.0125 * w
+        white = im.getpixel((int(px_ * w), int(py_ * h + 0.028 * h)))
+        d.ellipse([cx - rr * 1.35, cy - rr * 1.35, cx + rr * 1.35, cy + rr * 1.35], fill=white)
+        r2 = rr * 1.35
+        d.ellipse([cx + 0.011 * w * look - r2, cy + rr * 0.25 - r2, cx + 0.011 * w * look + r2, cy + rr * 0.25 + r2],
+                  fill=(20, 18, 18))
     if (fi + spec["blink"]) % 38 < 2 and not wide_eyes:
         for (ex, ey, rx, ry) in spec["eyes"]:
             cx, cy = hp(ex, ey)
@@ -2677,8 +2678,6 @@ def curtain_bg(L, cam, scene):
     """The red curtain from Studio's pictures, run across the whole frame, with a floor line."""
     im = leader_img("putin", L["W"])
     img = im.crop((0, 0, L["W"], 6)).resize((L["W"], L["H"]), Image.BILINEAR).convert("RGBA")
-    x, y = cam.p(0, L["feet"] + 40)
-    ImageDraw.Draw(img).rectangle([0, y, L["W"], L["H"]], fill=(70, 26, 24))
     return C.vignette(img)
 
 
@@ -2740,7 +2739,7 @@ def bill(short=False):
     if short:   # 35 s cap on the YouTube cut: no reaction holds
         seq = [it for it in seq if it[0] != "hold"]
     ORDER = ("trump", "xi", "putin")
-    HEAD_W = {"trump": 300, "xi": 290, "putin": 250}
+    HEAD_W = {"trump": 250, "xi": 240, "putin": 212}
     SEAT = {"trump": 0, "xi": 1, "putin": 2, "mb": 3}
 
     def tline(text, who):
@@ -2813,12 +2812,23 @@ def bill(short=False):
                 sq = 0.45 + 0.55 * k + 0.12 * math.sin(k * 12) * (1 - k)
         return (hop, j, ang, (aL, aR), hk, sq, rot, extra_)
 
+    def shown(c, cname):   # close-ups are clean singles: nobody's half face at the frame edge
+        return cname in ("three", "wide") or cname == "cu_" + c
+
+    def where(c, t, scene, L):
+        if not shown(c, C2.seg_at(t)[2]):
+            return None
+        y = L["feet"]
+        if c == "mb":   # the waiter stands on a box so he clears the table
+            y -= 150 * L["K"]
+        return (L[scene]["cast"][c], y)
+
+    def pre(fr, cam, t, fi, li, scene, L):
+        # captions: above the heads on the group shots, on the tablecloth in close-ups (never on a face)
+        L["cap_y"] = 900 if C2.seg_at(t)[2] in ("three", "wide") else 1420
+
     def shakes():
-        out = [(st, 0.45) for st in slams()]
-        tar = tline("tariff", "trump")
-        if tar:
-            out.append((tar["start"] + tar["dur"], 0.6))
-        return out
+        return []   # no camera shake: it showed black frame edges; the props hop instead
 
     def post(fr, cam, t, fi, li, scene, L):
         K, S = L["K"], L[scene]
@@ -2833,6 +2843,8 @@ def bill(short=False):
             if 0 <= t - st < 0.25:
                 hopt = -12 * (1 - (t - st) / 0.25)
         for c in ORDER:   # Studio's picture heads on the paper suits
+            if not shown(c, cname):
+                continue
             x = S["cast"][c]
             p = pose_hook(c, t, fi, li, scene, H.pose(c, t, fi, li, scene))
             hop, (jx, jy), ang = p[0], p[1], p[2]
@@ -2859,6 +2871,9 @@ def bill(short=False):
             rig = H.RIG[c]
             hx = nx + (rig["neck"][0] + jx + 10 * look) * z
             hy = ny + (rig["neck"][1] + jy + 34) * z
+            nk = leader_img(c, 64).getpixel((int(LEADERS[c]["mouth"][0] * 64), int((LEADERS[c]["mouth"][1] + 0.05) * 85)))
+            ImageDraw.Draw(fr).rectangle([nx - 34 * z, hy - 40 * z, nx + 34 * z, ny + (rig["neck"][1] + 16) * z],
+                                         fill=tuple(max(0, v - 18) for v in nk[:3]))   # the neck, tucked in the collar
             fr.alpha_composite(canvas, (int(hx - pv[0]), int(hy - pv[1])))
         d = ImageDraw.Draw(fr)
         calc = tline("bankrupt", "xi")   # Xi's giant calculator rises from under the table
@@ -2873,11 +2888,13 @@ def bill(short=False):
             for q in range(12):
                 bx_, by_ = cx_ + (q % 3 - 1) * 42 * z, cy_ + (q // 3) * 40 * z - 22 * z
                 d.rectangle([bx_ - 15 * z, by_ - 13 * z, bx_ + 15 * z, by_ + 13 * z], fill=(214, 216, 222))
-        x0, y0 = cam.p(S["cast"]["trump"] - 230 * K, S["top"])   # the table, in front of the three
-        x1, y1 = cam.p(S["cast"]["putin"] + 210 * K, L["feet"] + 500 * K)
-        d.rectangle([x0, y0, x1, y1], fill=(232, 222, 206), outline=(190, 178, 160), width=max(2, int(4 * z)))
-        d.rectangle([x0, y0, x1, y0 + 30 * z], fill=(244, 236, 222))
+        _, y0 = cam.p(0, S["top"])   # the table runs the full width of every shot
+        d.rectangle([-10, y0, L["W"] + 10, L["H"] + 10], fill=(232, 222, 206))
+        d.rectangle([-10, y0, L["W"] + 10, y0 + 30 * z], fill=(244, 236, 222))
+        d.line([0, y0, L["W"], y0], fill=(190, 178, 160), width=max(2, int(4 * z)))
         for c, name in (("trump", "TRUMP"), ("xi", "XI"), ("putin", "PUTIN")):
+            if not shown(c, cname):
+                continue
             cx_ = S["cast"][c]
             fx, fy = cam.p(cx_ - 165 * K, S["top"] + (34 + hopt) * K)   # desk flag
             d.line([fx, fy, fx, fy - 96 * z], fill=(40, 40, 40), width=max(2, int(5 * z)))
@@ -2906,7 +2923,8 @@ def bill(short=False):
                             width=max(2, int(4 * z)))
                 d.text((px_, py_), name, font=f, fill=INK, anchor="mm")
         gx, gy = cam.p(S["cast"]["putin"] + 150 * K, S["top"] + (6 + hopt) * K)   # Putin's shot glass
-        d.polygon([(gx - 20 * z, gy - 50 * z), (gx + 20 * z, gy - 50 * z), (gx + 15 * z, gy), (gx - 15 * z, gy)],
+        if shown("putin", cname):
+            d.polygon([(gx - 20 * z, gy - 50 * z), (gx + 20 * z, gy - 50 * z), (gx + 15 * z, gy), (gx - 15 * z, gy)],
                   fill=(214, 224, 232), outline=(120, 130, 140))
         for st in slams():   # SLAM! on the table
             if 0 <= t - st < 0.35:
@@ -2924,7 +2942,8 @@ def bill(short=False):
             xa, xb = S["cast"]["xi"] + 100 * K, S["cast"]["mb"]
             chk = (xa + (xb - xa) * k, S["top"] + 4 * K - (math.sin(k * math.pi) * 420 + k * 330) * K, k * 400)
         kx, ky = cam.p(chk[0], chk[1])
-        paste(fr, _check_img(round(z * 0.62, 2)), kx, ky - 30 * z, chk[2])
+        if cname in ("three", "wide", "cu_mb"):
+            paste(fr, _check_img(round(z * 0.62, 2)), kx, ky - 30 * z, chk[2])
         pooh = tline("Winnie", "trump")
         if pooh and li is not None and G["lines"][li] is pooh and cname == "cu_xi":   # the honey pot, pinned
             kq = min(1.0, (t - seg0) / 0.2)
@@ -2940,9 +2959,6 @@ def bill(short=False):
             kq = t - (tar["start"] + tar["dur"])
             paste(fr, C2.spr("star", round(z * 0.62 * (1.5 - 0.5 * min(1.0, kq / 0.12)), 2), "TARIFF!"), L["W"] * 0.5,
                   L["H"] * 0.15, -12)
-        mx, my = cam.p(S["cast"]["mb"], L["feet"] - 150 * K)   # the waiter's bow tie
-        d.polygon([(mx - 34 * z, my - 16 * z), (mx, my), (mx - 34 * z, my + 16 * z)], fill=(24, 24, 28))
-        d.polygon([(mx + 34 * z, my - 16 * z), (mx, my), (mx + 34 * z, my + 16 * z)], fill=(24, 24, 28))
 
     def sfx(fx, music, ev, lines):
         tar = tline("tariff", "trump")
@@ -2961,7 +2977,7 @@ def bill(short=False):
                 headline=["TRUMP, XI & PUTIN", "SPLIT THE DINNER BILL"], headline_size=1.45, headline_t=1.12,
                 target=0 if short else 62.1,
                 scenes={"diner": dict(layout=diner_layout, bg=curtain_bg)},
-                pose_hook=pose_hook, post=post, sfx=sfx, shakes=shakes)
+                where=where, pre=pre, pose_hook=pose_hook, post=post, sfx=sfx, shakes=shakes)
 
 
 def _check_img(z):
