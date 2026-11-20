@@ -26,6 +26,12 @@ PINS += [
   ("budget", "planner", "4617978275", "Budget Planner Printable – Monthly Budget, Bill & Debt Payoff Tracker", "Take control of your money in 2027 with this printable budget planner: monthly budget, expense & bill trackers, savings goals, sinking funds, debt payoff and a no-spend challenge. #budgetplanner #budgettracker #debtpayoff #savingmoney"),
 ]
 
+PINS += [  # Nov 19 batch (src/build-pins-new.js, design A only)
+  ("elf-bundle", "elf", "4620465174", "Christmas Elf Letter Bundle Printable – 4 Elf Letters: Arrival, I'm Back, Reminder & Goodbye", "Your Christmas elf's whole season in one instant download: an arrival letter with elf rules, an \"I'm Back!\" letter for returning elves, a gentle kindness reminder and a Christmas Eve goodbye. Add your child's name and print at home. #elfideas #christmaself #elfarrival #christmastraditions"),
+  ("evebox", "evebox", "4620620821", "Christmas Eve Box Printables – Labels, Magic Reindeer Food, Cookies for Santa & Magic Key", "Fill your Christmas Eve box in minutes: box labels, a magic reindeer food recipe card + bag tags, cookies-for-Santa plate notes, Santa's magic key tags and a night-before checklist. 5 printable pages, instant download. #christmaseveboxideas #christmaseve #reindeerfood #christmasprintables"),
+  ("wishlist-v2", "kids", "4620448127", "Want Need Wear Read Christmas Wish List Printable – 4 Gift Rule for Kids", "The 4-gift rule, written by the kids! A printable Christmas wish list with something they want, need, wear and read, plus their biggest wish. Perfect for sending to Santa or Grandma. Instant download. #4giftrule #wantneedwearread #christmaswishlist #giftideasforkids"),
+]
+
 def post(key, url, method, meta, img=None):
     a = ["curl", "-sS", "-w", " %{http_code}", HOOK, "-F", f"key={key}", "-F", f"url={url}", "-F", f"method={method}", "-F", f"meta={json.dumps(meta)}"]
     if img: a += ["-F", f"img=@{img};type=image/jpeg"]
