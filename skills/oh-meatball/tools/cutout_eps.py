@@ -421,8 +421,8 @@ C2.V.update({
     "dadbot": "kokoro:dadbot@speed=0.95,pause=0.3", "chadsr": "kokoro:chadsr@speed=1.12,pause=0.2",
     "brittany": "kokoro:brittany@speed=1.18,pause=0.18", "firefighter": "kokoro:firefighter@speed=1.0,pause=0.25",
     "sage": "kokoro:sage@speed=1.0,pause=0.3", "tank": "kokoro:tank@speed=1.2,pause=0.18",
-    "bezos": "kokoro:bezos@speed=1.1,pause=0.2", "trump": "kokoro:trump@speed=0.98,pause=0.3",
-    "xi": "kokoro:xi@speed=0.98,pause=0.28", "putin": "kokoro:putin@speed=0.9,pause=0.3",
+    "bezos": "kokoro:bezos@speed=1.1,pause=0.2", "trump": "kokoro:trump@speed=1.05,pause=0.3,gain=1.5",
+    "xi": "kokoro:xi@speed=0.86,pause=0.32", "putin": "kokoro:putin@speed=0.85,pause=0.34,pitch=-2",
     "father": "kokoro:father@speed=1.08,pause=0.22", "doctor": "kokoro:doctor@speed=1.1,pause=0.2"})
 
 
@@ -2482,7 +2482,7 @@ def t58(short=False):
 def diner_layout(L):
     vert = L["H"] > L["W"]
     if vert:
-        L["cap_y"] = 1400   # captions clear of the bottom 20% (Studio 11/20)
+        L["cap_y"] = 1290   # captions on the suit, clear of the name plate and the bottom 20%
         return dict(cast=dict(trump=175, xi=520, putin=860, mb=1150), top=L["feet"] - 150 * L["K"],
                     wide=(640, 1380, 0.85))
     return dict(cast=dict(trump=420, xi=820, putin=1220, mb=1640), top=L["feet"] - 150 * L["K"],
@@ -2513,56 +2513,134 @@ def diner_bg(L, cam, scene):
     return C.vignette(img)
 
 
+LEADER_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets", "leaders")
+#            mouth centre (x, y) and width, as fractions of the model picture
+LEADERS = {"trump": dict(mouth=(0.515, 0.497), mw=0.075), "xi": dict(mouth=(0.502, 0.487), mw=0.11),
+           "putin": dict(mouth=(0.517, 0.502), mw=0.11)}
+_LIMG = {}
+
+
+def leader_img(name, w):
+    """Studio's approved model picture of a leader (channels/art/characters/*-table-model.jpg), scaled to width w."""
+    key = (name, w)
+    if key not in _LIMG:
+        im = Image.open(f"{LEADER_DIR}/{name}-table-model.jpg").convert("RGBA")
+        _LIMG[key] = im.resize((w, int(im.size[1] * w / im.size[0])), Image.LANCZOS)
+    return _LIMG[key]
+
+
+def draw_leader(fr, name, x0, y0, w, lvl, t, speaking):
+    """Paste the picture with its curtain and tablecloth run on to the frame edges; bob and flap the mouth when
+    this leader talks. The table strip (bottom 17%) stays still."""
+    im = leader_img(name, w)
+    h = im.size[1]
+    W, H_ = fr.size
+    top = im.crop((0, 0, w, 6)).resize((w, max(1, y0)), Image.BILINEAR)
+    fr.paste(top, (x0, 0))
+    if y0 + h < H_:
+        fr.paste(im.crop((0, h - 6, w, h)).resize((w, H_ - y0 - h), Image.BILINEAR), (x0, y0 + h))
+    fr.paste(im, (x0, y0))
+    dy = int(abs(math.sin(t * 9.0)) * w * 0.012) if speaking else 0
+    cut = int(h * 0.83)
+    upper = im.crop((0, 0, w, cut))
+    if dy:
+        fr.paste(upper, (x0, y0 - dy))
+    if speaking and lvl > 0:
+        mx, my = LEADERS[name]["mouth"]
+        mw = LEADERS[name]["mw"] * w
+        cx, cy = x0 + mx * w, y0 + my * h - dy
+        skin = im.getpixel((int(mx * w), int((my + 0.05) * h)))
+        d = ImageDraw.Draw(fr)
+        d.ellipse([cx - mw * 0.62, cy - mw * 0.24, cx + mw * 0.62, cy + mw * 0.3], fill=skin)
+        ry = mw * (0.16 if lvl == 1 else 0.3)
+        d.ellipse([cx - mw * 0.4, cy - ry * 0.7, cx + mw * 0.4, cy + ry * 1.2], fill=MOUTH)
+        d.ellipse([cx - mw * 0.2, cy + ry * 0.5, cx + mw * 0.2, cy + ry * 1.1], fill=(226, 98, 104))
+
+
 def bill(short=False):
-    """Studio batch 1 v2 #2 (roast): TRUMP, XI & PUTIN SPLIT THE DINNER BILL. Obvious cartoon satire; generic voices."""
+    """Studio batch 1 #2 (roast): TRUMP, XI & PUTIN SPLIT THE DINNER BILL. The three leaders are Studio's approved
+    model pictures, used as paper puppets (bob + mouth flap). Voices: Kokoro blends shaped by wording and rhythm."""
     D_ = dict(scene="diner")
 
     def ln(who, text, gap=0.06, cap=None):
         return ("line", who, text, cap, dict(D_, cams=[(0, "cu_" + who)], gap=gap))
 
     extra = [] if short else [
-        ln("putin", "In Russia, ve split ze bill three vays. I take all three.", cap="In Russia, we split the bill three ways. I take all three."),
-        ln("trump", "That's also how he does elections.", 0.0),
+        ln("putin", "In Russia, ve split bill three vays. I take all three.",
+           cap="In Russia, we split bill three ways. I take all three."),
+        ln("trump", "That's also how he does elections. Every time.", 0.0),
         ("hold", 0.3, "cu_putin"),
-        ln("xi", "I cannot use my card. It is being monitored."),
+        ln("xi", "I cannot use my card. It is monitored."),
         ln("trump", "Who the hell monitors your card?", cap="Who the h#@l monitors your card?"),
         ln("xi", "By me.", 0.0),
         ("hold", 0.3, "cu_mb"),
-        ln("trump", "I always pay my bills. Tremendous bills. Everybody says so."),
+        ln("trump", "Nobody pays bills better than me. Nobody. People say it."),
         ln("xi", "Ask your contractors.", 0.0),
         ("hold", 0.3, "cu_trump"),
-        ln("putin", "I left my vallet at home.", cap="I left my wallet at home."),
-        ln("xi", "Which home? The palace you swear is not yours?", 0.0),
+        ln("putin", "My vallet? Is at home.", cap="My wallet? Is at home."),
+        ln("xi", "Which home? The palace that is not yours?", 0.0),
         ("hold", 0.3, "cu_putin"),
         ln("mb", "Should I split it three ways?"),
-        ln("trump", "Four. Send one to NATO."),
-        ln("putin", "I do not like zat vord.", 0.0, cap="I do not like that word."),
+        ln("trump", "Four ways. Send one to NATO."),
+        ln("putin", "This vord, I do not like.", 0.0, cap="This word, I do not like."),
         ("hold", 0.3, "cu_mb"),
-        ("line", "mb", "Does anyone want dessert?", "Does anyone want dessert?", dict(D_, cams=[(0, "cu_mb")], gap=0.06, voice="kokoro:adam-puck@speed=1.16")),
-        ln("trump", "Two scoops for me. One for them.", 0.0),
-        ("hold", 0.3, "cu_xi"),
     ]
     seq = [
         ("gag", "intro", 0.3, "diner", "wide"),
-        ln("mb", "Gentlemen, your check."),
-        ln("trump", "Put it on China. Everything else is. Believe me.", cap="Put it on China. Everything else is. Believe me."),
-        ln("xi", "You want me to pay? You've been bankrupt six times."),
-        ln("trump", "Six times, and I'm still richer than your entire Winnie the Pooh fan club."),
-        ln("putin", "Relax. I vill pay, vith Russian money.", cap="Relax. I will pay with Russian money."),
-        ln("trump", "Vlad, Russian money is a Monopoly box with a shotgun in it."),
-        ln("putin", "Says ze man, who sold steaks at Sharper Image.", 0.0, cap="Says the man who sold steaks at Sharper Image."),
+        ("line", "mb", "Gentlemen, your check.", None, dict(D_, cams=[(0, "wide")], gap=0.06)),
+        ln("trump", "Put it on China. Everything else is. Everything. Believe me."),
+        ln("xi", "You want China to pay? You went bankrupt. Six times."),
+        ln("trump", "Six times! And I'm still richer than your whole Winnie the Pooh fan club." + ("" if short else " Much richer.")),
+        ln("putin", "Relax. I pay. Vith Russian money.", cap="Relax. I pay. With Russian money."),
+        ln("trump", "Vlad. Vlad. Russian money is a Monopoly box with a shotgun in it."),
+        ln("putin", "Says man who sold steaks, at Sharper Image.", 0.0, cap="Says man who sold steaks, at Sharper Image."),
         ("hold", 0.25, "cu_trump"),
     ] + extra + [
-        ln("xi", "Both of you, shut up. I'll pay. Just give me the waiter's data."),
-        ("line", "mb", "I am a meatball!", "I AM a meatball!", dict(D_, cams=[(0, "cu_mb")], gap=0.06, voice="kokoro:adam-puck@speed=1.16")),
-        ln("trump", "Then we tariff the meatball.", 0.0),
+        ln("xi", "Both of you. Be quiet. I will pay. Give me the waiter's data."),
+        ("line", "mb", "I am a meatball!", "I AM a meatball!",
+         dict(D_, cams=[(0, "cu_mb")], gap=0.06, voice="kokoro:adam-puck@speed=1.16")),
+        ln("trump", "Then we tariff the meatball. Big tariff.", 0.0),
         ("hold", 0.25, "cu_mb"),
         ln("mb", "Moral of the story: three superpowers, zero wallets, and the meatball still gets screwed. Goddamn.",
            0.0, cap="Moral of the story: three superpowers, zero wallets, and the meatball still gets screwed. G#@damn."),
         ("hold", 0.2, "wide"),
-        ("gag", "end", 2.0 if short else 2.6, "diner", "wide"),
+        ("gag", "end", 1.6 if short else 2.6, "diner", "wide"),
     ]
-    TAGS = (("trump", "TRUMP"), ("xi", "XI"), ("putin", "PUTIN"))
+    if short:   # 35 s cap on the YouTube cut: no reaction holds
+        seq = [it for it in seq if it[0] != "hold"]
+    ORDER = ("trump", "xi", "putin")
+
+    def cam_name(t):
+        return C2.seg_at(t)[2]
+
+    def mb_spot(t, L):
+        if cam_name(t) == "wide":   # the waiter stands in front of the table, bottom right
+            cx, cy, z = G["cams"]["diner"]["wide"]
+            return (cx + (L["W"] * 0.80 - L["W"] / 2) / z, cy + (L["H"] * 0.905 - L["H"] / 2) / z)
+        return (L["diner"]["cast"]["mb"], L["feet"])
+
+    def where(c, t, scene, L):
+        if c in LEADERS or cam_name(t) not in ("wide", "cu_mb"):
+            return None   # the leaders are the model pictures, drawn in pre(); Meatball stays out of their shots
+        return mb_spot(t, L)
+
+    def pre(fr, cam, t, fi, li, scene, L):
+        W, H_ = L["W"], L["H"]
+        name = cam_name(t)
+        who = G["lines"][li]["who"] if li is not None else None
+        lvl = C.mouth_level(G["lines"][li], t) if li is not None else 0
+        if name == "wide":
+            w = W // 3
+            y0 = int(H_ * 0.36)
+            for k, c in enumerate(ORDER):
+                draw_leader(fr, c, k * w, y0, w if k < 2 else W - 2 * w, lvl, t, who == c)
+        elif name[3:] in LEADERS:
+            draw_leader(fr, name[3:], 0, int(H_ * 0.12), W, lvl, t, who == name[3:])
+        else:   # Meatball's close-up: the same curtain and tablecloth, nobody at the table
+            im = leader_img("putin", W)
+            h = im.size[1]
+            fr.paste(im.crop((0, 0, W, 6)).resize((W, int(H_ * 0.80)), Image.BILINEAR), (0, 0))
+            fr.paste(im.crop((0, h - 6, W, h)).resize((W, H_ - int(H_ * 0.80)), Image.BILINEAR), (0, int(H_ * 0.80)))
 
     def pose_hook(c, t, fi, li, scene, p):
         p = lively(c, t, li, p, G["L"][scene]["cast"], 0.8)
@@ -2573,20 +2651,13 @@ def bill(short=False):
         return (hop, j, ang, (aL, aR), hk, sq, rot, extra_)
 
     def post(fr, cam, t, fi, li, scene, L):
-        K, S = L["K"], L[scene]
+        K = L["K"]
         z = cam.z * K
         d = ImageDraw.Draw(fr)
-        x0, y0 = cam.p(S["cast"]["trump"] - 190 * K, S["top"])   # the table, in front of the three presidents
-        x1, y1 = cam.p(S["cast"]["putin"] + 190 * K, L["feet"] + 400 * K)
-        d.rectangle([x0, y0, x1, y1], fill=(250, 248, 240), outline=INK, width=max(2, int(5 * z)))
-        d.rectangle([x0, y0, x1, y0 + 26 * z], fill=(226, 222, 206))
-        for c, name in (TAGS if cam.z < 1.2 else ()):   # place cards on the wide shot only (they crop in close-ups)
-            x, y = cam.p(S["cast"][c], S["top"] + 62 * K)
-            f = ImageFont.truetype(FONT, max(8, int(34 * z)))
-            w = d.textlength(name, font=f) / 2 + 16 * z
-            d.rectangle([x - w, y - 26 * z, x + w, y + 26 * z], fill=WHITE, outline=INK, width=max(2, int(4 * z)))
-            d.text((x, y), name, font=f, fill=INK, anchor="mm")
-        mx, my = cam.p(S["cast"]["mb"], L["feet"] - 150 * K)   # the waiter's bow tie
+        if cam_name(t) not in ("wide", "cu_mb"):
+            return
+        x, y = mb_spot(t, L)
+        mx, my = cam.p(x, y - 150 * K)   # the waiter's bow tie
         d.polygon([(mx - 34 * z, my - 16 * z), (mx, my), (mx - 34 * z, my + 16 * z)], fill=(24, 24, 28))
         d.polygon([(mx + 34 * z, my - 16 * z), (mx, my), (mx + 34 * z, my + 16 * z)], fill=(24, 24, 28))
 
@@ -2596,9 +2667,10 @@ def bill(short=False):
             C2.thud(fx, tar[0]["start"] + tar[0]["dur"], 0.6)
 
     return dict(title="THE DINNER BILL", end=["WHO SKIPPED", "THE", "CHECK?"], seq=seq,
-                headline=["TRUMP, XI & PUTIN", "SPLIT THE DINNER BILL"], headline_size=1.45, target=0 if short else 62.1,
+                headline=["TRUMP, XI & PUTIN", "SPLIT THE DINNER BILL"], headline_size=1.45, headline_t=1.12,
+                target=0 if short else 62.1,
                 scenes={"diner": dict(layout=diner_layout, bg=diner_bg)},
-                pose_hook=pose_hook, post=post, sfx=sfx)
+                where=where, pre=pre, pose_hook=pose_hook, post=post, sfx=sfx)
 
 
 EPISODES = {"bill": bill, "billshort": lambda: bill(True), "t58": t58, "t58short": lambda: t58(True), "confession_nb": nobanner(confession, ["MEATBALL GOES", "TO CONFESSION"]), "confession": confession, "ozempic": ozempic, "ep6v4": ep6v4, "ep5v4": ep5v4, "ep7v4": ep7v4, "ep3": ep3, "ep4": ep4, "ep5": ep5, "ep6": ep6, "ep7": ep7, "ep8": ep8, "ep7v3": ep7v3, "ep3v3": ep3v3}
