@@ -37,7 +37,7 @@ EP = {}   # the episode being rendered
 
 # ------------------------------------------------------------------------------------------------ people
 def person(skin, hair="short", hair_col=(60, 40, 30), top="tee", top_col=(90, 120, 200), bottom=(60, 70, 110),
-           shoes=(40, 36, 40), tall=1.0, wide=1.0, acc=(), arm_w=13, eyes=("norm", 0.0)):
+           shoes=(40, 36, 40), tall=1.0, wide=1.0, acc=(), arm_w=13, eyes=("norm", 0.0), tie=(40, 70, 150)):
     """A parametric paper person (same rig layout as cutout_holy's rigs). Returns (rig, body_fn, head_fn, arm_fn).
     hair: short | slick | bob | bun | buzz | long | curly | bald;  top: tee | hoodie | tank | shirt_tie | polo |
     coat | apron;  acc: sunglasses, sunglasses_head, glasses, helmet, cap, mustache, beard, headband, heart."""
@@ -69,7 +69,9 @@ def person(skin, hair="short", hair_col=(60, 40, 30), top="tee", top_col=(90, 12
                   ("p", strip([(14, nk + 10), (16, nk + 70)], 4), (240, 240, 240), False)]
         if top == "shirt_tie":
             s += [("p", [(-24, nk), (24, nk), (0, nk + 90)], WHITE),
-                  ("p", [(-7, nk + 6), (7, nk + 6), (11, nk + 100), (0, nk + 112), (-11, nk + 100)], (40, 70, 150))]
+                  ("p", [(-7, nk + 6), (7, nk + 6), (11, nk + 100), (0, nk + 112), (-11, nk + 100)], tie)]
+            if "pin" in acc:   # a small red lapel pin
+                s.append(("e", (-34 * wide, nk + 44, 7, 7), (220, 40, 40), False))
         if top == "polo":
             s += [("p", [(-24, nk), (24, nk), (12, nk + 26), (-12, nk + 26)], WHITE, False),
                   ("e", (0, nk + 40, 4, 4), WHITE, False), ("e", (0, nk + 56, 4, 4), WHITE, False)]
@@ -263,9 +265,9 @@ register("doctor", person(SKIN[4], "short", (40, 30, 26), "labcoat", (246, 246, 
 register("bezos", person(SKIN[0], "bald", (60, 40, 30), "polo", (40, 50, 80), (50, 50, 60), (30, 30, 30),
                          eyes=("norm", 0.15)))
 register("trump", person((244, 176, 120), "slick", (246, 208, 96), "shirt_tie", (30, 40, 80), (30, 40, 80),
-                         (20, 20, 22), tall=1.04, wide=1.18, eyes=("norm", 0.3)))
-register("xi", person(SKIN[5], "short", (24, 22, 24), "shirt_tie", (40, 40, 48), (40, 40, 48), (20, 20, 22),
-                      wide=1.12, eyes=("norm", 0.35)))
+                         (20, 20, 22), tall=1.04, wide=1.18, eyes=("norm", 0.3), tie=(214, 40, 40)))
+register("xi", person(SKIN[5], "slick", (24, 22, 24), "shirt_tie", (40, 40, 48), (40, 40, 48), (20, 20, 22),
+                      wide=1.14, acc=("pin",), eyes=("norm", 0.3), tie=(150, 30, 40)))
 register("putin", person(SKIN[3], "buzz", (200, 190, 170), "shirt_tie", (50, 54, 60), (50, 54, 60), (20, 20, 22),
                          tall=0.94, eyes=("norm", 0.5)))
 register("tank", person(SKIN[0], "buzz", (90, 60, 40), "tank", (240, 240, 240), (60, 60, 70), (240, 240, 240),
@@ -337,8 +339,8 @@ C2.V.update({
     "dadbot": "kokoro:dadbot@speed=0.95,pause=0.3", "chadsr": "kokoro:chadsr@speed=1.12,pause=0.2",
     "brittany": "kokoro:brittany@speed=1.18,pause=0.18", "firefighter": "kokoro:firefighter@speed=1.0,pause=0.25",
     "sage": "kokoro:sage@speed=1.0,pause=0.3", "tank": "kokoro:tank@speed=1.2,pause=0.18",
-    "bezos": "kokoro:bezos@speed=1.1,pause=0.2", "trump": "kokoro:trump@speed=1.05,pause=0.22",
-    "xi": "kokoro:xi@speed=1.05,pause=0.22", "putin": "kokoro:putin@speed=0.98,pause=0.25",
+    "bezos": "kokoro:bezos@speed=1.1,pause=0.2", "trump": "kokoro:trump@speed=0.98,pause=0.3",
+    "xi": "kokoro:xi@speed=0.98,pause=0.28", "putin": "kokoro:putin@speed=0.9,pause=0.3",
     "father": "kokoro:father@speed=1.08,pause=0.22", "doctor": "kokoro:doctor@speed=1.1,pause=0.2"})
 
 
@@ -2433,40 +2435,40 @@ def bill(short=False):
         return ("line", who, text, cap, dict(D_, cams=[(0, "cu_" + who)], gap=gap))
 
     extra = [] if short else [
-        ln("putin", "In Russia, we split the bill three ways. I take all three."),
+        ln("putin", "In Russia, ve split ze bill three vays. I take all three.", cap="In Russia, we split the bill three ways. I take all three."),
         ln("trump", "That's also how he does elections.", 0.0),
         ("hold", 0.3, "cu_putin"),
         ln("xi", "I cannot use my card. It is being monitored."),
         ln("trump", "Who the hell monitors your card?", cap="Who the h#@l monitors your card?"),
-        ln("xi", "Me.", 0.0),
+        ln("xi", "By me.", 0.0),
         ("hold", 0.3, "cu_mb"),
-        ln("trump", "I always pay my bills. Everybody says so."),
+        ln("trump", "I always pay my bills. Tremendous bills. Everybody says so."),
         ln("xi", "Ask your contractors.", 0.0),
         ("hold", 0.3, "cu_trump"),
-        ln("putin", "I left my wallet at home."),
+        ln("putin", "I left my vallet at home.", cap="I left my wallet at home."),
         ln("xi", "Which home? The palace you swear is not yours?", 0.0),
         ("hold", 0.3, "cu_putin"),
         ln("mb", "Should I split it three ways?"),
         ln("trump", "Four. Send one to NATO."),
-        ln("putin", "I do not like that word.", 0.0),
+        ln("putin", "I do not like zat vord.", 0.0, cap="I do not like that word."),
         ("hold", 0.3, "cu_mb"),
-        ln("mb", "Anyone want dessert?"),
+        ("line", "mb", "So. Does anyone want dessert?", "Anyone want dessert?", dict(D_, cams=[(0, "cu_mb")], gap=0.06, voice="kokoro:adam-puck@speed=1.16")),
         ln("trump", "Two scoops for me. One for them.", 0.0),
         ("hold", 0.3, "cu_xi"),
     ]
     seq = [
         ("gag", "intro", 0.3, "diner", "wide"),
         ln("mb", "Gentlemen, your check."),
-        ln("trump", "Put it on China. Everything else is."),
+        ln("trump", "Put it on China. Everything else is. Believe me.", cap="Put it on China. Everything else is. Believe me."),
         ln("xi", "You want me to pay? You've been bankrupt six times."),
         ln("trump", "Six times, and I'm still richer than your entire Winnie the Pooh fan club."),
-        ln("putin", "Relax. I will pay with Russian money."),
+        ln("putin", "Relax. I vill pay, vith Russian money.", cap="Relax. I will pay with Russian money."),
         ln("trump", "Vlad, Russian money is a Monopoly box with a shotgun in it."),
-        ln("putin", "Says the man who sold steaks at Sharper Image.", 0.0),
+        ln("putin", "Says ze man, who sold steaks at Sharper Image.", 0.0, cap="Says the man who sold steaks at Sharper Image."),
         ("hold", 0.25, "cu_trump"),
     ] + extra + [
         ln("xi", "Both of you, shut up. I'll pay. Just give me the waiter's data."),
-        ln("mb", "I'm a meatball!"),
+        ("line", "mb", "I am a meatball!", "I'm a meatball!", dict(D_, cams=[(0, "cu_mb")], gap=0.06, voice="kokoro:adam-puck@speed=1.16")),
         ln("trump", "Then we tariff the meatball.", 0.0),
         ("hold", 0.25, "cu_mb"),
         ln("mb", "Moral of the story: three superpowers, zero wallets, and the meatball still gets screwed. Goddamn.",

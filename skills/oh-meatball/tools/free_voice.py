@@ -59,9 +59,9 @@ BLENDS = {  # name -> [(kokoro voice, weight)]; C is Nolan's pick (research/39-v
     "sage": [("af_nicole", 0.6), ("af_river", 0.4)],      # Sage: airy vegan
     "tank": [("am_fenrir", 0.6), ("am_puck", 0.4)],       # Tank: loud gym bro
     "bezos": [("am_eric", 0.6), ("am_onyx", 0.4)],        # cartoon billionaire: flat, pleased with himself
-    "trump": [("am_santa", 0.5), ("am_fenrir", 0.5)],     # cartoon president (a generic voice, not an impression)
-    "xi": [("bm_daniel", 0.6), ("am_michael", 0.4)],      # cartoon president
-    "putin": [("bm_george", 0.5), ("am_onyx", 0.5)],      # cartoon president
+    "trump": [("am_santa", 0.45), ("am_fenrir", 0.35), ("am_onyx", 0.2)],  # cartoon president: gravelly New York growl
+    "xi": [("zm_yunjian", 0.7), ("bm_daniel", 0.3)],     # cartoon president: Mandarin-voiced, measured
+    "putin": [("bm_george", 0.45), ("am_onyx", 0.35), ("pm_santa", 0.2)],  # cartoon president: low, slow, clipped
     "father": [("bm_lewis", 0.6), ("am_santa", 0.4)],     # Father Donovan: tired, gravelly
     "doctor": [("am_michael", 0.7), ("bm_daniel", 0.3)],  # Doctor: flat, clinical
 }
