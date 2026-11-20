@@ -431,6 +431,81 @@ mkStop('paper-stopmotion');
   };
 }
 
+// =====================================================================================
+// Week-2 variants (Nov 24–26): same engines, NEW product + palette + a DIFFERENT soundtrack than the original format
+// =====================================================================================
+mkChat('text-elf', {
+  who: 'Sarah 🎄', sub: 'mom group · online', av: '👩‍🦰', avBg: 'linear-gradient(#b7f0c8,#34a853)', blue: '#34a853', music: 'xmas-toymarimba.wav',
+  hook: 'when the elf comes back<br>in a few days… 😳',
+  msgs: [
+    ['R', 'the elf comes back Dec 1st and I have NOTHING planned 😩', .5],
+    ['L', 'girl same 😂 but I found these', 1.9, 1.2],
+    ['L', `<img src="${img('elfb-1.png')}" style="width:420px;display:block;border-radius:24px"><div style="font-size:30px;color:#555;margin-top:10px">📎 Elf_Letters.pdf</div>`, 3.0, null, 1],
+    ['L', 'he “writes” an arrival letter + elf rules ✨', 4.3, 3.6],
+    ['R', 'wait that’s genius 😭 is there more?', 5.6],
+    ['L', 'an “I’m back” one, a be-kind reminder AND a Christmas Eve goodbye 🧝', 7.0, 6.2],
+    ['R', 'ok I’m printing tonight 🖨️', 8.4],
+  ],
+  zbg: 'radial-gradient(circle at 50% 35%,#1f6f45,#0b2b1b)',
+  zoom: IMG('elfb-1.png', { x: 140, y: 330, w: 800, rot: -2 }),
+  zt: 'the elf’s letters ✉️', zp: '$4.99 · 4 elf letters',
+  p2t: '+ I’m Back, be-kind reminder & goodbye letters 🧝', p2f: ['elfb-2.png', 'elfb-3.png', 'elfb-4.png', 'elfb-1.png'],
+  end: { bg: 'linear-gradient(170deg,#34a853,#1e7a3a)', l1: 'Elf season: sorted ✅', price: '$4.99 · instant download', search: 'search “Christmas Elf Letter Bundle” on Etsy', fx: 'up' },
+});
+mkNotes('notes-kidstable', {
+  music: 'xmas-pizzicato.wav', title: 'Thanksgiving kids’ table checklist 🦃', sub: '(Thursday is coming 😅)',
+  items: ['🥧 pie (for later)', '🧃 juice boxes', '🍽️ kid-size plates', '🧻 SO many napkins', '🖍️ crayons', '📄 coloring pages', '🤫 20 minutes of quiet'],
+  wait: 'WAIT… no coloring pages?! 😱',
+  pbg: 'radial-gradient(circle at 50% 30%,#fff4e0,#ffd29a)', accent: '#c2410c', ptitle: 'Christmas Coloring Book 🖍️',
+  pages: ['cb-01.png', 'cb-04.png', 'cb-06.png', 'cb-16.png', 'cb-22.png'],
+  labels: ['20 coloring pages ✔', 'cozy Christmas scenes ✔', 'big, easy outlines ✔', 'print again & again ✔', '+ a Note from Santa ✔'],
+  price: '$3.99', priceSub: '20 pages',
+  end: { bg: '#ff9f43', c: '#222', l1: 'Kids’ table: handled ✅', price: '$3.99 · 20 coloring pages', pbg: '#fff', search: 'search “Santa’s Little Helpers coloring” on Etsy', fx: 'up' },
+});
+mkRating('rating-evebox', {
+  music: 'xmas-popdrums.wav', bg: 'linear-gradient(160deg,#0b3d2e,#14805e)', title: 'Rating Christmas Eve box fillers 1–10 🎁',
+  hookImgs: ['ceb-1.png', 'ceb-2.png', 'ceb-3.png', 'ceb-5.png'],
+  items: [
+    { n: 'matching pajamas', p: '', s: 7, why: 'cute… until the cocoa spills 😅', imgs: [['👚', 380, 520, 300, 0]] },
+    { n: 'hot cocoa kit', p: '', s: 8, why: 'cozy + 5 min of silence ☕', imgs: [['☕', 380, 520, 300, 0]] },
+    { n: 'magic reindeer food', p: '', s: 10, why: 'they sprinkle it on the lawn 🦌✨', imgs: [['ceb-2.png', 260, 380, 560, -2]] },
+    { n: 'the WHOLE Eve box pack', p: '$3.99', s: 11, why: '5 printables, done in 10 min 🤯', imgs: [['ceb-1.png', 60, 420, 380, -8], ['ceb-4.png', 350, 380, 380, 0], ['ceb-5.png', 640, 420, 380, 8]] },
+  ],
+  end: { bg: 'linear-gradient(160deg,#0b3d2e,#14805e)', font: 'Bangers', l1s: 96, l1: 'What’s in YOUR Eve box? 👇', price: '$3.99 · 5 printable pages', search: 'search “Christmas Eve Box printable” on Etsy', fx: 'stamp' },
+});
+mkQuiz('quiz-mom', {
+  music: 'xmas-wewish.wav', hook: 'MOM edition 😅<br>Naughty or Nice?',
+  Q: [['bought the gifts in OCTOBER 🎁', 1], ['ate the advent calendar chocolate 🍫', -1], ['wrapped everything at 2am 😴', 1]],
+  end: { l1: 'Comment your verdict, mama 👇' },
+});
+mkCozy('cozy-wishlist', {
+  lines: [
+    ['it’s 8pm.', 240, -.6, 6.6], ['grandma just texted:', 370, 1.0, 6.6], ['“so… what do the kids want?” 🙃', 500, 2.6, 6.6],
+    ['deep breath. ☕', 240, 7.0, 11.8], ['hand them a pencil.', 370, 8.0, 11.8], ['want. need. wear. read. ✨', 500, 9.2, 11.8],
+  ],
+  reveal: 'the 4-gift wish list 🎁', file: 'wl2.png', price: '$2.99',
+  end: { l1: 'wish lists, sorted. ❤️', price: '$2.99 · print one per kid', search: 'search “Want Need Wear Read” on Etsy' },
+});
+mkStop('stop-elf', {
+  music: 'xmas-gameshow.wav', pages: ['elfb-1.png', 'elfb-2.png', 'elfb-3.png', 'elfb-4.png'], fast: [], total: 4,
+  hook: 'I printed our elf’s WHOLE season… for $4.99 🧝', label: '4 letters from our elf ✏️',
+  final: 'elfb-1.png', note: '+ add your kids’ names ✍️', price: '$4.99', priceSub: '= 4 elf letters',
+  end: { l1: 'elf season: sorted 🧝', price: '$4.99 · 4 printable elf letters', search: 'search “Christmas Elf Letter Bundle” on Etsy' },
+});
+mkDay('day-mailroom', {
+  title: 'A day in Santa’s mailroom ✉️', bg: '#fdf1e4', art: A.santa(2.2),
+  segs: [
+    ['7:00 AM', 'the “Dear Santa” letters arrive 📬', 'dear-santa.png'],
+    ['10:00 AM', 'checking every wish list 📝', 'christmas-wish-list.png'],
+    ['1:00 PM', 'the Nice List gets signed ✅', 'nice-list-certificate.png'],
+    ['4:00 PM', 'an elf letter gets packed 🧝', 'christmas-elf-arrival-letter.png'],
+    ['Christmas Eve', 'Santa writes BACK 🥹', 'reply-from-santa-letter.png'],
+  ],
+  lastStamp: '5:00 PM · mom prints them', allT: 'the whole Santa Mail Set', all: ['dear-santa.png', 'reply-from-santa-letter.png', 'christmas-wish-list.png', 'christmas-elf-arrival-letter.png'],
+  pill: '$7.99 · all 5 printables ✍️',
+  end: { l1: 'North Pole mail, delivered ✅', price: '$7.99 · 5 printables', search: 'search “Santa Mail Set” on Etsy' },
+});
+
 // ---------- in-page engine ----------
 const ENGINE = `
 const E={outBack:p=>1+2.7*Math.pow(p-1,3)+1.7*Math.pow(p-1,2),outCubic:p=>1-Math.pow(1-p,3),inOut:p=>p<.5?4*p*p*p:1-Math.pow(-2*p+2,3)/2,
