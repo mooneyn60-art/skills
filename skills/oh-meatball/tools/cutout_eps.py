@@ -1773,6 +1773,233 @@ def ep3v3():
                 post=post, pose_hook=pose_hook, where=where, sfx=sfx, silences=silences)
 
 
+def rickpol():
+    """TOONS 11/21 (Studio 52ceaad): UNCLE RICK RUINS THANKSGIVING OVER POLITICS, a 30 s cut of ep3 v3 for
+    @MeatballToons, staged to the full-animation rule (482f483): four at the table in one wide shot, everybody
+    moving in every 2 s window, listeners turn within 0.25 s and flinch on the punchline, a physical gag every
+    4-6 s (table slam, flying phone, Rick sinking, silence contest, both jumping up, crown + faceplant)."""
+    xs = dict(rick=340, kaylee=610, mb=1000, grandma=1250)
+    T_ = dict(scene="table")
+    MBV = "kokoro:adam-puck@speed=1.16"
+
+    def ln(who, text, cam="four", gap=0.06, cap=None, **kw):
+        return ("line", who, text, cap, dict(T_, cams=cam if isinstance(cam, list) else [(0, cam)], gap=gap, **kw))
+
+    seq = [
+        ("gag", "intro", 0.3, "table", "four"),
+        ln("rick", "Pass the potatoes. And don't pass any socialism."),
+        ln("kaylee", "Potatoes are colonialism, Rick."),
+        ln("mb", "You posted eat the rich from a twelve hundred dollar phone, Kaylee.", voice=MBV,
+           cap='You posted "eat the rich" from a twelve hundred dollar phone, Kaylee.'),
+        ln("rick", "I'm pro-life. Every child is a blessing."),
+        ln("grandma", "Richard, you owe child support in three states."),
+        ln("rick", "They're coming for my guns!"),
+        ln("mb", "You shot your own foot, Rick. Twice. Same foot.", voice=MBV),
+        ln("grandma", "I'm eighty-six. The house goes to whoever shuts up first.", gap=0.0),
+        ("gag", "hush", 1.0, "table", "two"),
+        ln("rick", "Taxation is theft!", gap=0.04),
+        ln("kaylee", "That's problematic!", gap=0.04),
+        ln("grandma", "You're both out. The turkey gets the house. He's the only one here who died for something.",
+           gap=0.0),
+        ("gag", "end", 1.7, "table", "four"),
+    ]
+    # who gets hit by which line (the flinch lands on the last word)
+    PUNCH = {"colonialism": ("rick",), "twelve hundred": ("kaylee",), "child support": ("rick",), "Same foot": ("rick",),
+             "shuts up first": ("rick", "kaylee"), "died for something": ("rick", "kaylee")}
+    base = table_layout((xs, xs))
+
+    def layout(L):
+        S = base(L)
+        K = L["K"]
+        S["x"]["pip"] = 610   # bg_table puts the turkey halfway between x[pip] and x[mb]: the gap at 805
+        S["cams"]["four"] = (775, L["feet"] - 470 * K, 0.88)
+        S["window"], S["tv"] = (500, S["window"][1]), (1060, S["tv"][1])
+        S["cams"]["two"] = ((xs["rick"] + xs["kaylee"]) / 2, L["feet"] - 300 * K, L["cu"] * 0.6)
+        return S
+
+    def lw(text, who=None):
+        l_ = H.lines_with(text, who)
+        return l_[0] if l_ else None
+
+    def hush(t):
+        ev = G["ev"]
+        return "hush" in ev and ev["hush"] <= t < ev["hush"] + 1.0
+
+    def wt(text, word, who=None):
+        l_ = lw(text, who)
+        return H.word_t(l_, word, l_["start"]) if l_ else 1e9
+
+    def sink(t):   # Rick slides down his chair after "child support", back up for the silence contest
+        l_ = lw("child support")
+        if not l_:
+            return 0.0
+        e = l_["start"] + l_["dur"]
+        nx = lw("coming for my guns")
+        up = (nx["start"] if nx else G["ev"].get("hush", 1e9)) - 0.35
+        return max(0.0, min(1.0, (t - e + 0.3) / 0.3)) * max(0.0, min(1.0, (up - t) / 0.3 + 1))
+
+    def flop(t):   # both lose: face down on the table once the turkey gets the house
+        l_ = lw("turkey gets")
+        return 0.0 if not l_ else max(0.0, min(1.0, (t - l_["start"] - l_["dur"] + 0.1) / 0.25))
+
+    def where(c, t, scene, L):
+        x, K = L[scene]["cast"][c], L["K"]
+        if hush(t) and c in ("rick", "kaylee"):
+            k = (t - G["ev"]["hush"]) / 1.0
+            fi = int(t * FPS)
+            return (x + (6 + 16 * k) * (1 if fi % 2 else -1) * (1 if c == "rick" else -1), L["feet"])
+        if c == "rick":
+            return (x, L["feet"] + sink(t) * 95 * K)
+        return (x, L["feet"])
+
+    def pose_hook(c, t, fi, li, scene, p):
+        cast = G["L"][scene]["cast"]
+        p = lively(c, t, li, p, cast, 0.9)
+        hop, j, ang, (aL, aR), hk, sq, rot, extra_ = p
+        lines = G["lines"]
+        ph = (hash(c) % 7) * 0.9
+        rig = c in ("rick", "kaylee")
+
+        def face(e):
+            return (hk[0], hk[1], e, hk[3]) if rig else ((hk[0], hk[1], hk[2], e) if c == "mb" else hk)
+
+        ln_ = lines[li] if li is not None and li < len(lines) else None
+        if ln_ is not None and c not in ln_["who"].split("+"):
+            sp = ln_["who"].split("+")[0]
+            d = 1 if cast.get(sp, 0) > cast[c] else -1
+            dt = t - ln_["start"]
+            ang += d * 5 * min(1.0, dt / 0.25)                      # turn to the speaker inside 0.25 s
+            hop += 4 * abs(math.sin(t * 5 + ph))                    # listening bob
+            aL += 16 * math.sin(t * 3.1 + ph)                       # hands never rest
+            aR += 16 * math.sin(t * 2.7 + ph + 1)
+            if rig and d < 0:
+                hk = face("l")
+            say = " ".join(w[2] for w in ln_["words"])
+            for key, hit in PUNCH.items():
+                e = ln_["start"] + ln_["dur"]
+                if key in say and c in hit and e - 0.35 <= t < e + 0.5:
+                    k = 1 - max(0.0, (t - e) / 0.5)
+                    ang -= d * 14 * k                               # recoil away from the speaker
+                    hop -= 26 * k
+                    aL, aR = -135 * k + aL * (1 - k), 135 * k + aR * (1 - k)
+                    hk = face("wide")
+        elif ln_ is None and not hush(t):   # between lines nobody freezes
+            hop += 3 * abs(math.sin(t * 4 + ph))
+            aL += 12 * math.sin(t * 3 + ph)
+            aR += 12 * math.sin(t * 2.6 + ph)
+        # ---- set pieces
+        if c == "rick":
+            ts = wt("Pass the potatoes", "socialism")
+            if ts - 0.05 <= t < ts + 0.3:           # fist down on the table
+                aL, aR = -40, 20
+                hop += 22
+            if sink(t) > 0:
+                hk = face("wide")
+                aL, aR = -150, 150
+        if c == "kaylee":
+            l1, l2 = lw("colonialism"), lw("twelve hundred")
+            if l1 and l2 and l1["start"] <= t < l2["start"] + l2["dur"] - 0.3:   # filming it, phone up
+                aR, extra_ = 150, dict(extra_, item=("phone", "R", 0))
+        if hush(t) and c in ("rick", "kaylee"):
+            hk = face("wide")
+            aL, aR = -30, 30
+        for txt in ("Taxation", "problematic"):     # both jump out of their seats shouting
+            l_ = lw(txt, c)
+            if l_ and l_["start"] <= t < l_["start"] + l_["dur"]:
+                k = abs(math.sin((t - l_["start"]) * 9))
+                hop -= 55 * k
+                aL, aR = -150, 150
+        if c == "grandma":
+            l_ = lw("turkey gets")
+            if l_ and l_["start"] <= t < l_["start"] + l_["dur"]:
+                aL = -150 + 20 * math.sin(t * 10)   # she points down the table and keeps jabbing
+        f = flop(t)
+        if f and c in ("rick", "kaylee"):
+            ang += (32 if c == "rick" else -32) * f
+            hop += 60 * f
+            aL, aR = -165, 165
+            hk = face("norm")
+        if f and c == "mb":
+            aL, aR = -150, 150
+            hop -= 14 * abs(math.sin(t * 8))
+        return (hop, j, ang, (aL, aR), hk, sq, rot, extra_)
+
+    def post(fr, cam, t, fi, li, scene, L):
+        K, S = L["K"], L[scene]
+        d = ImageDraw.Draw(fr)
+        z = cam.z * K
+        ts = wt("Pass the potatoes", "socialism")
+        if ts <= t < ts + 0.4:   # the slam
+            px, py = cam.p(S["cast"]["rick"] + 150 * K, S["top"] - 60 * K)
+            paste(fr, C2.spr("star", round(z * 1.1, 2), "BAM!"), px, py, (fi % 2) * 10)
+        l2 = lw("twelve hundred")
+        if l2:   # the phone leaves her hand on the punchline and sails off
+            e = l2["start"] + l2["dur"] - 0.3
+            k = (t - e) / 0.8
+            if 0 <= k < 1:
+                x, y = cam.p(S["cast"]["kaylee"] + (150 + 260 * k) * K,
+                             L["feet"] - (560 + 620 * k - 700 * k * k) * K)
+                paste(fr, H.prop("phone", round(z, 2)), x, y, k * 540)
+        if hush(t):
+            k = (t - G["ev"]["hush"]) / 1.0
+            rng = np.random.default_rng(fi)
+            for c in ("rick", "kaylee"):
+                for n in range(int(2 + 7 * k)):
+                    x, y = cam.p(S["cast"][c] + rng.uniform(-130, 130) * K, L["feet"] - rng.uniform(330, 520) * K)
+                    r = 11 * z
+                    d.polygon([(x, y - r * 2.2), (x + r, y), (x, y + r), (x - r, y)], fill=(120, 190, 250),
+                              outline=INK)
+        tk = (S["x"]["pip"] + S["x"]["mb"]) / 2
+        l_ = lw("turkey gets")
+        if l_ and t >= l_["start"] + 1.0:   # the crown drops onto the turkey, then the deed
+            drop = min(1.0, (t - l_["start"] - 1.0) / 0.2)
+            x, y = cam.p(tk, S["top"] - (150 + (1 - drop) * 700) * K)
+            w = 60 * z
+            d.polygon([(x - w, y), (x - w, y - w * 0.9), (x - w * 0.5, y - w * 0.4), (x, y - w * 1.1),
+                       (x + w * 0.5, y - w * 0.4), (x + w, y - w * 0.9), (x + w, y)], fill=(252, 214, 74),
+                      outline=INK, width=max(2, int(4 * z)))
+            if t >= l_["start"] + 1.5:
+                dx, dy = cam.p(tk + 130 * K, S["top"] - 60 * K)
+                d.rectangle([dx - 55 * z, dy - 70 * z, dx + 55 * z, dy + 70 * z], fill=(252, 250, 240),
+                            outline=INK, width=max(2, int(4 * z)))
+                f = ImageFont.truetype(C.FONT, max(8, int(34 * z)))
+                d.text((dx, dy - 30 * z), "DEED", fill=INK, anchor="mm", font=f)
+                for q in range(3):
+                    d.line([dx - 35 * z, dy + q * 18 * z, dx + 35 * z, dy + q * 18 * z], fill=INK,
+                           width=max(1, int(3 * z)))
+
+    def sfx(fx, music, ev, lines):
+        ts = wt("Pass the potatoes", "socialism")
+        if ts < 1e8:
+            C2.thud(fx, ts, 0.9)
+        if "hush" in ev:
+            for k in range(3):
+                add(fx, C2.tone(1900 if k % 2 else 1500, 0.03, 0.4), ev["hush"] + 0.1 + k * 0.3)
+        l_ = lw("turkey gets")
+        if l_:
+            add(fx, C2.tone(1320, 0.1, 0.3), l_["start"] + 1.2)
+            C2.thud(fx, l_["start"] + l_["dur"] + 0.3, 0.8)
+
+    def shakes():
+        out = []
+        ts = wt("Pass the potatoes", "socialism")
+        if ts < 1e8:
+            out.append((ts, 1.0))
+        l_ = lw("turkey gets")
+        if l_:
+            out.append((l_["start"] + l_["dur"] + 0.3, 0.8))
+        return out
+
+    def silences():
+        ev = G["ev"]
+        return [(ev["hush"], ev["hush"] + 1.0)] if "hush" in ev else []
+
+    return dict(title="UNCLE RICK RUINS THANKSGIVING", end=["WHO'S WORSE,", "RICK OR", "KAYLEE?"], seq=seq,
+                headline=["UNCLE RICK RUINS", "THANKSGIVING"], target=0, brand="MEATBALL TOONS",
+                scenes={"table": dict(layout=layout, bg=table_bg)},
+                post=post, pose_hook=pose_hook, where=where, sfx=sfx, silences=silences, shakes=shakes)
+
+
 def ep7v4():
     """QA #15 F1: no pronoun in the bite line."""
     ep = ep7v3()
@@ -2999,7 +3226,7 @@ def _check_img(z):
     return _LIMG[key]
 
 
-EPISODES = {"bill": bill, "billshort": lambda: bill(True), "t58": t58, "t58short": lambda: t58(True), "confession_nb": nobanner(confession, ["MEATBALL GOES", "TO CONFESSION"]), "confession": confession, "ozempic": ozempic, "ep6v4": ep6v4, "ep5v4": ep5v4, "ep7v4": ep7v4, "ep3": ep3, "ep4": ep4, "ep5": ep5, "ep6": ep6, "ep7": ep7, "ep8": ep8, "ep7v3": ep7v3, "ep3v3": ep3v3}
+EPISODES = {"rickpol": rickpol, "bill": bill, "billshort": lambda: bill(True), "t58": t58, "t58short": lambda: t58(True), "confession_nb": nobanner(confession, ["MEATBALL GOES", "TO CONFESSION"]), "confession": confession, "ozempic": ozempic, "ep6v4": ep6v4, "ep5v4": ep5v4, "ep7v4": ep7v4, "ep3": ep3, "ep4": ep4, "ep5": ep5, "ep6": ep6, "ep7": ep7, "ep8": ep8, "ep7v3": ep7v3, "ep3v3": ep3v3}
 
 
 # ------------------------------------------------------------------------------------------------ engine
@@ -3108,7 +3335,7 @@ def banners(fr, t):
     for i, txt in enumerate(EP["end"]):
         items.append((end + 0.2 + 0.25 * i, end + 99, txt, eb, (252, 250, 240), INK, [-2, 2, -1][i % 3],
                       int(i * eb * 1.55) + (40 if L["H"] > L["W"] else 0)))
-    items.append((end + 0.1, end + 99, "MEATBALL MYTHS", int(big * 0.7), (200, 40, 32), WHITE, 3, -int(big * 1.1)))
+    items.append((end + 0.1, end + 99, EP.get("brand", "MEATBALL MYTHS"), int(big * 0.7), (200, 40, 32), WHITE, 3, -int(big * 1.1)))
     for (t0, t1, text, size, col, tcol, ang, dy) in items:
         if not (t0 <= t < t1):
             continue
