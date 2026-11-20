@@ -311,8 +311,44 @@ def _putin_head(lvl, cy):
 register("trump", leader(person((244, 176, 120), "bald", (246, 208, 96), "shirt_tie", (30, 40, 80), (30, 40, 80),
                                 (20, 20, 22), tall=1.04, wide=1.18, eyes=("norm", 0.3), tie=(214, 40, 40)),
                          _trump_head))
-register("xi", leader(person(SKIN[5], "bald", (24, 22, 24), "shirt_tie", (40, 40, 48), (40, 40, 48), (20, 20, 22),
-                             wide=1.2, acc=("pin",), eyes=("norm", 0.25), tie=(150, 30, 40)), _xi_head))
+def xi_parts():
+    """Xi from Studio's model sheet (channels/art/characters/xi-model-sheet-v1.jpg): wide round head, swept-back
+    charcoal hair with grey streaks, heavy lids, thick flat brows, small closed smile, navy suit, purple dotted tie."""
+    rig, body, _, arm = person((240, 200, 160), "bald", (44, 42, 46), "shirt_tie", (30, 40, 84), (30, 40, 84),
+                               (20, 20, 22), wide=1.22, acc=("pin",), tie=(84, 50, 120))
+    skin, hair, grey = (240, 200, 160), (44, 42, 46), (120, 118, 124)
+
+    def body2():
+        s = body()
+        nk = -250
+        for k in range(5):   # the dots on the tie
+            s.append(("e", ((-3 if k % 2 else 3), nk + 22 + k * 17, 2.4, 2.4), (170, 140, 200), False))
+        return s
+
+    def head(lvl, blink, expr, extra):
+        cy = -112
+        s = [("e", (-116, cy + 10, 16, 26), skin), ("e", (116, cy + 10, 16, 26), skin),
+             ("e", (0, cy + 6, 118, 108), skin),
+             ("pts", ell(0, cy - 34, 122, 96, 180, 360) + [(124, cy + 22), (104, cy + 10), (96, cy - 34), (44, cy - 62),
+                                                           (-56, cy - 58), (-96, cy - 30), (-104, cy + 10),
+                                                           (-124, cy + 22)], hair)]
+        for (x0, y0, x1, y1) in [(-70, -104, 20, -122), (-40, -92, 60, -112), (0, -84, 90, -98), (96, -70, 112, -10),
+                                 (-112, -60, -104, -6), (40, -116, 100, -92)]:
+            s.append(("p", strip([(x0, cy + y0), (x1, cy + y1)], 4), grey, False))
+        lids = 1.0 if blink else (0.2 if expr == "wide" else 0.46)
+        s += C.eyes(0, cy + 6, 38, 34, 27, "c", "norm", lids, skin, 0, hair)
+        s += [("p", strip([(-66, cy - 34), (-14, cy - 30)], 11), (70, 68, 72), False),     # thick, flat brows
+              ("p", strip([(14, cy - 30), (66, cy - 34)], 11), (70, 68, 72), False),
+              ("p", strip([(-30, cy + 96), (0, cy + 102), (30, cy + 96)], 3), (214, 172, 134), False)]   # soft chin
+        if lvl == 0:
+            s.append(("p", strip([(-22, cy + 62), (0, cy + 69), (22, cy + 62)], 5), MOUTH, False))   # small smile
+        else:
+            s += C.mouth(0, cy + 66, lvl, 30, "flat", "oval")
+        return s
+    return rig, body2, head, arm
+
+
+register("xi", xi_parts())
 register("putin", leader(person(SKIN[3], "bald", (200, 190, 170), "shirt_tie", (50, 54, 60), (50, 54, 60),
                                 (20, 20, 22), tall=0.9, wide=0.92, eyes=("norm", 0.5), tie=(40, 60, 120)),
                          _putin_head))
@@ -2447,7 +2483,7 @@ def diner_layout(L):
     vert = L["H"] > L["W"]
     if vert:
         L["cap_y"] = 1400   # captions clear of the bottom 20% (Studio 11/20)
-        return dict(cast=dict(trump=150, xi=470, putin=790, mb=1130), top=L["feet"] - 150 * L["K"],
+        return dict(cast=dict(trump=175, xi=520, putin=860, mb=1150), top=L["feet"] - 150 * L["K"],
                     wide=(640, 1380, 0.85))
     return dict(cast=dict(trump=420, xi=820, putin=1220, mb=1640), top=L["feet"] - 150 * L["K"],
                 wide=(960, 600, 1.0))
