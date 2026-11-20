@@ -76,6 +76,14 @@ def person(skin, hair="short", hair_col=(60, 40, 30), top="tee", top_col=(90, 12
         if top == "coat":   # firefighter turnout coat with reflective bands
             for y in (nk + 110, -100):
                 s.append(("p", [(-bw, y), (bw, y), (bw, y + 16), (-bw, y + 16)], (250, 214, 60), False))
+        if top == "cassock":   # long black robe, white collar tab
+            s += [("p", [(-bw, -70), (bw, -70), (bw + 6, -14), (-bw - 6, -14)], top_col),
+                  ("p", [(-13, nk + 2), (13, nk + 2), (13, nk + 18), (-13, nk + 18)], WHITE, False)]
+        if top == "labcoat":   # white coat, blue scrubs showing, stethoscope
+            s += [("p", [(-20, nk), (20, nk), (0, nk + 80)], (120, 180, 210), False),
+                  ("pts", strip([(-26, nk + 6), (-30, nk + 70), (0, nk + 96), (30, nk + 70), (26, nk + 6)], 5),
+                   (50, 50, 56), False),
+                  ("e", (0, nk + 100, 10, 10), (190, 190, 200), False)]
         if top == "apron":
             s.append(("p", [(-34 * wide, nk + 40), (34 * wide, nk + 40), (40 * wide, -70), (-40 * wide, -70)],
                       (250, 250, 244), False))
@@ -248,6 +256,10 @@ register("firefighter", person(SKIN[1], "buzz", (30, 24, 20), "coat", (180, 150,
                                acc=("helmet", "mustache")))
 register("sage", person(SKIN[2], "long", (150, 110, 60), "hoodie", (150, 170, 110), (120, 110, 90), (170, 140, 100),
                         acc=("headband",), eyes=("norm", 0.4)))
+register("father", person(SKIN[3], "short", (190, 190, 196), "cassock", (30, 30, 36), (30, 30, 36), (20, 20, 22),
+                          acc=("glasses",), eyes=("norm", 0.45)))
+register("doctor", person(SKIN[4], "short", (40, 30, 26), "labcoat", (246, 246, 250), (120, 180, 210), (240, 240, 240),
+                          acc=("glasses",), eyes=("norm", 0.2)))
 register("tank", person(SKIN[0], "buzz", (90, 60, 40), "tank", (240, 240, 240), (60, 60, 70), (240, 240, 240),
                         wide=1.4, arm_w=30, eyes=("norm", 0.2)))
 
@@ -316,7 +328,8 @@ C2.V.update({
     "karen": "kokoro:karen@speed=1.12,pause=0.2", "dad": "kokoro:dad@speed=1.05,pause=0.25",
     "dadbot": "kokoro:dadbot@speed=0.95,pause=0.3", "chadsr": "kokoro:chadsr@speed=1.12,pause=0.2",
     "brittany": "kokoro:brittany@speed=1.18,pause=0.18", "firefighter": "kokoro:firefighter@speed=1.0,pause=0.25",
-    "sage": "kokoro:sage@speed=1.0,pause=0.3", "tank": "kokoro:tank@speed=1.2,pause=0.18"})
+    "sage": "kokoro:sage@speed=1.0,pause=0.3", "tank": "kokoro:tank@speed=1.2,pause=0.18",
+    "father": "kokoro:father@speed=1.08,pause=0.22", "doctor": "kokoro:doctor@speed=1.1,pause=0.2"})
 
 
 # ------------------------------------------------------------------------------------------------ layout
@@ -337,7 +350,8 @@ def build_layout():
 def cams(L):
     K, F = L["K"], L["feet"]
     out = {}
-    hs = {"grandma": 150, "rick": 300, "dadbot": 380, "tank": 300, "chadsr": 300, "firefighter": 300}
+    hs = {"grandma": 150, "rick": 300, "dadbot": 380, "tank": 300, "chadsr": 300, "firefighter": 300,
+          "father": 300, "doctor": 300}
     for name, sc in EP["scenes"].items():
         S = L[name]
         c = {"wide": S.get("wide", (L["W"] / 2, L["H"] / 2, 1.0))}
@@ -1751,7 +1765,490 @@ def ep7v4():
     return ep
 
 
-EPISODES = {"ep7v4": ep7v4, "ep3": ep3, "ep4": ep4, "ep5": ep5, "ep6": ep6, "ep7": ep7, "ep8": ep8, "ep7v3": ep7v3, "ep3v3": ep3v3}
+def ep5v4():
+    """Studio 11/20 rules: 5 swears on punchlines (captions masked), named targets, CEO fired by Gary."""
+    ep = ep5()
+
+    def ln(who, text, scene, cam=None, gap=0.08, cap=None):
+        return ("line", who, text, cap, dict(scene=scene, cams=[(0, cam or "cu_" + who)], gap=gap))
+
+    ep["seq"] = [
+        ("gag", "intro", 2.2, "home", "wide"),
+        ln("mb", "My dad got replaced by AI. At work. And then at home.", "home", gap=0.0),
+        ("gag", "ceo_in", 0.5, "ceo", "wide"),
+        ln("dad", "Twenty years at MegaMart. Replaced by a chatbot named Gary.", "ceo"),
+        ln("ceo", "Gary doesn't need lunch, health insurance, or a soul. He's management material.", "ceo"),
+        ("line", "dad", "Gary told a customer to put glue on pizza!", None,
+         dict(scene="ceo", cams=[(0, "cu_dad"), (6, "glue/wide")], gap=0.1)),
+        ln("ceo", "And the guy came back for seconds. That's brand loyalty, dumbass.", "ceo",
+           cap="And the guy came back for seconds. That's brand loyalty, dumb#@s."),
+        ln("dad", "What about my severance?", "ceo"),
+        ln("ceo", "We threw you a pizza party. You weren't invited. It was the glue pizza.", "ceo"),
+        ln("ceo", "I just ask myself, what would Zuckerberg do?", "ceo"),
+        ln("dad", "Blink on purpose?", "ceo", gap=0.0),
+        ("hold", 0.3, "cu_ceo"),
+        ("gag", "home_in", 0.5, "home", "wide"),
+        ln("dadbot", "Hello, son. I read your report card. I am not angry. I am disappointed at a level no human "
+                     "father can reach.", "home", gap=0.0),
+        ("hold", 0.3, "cu_mb"),
+        ln("mb", "Holy shit. That's way worse.", "home", cap="Holy s#@t. That's way worse."),
+        ln("dadbot", "I also read your diary. Chapter three was weak.", "home"),
+        ln("mb", "I don't have a diary!", "home"),
+        ln("dadbot", "You do now. I wrote it. You cry in chapter four.", "home"),
+        ln("dadbot", "Your mother asked if I love her. I said yes in point two seconds. Your father's record is "
+                     "nine years.", "home"),
+        ln("dad", "That's bullshit! I said it at the wedding!", "home", cap="That's bulls#@t! I said it at the wedding!"),
+        ln("dadbot", "You said, you too.", "home", gap=0.0, cap='You said "you too."'),
+        ("hold", 0.3, "cu_dad"),
+        ("line", "dad", "I coded you, Gary.", "I CODED YOU, GARY.", dict(scene="home", cams=[(0, "cu_dad")], gap=0.1)),
+        ("gag", "ceo_back", 0.5, "ceo", "wide"),
+        ln("ceo", "Gary's the CEO now. He fired my ass by text. With an emoji.", "ceo",
+           cap="Gary's the CEO now. He fired my #@s by text. With an emoji."),
+        ("gag", "home_back", 0.3, "home", "wide"),
+        ln("mb", "The robot fired the boss. First damn thing it got right.", "home", gap=0.0,
+           cap="The robot fired the boss. First d#@n thing it got right."),
+        ("hold", 0.3, "wide"),
+        ("gag", "end", 2.6, "home", "wide"),
+    ]
+
+    def where(c, t, scene, L):
+        if c == "dad" and scene == "home":
+            ln_ = H.lines_with("bullshit", "dad")
+            if not ln_ or t < ln_[0]["t0"] - 0.8:
+                return None   # Dad is not home yet
+        return (L[scene]["cast"][c], L["feet"])
+
+    base_hook = ep["pose_hook"]
+
+    def pose_hook(c, t, fi, li, scene, p):
+        p = lively(c, t, li, p, G["L"][scene].get("cast", {}), 0.7)
+        return base_hook(c, t, fi, li, scene, p)
+
+    base_sfx = ep["sfx"]
+
+    def sfx(fx, music, ev, lines):
+        base_sfx(fx, music, ev, lines)
+        if "ceo_back" in ev:   # a text-message ding: the CEO just got fired
+            add(fx, C2.tone(1760, 0.08, 0.3), ev["ceo_back"] + 0.05)
+            add(fx, C2.tone(2349, 0.12, 0.3), ev["ceo_back"] + 0.15)
+
+    ep.update(where=where, pose_hook=pose_hook, sfx=sfx)
+    return ep
+
+
+def ep6v4():
+    """Studio 11/20 rules: 5 swears on punchlines (captions masked), Bezos + Denny's, husband on fire, ultrasound."""
+    ep = ep6()
+    Y = dict(scene="yard")
+    PIPV = "kokoro:aud-pip-b@speed=1.25,pause=0.14"
+
+    def ln(who, text, gap=0.08, cap=None, **kw):
+        return ("line", who, text, cap, dict(Y, cams=[(0, "cu_" + who)], gap=gap, **kw))
+
+    ep["seq"] = [
+        ("gag", "intro", 2.2, "yard", "wide"),
+        ln("mb", "My neighbors are having a baby. So naturally, they bought explosives.", 0.1),
+        ln("brittany", "This reveal is gonna go viral, babe!"),
+        ln("chadsr", "I got two hundred pounds of blue powder and a cannon from a guy named Scooter."),
+        ln("pip", "Is Scooter a professional?", voice=PIPV),
+        ln("chadsr", "He's got nine fingers and a dream."),
+        ln("chadsr", "This cannon's bigger than Bezos's rocket."),
+        ln("dot", "And it looks a little less like a dick.", 0.0, cap="And it looks a little less like a d#@k."),
+        ("hold", 0.3, "cu_chadsr"),
+        ln("brittany", "We named him Braxtyn. With a Y. And a second Y nobody asked for."),
+        ln("dot", "That kid's getting his ass kicked by his own birth certificate.", 0.0,
+           cap="That kid's getting his #@s kicked by his own birth certificate."),
+        ("gag", "boom", 1.6, "yard", "cu_cannon"),
+        ln("chadsr", "It's a boy!"),
+        ln("dot", "It's a felony.", 0.0),
+        ln("mb", "The shed's on fire. The fence is on fire. Holy shit, the neighbor's boat is on fire.",
+           cap="The shed's on fire. The fence is on fire. Holy s#@t, the neighbor's boat is on fire."),
+        ln("brittany", "Did we get the shot?"),
+        ln("firefighter", "Ma'am, you got the shot, the church, and a Denny's two towns over."),
+        ln("firefighter", "Also, your husband is on fire."),
+        ln("brittany", "Is the lighting good?", 0.0),
+        ("hold", 0.3, "cu_chadsr"),
+        ln("firefighter", "Whose idea was the cannon?"),
+        ln("chadsr", "Scooter's."),
+        ln("firefighter", "Scooter's in jail, sir. Again."),
+        ln("brittany", "For how long?", 0.0),
+        ("gag", "look", 0.8, "yard", "cu_chadsr"),
+        ln("grandma", "In my day we found out when it came out. And we were thrilled if the damn thing had a pulse.",
+           cap="In my day we found out when it came out. And we were thrilled if the d#@n thing had a pulse."),
+        ln("pip", "Hey, why does the baby in the ultrasound have nine fingers?", 0.0, voice=PIPV),
+        ("gag", "freeze", 1.0, "yard", "wide"),
+        ln("chadsr", "Son of a bitch. Bigger cannon.", 0.0, cap="Son of a b#@ch. Bigger cannon."),
+        ("hold", 0.3, "wide"),
+        ("gag", "end", 2.6, "yard", "wide"),
+    ]
+
+    def where(c, t, scene, L):
+        if c == "firefighter":
+            l_ = H.lines_with("you got the shot", "firefighter")
+            if not l_ or t < l_[0]["t0"] - 0.6:
+                return None
+        return (L[scene]["cast"][c], L["feet"])
+
+    def burning(t):
+        l_ = H.lines_with("husband is on fire", "firefighter")
+        l2 = H.lines_with("Whose idea", "firefighter")
+        return bool(l_) and l_[0]["t0"] <= t < (l2[0]["t0"] if l2 else 1e9)
+
+    base_post, base_hook, base_sfx = ep["post"], ep["pose_hook"], ep["sfx"]
+
+    def post(fr, cam, t, fi, li, scene, L):
+        base_post(fr, cam, t, fi, li, scene, L)
+        K = L["K"]
+        ev = G["ev"]
+        if "boom" in ev and t >= ev["boom"] + 0.6:   # the fence keeps burning behind them
+            fy = L["feet"] - 330 * K
+            for k, x in enumerate((900, 1300, 1700)):
+                fire(fr, cam, x, fy - 250 * K, 90 * K, t, 30 + k)
+        if burning(t):   # Chad's hat is on fire; he hasn't noticed
+            fire(fr, cam, L[scene]["cast"]["chadsr"], L["feet"] - 500 * K, 80 * K, t, 77)
+        l_ = H.lines_with("ultrasound", "pip")
+        if l_ and t >= l_[0]["t0"] + 0.5:   # Pip holds up the scan
+            z = cam.z * K
+            x, y = cam.p(L[scene]["cast"]["pip"] + 150 * K, L["feet"] - 330 * K)
+            d = ImageDraw.Draw(fr)
+            d.rectangle([x - 110 * z, y - 90 * z, x + 110 * z, y + 90 * z], fill=(16, 18, 26), outline=WHITE,
+                        width=max(2, int(6 * z)))
+            d.ellipse([x - 60 * z, y - 50 * z, x + 20 * z, y + 30 * z], fill=(190, 196, 206))
+            d.ellipse([x + 5 * z, y - 10 * z, x + 75 * z, y + 60 * z], fill=(170, 176, 188))
+            d.text((x, y + 66 * z), "9 FINGERS", fill=(120, 190, 250), anchor="mm",
+                   font=ImageFont.truetype(FONT, max(8, int(26 * z))))
+
+    def pose_hook(c, t, fi, li, scene, p):
+        p = lively(c, t, li, p, G["L"][scene].get("cast", {}), 0.7)
+        hop, j, ang, (aL, aR), hk, sq, rot, extra = base_hook(c, t, fi, li, scene, p)
+        ev = G["ev"]
+        if "look" in ev and ev["look"] <= t < ev["look"] + 0.8 and c == "chadsr":
+            ang, hk = 8, (hk[0], hk[1], "wide", hk[3])
+        if "freeze" in ev and ev["freeze"] <= t < ev["freeze"] + 1.0:
+            hop, hk = 0, (hk[0], hk[1], "wide", hk[3])
+        return (hop, j, ang, (aL, aR), hk, sq, rot, extra)
+
+    def sfx(fx, music, ev, lines):
+        base_sfx(fx, music, ev, lines)
+        if "freeze" in ev:
+            add(fx, ks(hz("D3"), 0.6, 0.995, 0.6, 30), ev["freeze"] + 0.1, 0.5)
+            add(fx, ks(hz("C#3"), 0.9, 0.995, 0.6, 31), ev["freeze"] + 0.55, 0.5)
+
+    def silences():
+        ev = G["ev"]
+        return [(ev["freeze"], ev["freeze"] + 1.0)] if "freeze" in ev else []
+
+    ep.update(where=where, post=post, pose_hook=pose_hook, sfx=sfx, silences=silences)
+    return ep
+
+
+@eprop("wine")
+def _wine(z):
+    return render_shapes([("p", strip([(0, 60), (0, 0)], 8), (220, 226, 236)),
+                          ("e", (0, 62, 26, 8), (220, 226, 236)),
+                          ("pts", ell(0, -30, 34, 40, 0, 180) + [(-34, -30)], (220, 226, 236)),
+                          ("pts", ell(0, -26, 28, 32, 0, 180) + [(-28, -26)], (150, 20, 50), False)], z, 150, 530)
+
+
+@eprop("slip")
+def _slip(z):
+    img = render_shapes([("p", [(-34, -50), (34, -50), (34, 50), (-34, 50)], (250, 246, 220))], z, 120, 531)
+    d = ImageDraw.Draw(img)
+    c = img.size[0] / 2
+    d.text((c, c - 16 * z), "BET", font=ImageFont.truetype(FONT, max(6, int(22 * z))), fill=(200, 40, 32), anchor="mm")
+    d.text((c, c + 14 * z), "DAL", font=ImageFont.truetype(FONT, max(6, int(22 * z))), fill=(30, 50, 110), anchor="mm")
+    return img
+
+
+def booth_layout(L):
+    vert = L["H"] > L["W"]
+    if vert:
+        return dict(cast=dict(father=300, mb=800, grandma=1500), wall=550, wide=(550, 1300, 0.96))
+    return dict(cast=dict(father=600, mb=1320, grandma=2300), wall=960, wide=(960, 600, 1.0))
+
+
+def booth_bg(L, cam, scene):
+    W, H_, z = L["W"], L["H"], cam.z
+    K, F = L["K"], L["feet"]
+    S = L[scene]
+    rng = np.random.default_rng(171)
+    img = Image.new("RGBA", (W, H_))
+    paper(img, cam.pts([(-900, -900), (3200, -900), (3200, 3000), (-900, 3000)]), (74, 48, 34), rng, z,
+          shadow=False, jitter=False, edge=False)
+    for k in range(-6, 30):   # wood panels
+        x = k * 150
+        paper(img, cam.pts([(x, F - 1500 * K), (x + 138, F - 1500 * K), (x + 138, F + 60), (x, F + 60)]),
+              (96, 62, 42) if k % 2 else (104, 68, 46), rng, z, sh=3)
+    wx = S["wall"]   # the dividing wall with the lattice window
+    paper(img, cam.pts([(wx - 46, F - 1500 * K), (wx + 46, F - 1500 * K), (wx + 46, F + 60), (wx - 46, F + 60)]),
+          (60, 38, 26), rng, z, sh=8)
+    wy = F - 330 * K
+    paper(img, cam.pts([(wx - 40, wy - 110 * K), (wx + 40, wy - 110 * K), (wx + 40, wy + 110 * K),
+                        (wx - 40, wy + 110 * K)]), (30, 20, 16), rng, z, shadow=False)
+    for k in range(-4, 5):
+        paper(img, cam.pts(strip([(wx - 40, wy + k * 28 * K), (wx + 40, wy + (k + 2) * 28 * K)], 4)), (150, 110, 70),
+              rng, z, shadow=False)
+        paper(img, cam.pts(strip([(wx + 40, wy + k * 28 * K), (wx - 40, wy + (k + 2) * 28 * K)], 4)), (150, 110, 70),
+              rng, z, shadow=False)
+    paper(img, cam.pts([(-900, F - 10), (3200, F - 10), (3200, 3000), (-900, 3000)]), (52, 34, 26), rng, z,
+          shadow=False)
+    d = ImageDraw.Draw(img)
+    fx = S["cast"]["father"]   # the price board over the priest
+    paper(img, cam.pts([(fx - 190 * K, F - 780 * K), (fx + 190 * K, F - 790 * K), (fx + 190 * K, F - 610 * K),
+                        (fx - 190 * K, F - 600 * K)]), (250, 246, 226), rng, z, sh=6)
+    d.text(cam.p(fx, F - 740 * K), "CONFESSION", font=ImageFont.truetype(FONT, max(8, int(46 * z * K))), fill=INK,
+           anchor="mm")
+    d.text(cam.p(fx, F - 680 * K), "CASH - CARD - TAP", font=ImageFont.truetype(FONT, max(8, int(30 * z * K))),
+           fill=(200, 40, 32), anchor="mm")
+    d.text(cam.p(fx, F - 636 * K), "3% FEE", font=ImageFont.truetype(FONT, max(8, int(28 * z * K))), fill=INK,
+           anchor="mm")
+    return C.vignette(img)
+
+
+def confession():
+    """NEW (Studio 11/20, priest lane): the priest is doing worse than every sin Meatball confesses."""
+    B = dict(scene="booth")
+
+    def ln(who, text, gap=0.08, cap=None):
+        return ("line", who, text, cap, dict(B, cams=[(0, "cu_" + who)], gap=gap))
+
+    seq = [
+        ("gag", "intro", 2.2, "booth", "wide"),
+        ln("mb", "Grandma made me go to confession. I've never been. How bad could it be?", 0.1),
+        ln("father", "How long since your last confession, my son?"),
+        ln("mb", "What's the longest anybody's ever said? Add a day.", 0.0),
+        ("hold", 0.3, "cu_father"),
+        ln("mb", "I ate a whole lasagna and blamed the dog."),
+        ln("father", "Gluttony. Ten Hail Marys."),
+        ln("mb", "You're drinking wine at nine A M, Father.", cap="You're drinking wine at nine A.M., Father."),
+        ln("father", "It's a work drink, smartass.", 0.0, cap="It's a work drink, smart#@s."),
+        ("hold", 0.3, "cu_mb"),
+        ln("mb", "I skipped church for football."),
+        ln("father", "So did I. I had the Cowboys. God's been punishing me since ninety-six."),
+        ln("mb", "Is greed a sin?"),
+        ln("father", "Deadly."),
+        ln("mb", "The collection plate takes Apple Pay."),
+        ln("father", "With a three percent convenience fee. That's not greed. That's overhead."),
+        ln("mb", "The Vatican has its own bank, Father."),
+        ln("father", "Have you seen that roof? Gold doesn't polish its damn self.", 0.0,
+           cap="Have you seen that roof? Gold doesn't polish its d#@n self."),
+        ("hold", 0.3, "cu_mb"),
+        ln("mb", "I fell asleep during your sermon."),
+        ln("father", "Which part?"),
+        ln("mb", "The first forty minutes."),
+        ln("father", "Shit, me too. I've done the same one since Easter.", 0.0,
+           cap="S#@t, me too. I've done the same one since Easter."),
+        ("hold", 0.3, "cu_mb"),
+        ln("father", "Now your penance. Feel guilty."),
+        ln("mb", "For how long?"),
+        ln("father", "Forever. That's the whole business model.", 0.0),
+        ("gag", "knock", 0.5, "booth", "wide"),
+        ln("grandma", "Is he done? I've got forty years of bingo fraud to unload!"),
+        ln("father", "Kid. My turn. I need to confess something."),
+        ln("mb", "That is not how this works."),
+        ln("father", "I bet the bingo money. On the Cowboys.", 0.0),
+        ("hold", 0.3, "cu_mb"),
+        ln("grandma", "You son of a bitch! That was my bingo fraud!", cap="You son of a b#@ch! That was MY bingo fraud!"),
+        ln("mb", "I came in with a lasagna. I'm leaving as a damn witness.", 0.0,
+           cap="I came in with a lasagna. I'm leaving as a d#@n witness."),
+        ("hold", 0.3, "wide"),
+        ("gag", "end", 2.6, "booth", "wide"),
+    ]
+
+    def pose_hook(c, t, fi, li, scene, p):
+        p = lively(c, t, li, p, G["L"][scene]["cast"], 0.7)
+        hop, j, ang, (aL, aR), hk, sq, rot, extra = p
+        if c == "father":
+            bet = H.lines_with("bingo money", "father")
+            if bet and t >= bet[0]["t0"]:
+                aR, extra["item"] = max(aR, 120), ("slip", "R", 0)
+            else:
+                aR, extra["item"] = max(aR, 70), ("wine", "R", 0)
+        if c == "mb":
+            w = H.lines_with("My turn", "father")
+            if w and t >= w[0]["t0"]:
+                hk = (hk[0], hk[1], hk[2], "wide")
+        return (hop, j, ang, (aL, aR), hk, sq, rot, extra)
+
+    def sfx(fx, music, ev, lines):
+        if "knock" in ev:
+            for k in range(3):
+                C2.thud(fx, ev["knock"] + 0.05 + k * 0.14, 0.5)
+        add(fx, ks(hz("C3"), 2.0, 0.998, 0.5, 90), 2.3, 0.25)   # a churchy low note under the first line
+        add(fx, ks(hz("G3"), 2.0, 0.998, 0.5, 91), 2.3, 0.2)
+
+    def shakes():
+        ev = G["ev"]
+        return [(ev["knock"] + k * 0.14, 0.5) for k in range(3)] if "knock" in ev else []
+
+    return dict(title="GOES TO CONFESSION", end=["WHAT WOULD", "YOU", "CONFESS?"], seq=seq,
+                scenes={"booth": dict(layout=booth_layout, bg=booth_bg)},
+                pose_hook=pose_hook, sfx=sfx, shakes=shakes)
+
+
+def clinic_layout(L):
+    vert = L["H"] > L["W"]
+    if vert:
+        xs = dict(doctor=130, pip=380, mb=630, dot=880, tank=1140, sage=1420, grandma=1700)
+        return dict(cast=xs, wide=(630, 1380, 0.85))
+    xs = dict(doctor=300, pip=620, mb=960, dot=1300, tank=1620, sage=1960, grandma=2300)
+    return dict(cast=xs, wide=(960, 600, 1.0))
+
+
+def clinic_bg(L, cam, scene):
+    W, H_, z = L["W"], L["H"], cam.z
+    K, F = L["K"], L["feet"]
+    rng = np.random.default_rng(181)
+    img = Image.new("RGBA", (W, H_))
+    paper(img, cam.pts([(-900, -900), (3200, -900), (3200, 3000), (-900, 3000)]), (214, 232, 226), rng, z,
+          shadow=False, jitter=False, edge=False)
+    wall_b = F - 260 * K
+    paper(img, cam.pts([(-900, wall_b - 30 * K), (3200, wall_b - 30 * K), (3200, wall_b), (-900, wall_b)]),
+          (150, 180, 176), rng, z, sh=3)
+    paper(img, cam.pts([(-900, wall_b), (3200, wall_b), (3200, 3000), (-900, 3000)]), (196, 200, 204), rng, z,
+          shadow=False)
+    d = ImageDraw.Draw(img)
+    for k, (px, title, sub) in enumerate(((300, "BMI", "BIG MEATBALL INDEX"), (980, "E", "F P  T O Z"),
+                                          (1620, "DIET", "AND EXERCISE"))):
+        paper(img, cam.pts([(px - 170 * K, wall_b - 760 * K), (px + 170 * K, wall_b - 766 * K),
+                            (px + 170 * K, wall_b - 470 * K), (px - 170 * K, wall_b - 464 * K)]), (252, 250, 240),
+              rng, z, sh=6)
+        d.text(cam.p(px, wall_b - 670 * K), title, font=ImageFont.truetype(FONT, max(8, int(90 * z * K))), fill=INK,
+               anchor="mm")
+        d.text(cam.p(px, wall_b - 540 * K), sub, font=ImageFont.truetype(FONT, max(8, int(28 * z * K))),
+               fill=(200, 40, 32), anchor="mm")
+    return C.vignette(img)
+
+
+def ozempic():
+    """NEW (Studio 11/20, fat lane): Meatball owns it; he shrinks on the shot, then pops back in one frame."""
+    O = dict(scene="clinic")
+
+    def ln(who, text, gap=0.08, cap=None, cam=None):
+        return ("line", who, text, cap, dict(O, cams=[(0, cam or "cu_" + who)], gap=gap))
+
+    seq = [
+        ("gag", "intro", 2.2, "clinic", "wide"),
+        ln("mb", "I'm a meatball. I am literally a ball of meat. And my doctor says I need to lose weight.", 0.1),
+        ln("doctor", "You're ninety percent fat."),
+        ln("mb", "I'm eighty twenty, Doc. That's the good blend.", cap="I'm eighty-twenty, Doc. That's the good blend."),
+        ln("doctor", "Have you tried diet and exercise?"),
+        ln("mb", "Have you tried shutting the hell up?", 0.0, cap="Have you tried shutting the h#@l up?"),
+        ("hold", 0.3, "cu_doctor"),
+        ln("tank", "Bro, just lift."),
+        ln("mb", "I don't have a neck, Tank. Neither do you, and yours was a choice."),
+        ln("sage", "Have you tried kale?"),
+        ln("mb", "Kale tastes like a lawn that hates you."),
+        ln("dot", "Everybody famous is on the shot."),
+        ln("mb", "You get a shot! You get a shot!"),
+        ("line", "pip", "Celebrities say it's just water and pilates.", None,
+         dict(O, cams=[(0, "cu_pip")], gap=0.08, voice="kokoro:aud-pip-b@speed=1.25,pause=0.14")),
+        ln("dot", "And my dad's just at the store. Since twenty nineteen.", 0.0),
+        ("gag", "shot", 0.8, "clinic", "cu_mb"),
+        ln("mb", "Day one. I looked at a breadstick and felt nothing. Who the hell am I?",
+           cap="Day one. I looked at a breadstick and felt nothing. Who the h#@l am I?"),
+        ln("mb", "Day ten. I left food on my plate. On purpose. Like a psychopath."),
+        ln("mb", "Day thirty. I'm a slider."),
+        ln("mb", "Day sixty. Holy shit, I'm a Swedish meatball. They're gonna sell me at IKEA with a little flag.",
+           0.0, cap="Day sixty. Holy s#@t, I'm a Swedish meatball. They're gonna sell me at IKEA with a little flag."),
+        ("hold", 0.3, "wide"),
+        ln("grandma", "You look sick. Eat something."),
+        ln("mb", "You called me fat for thirty years!"),
+        ln("grandma", "And now you're too skinny. I contain multitudes, dumbass.", 0.0,
+           cap="And now you're too skinny. I contain multitudes, dumb#@s."),
+        ("hold", 0.3, "cu_mb"),
+        ln("doctor", "Bad news. Your insurance stopped covering it."),
+        ln("mb", "How much without insurance?", 0.0),
+        ("gag", "whisper", 0.9, "clinic", "cu_doctor"),
+        ln("mb", "For that I could buy a cow.", 0.0, cap="For THAT I could buy a cow."),
+        ("gag", "boing", 0.7, "clinic", "wide"),
+        ln("mb", "I'm back, baby. Eighty twenty. Somebody bring me a damn lasagna.",
+           cap="I'm back, baby. Eighty-twenty. Somebody bring me a d#@n lasagna."),
+        ("line", "pip", "That took one second.", None,
+         dict(O, cams=[(0, "cu_pip")], gap=0.08, voice="kokoro:aud-pip-b@speed=1.25,pause=0.14")),
+        ln("mb", "It's called a rebound, Pip. Ask your mom's boyfriend.", 0.0),
+        ("hold", 0.3, "wide"),
+        ("gag", "end", 2.6, "clinic", "wide"),
+    ]
+    STEPS = (("Day one", 0.84), ("Day ten", 0.7), ("Day thirty", 0.54), ("Day sixty", 0.36))
+
+    def size(t):
+        ev = G["ev"]
+        if "shot" not in ev or t < ev["shot"] + 0.3:
+            return 1.0
+        if "boing" in ev and t >= ev["boing"] + 0.15:
+            k = (t - ev["boing"] - 0.15) / 0.35   # overshoot, then settle
+            return 1.0 + (0.35 * (1 - k) if k < 1 else 0.0)
+        s = 0.92
+        for key, v in STEPS:
+            l_ = H.lines_with(key, "mb")
+            if l_ and t >= l_[0]["t0"] - 0.1:
+                s = v
+        return s
+
+    def where(c, t, scene, L):
+        if c == "mb" and abs(size(t) - 1.0) > 0.01:
+            return None   # drawn at his own size in post()
+        return (L[scene]["cast"][c], L["feet"])
+
+    def pose_hook(c, t, fi, li, scene, p):
+        p = lively(c, t, li, p, G["L"][scene]["cast"], 0.7)
+        hop, j, ang, (aL, aR), hk, sq, rot, extra = p
+        ev = G["ev"]
+        if c == "mb" and "shot" in ev and ev["shot"] <= t < ev["shot"] + 0.8:
+            hk = (hk[0], hk[1], hk[2], "wide")
+        if c == "doctor" and "boing" in ev and t >= ev["boing"] + 0.15:
+            rot, hop = 80, 0   # knocked flat by the rebound
+        return (hop, j, ang, (aL, aR), hk, sq, rot, extra)
+
+    def post(fr, cam, t, fi, li, scene, L):
+        s = size(t)
+        K = L["K"]
+        x = L[scene]["cast"]["mb"]
+        if abs(s - 1.0) > 0.01:
+            sx, sy = cam.p(x, L["feet"])
+            z2 = cam.z * s
+            cam2 = Cam(L, x - (sx - L["W"] / 2) / z2, L["feet"] - (sy - L["H"] / 2) / z2, z2)
+            pz = H.pose("mb", t, fi, li, scene)
+            pz = pose_hook("mb", t, fi, li, scene, pz)
+            H.draw_any(fr, cam2, "mb", x, L["feet"], pz)
+        ev = G["ev"]
+        d = ImageDraw.Draw(fr)
+        if "shot" in ev and ev["shot"] <= t < ev["shot"] + 0.6:   # the needle, cartoon size
+            z = cam.z * K
+            nx, ny = cam.p(x + (260 - 300 * min(1, (t - ev["shot"]) / 0.25)) * K, L["feet"] - 200 * K)
+            d.rectangle([nx, ny - 16 * z, nx + 150 * z, ny + 16 * z], fill=(230, 240, 250), outline=INK,
+                        width=max(2, int(4 * z)))
+            d.line([nx - 70 * z, ny, nx, ny], fill=(120, 120, 130), width=max(2, int(5 * z)))
+            d.rectangle([nx + 150 * z, ny - 28 * z, nx + 166 * z, ny + 28 * z], fill=(90, 140, 220), outline=INK)
+        if "boing" in ev and 0.15 <= t - ev["boing"] < 0.6:
+            px, py = cam.p(x, L["feet"] - 560 * K)
+            paste(fr, C2.spr("star", round(cam.z * K * 1.5, 2), "BOING!"), px, py, (fi % 2) * 10)
+
+    def sfx(fx, music, ev, lines):
+        if "shot" in ev:   # a long tire hiss as he deflates
+            add(fx, C2.noise_burst(1.2, 0.25, 51, 2), ev["shot"] + 0.3, 0.3)
+        if "whisper" in ev:   # psst-psst
+            for k in range(4):
+                add(fx, C2.noise_burst(0.12, 0.08, 60 + k, 2), ev["whisper"] + 0.1 + k * 0.18, 0.25)
+        if "boing" in ev:
+            b = ev["boing"] + 0.15
+            n = int(0.5 * SR)
+            tt = np.arange(n) / SR
+            sweep = (np.sin(2 * np.pi * (180 + 500 * tt) * tt) * np.exp(-tt * 5)).astype(np.float32)
+            add(fx, sweep, b, 0.7)
+            C2.thud(fx, b, 0.8)
+
+    def shakes():
+        ev = G["ev"]
+        return [(ev["boing"] + 0.15, 1.2)] if "boing" in ev else []
+
+    return dict(title="MEATBALL ON OZEMPIC", end=["TEAM SHOT", "OR TEAM", "LASAGNA?"], seq=seq,
+                scenes={"clinic": dict(layout=clinic_layout, bg=clinic_bg)},
+                where=where, pose_hook=pose_hook, post=post, sfx=sfx, shakes=shakes)
+
+
+EPISODES = {"confession": confession, "ozempic": ozempic, "ep6v4": ep6v4, "ep5v4": ep5v4, "ep7v4": ep7v4, "ep3": ep3, "ep4": ep4, "ep5": ep5, "ep6": ep6, "ep7": ep7, "ep8": ep8, "ep7v3": ep7v3, "ep3v3": ep3v3}
 
 
 # ------------------------------------------------------------------------------------------------ engine

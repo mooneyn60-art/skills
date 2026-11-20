@@ -51,12 +51,12 @@ def main():
     ap.add_argument("media")
     ap.add_argument("--min", type=float, default=0.6)
     a = ap.parse_args()
-    if a.script == "holy":   # episode 2 lives in cutout_holy.py
+    if a.script in ("holy", "holyv4"):   # episode 2 lives in cutout_holy.py
         import cutout_holy
-        cutout_holy.use()
+        cutout_holy.use("v4" if a.script == "holyv4" else "short")
     elif a.script.startswith("ep"):   # episodes 3+ live in cutout_eps.py
         import cutout_eps
-        cutout_eps.use(a.script)
+        cutout_eps.use(a.script[3:] if a.script.startswith("ep-") else a.script)
     else:
         c.use_script(a.script)
     lines, _, _, _ = c.build()

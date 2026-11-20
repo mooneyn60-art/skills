@@ -86,6 +86,51 @@ SEQ_HOLY = [   # SHORT (~63 s): side-hustles/channels/scripts/cutout-holy-black-
      dict(scene="dawn", cams=[(0, "cu_mb")], gap=0.8)),
     ("gag", "end", 3.2, "dawn", "wide"),
 ]
+def _l(who, text, scene, cam=None, gap=0.08, cap=None):
+    return ("line", who, text, cap, dict(scene=scene, cams=[(0, cam or "cu_" + who)], gap=gap))
+
+
+SEQ_HOLY_V4 = [   # Studio 11/20 rules: side-hustles/channels/scripts/cutout-holy-black-friday-v4.md
+    ("gag", "intro", 2.2, "table", "wide"),
+    _l("rick", "I'm not racist. I've got plenty of Black friends.", "table", gap=0.15),
+    ("line", "pip", "Name one.", None,
+     dict(scene="table", cams=[(0, "cu_pip")], gap=0.0, voice="kokoro:aud-pip-b@speed=1.2,pause=0.14")),
+    ("hold", 0.9, "cu_rick"),
+    ("line", "rick", "Black Friday.", "...Black Friday.", dict(scene="table", cams=[(0, "cu_rick")], gap=0.2)),
+    _l("dot", "That's a sale, Rick. And even the sale won't sit with you.", "table", gap=0.0),
+    ("hold", 0.4, "cu_rick"),
+    ("line", "rick", "Here's a good one. A guy from Mexico, a guy from China and a...", None,
+     dict(scene="table", cams=[(0, "cu_rick"), (4, "wide_all")], gap=0.0)),
+    ("gag", "gravy", 1.6, "table", "wide_all"),
+    _l("grandma", "Not at my table, jackass.", "table", gap=0.0, cap="Not at my table, jack#@s."),
+    ("hold", 0.4, "cu_dot"),
+    ("gag", "tvon", 1.2, "table", "cu_tv"),
+    ("line", "chad", "The Lord told me I need a fourth jet. And He said you're paying.", None,
+     dict(scene="studio", cams=[(0, "wide"), (2, "cu_chad")], gap=0.1)),
+    _l("chad", "Basic prayer, nine ninety-nine. Premium, He actually hears it.", "studio"),
+    _l("dot", "God talks to you a lot for a guy with three D U I's.", "table", gap=0.0,
+       cap="God talks to you a lot for a guy with three DUIs."),
+    _l("chad", "My church seats sixteen thousand!", "studio"),
+    _l("dot", "Joel Osteen called. He wants his teeth back.", "table"),
+    _l("mb", "Even the Vatican thinks that's too much gold, Chad. And they have a damn bank.", "table", gap=0.0,
+       cap="Even the Vatican thinks that's too much gold, Chad. And they have a d#@n bank."),
+    _l("chad", "Platinum plan: I turn your grandma's pension into my sports car. Live.", "studio"),
+    _l("grandma", "Over my dead body.", "table"),
+    _l("chad", "That's the Diamond plan, ma'am. I do the funeral and keep the casket.", "studio", gap=0.0),
+    ("gag", "cops", 1.3, "lot", "wide"),
+    _l("chad", "This isn't fraud! It's a miracle with paperwork!", "lot", gap=0.0),
+    ("gag", "dawn", 0.9, "dawn", "wide"),
+    ("line", "pip", "Who called the cops?", None,
+     dict(scene="dawn", cams=[(0, "cu_pip")], gap=0.1, voice="kokoro:aud-pip-b@speed=1.2,pause=0.14")),
+    _l("grandma", "Forty years a church treasurer. I know a bullshit collection plate when I see one.", "dawn",
+       cap="Forty years a church treasurer. I know a bulls#@t collection plate when I see one."),
+    _l("dot", "The feds give you a reward?", "dawn"),
+    _l("grandma", "Ten percent. I kept the damn jet.", "dawn", gap=0.0, cap="Ten percent. I kept the d#@n jet."),
+    ("hold", 0.3, "cu_mb"),
+    _l("mb", "Happy Thanksgiving. Grandma's flying us to Denny's.", "dawn", gap=0.5),
+    ("gag", "end", 2.8, "dawn", "wide"),
+]
+ACTIVE = [SEQ_HOLY]
 # Lines 14a's sign: the script's line text is the spoken part only.
 END_TEXT = ["WHO'S THE WORST PERSON", "AT YOUR", "THANKSGIVING TABLE?"]
 
@@ -1146,8 +1191,10 @@ def mix(end):
 
 
 # ------------------------------------------------------------------------------------------------ main
-def use():
-    C2.SEQ[:] = SEQ_HOLY
+def use(name=None):
+    if name:
+        ACTIVE[0] = SEQ_HOLY_V4 if name == "v4" else SEQ_HOLY
+    C2.SEQ[:] = ACTIVE[0]
 
 
 def setup(fmt):
@@ -1197,7 +1244,9 @@ if __name__ == "__main__":
     ap.add_argument("--out")
     ap.add_argument("--still", type=float, nargs="*")
     ap.add_argument("--timeline", action="store_true")
+    ap.add_argument("--script", default="short", choices=["short", "v4"])
     a = ap.parse_args()
+    use(a.script)
     if a.timeline:
         use()
         lines, segs, ev, end = C2.build()
