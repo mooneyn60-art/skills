@@ -2302,30 +2302,33 @@ def t58(short=False):
         ln("grandma", "Half price. You're mostly breadcrumbs.", 0.0),
         ("hold", 0.3, "cu_mb"),
     ]
-    seq = [
+    seq = [   # v3 (Studio 11/20 11:25): target = the price rise + Amazon; point = the "cheaper" billionaire costs more
         ("gag", "intro", 0.3, "table", "cu_grandma"),
-        ln("grandma", "Fifty-eight sixty-three a plate."),
-        ln("rick", "For this? Your turkey's drier than your last orgasm, Ma.",
-           cap="For THIS? Your turkey's drier than your last orgasm, Ma."),
-        ln("grandma", "Least I had one. Your ex-wife says you finish faster than the microwave."),
-        ln("kaylee", "Rick, the microwave at least beeps when it's done."),
-        ln("rick", "Shut up, Kaylee. Your husband's on Tinder, listed as single, emotionally.",
-           cap='Shut up, Kaylee. Your husband\'s on Tinder listed as "single, emotionally."'),
-        ln("kaylee", "At least I have a husband. You've got a parole officer and a Fleshlight.", 0.0,
-           cap="At least I HAVE a husband. You've got a parole officer and a Fleshlight."),
+        ln("grandma", "Twenty years you freeloaders ate free. Groceries went up, so it's fifty-eight bucks a plate."),
+        ln("rick", "Fifty-eight? Your turkey's drier than your last orgasm, Ma."),
+        ln("grandma", "Least I had one. Your ex says you finish faster than the microwave.", 0.0),
         ("hold", 0.25, "cu_rick"),
     ] + extra + [
-        ln("rick", "Fine! I'm ordering Thanksgiving from Amazon!", 0.0),
+        ln("kaylee", "Screw this. We'll order Thanksgiving off Amazon."),
+        ln("rick", "Yeah! Bezos'll do it cheaper!", 0.0),
         ("gag", "box", 0.7, "table", "cu_bezos"),
-        ln("bezos", "Turkey ships Tuesday. Bathroom's a bottle."),
-        ln("grandma", "Perfect. Rick's been pissing in bottles since the divorce.", 0.0,
-           cap="Perfect. Rick's been p#@sing in bottles since the divorce."),
+        ln("bezos", "Prime Thanksgiving. A hundred twenty a plate. Turkey ships Tuesday. Bathroom's a bottle.", 0.0),
+        ("hold", 0.25, "cu_kaylee"),
+        ln("kaylee", "Ma, we'll pay the fifty-eight.", cap="...Ma, we'll pay the fifty-eight."),
+        ln("grandma", "Price went up. It's sixty now. Cost of being assholes.",
+           cap="Price went up. It's sixty now. Cost of being #@sholes."),
+        ln("rick", "Fine. Can I at least use the bathroom?"),
+        ln("grandma", "Bottle's by the door.", 0.0),
         ("hold", 0.25, "cu_rick"),
-        ln("mb", "Moral of the story: this family's a dumpster fire, but at least it's our goddamn dumpster.", 0.0,
-           cap="Moral of the story: this family's a dumpster fire, but at least it's OUR g#@damn dumpster."),
+        ln("mb", "Moral of the story: Grandma's a crook, but she's still cheaper than a billionaire. Happy goddamn "
+                 "Thanksgiving.", 0.0,
+           cap="Moral of the story: Grandma's a crook, but she's still cheaper than a billionaire. Happy g#@damn "
+               "Thanksgiving."),
         ("hold", 0.2, "wide"),
-        ("gag", "end", 2.0 if short else 2.6, "table", "wide"),
+        ("gag", "end", 1.6 if short else 2.6, "table", "wide"),
     ]
+    if short:   # the YouTube cut has a 35 s cap: no reaction holds
+        seq = [it for it in seq if it[0] != "hold"]
 
     def boxt():
         return G["ev"].get("box", 1e9)
@@ -2356,7 +2359,7 @@ def t58(short=False):
         if t < 2.6:   # the small source tag under the headline
             w, h = L["W"], L["H"]
             f = ImageFont.truetype(FONT, int(h * 0.019))
-            txt = "Farm Bureau: $58.63 feeds 10"
+            txt = "Farm Bureau: dinner up to $58.63"
             tw = d.textlength(txt, font=f)
             y = L["banner_y"] + int(104 * 0.6 * 2.6)
             d.rectangle([w / 2 - tw / 2 - 16, y - 8, w / 2 + tw / 2 + 16, y + h * 0.019 + 14], fill=(252, 250, 240),
@@ -2367,7 +2370,7 @@ def t58(short=False):
         d.rounded_rectangle([x - 34 * z, y - 56 * z, x + 34 * z, y + 30 * z], radius=int(8 * z), fill=(40, 40, 46),
                             outline=INK, width=max(2, int(4 * z)))
         d.rectangle([x - 24 * z, y - 46 * z, x + 24 * z, y - 14 * z], fill=(120, 220, 140))
-        d.text((x, y - 30 * z), "$58.63", font=ImageFont.truetype(FONT, max(6, int(15 * z))), fill=INK, anchor="mm")
+        d.text((x, y - 30 * z), "$58", font=ImageFont.truetype(FONT, max(6, int(15 * z))), fill=INK, anchor="mm")
         if t >= boxt():   # the delivery box on the table
             bx = S["cast"]["bezos"]
             drop = min(1.0, (t - boxt()) / 0.12)
@@ -2389,7 +2392,7 @@ def t58(short=False):
         return [(boxt() + 0.1, 1.0)] if "box" in G["ev"] else []
 
     return dict(title="THE $58.63 THANKSGIVING", end=["GRANDMA OR BEZOS:", "WHO'S THE", "BIGGER CROOK?"], seq=seq,
-                headline=["GRANDMA CHARGES", "$58.63 A PLATE"], target=0 if short else 62.1,
+                headline=["GRANDMA CHARGES", "$58 A PLATE"], target=0 if short else 62.1,
                 scenes={"table": dict(layout=table_layout(xs), bg=table_bg)},
                 where=where, pose_hook=pose_hook, post=post, sfx=sfx, shakes=shakes)
 
