@@ -2515,13 +2515,16 @@ def diner_bg(L, cam, scene):
 
 LEADER_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets", "leaders")
 #            mouth centre (x, y) and width, as fractions of the model picture
-LEADERS = {
+LEADERS = {   # all positions are fractions of the model picture (x of width, y of height)
     "trump": dict(mouth=(0.515, 0.497), mw=0.075, eyes=((0.405, 0.378, 0.088, 0.058), (0.55, 0.378, 0.088, 0.058)),
-                  hand=(0.17, 0.52, 0.40, 0.76), blink=0),
+                  pupils=((0.469, 0.369), (0.553, 0.368)), head=(0.505, 0.43, 0.30, 0.265),
+                  hands=((0.17, 0.52, 0.40, 0.76),), blink=0),
     "xi": dict(mouth=(0.502, 0.487), mw=0.11, eyes=((0.415, 0.385, 0.092, 0.052), (0.56, 0.385, 0.092, 0.052)),
-               blink=13),
+               pupils=((0.47, 0.367), (0.551, 0.369)), head=(0.50, 0.44, 0.31, 0.228),
+               hands=((0.25, 0.755, 0.42, 0.875), (0.61, 0.755, 0.80, 0.875)), blink=13),
     "putin": dict(mouth=(0.517, 0.502), mw=0.11, eyes=((0.425, 0.368, 0.068, 0.05), (0.575, 0.372, 0.068, 0.05)),
-                  blink=27)}
+                  pupils=((0.446, 0.358), (0.569, 0.3585)), head=(0.51, 0.40, 0.275, 0.25),
+                  hands=((0.25, 0.765, 0.42, 0.875), (0.61, 0.765, 0.79, 0.875)), blink=27)}
 _LIMG = {}
 
 
@@ -2531,6 +2534,37 @@ def leader_img(name, w):
     if key not in _LIMG:
         im = Image.open(f"{LEADER_DIR}/{name}-table-model.jpg").convert("RGBA")
         _LIMG[key] = im.resize((w, int(im.size[1] * w / im.size[0])), Image.LANCZOS)
+    return _LIMG[key]
+
+
+def leader_layers(name, w):
+    """Split the picture into a body plate (the head's upper silhouette painted out with curtain) and a head layer
+    (hair, ears, face down to the chin line) with a soft alpha edge, so the head can nod, tilt and turn."""
+    key = ("layers", name, w)
+    if key not in _LIMG:
+        from PIL import ImageFilter
+        im = leader_img(name, w)
+        h = im.size[1]
+        a = np.asarray(im.convert("RGB")).astype(np.int16)
+        r, g, b = a[..., 0], a[..., 1], a[..., 2]
+        curtain = (r > 70) & (g < 48) & (b < 48)
+        cx, cy, rx, ry = LEADERS[name]["head"]
+        yy, xx = np.mgrid[0:h, 0:w]
+        u = (xx - cx * w) / (rx * w)
+        inside = np.abs(u) < 1
+        chin = cy * h + ry * h * np.sqrt(np.clip(1 - u ** 2, 0, 1))
+        region = np.where(inside, yy < chin, yy < cy * h) & (np.abs(u) < 1.25)
+        mask = (region & ~curtain).astype(np.uint8) * 255
+        m = Image.fromarray(mask, "L").filter(ImageFilter.MaxFilter(3)).filter(ImageFilter.GaussianBlur(1.6))
+        ys, xs = np.nonzero(mask)
+        box = (max(0, xs.min() - 8), max(0, ys.min() - 8), min(w, xs.max() + 9), min(h, ys.max() + 9))
+        head = im.crop(box)
+        head.putalpha(m.crop(box))
+        body = im.copy()   # paint curtain over the top half of the head so a tilt never shows a double edge
+        strip = im.crop((0, 0, w, 4)).resize((w, h), Image.BILINEAR)
+        up = Image.fromarray(((region & (yy < cy * h)).astype(np.uint8) * 255), "L").filter(ImageFilter.MaxFilter(9))
+        body.paste(strip, (0, 0), up)
+        _LIMG[key] = (body, head, box)
     return _LIMG[key]
 
 
@@ -2544,29 +2578,28 @@ def _oval_mask(w, h, feather):
     return _LIMG[key]
 
 
-def draw_leader(fr, name, x0, y0, w, lvl, t, speaking, react=False):
-    """Studio's picture as a paper puppet. The curtain and tablecloth run on to the frame edges; the table strip
-    (bottom 17%) never moves. Talking: the upper body squashes and stretches with the voice, the mouth opens in two
-    sizes, Trump's pinch hand pumps. Always: blinks. react=True: a small startled hop."""
+def draw_leader(fr, name, x0, y0, w, lvl, t, speaking, look=0, jolt=None):
+    """Studio's picture as a full paper puppet. Body: breathes, and squashes and stretches with the voice; the
+    table strip never moves. Head (its own layer): nods on the loud syllables, tilts, turns toward whoever is
+    talking (look = -1 left, +1 right), jolts when insulted (jolt = seconds since the insult landed). Face: two mouth
+    sizes, blinks, pupils that follow the talker. Hands: talk with him."""
     im = leader_img(name, w)
+    body, head, box = leader_layers(name, w)
     h = im.size[1]
     W, H_ = fr.size
     fi = int(t * FPS)
     spec = LEADERS[name]
+    ph = spec["blink"] * 0.37
     fr.paste(im.crop((0, 0, w, 6)).resize((w, max(1, y0)), Image.BILINEAR), (x0, 0))
     if y0 + h < H_:
         fr.paste(im.crop((0, h - 6, w, h)).resize((w, H_ - y0 - h), Image.BILINEAR), (x0, y0 + h))
     fr.paste(im, (x0, y0))
     cut = int(h * 0.83)
-    grow = 0.0
+    grow = 0.004 * (1 + math.sin(t * 1.9 + ph))   # breathing
     if speaking:
-        grow = 0.006 + 0.012 * lvl + 0.006 * abs(math.sin(t * 8.0))
-    elif react:
-        grow = 0.03 * max(0.0, 1 - (t % 1.0) * 6) if False else 0.0
+        grow += 0.004 + 0.008 * lvl
     nh = int(cut * (1 + grow))
-    upper = im.crop((0, 0, w, cut))
-    if nh != cut:
-        upper = upper.resize((w, nh), Image.BILINEAR)
+    upper = body.crop((0, 0, w, cut)).resize((w, nh), Image.BILINEAR)
     top = y0 + cut - nh
     fr.paste(upper, (x0, top))
     sy = nh / cut
@@ -2574,17 +2607,34 @@ def draw_leader(fr, name, x0, y0, w, lvl, t, speaking, react=False):
     def pt(fx, fy):   # a point of the picture, after the stretch
         return x0 + fx * w, top + fy * h * sy
 
-    d = ImageDraw.Draw(fr)
-    if "hand" in spec and speaking:   # the pinch hand pumps on the beat
-        a, b, c, e = spec["hand"]
-        box = (int(a * w), int(b * h), int(c * w), int(e * h))
-        patch = im.crop(box)
-        dyh = -int(abs(math.sin(t * 8.0 + 0.6)) * w * 0.014)
+    for k, (a, b, c, e) in enumerate(spec["hands"]):   # hands talk
+        if not speaking:
+            continue
+        bx = (int(a * w), int(b * h), int(c * w), int(e * h))
+        patch = im.crop(bx)
+        amp = 0.016 if name == "trump" else 0.009
+        dyh = -int(abs(math.sin(t * 8.0 + 0.6 + k * 1.7)) * w * amp)
         px, py = pt(a, b)
         fr.paste(patch, (int(px), int(py) + dyh), _oval_mask(patch.size[0], patch.size[1], max(4, w // 60)))
-    if (fi + spec["blink"]) % 38 < 2:   # a two-frame blink
+    # ---- the head layer: draw the face on a copy, then nod / tilt / turn it
+    hd = head.copy()
+    d = ImageDraw.Draw(hd)
+    bx0, by0 = box[0], box[1]
+
+    def hp(fx, fy):
+        return fx * w - bx0, fy * h - by0
+
+    shift = 0.011 * w * look
+    for (px_, py_) in spec["pupils"]:   # pupils follow the talker
+        cx, cy = hp(px_, py_)
+        rr = 0.0125 * w
+        white = im.getpixel((int(px_ * w), int(py_ * h + 0.028 * h)))
+        if look:
+            d.ellipse([cx - rr * 1.35, cy - rr * 1.35, cx + rr * 1.35, cy + rr * 1.35], fill=white)
+            d.ellipse([cx + shift - rr, cy - rr, cx + shift + rr, cy + rr], fill=(20, 18, 18))
+    if (fi + spec["blink"]) % 38 < 2 or (jolt is not None and 0.25 <= jolt < 0.42):
         for (ex, ey, rx, ry) in spec["eyes"]:
-            cx, cy = pt(ex, ey)
+            cx, cy = hp(ex, ey)
             skin = im.getpixel((int(ex * w), int((ey - 0.085) * h)))
             d.ellipse([cx - rx * w, cy - ry * h * 0.95, cx + rx * w, cy + ry * h * 0.95], fill=skin)
             d.line([cx - rx * w * 0.8, cy + ry * h * 0.2, cx + rx * w * 0.8, cy + ry * h * 0.2],
@@ -2592,15 +2642,36 @@ def draw_leader(fr, name, x0, y0, w, lvl, t, speaking, react=False):
     if speaking and lvl > 0:
         mx, my = spec["mouth"]
         mw = spec["mw"] * w
-        cx, cy = pt(mx, my)
+        cx, cy = hp(mx, my)
         skin = im.getpixel((int(mx * w), int((my + 0.05) * h)))
         d.ellipse([cx - mw * 0.62, cy - mw * 0.24, cx + mw * 0.62, cy + mw * 0.3], fill=skin)
         ry = mw * (0.16 if lvl == 1 else 0.32)
         d.ellipse([cx - mw * 0.4, cy - ry * 0.7, cx + mw * 0.4, cy + ry * 1.2], fill=MOUTH,
                   outline=(60, 20, 20), width=max(1, w // 300))
         if lvl == 2:
-            d.rectangle([cx - mw * 0.26, cy - ry * 0.62, cx + mw * 0.26, cy - ry * 0.3], fill=WHITE)   # top teeth
+            d.rectangle([cx - mw * 0.26, cy - ry * 0.62, cx + mw * 0.26, cy - ry * 0.3], fill=WHITE)
         d.ellipse([cx - mw * 0.2, cy + ry * 0.5, cx + mw * 0.2, cy + ry * 1.1], fill=(226, 98, 104))
+    hd.putalpha(head.getchannel("A"))
+    ang = 0.6 * math.sin(t * 1.3 + ph) - 1.4 * look
+    dx, dy = 0.010 * w * look, 0.0
+    if speaking:
+        ang += 2.4 * math.sin(t * 5.3 + ph)
+        dy -= (0.006 * lvl + 0.004 * abs(math.sin(t * 8.0))) * w
+        dx += 0.004 * w * math.sin(t * 3.1)
+    if jolt is not None and 0 <= jolt < 0.6:   # insulted: the head snaps back, then settles
+        k = math.exp(-jolt * 7)
+        dy -= 0.03 * w * k
+        ang += 4.0 * k * math.cos(jolt * 30)
+    sc = 1.035
+    hw, hh = hd.size
+    hd = hd.resize((int(hw * sc), int(hh * sc)), Image.BILINEAR)
+    pad = int(0.06 * w)
+    canvas = Image.new("RGBA", (hd.size[0] + 2 * pad, hd.size[1] + 2 * pad), (0, 0, 0, 0))
+    canvas.paste(hd, (pad, pad))
+    pivot = (pad + hd.size[0] / 2, pad + hd.size[1] * 0.96)   # the chin
+    canvas = canvas.rotate(ang, resample=Image.BICUBIC, center=pivot)
+    hx, hy = pt((box[0] + box[2]) / 2 / w, box[3] / h)   # where the chin line sits on the stretched body
+    fr.alpha_composite(canvas, (int(hx - pivot[0] + dx), int(hy - (pad + hd.size[1]) + dy)))
 
 
 def push_in(fr, k, fy=0.42, amount=0.06):
@@ -2688,15 +2759,23 @@ def bill(short=False):
         name = cam_name(t)
         who = G["lines"][li]["who"] if li is not None else None
         lvl = C.mouth_level(G["lines"][li], t) if li is not None else 0
+        seg0 = C2.seg_at(t)[0]
+
+        def look(c):   # -1 / +1: turn toward the leader who is talking (seats: trump, xi, putin, waiter)
+            seat = {"trump": 0, "xi": 1, "putin": 2, "mb": 3}
+            if who is None or who == c or who not in seat:
+                return 0
+            return 1 if seat[who] > seat[c] else -1
+
         if name == "wide":
             w = W // 3
             y0 = int(H_ * 0.36)
             for k, c in enumerate(ORDER):
-                draw_leader(fr, c, k * w, y0, w if k < 2 else W - 2 * w, lvl, t, who == c)
+                draw_leader(fr, c, k * w, y0, w if k < 2 else W - 2 * w, lvl, t, who == c, look(c))
         elif name[3:] in LEADERS:
             c = name[3:]
             y0 = int(H_ * 0.12)
-            draw_leader(fr, c, 0, y0, W, lvl, t, who == c)
+            draw_leader(fr, c, 0, y0, W, lvl, t, who == c, look(c), jolt=(t - seg0) if who != c else None)
             pooh = H.lines_with("Winnie", "trump")
             if c == "xi" and pooh and li is not None and G["lines"][li] is pooh[0]:   # the honey pot pops up
                 k = min(1.0, (t - C2.seg_at(t)[0]) / 0.2)
