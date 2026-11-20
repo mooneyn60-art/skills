@@ -260,6 +260,14 @@ register("father", person(SKIN[3], "short", (190, 190, 196), "cassock", (30, 30,
                           acc=("glasses",), eyes=("norm", 0.45)))
 register("doctor", person(SKIN[4], "short", (40, 30, 26), "labcoat", (246, 246, 250), (120, 180, 210), (240, 240, 240),
                           acc=("glasses",), eyes=("norm", 0.2)))
+register("bezos", person(SKIN[0], "bald", (60, 40, 30), "polo", (40, 50, 80), (50, 50, 60), (30, 30, 30),
+                         eyes=("norm", 0.15)))
+register("trump", person((244, 176, 120), "slick", (246, 208, 96), "shirt_tie", (30, 40, 80), (30, 40, 80),
+                         (20, 20, 22), tall=1.04, wide=1.18, eyes=("norm", 0.3)))
+register("xi", person(SKIN[5], "short", (24, 22, 24), "shirt_tie", (40, 40, 48), (40, 40, 48), (20, 20, 22),
+                      wide=1.12, eyes=("norm", 0.35)))
+register("putin", person(SKIN[3], "buzz", (200, 190, 170), "shirt_tie", (50, 54, 60), (50, 54, 60), (20, 20, 22),
+                         tall=0.94, eyes=("norm", 0.5)))
 register("tank", person(SKIN[0], "buzz", (90, 60, 40), "tank", (240, 240, 240), (60, 60, 70), (240, 240, 240),
                         wide=1.4, arm_w=30, eyes=("norm", 0.2)))
 
@@ -329,6 +337,8 @@ C2.V.update({
     "dadbot": "kokoro:dadbot@speed=0.95,pause=0.3", "chadsr": "kokoro:chadsr@speed=1.12,pause=0.2",
     "brittany": "kokoro:brittany@speed=1.18,pause=0.18", "firefighter": "kokoro:firefighter@speed=1.0,pause=0.25",
     "sage": "kokoro:sage@speed=1.0,pause=0.3", "tank": "kokoro:tank@speed=1.2,pause=0.18",
+    "bezos": "kokoro:bezos@speed=1.1,pause=0.2", "trump": "kokoro:trump@speed=1.05,pause=0.22",
+    "xi": "kokoro:xi@speed=1.05,pause=0.22", "putin": "kokoro:putin@speed=0.98,pause=0.25",
     "father": "kokoro:father@speed=1.08,pause=0.22", "doctor": "kokoro:doctor@speed=1.1,pause=0.2"})
 
 
@@ -351,7 +361,7 @@ def cams(L):
     K, F = L["K"], L["feet"]
     out = {}
     hs = {"grandma": 150, "rick": 300, "dadbot": 380, "tank": 300, "chadsr": 300, "firefighter": 300,
-          "father": 300, "doctor": 300}
+          "father": 300, "doctor": 300, "bezos": 300, "trump": 300, "xi": 300, "putin": 300}
     for name, sc in EP["scenes"].items():
         S = L[name]
         c = {"wide": S.get("wide", (L["W"] / 2, L["H"] / 2, 1.0))}
@@ -2259,7 +2269,256 @@ def nobanner(base, headline):
     return make
 
 
-EPISODES = {"confession_nb": nobanner(confession, ["MEATBALL GOES", "TO CONFESSION"]), "confession": confession, "ozempic": ozempic, "ep6v4": ep6v4, "ep5v4": ep5v4, "ep7v4": ep7v4, "ep3": ep3, "ep4": ep4, "ep5": ep5, "ep6": ep6, "ep7": ep7, "ep8": ep8, "ep7v3": ep7v3, "ep3v3": ep3v3}
+def t58(short=False):
+    """Studio batch 1 v2 #1 (roast): THE $58.63 THANKSGIVING. short=True is the 30 s YouTube cut."""
+    xs = (dict(rick=170, kaylee=450, pip=720, mb=960, dot=1200, bezos=1470, grandma=1760),
+          dict(rick=40, kaylee=330, pip=610, mb=880, dot=1150, bezos=1420, grandma=1690))
+    T_ = dict(scene="table")
+    PIPV = "kokoro:aud-pip-b@speed=1.25,pause=0.14"
+
+    def ln(who, text, gap=0.06, cap=None, **kw):
+        return ("line", who, text, cap, dict(T_, cams=[(0, "cu_" + who)], gap=gap, **kw))
+
+    extra = [] if short else [
+        ln("pip", "Do kids eat free?", voice=PIPV),
+        ln("grandma", "Kids eat what Rick drops."),
+        ln("dot", "Fifty-eight bucks, and the stuffing's from a box."),
+        ln("grandma", "So is your grandfather, sweetie. Top shelf, next to the gravy.", 0.0),
+        ("hold", 0.3, "cu_dot"),
+        ln("kaylee", "Can I just Venmo you?"),
+        ln("grandma", "Your Venmo's public, Kaylee. We all saw, thanks for last night, Trevor.",
+           cap='Your Venmo\'s public, Kaylee. We all saw "thanks for last night, Trevor."'),
+        ln("rick", "Who the hell is Trevor?", 0.0, cap="Who the h#@l is Trevor?"),
+        ("hold", 0.3, "cu_kaylee"),
+        ln("kaylee", "Also, I'm gluten free now."),
+        ln("grandma", "You're personality free, Kaylee. The bread stays."),
+        ln("rick", "Ma, I can't pay. I'm between jobs."),
+        ln("grandma", "You've been between jobs since Blockbuster closed, you lazy bastard.", 0.0,
+           cap="You've been between jobs since Blockbuster closed, you lazy b#@tard."),
+        ("hold", 0.3, "cu_rick"),
+        ln("mb", "Do I pay? I'm literally a side dish."),
+        ln("grandma", "Half price. You're mostly breadcrumbs.", 0.0),
+        ("hold", 0.3, "cu_mb"),
+    ]
+    seq = [
+        ("gag", "intro", 0.3, "table", "cu_grandma"),
+        ln("grandma", "Fifty-eight sixty-three a plate."),
+        ln("rick", "For this? Your turkey's drier than your last orgasm, Ma.",
+           cap="For THIS? Your turkey's drier than your last orgasm, Ma."),
+        ln("grandma", "Least I had one. Your ex-wife says you finish faster than the microwave."),
+        ln("kaylee", "Rick, the microwave at least beeps when it's done."),
+        ln("rick", "Shut up, Kaylee. Your husband's on Tinder, listed as single, emotionally.",
+           cap='Shut up, Kaylee. Your husband\'s on Tinder listed as "single, emotionally."'),
+        ln("kaylee", "At least I have a husband. You've got a parole officer and a Fleshlight.", 0.0,
+           cap="At least I HAVE a husband. You've got a parole officer and a Fleshlight."),
+        ("hold", 0.25, "cu_rick"),
+    ] + extra + [
+        ln("rick", "Fine! I'm ordering Thanksgiving from Amazon!", 0.0),
+        ("gag", "box", 0.7, "table", "cu_bezos"),
+        ln("bezos", "Turkey ships Tuesday. Bathroom's a bottle."),
+        ln("grandma", "Perfect. Rick's been pissing in bottles since the divorce.", 0.0,
+           cap="Perfect. Rick's been p#@sing in bottles since the divorce."),
+        ("hold", 0.25, "cu_rick"),
+        ln("mb", "Moral of the story: this family's a dumpster fire, but at least it's our goddamn dumpster.", 0.0,
+           cap="Moral of the story: this family's a dumpster fire, but at least it's OUR g#@damn dumpster."),
+        ("hold", 0.2, "wide"),
+        ("gag", "end", 2.0 if short else 2.6, "table", "wide"),
+    ]
+
+    def boxt():
+        return G["ev"].get("box", 1e9)
+
+    def where(c, t, scene, L):
+        x = L[scene]["cast"][c]
+        if c == "bezos":
+            d = t - boxt()
+            if d < 0.15:
+                return None
+            pop = min(1.0, (d - 0.15) / 0.18)   # he pops up out of the box
+            return (x, L["feet"] + (1 - pop) * 260 * L["K"])
+        return (x, L["feet"])
+
+    def pose_hook(c, t, fi, li, scene, p):
+        p = lively(c, t, li, p, G["L"][scene]["cast"], 0.8)
+        hop, j, ang, (aL, aR), hk, sq, rot, extra_ = p
+        if c == "bezos" and boxt() + 0.15 <= t < boxt() + 0.9:
+            aL, aR = -150, 150
+        if c == "rick" and boxt() <= t < boxt() + 0.9:
+            hk = (hk[0], hk[1], hk[2], "wide")
+        return (hop, j, ang, (aL, aR), hk, sq, rot, extra_)
+
+    def post(fr, cam, t, fi, li, scene, L):
+        K, S = L["K"], L[scene]
+        z = cam.z * K
+        d = ImageDraw.Draw(fr)
+        if t < 2.6:   # the small source tag under the headline
+            w, h = L["W"], L["H"]
+            f = ImageFont.truetype(FONT, int(h * 0.019))
+            txt = "Farm Bureau: $58.63 feeds 10"
+            tw = d.textlength(txt, font=f)
+            y = L["banner_y"] + int(104 * 0.6 * 2.6)
+            d.rectangle([w / 2 - tw / 2 - 16, y - 8, w / 2 + tw / 2 + 16, y + h * 0.019 + 14], fill=(252, 250, 240),
+                        outline=INK, width=3)
+            d.text((w / 2, y), txt, font=f, fill=INK, anchor="ma")
+        gx = S["cast"]["grandma"]   # Grandma's card reader, on the table in front of her
+        x, y = cam.p(gx - 120 * K, S["top"] - 30 * K)
+        d.rounded_rectangle([x - 34 * z, y - 56 * z, x + 34 * z, y + 30 * z], radius=int(8 * z), fill=(40, 40, 46),
+                            outline=INK, width=max(2, int(4 * z)))
+        d.rectangle([x - 24 * z, y - 46 * z, x + 24 * z, y - 14 * z], fill=(120, 220, 140))
+        d.text((x, y - 30 * z), "$58.63", font=ImageFont.truetype(FONT, max(6, int(15 * z))), fill=INK, anchor="mm")
+        if t >= boxt():   # the delivery box on the table
+            bx = S["cast"]["bezos"]
+            drop = min(1.0, (t - boxt()) / 0.12)
+            x0, y0 = cam.p(bx - 150 * K, S["top"] - (150 + (1 - drop) * 900) * K)
+            x1, y1 = cam.p(bx + 150 * K, S["top"] + (30 - (1 - drop) * 900) * K)
+            d.rectangle([x0, y0, x1, y1], fill=(196, 150, 96), outline=INK, width=max(2, int(5 * z)))
+            d.rectangle([(x0 + x1) / 2 - 16 * z, y0, (x0 + x1) / 2 + 16 * z, y1], fill=(60, 110, 200))
+            d.arc([x0 + 50 * z, y0 + 40 * z, x1 - 50 * z, y1 - 30 * z], 20, 160, fill=INK, width=max(2, int(7 * z)))
+            if t < boxt() + 0.5:
+                px, py = cam.p(bx, S["top"] - 430 * K)
+                paste(fr, C2.spr("star", round(z * 1.3, 2), "THUD!"), px, py, (fi % 2) * 10)
+
+    def sfx(fx, music, ev, lines):
+        if "box" in ev:
+            C2.thud(fx, ev["box"] + 0.1, 0.9)
+            add(fx, C2.tone(1320, 0.1, 0.3), ev["box"] + 0.3)
+
+    def shakes():
+        return [(boxt() + 0.1, 1.0)] if "box" in G["ev"] else []
+
+    return dict(title="THE $58.63 THANKSGIVING", end=["GRANDMA OR BEZOS:", "WHO'S THE", "BIGGER CROOK?"], seq=seq,
+                headline=["GRANDMA CHARGES", "$58.63 A PLATE"], target=0 if short else 62.1,
+                scenes={"table": dict(layout=table_layout(xs), bg=table_bg)},
+                where=where, pose_hook=pose_hook, post=post, sfx=sfx, shakes=shakes)
+
+
+def diner_layout(L):
+    vert = L["H"] > L["W"]
+    if vert:
+        return dict(cast=dict(trump=150, xi=470, putin=790, mb=1130), top=L["feet"] - 150 * L["K"],
+                    wide=(640, 1380, 0.85))
+    return dict(cast=dict(trump=420, xi=820, putin=1220, mb=1640), top=L["feet"] - 150 * L["K"],
+                wide=(960, 600, 1.0))
+
+
+def diner_bg(L, cam, scene):
+    W, H_, z = L["W"], L["H"], cam.z
+    K, F = L["K"], L["feet"]
+    rng = np.random.default_rng(191)
+    img = Image.new("RGBA", (W, H_))
+    paper(img, cam.pts([(-900, -900), (3200, -900), (3200, 3000), (-900, 3000)]), (112, 34, 40), rng, z,
+          shadow=False, jitter=False, edge=False)
+    for k in range(-6, 26):   # wallpaper stripes
+        x = k * 130
+        paper(img, cam.pts([(x, F - 1600 * K), (x + 40, F - 1600 * K), (x + 40, F - 420 * K), (x, F - 420 * K)]),
+              (130, 44, 50), rng, z, shadow=False, jitter=False, edge=False)
+    paper(img, cam.pts([(-900, F - 430 * K), (3200, F - 430 * K), (3200, F - 400 * K), (-900, F - 400 * K)]),
+          (226, 184, 56), rng, z, sh=3)
+    paper(img, cam.pts([(-900, F - 400 * K), (3200, F - 400 * K), (3200, 3000), (-900, 3000)]), (70, 44, 34), rng, z,
+          shadow=False)
+    for k, x in enumerate((300, 960, 1500)):   # gold-framed pictures
+        paper(img, cam.pts([(x - 120 * K, F - 900 * K), (x + 120 * K, F - 900 * K), (x + 120 * K, F - 640 * K),
+                            (x - 120 * K, F - 640 * K)]), (226, 184, 56), rng, z, sh=6)
+        paper(img, cam.pts([(x - 96 * K, F - 876 * K), (x + 96 * K, F - 876 * K), (x + 96 * K, F - 664 * K),
+                            (x - 96 * K, F - 664 * K)]), [(60, 90, 120), (90, 120, 80), (120, 90, 60)][k], rng, z,
+              shadow=False)
+    return C.vignette(img)
+
+
+def bill(short=False):
+    """Studio batch 1 v2 #2 (roast): TRUMP, XI & PUTIN SPLIT THE DINNER BILL. Obvious cartoon satire; generic voices."""
+    D_ = dict(scene="diner")
+
+    def ln(who, text, gap=0.06, cap=None):
+        return ("line", who, text, cap, dict(D_, cams=[(0, "cu_" + who)], gap=gap))
+
+    extra = [] if short else [
+        ln("putin", "In Russia, we split the bill three ways. I take all three."),
+        ln("trump", "That's also how he does elections.", 0.0),
+        ("hold", 0.3, "cu_putin"),
+        ln("xi", "I cannot use my card. It is being monitored."),
+        ln("trump", "Who the hell monitors your card?", cap="Who the h#@l monitors your card?"),
+        ln("xi", "Me.", 0.0),
+        ("hold", 0.3, "cu_mb"),
+        ln("trump", "I always pay my bills. Everybody says so."),
+        ln("xi", "Ask your contractors.", 0.0),
+        ("hold", 0.3, "cu_trump"),
+        ln("putin", "I left my wallet at home."),
+        ln("xi", "Which home? The palace you swear is not yours?", 0.0),
+        ("hold", 0.3, "cu_putin"),
+        ln("mb", "Should I split it three ways?"),
+        ln("trump", "Four. Send one to NATO."),
+        ln("putin", "I do not like that word.", 0.0),
+        ("hold", 0.3, "cu_mb"),
+        ln("mb", "Anyone want dessert?"),
+        ln("trump", "Two scoops for me. One for them.", 0.0),
+        ("hold", 0.3, "cu_xi"),
+    ]
+    seq = [
+        ("gag", "intro", 0.3, "diner", "wide"),
+        ln("mb", "Gentlemen, your check."),
+        ln("trump", "Put it on China. Everything else is."),
+        ln("xi", "You want me to pay? You've been bankrupt six times."),
+        ln("trump", "Six times, and I'm still richer than your entire Winnie the Pooh fan club."),
+        ln("putin", "Relax. I will pay with Russian money."),
+        ln("trump", "Vlad, Russian money is a Monopoly box with a shotgun in it."),
+        ln("putin", "Says the man who sold steaks at Sharper Image.", 0.0),
+        ("hold", 0.25, "cu_trump"),
+    ] + extra + [
+        ln("xi", "Both of you, shut up. I'll pay. Just give me the waiter's data."),
+        ln("mb", "I'm a meatball!"),
+        ln("trump", "Then we tariff the meatball.", 0.0),
+        ("hold", 0.25, "cu_mb"),
+        ln("mb", "Moral of the story: three superpowers, zero wallets, and the meatball still gets screwed. Goddamn.",
+           0.0, cap="Moral of the story: three superpowers, zero wallets, and the meatball still gets screwed. G#@damn."),
+        ("hold", 0.2, "wide"),
+        ("gag", "end", 2.0 if short else 2.6, "diner", "wide"),
+    ]
+    TAGS = (("trump", "TRUMP"), ("xi", "XI"), ("putin", "PUTIN"))
+
+    def pose_hook(c, t, fi, li, scene, p):
+        p = lively(c, t, li, p, G["L"][scene]["cast"], 0.8)
+        hop, j, ang, (aL, aR), hk, sq, rot, extra_ = p
+        tar = H.lines_with("tariff", "trump")
+        if c == "mb" and tar and t >= tar[0]["t0"]:
+            hk = (hk[0], hk[1], hk[2], "wide")
+        return (hop, j, ang, (aL, aR), hk, sq, rot, extra_)
+
+    def post(fr, cam, t, fi, li, scene, L):
+        K, S = L["K"], L[scene]
+        z = cam.z * K
+        d = ImageDraw.Draw(fr)
+        x0, y0 = cam.p(S["cast"]["trump"] - 190 * K, S["top"])   # the table, in front of the three presidents
+        x1, y1 = cam.p(S["cast"]["putin"] + 190 * K, L["feet"] + 400 * K)
+        d.rectangle([x0, y0, x1, y1], fill=(250, 248, 240), outline=INK, width=max(2, int(5 * z)))
+        d.rectangle([x0, y0, x1, y0 + 26 * z], fill=(226, 222, 206))
+        for c, name in TAGS:   # place cards, so nobody has to guess who the cartoons are
+            x, y = cam.p(S["cast"][c], S["top"] + 62 * K)
+            f = ImageFont.truetype(FONT, max(8, int(34 * z)))
+            w = d.textlength(name, font=f) / 2 + 16 * z
+            d.rectangle([x - w, y - 26 * z, x + w, y + 26 * z], fill=WHITE, outline=INK, width=max(2, int(4 * z)))
+            d.text((x, y), name, font=f, fill=INK, anchor="mm")
+        cx, cy = cam.p(S["cast"]["xi"] + 160 * K, S["top"] + 40 * K)   # the check nobody touches
+        d.polygon([(cx - 40 * z, cy - 14 * z), (cx + 44 * z, cy - 20 * z), (cx + 48 * z, cy + 22 * z),
+                   (cx - 38 * z, cy + 26 * z)], fill=(40, 40, 46), outline=INK)
+        d.text((cx + 4 * z, cy + 2 * z), "CHECK", font=ImageFont.truetype(FONT, max(6, int(18 * z))), fill=WHITE,
+               anchor="mm")
+        mx, my = cam.p(S["cast"]["mb"], L["feet"] - 150 * K)   # the waiter's bow tie
+        d.polygon([(mx - 34 * z, my - 16 * z), (mx, my), (mx - 34 * z, my + 16 * z)], fill=(24, 24, 28))
+        d.polygon([(mx + 34 * z, my - 16 * z), (mx, my), (mx + 34 * z, my + 16 * z)], fill=(24, 24, 28))
+
+    def sfx(fx, music, ev, lines):
+        tar = H.lines_with("tariff", "trump")
+        if tar:
+            C2.thud(fx, tar[0]["start"] + tar[0]["dur"], 0.6)
+
+    return dict(title="THE DINNER BILL", end=["WHO SKIPPED", "THE", "CHECK?"], seq=seq,
+                headline=["TRUMP, XI & PUTIN", "SPLIT THE DINNER BILL"], target=0 if short else 62.1,
+                scenes={"diner": dict(layout=diner_layout, bg=diner_bg)},
+                pose_hook=pose_hook, post=post, sfx=sfx)
+
+
+EPISODES = {"bill": bill, "billshort": lambda: bill(True), "t58": t58, "t58short": lambda: t58(True), "confession_nb": nobanner(confession, ["MEATBALL GOES", "TO CONFESSION"]), "confession": confession, "ozempic": ozempic, "ep6v4": ep6v4, "ep5v4": ep5v4, "ep7v4": ep7v4, "ep3": ep3, "ep4": ep4, "ep5": ep5, "ep6": ep6, "ep7": ep7, "ep8": ep8, "ep7v3": ep7v3, "ep3v3": ep3v3}
 
 
 # ------------------------------------------------------------------------------------------------ engine
@@ -2277,7 +2536,7 @@ def use(name, fmt="vertical"):
     _, _, _, end = C2.build()
     # Nolan 11/19 ("too much dead air"): holds never stretch past HOLD_MAX; a short cut is padded with the
     # end card, never with dead air mid-video.
-    deficit = TARGET - end
+    deficit = EP.get("target", TARGET) - end
     holds = [i for i, it in enumerate(C2.SEQ) if it[0] == "hold"]
     if deficit > 0.05 and holds:
         per = deficit / len(holds)
