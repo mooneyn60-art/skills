@@ -2404,7 +2404,7 @@ def t58(short=False):
 def diner_layout(L):
     vert = L["H"] > L["W"]
     if vert:
-        L["cap_y"] = 1490   # captions on the tablecloth, clear of faces and of the bottom 20%
+        L["cap_y"] = 1510   # captions on the tablecloth, clear of faces and of the bottom 20%
         return dict(cast=dict(trump=230, xi=600, putin=950, mb=1250), top=L["feet"] - 150 * L["K"],
                     wide=(715, 1400, 0.78), cams={"three": (590, L["feet"] - 400 * L["K"], 1.06)})
     return dict(cast=dict(trump=420, xi=820, putin=1220, mb=1640), top=L["feet"] - 150 * L["K"],
@@ -2446,7 +2446,7 @@ LEADERS = {   # all positions are fractions of the model picture (x of width, y 
                hands=((0.25, 0.755, 0.42, 0.875), (0.61, 0.755, 0.80, 0.875)), blink=13,
                brows=(0.37, 0.275, 0.655, 0.328)),
     "putin": dict(mouth=(0.517, 0.502), mw=0.11, eyes=((0.425, 0.368, 0.068, 0.05), (0.575, 0.372, 0.068, 0.05)),
-                  pupils=((0.446, 0.358), (0.569, 0.3585)), head=(0.51, 0.40, 0.275, 0.25),
+                  pupils=((0.446, 0.358), (0.569, 0.3585)), head=(0.51, 0.40, 0.275, 0.238),
                   hands=((0.25, 0.765, 0.42, 0.875), (0.61, 0.765, 0.79, 0.875)), blink=27,
                   brows=(0.35, 0.295, 0.675, 0.348))}
 _LIMG = {}
@@ -2478,8 +2478,17 @@ def leader_layers(name, w):
         inside = np.abs(u) < 1
         chin = cy * h + ry * h * np.sqrt(np.clip(1 - u ** 2, 0, 1))
         region = np.where(inside, yy < chin, yy < cy * h) & (np.abs(u) < 1.25)
-        mask = (region & ~curtain).astype(np.uint8) * 255
-        m = Image.fromarray(mask, "L").filter(ImageFilter.MaxFilter(3)).filter(ImageFilter.GaussianBlur(1.6))
+        # Below the eye line only skin belongs to the head: the picture's own collar, tie and lapels must not
+        # ride along on the rig's body. Close the holes the mouth and creases leave in the skin mask.
+        skin = (r > 165) & (g > 115) & (b > 70) & (r > b + 28) & (g > b + 6)
+        lower = Image.fromarray(((region & skin & (yy >= cy * h - 0.06 * h)).astype(np.uint8) * 255), "L")
+        kk = max(3, (w // 28) | 1)
+        lower = lower.filter(ImageFilter.MaxFilter(kk)).filter(ImageFilter.MinFilter(kk))   # close the holes
+        k2 = max(3, (w // 22) | 1)
+        lower = lower.filter(ImageFilter.MinFilter(k2)).filter(ImageFilter.MaxFilter(k2))   # drop stray specks
+        low = np.asarray(lower) > 127
+        mask = (((region & ~curtain & (yy < cy * h)) | low).astype(np.uint8)) * 255
+        m = Image.fromarray(mask, "L").filter(ImageFilter.GaussianBlur(1.4))
         ys, xs = np.nonzero(mask)
         box = (max(0, xs.min() - 8), max(0, ys.min() - 8), min(w, xs.max() + 9), min(h, ys.max() + 9))
         head = im.crop(box)
@@ -2890,7 +2899,7 @@ def bill(short=False):
                 for q, col in enumerate((WHITE, (40, 70, 170), (200, 40, 40))):
                     d.rectangle([fl[0], fl[1] + q * 14 * z, fl[2], fl[1] + (q + 1) * 14 * z + wv * q / 3], fill=col)
             if cam.z < 1.2:   # name plates on the wide and three-shot (they crop in close-ups)
-                px_, py_ = cam.p(cx_ + 10 * K, S["top"] + (66 + hopt) * K)
+                px_, py_ = cam.p(cx_ + 10 * K, S["top"] + (52 + hopt) * K)
                 f = ImageFont.truetype(FONT, max(8, int(40 * z)))
                 wdt = d.textlength(name, font=f) / 2 + 18 * z
                 d.rectangle([px_ - wdt, py_ - 30 * z, px_ + wdt, py_ + 30 * z], fill=(250, 246, 236), outline=INK,
@@ -2915,7 +2924,7 @@ def bill(short=False):
             xa, xb = S["cast"]["xi"] + 100 * K, S["cast"]["mb"]
             chk = (xa + (xb - xa) * k, S["top"] + 4 * K - (math.sin(k * math.pi) * 420 + k * 330) * K, k * 400)
         kx, ky = cam.p(chk[0], chk[1])
-        paste(fr, _check_img(round(z, 2)), kx, ky - 14 * z, chk[2])
+        paste(fr, _check_img(round(z * 0.62, 2)), kx, ky - 30 * z, chk[2])
         pooh = tline("Winnie", "trump")
         if pooh and li is not None and G["lines"][li] is pooh and cname == "cu_xi":   # the honey pot, pinned
             kq = min(1.0, (t - seg0) / 0.2)
