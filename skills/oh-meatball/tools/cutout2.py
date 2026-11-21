@@ -558,14 +558,33 @@ def _mask(seq, subs):
 
 SEQ_V9 = _mask(SEQ_V8, [("fucking", "f#@%ing"), ("Fuck", "F#@k"), ("shit", "s#@t"), ("goddamn", "g#@damn")])
 
+def _toons(seq):
+    """TOONS cut (Studio 02cf1c1): 35 s or less, cold open, no banner, no swear in the first 7 s, no holds."""
+    keep = ["My mom said", "If you die in here", "We raised every price", "Holy shit", "I've buried two",
+            "Unexpected. Item", "The unexpected item", "There are no workers"]
+    out = [("gag", "intro", 0.3, "outside", "wide")]
+    for it in seq[1:]:
+        if it[0] == "line" and any(it[2].startswith(k) for k in keep):
+            out.append((it[0], it[1], it[2], it[3], dict(it[4], gap=min(it[4].get("gap", 0.0), 0.1))))
+        elif it[0] == "gag" and it[1] in ("stampede", "ceo_in", "slam", "checkout", "punch"):
+            out.append(it)
+    return out + [("gag", "dawn", 0.5, "dawn", "wide"), ("gag", "end", 1.8, "dawn", "wide")]
+
+
+SEQ_TOONS = _toons(SEQ_V9)
+HEADLINE, BRAND = None, "MEATBALL MYTHS"
+
 SEQ = list(SEQ_V8)   # the script build() renders; use_script() swaps it
 
 
 def use_script(name):
     """Pick the script (and the voices it was cast with)."""
-    SEQ[:] = {"v2": SEQ_V2, "v3": SEQ_V3, "v4": SEQ_V4, "v5": SEQ_V5, "v6": SEQ_V6, "v7": SEQ_V7, "v8": SEQ_V8, "v9": SEQ_V9}[name]
+    SEQ[:] = {"v2": SEQ_V2, "v3": SEQ_V3, "v4": SEQ_V4, "v5": SEQ_V5, "v6": SEQ_V6, "v7": SEQ_V7, "v8": SEQ_V8, "v9": SEQ_V9, "toons": SEQ_TOONS}[name]
     if name in ("v2", "v3", "v4"):
         V.update(V_OLD)
+    if name == "toons":
+        global HEADLINE, BRAND
+        HEADLINE, BRAND = ["BLACK FRIDAY:", "ONE TV LEFT"], "MEATBALL TOONS"
 
 
 FLAT = 1.0   # stampede: seconds from the doors to the kids getting flattened
@@ -2205,11 +2224,14 @@ def draw_banners(fr, t):
     items = [(0.1, it_ - 0.05, "MEATBALL MYTHS", big, (200, 40, 32), WHITE, -3, 0),
              (min(0.85, it_ * 0.3), it_ - 0.05, "BLACK FRIDAY", int(big * 0.7), (20, 20, 24), (252, 214, 74), 2,
               int(big * 1.25))]
+    if HEADLINE:   # Studio 11/20 format: frame 1 = one clean caps headline, no banner
+        items = [(-1.0, 2.6, txt, int(big * 0.6), (252, 214, 74), INK, [-2, 2][i % 2], int(i * big * 0.98))
+                 for i, txt in enumerate(HEADLINE)]
     eb = int(big * 0.52)
     for i, txt in enumerate(END_TEXT):
         items.append((end + 0.2 + 0.25 * i, end + 99, txt, eb, (252, 250, 240), INK, [-2, 2, -1][i],
                       int(i * eb * 1.55) - (0 if L["W"] > L["H"] else -40)))
-    items.append((end + 0.1, end + 99, "MEATBALL MYTHS", int(big * 0.7), (200, 40, 32), WHITE, 3, -int(big * 1.1)))
+    items.append((end + 0.1, end + 99, BRAND, int(big * 0.7), (200, 40, 32), WHITE, 3, -int(big * 1.1)))
     for (t0, t1, text, size, col, tcol, ang, dy) in items:
         if not (t0 <= t < t1):
             continue
@@ -2455,7 +2477,7 @@ if __name__ == "__main__":
     ap.add_argument("--sheet")
     ap.add_argument("--times", type=float, nargs="*")
     ap.add_argument("--timeline", action="store_true")
-    ap.add_argument("--script", default="v8", choices=["v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9"])
+    ap.add_argument("--script", default="v8", choices=["v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "toons"])
     a = ap.parse_args()
     use_script(a.script)
     if a.timeline:
