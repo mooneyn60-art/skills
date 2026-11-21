@@ -2000,6 +2000,54 @@ def rickpol():
                 post=post, pose_hook=pose_hook, where=where, sfx=sfx, silences=silences, shakes=shakes)
 
 
+def karentoons():
+    """TOONS Mon 11/23 (Studio 52ceaad): HOA Karen re-cut, 35 s or less: the street scene only, cold open on
+    Karen's first line, no banner, MEATBALL TOONS end card, everybody moving (lively + listener bobs)."""
+    ep = ep4()
+    keep = ["Excuse me.", "It's lemonade.", "Do you have a permit", "Do you have a husband", "Gary is on",
+            "For six years", "I'd like to speak to your manager.", "We're nine.", "I pay four hundred", "For what?",
+            "For the right to ruin", "Lemonade's two dollars"]
+    seq = [("gag", "intro", 0.3, "street", "wide")]
+    for it in ep["seq"]:
+        if it[0] == "line" and it[4].get("scene") == "street" and any(it[2].startswith(k) for k in keep):
+            cam = "cu_mb" if it[2].startswith("We're nine") else "four"   # one wide shot; one punch-in
+            seq.append((it[0], it[1], it[2], it[3], dict(it[4], cams=[(0, cam)],
+                                                         gap=min(it[4].get("gap", 0.0), 0.08))))
+    seq.append(("gag", "end", 1.8, "street", "four"))
+    seq[0] = ("gag", "intro", 0.3, "street", "four")
+    ep["seq"] = seq
+
+    def layout(L):
+        S = street_layout(L)
+        S["cams"] = {"four": (555, L["feet"] - 400 * L["K"], 0.94)}
+        return S
+    ep["scenes"] = dict(ep["scenes"], street=dict(layout=layout, bg=street_bg))
+    old = ep.get("pose_hook")
+
+    def pose_hook(c, t, fi, li, scene, p):
+        if old:
+            p = old(c, t, fi, li, scene, p)
+        p = lively(c, t, li, p, G["L"][scene].get("cast", {}), 0.8)
+        hop, j, ang, (aL, aR), hk, sq, rot, extra = p
+        lines = G["lines"]
+        ph = (hash(c) % 7) * 0.9
+        if li is None or li >= len(lines) or c not in lines[li]["who"].split("+"):
+            hop += 4 * abs(math.sin(t * 5 + ph))
+            aL += 14 * math.sin(t * 3.1 + ph)
+            aR += 14 * math.sin(t * 2.7 + ph + 1)
+        if li is not None and li < len(lines) and c == "karen" and lines[li]["who"] != "karen":
+            e = lines[li]["start"] + lines[li]["dur"]
+            if e - 0.35 <= t < e + 0.45:   # every answer lands on her
+                k = 1 - max(0.0, (t - e) / 0.45)
+                hop -= 24 * k
+                aL, aR = -130 * k + aL * (1 - k), 130 * k + aR * (1 - k)
+        return (hop, j, ang, (aL, aR), hk, sq, rot, extra)
+
+    ep.update(pose_hook=pose_hook, headline=["HOA KAREN VS.", "A LEMONADE STAND"], brand="MEATBALL TOONS",
+              target=0, end=["WHAT'S THE PETTIEST", "HOA RULE", "YOU'VE SEEN?"])
+    return ep
+
+
 def ep7v4():
     """QA #15 F1: no pronoun in the bite line."""
     ep = ep7v3()
@@ -3226,7 +3274,7 @@ def _check_img(z):
     return _LIMG[key]
 
 
-EPISODES = {"rickpol": rickpol, "bill": bill, "billshort": lambda: bill(True), "t58": t58, "t58short": lambda: t58(True), "confession_nb": nobanner(confession, ["MEATBALL GOES", "TO CONFESSION"]), "confession": confession, "ozempic": ozempic, "ep6v4": ep6v4, "ep5v4": ep5v4, "ep7v4": ep7v4, "ep3": ep3, "ep4": ep4, "ep5": ep5, "ep6": ep6, "ep7": ep7, "ep8": ep8, "ep7v3": ep7v3, "ep3v3": ep3v3}
+EPISODES = {"karentoons": karentoons, "rickpol": rickpol, "bill": bill, "billshort": lambda: bill(True), "t58": t58, "t58short": lambda: t58(True), "confession_nb": nobanner(confession, ["MEATBALL GOES", "TO CONFESSION"]), "confession": confession, "ozempic": ozempic, "ep6v4": ep6v4, "ep5v4": ep5v4, "ep7v4": ep7v4, "ep3": ep3, "ep4": ep4, "ep5": ep5, "ep6": ep6, "ep7": ep7, "ep8": ep8, "ep7v3": ep7v3, "ep3v3": ep3v3}
 
 
 # ------------------------------------------------------------------------------------------------ engine
