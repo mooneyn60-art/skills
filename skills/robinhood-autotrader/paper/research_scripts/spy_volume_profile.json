@@ -1,0 +1,161 @@
+{
+ "80% rule": {
+  "n": 47,
+  "hit": 53.8,
+  "median_reward_to_risk": 0.65
+ },
+ "80% rule H1": {
+  "n": 19,
+  "hit": 46.7,
+  "median_reward_to_risk": 0.65
+ },
+ "80% rule H2": {
+  "n": 28,
+  "hit": 58.3,
+  "median_reward_to_risk": 0.7
+ },
+ "POC from above, long": {
+  "n": 41,
+  "hit": 57.9,
+  "mean_30m_bp": 3.3,
+  "mean_60m_bp": 5.5
+ },
+ "POC from above, long H1": {
+  "n": 18,
+  "hit": 58.8,
+  "mean_30m_bp": 2.1,
+  "mean_60m_bp": 1.1
+ },
+ "POC from above, long H2": {
+  "n": 23,
+  "hit": 57.1,
+  "mean_30m_bp": 4.3,
+  "mean_60m_bp": 9.0
+ },
+ "POC from above, long after 10:30": {
+  "n": 10,
+  "hit": 28.6,
+  "mean_30m_bp": -9.3,
+  "mean_60m_bp": -9.8
+ },
+ "POC from above, long before 10:30": {
+  "n": 31,
+  "hit": 64.5,
+  "mean_30m_bp": 7.4,
+  "mean_60m_bp": 10.5
+ },
+ "POC from below, short": {
+  "n": 35,
+  "hit": 45.2,
+  "mean_30m_bp": -1.6,
+  "mean_60m_bp": 3.3
+ },
+ "POC from below, short H1": {
+  "n": 21,
+  "hit": 50.0,
+  "mean_30m_bp": -3.1,
+  "mean_60m_bp": -1.0
+ },
+ "POC from below, short H2": {
+  "n": 14,
+  "hit": 38.5,
+  "mean_30m_bp": 0.6,
+  "mean_60m_bp": 9.7
+ },
+ "POC from below, short after 10:30": {
+  "n": 10,
+  "hit": 50.0,
+  "mean_30m_bp": -4.4,
+  "mean_60m_bp": 3.0
+ },
+ "POC from below, short before 10:30": {
+  "n": 25,
+  "hit": 43.5,
+  "mean_30m_bp": -0.5,
+  "mean_60m_bp": 3.4
+ },
+ "VAH short": {
+  "n": 49,
+  "hit": 35.6,
+  "mean_30m_bp": -0.8,
+  "mean_60m_bp": -5.9
+ },
+ "VAH short H1": {
+  "n": 27,
+  "hit": 25.9,
+  "mean_30m_bp": -2.6,
+  "mean_60m_bp": -8.1
+ },
+ "VAH short H2": {
+  "n": 22,
+  "hit": 50.0,
+  "mean_30m_bp": 1.4,
+  "mean_60m_bp": -3.2
+ },
+ "VAH short after 10:30": {
+  "n": 21,
+  "hit": 38.9,
+  "mean_30m_bp": -2.8,
+  "mean_60m_bp": -9.0
+ },
+ "VAH short before 10:30": {
+  "n": 28,
+  "hit": 33.3,
+  "mean_30m_bp": 0.7,
+  "mean_60m_bp": -3.6
+ },
+ "VAL long": {
+  "n": 42,
+  "hit": 50.0,
+  "mean_30m_bp": -1.1,
+  "mean_60m_bp": 2.0
+ },
+ "VAL long H1": {
+  "n": 21,
+  "hit": 55.6,
+  "mean_30m_bp": -1.0,
+  "mean_60m_bp": 1.9
+ },
+ "VAL long H2": {
+  "n": 21,
+  "hit": 43.8,
+  "mean_30m_bp": -1.1,
+  "mean_60m_bp": 2.1
+ },
+ "VAL long after 10:30": {
+  "n": 21,
+  "hit": 57.1,
+  "mean_30m_bp": -0.8,
+  "mean_60m_bp": 2.3
+ },
+ "VAL long before 10:30": {
+  "n": 21,
+  "hit": 45.0,
+  "mean_30m_bp": -1.3,
+  "mean_60m_bp": 1.6
+ },
+ "control POC from above, long": {
+  "n": 40,
+  "hit": 41.0,
+  "mean_30m_bp": 3.1,
+  "mean_60m_bp": 0
+ },
+ "control POC from below, short": {
+  "n": 31,
+  "hit": 48.1,
+  "mean_30m_bp": -2.9,
+  "mean_60m_bp": 0
+ },
+ "control VAH short": {
+  "n": 44,
+  "hit": 21.6,
+  "mean_30m_bp": -3.2,
+  "mean_60m_bp": 0
+ },
+ "control VAL long": {
+  "n": 40,
+  "hit": 52.6,
+  "mean_30m_bp": -1.7,
+  "mean_60m_bp": 0
+ }
+}

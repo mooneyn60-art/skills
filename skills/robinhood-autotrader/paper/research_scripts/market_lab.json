@@ -1,0 +1,666 @@
+{
+ "1. Where the return comes from: overnight vs day session (% per day)": {
+  "overnight 2006-15": {
+   "n": 2513,
+   "mean": 0.0155,
+   "hit": 54,
+   "t": 1.05
+  },
+  "overnight 2016-26": {
+   "n": 2705,
+   "mean": 0.0287,
+   "hit": 56,
+   "t": 2.05
+  },
+  "day session 2006-15": {
+   "n": 2513,
+   "mean": 0.0042,
+   "hit": 54,
+   "t": 0.2
+  },
+  "day session 2016-26": {
+   "n": 2705,
+   "mean": 0.0202,
+   "hit": 54,
+   "t": 1.25
+  }
+ },
+ "2. Gap fill: chance the gap closes the same day (shown as fill rate \u2212 50%)": {
+  "0.1-0.3% gaps 2006-15 (fill=1)": {
+   "n": 747,
+   "mean": 0.2684,
+   "hit": 77,
+   "t": 17.38
+  },
+  "0.1-0.3% gaps 2016-26 (fill=1)": {
+   "n": 867,
+   "mean": 0.2059,
+   "hit": 71,
+   "t": 13.3
+  },
+  "0.3-0.6% gaps 2006-15 (fill=1)": {
+   "n": 578,
+   "mean": 0.109,
+   "hit": 61,
+   "t": 5.37
+  },
+  "0.3-0.6% gaps 2016-26 (fill=1)": {
+   "n": 723,
+   "mean": -0.0062,
+   "hit": 49,
+   "t": -0.33
+  },
+  "0.6-1.0% gaps 2006-15 (fill=1)": {
+   "n": 301,
+   "mean": -0.0548,
+   "hit": 45,
+   "t": -1.91
+  },
+  "0.6-1.0% gaps 2016-26 (fill=1)": {
+   "n": 357,
+   "mean": -0.1695,
+   "hit": 33,
+   "t": -6.8
+  },
+  "1.0-9% gaps 2006-15 (fill=1)": {
+   "n": 268,
+   "mean": -0.0933,
+   "hit": 41,
+   "t": -3.1
+  },
+  "1.0-9% gaps 2016-26 (fill=1)": {
+   "n": 249,
+   "mean": -0.259,
+   "hit": 24,
+   "t": -9.54
+  }
+ },
+ "3. Calendar effects (close-to-close %)": {
+  "turn of month 2006-15": {
+   "n": 479,
+   "mean": 0.0326,
+   "hit": 52,
+   "t": 0.58
+  },
+  "turn of month 2016-26": {
+   "n": 519,
+   "mean": 0.0711,
+   "hit": 55,
+   "t": 1.52
+  },
+  "other days 2006-15": {
+   "n": 2034,
+   "mean": 0.0272,
+   "hit": 55,
+   "t": 0.92
+  },
+  "other days 2016-26": {
+   "n": 2186,
+   "mean": 0.0515,
+   "hit": 55,
+   "t": 2.13
+  },
+  "monthly opex Friday 2006-15": {
+   "n": 118,
+   "mean": -0.2089,
+   "hit": 47,
+   "t": -1.97
+  },
+  "monthly opex Friday 2016-26": {
+   "n": 125,
+   "mean": -0.2158,
+   "hit": 38,
+   "t": -2.47
+  }
+ },
+ "4. Opex-day range vs other Fridays (day range % minus Friday average)": {
+  "opex Friday range 2006-15": {
+   "n": 118,
+   "mean": 0.016,
+   "hit": 30,
+   "t": 0.12
+  },
+  "opex Friday range 2016-26": {
+   "n": 125,
+   "mean": -0.0886,
+   "hit": 30,
+   "t": -1.2
+  }
+ },
+ "5. Intraday momentum: last 30 min, signed by the first 30 min (incl. overnight gap)": {
+  "last30 signed by first30 OOS": {
+   "n": 133,
+   "mean": 0.1346,
+   "hit": 52,
+   "t": 1.35
+  },
+  "last30 signed by first30 IS": {
+   "n": 31,
+   "mean": -0.1053,
+   "hit": 39,
+   "t": -0.55
+  }
+ },
+ "6. Opening-range breakout (30-min range), after costs": {
+  "ORB30 hold to close OOS": {
+   "n": 131,
+   "mean": -0.0905,
+   "hit": 50,
+   "t": -0.27
+  },
+  "ORB30 hold to close IS": {
+   "n": 31,
+   "mean": -0.5625,
+   "hit": 48,
+   "t": -1.11
+  }
+ },
+ "7. Regime: does the afternoon continue the morning? (split by morning variance ratio)": {
+  "afternoon in morning's direction, VR<=1 OOS": {
+   "n": 101,
+   "mean": 0.3229,
+   "hit": 54,
+   "t": 1.04
+  },
+  "afternoon in morning's direction, VR>1 (trendy) OOS": {
+   "n": 32,
+   "mean": 0.0651,
+   "hit": 56,
+   "t": 0.09
+  },
+  "afternoon in morning's direction, VR<=1 IS": {
+   "n": 20,
+   "mean": -0.4825,
+   "hit": 30,
+   "t": -1.05
+  },
+  "afternoon in morning's direction, VR>1 (trendy) IS": {
+   "n": 11,
+   "mean": -1.0914,
+   "hit": 45,
+   "t": -1.32
+  }
+ },
+ "8. Buying/selling pressure (close location x volume) -> next 30 min": {
+  "pressure |p|>0.5 next 30m OOS": {
+   "n": 70,
+   "mean": -0.03,
+   "hit": 56,
+   "t": -0.17
+  },
+  "pressure |p|>0.5 next 30m IS": {
+   "n": 14,
+   "mean": -0.1666,
+   "hit": 29,
+   "t": -0.6
+  }
+ },
+ "9. Bollinger-inside-Keltner squeeze release -> next 30 min, after costs": {
+  "squeeze release next 30m OOS": {
+   "n": 147,
+   "mean": -0.1293,
+   "hit": 44,
+   "t": -1.35
+  },
+  "squeeze release next 30m IS": {
+   "n": 37,
+   "mean": -0.0642,
+   "hit": 43,
+   "t": -0.55
+  }
+ },
+ "10. Pinning: last hour moves toward the nearest $5 strike? (pts closer)": {
+  "other days: last hour toward $5 strike": {
+   "n": 158,
+   "mean": -0.3201,
+   "hit": 41,
+   "t": -2.88
+  },
+  "opex Fridays: last hour toward $5 strike": {
+   "n": 6,
+   "mean": 0.0679,
+   "hit": 67,
+   "t": 0.23
+  }
+ },
+ "11. Day of week (close-to-close %)": {
+  "Mon 2006-15": {
+   "n": 473,
+   "mean": 0.0027,
+   "hit": 51,
+   "t": 0.04
+  },
+  "Mon 2016-26": {
+   "n": 505,
+   "mean": 0.0898,
+   "hit": 59,
+   "t": 1.73
+  },
+  "Tue 2006-15": {
+   "n": 514,
+   "mean": 0.0969,
+   "hit": 55,
+   "t": 1.66
+  },
+  "Tue 2016-26": {
+   "n": 558,
+   "mean": 0.0659,
+   "hit": 52,
+   "t": 1.5
+  },
+  "Wed 2006-15": {
+   "n": 518,
+   "mean": 0.0636,
+   "hit": 57,
+   "t": 1.15
+  },
+  "Wed 2016-26": {
+   "n": 554,
+   "mean": 0.0871,
+   "hit": 57,
+   "t": 1.82
+  },
+  "Thu 2006-15": {
+   "n": 506,
+   "mean": 0.0381,
+   "hit": 55,
+   "t": 0.68
+  },
+  "Thu 2016-26": {
+   "n": 545,
+   "mean": 0.0106,
+   "hit": 54,
+   "t": 0.22
+  },
+  "Fri 2006-15": {
+   "n": 502,
+   "mean": -0.0643,
+   "hit": 52,
+   "t": -1.3
+  },
+  "Fri 2016-26": {
+   "n": 543,
+   "mean": 0.0243,
+   "hit": 54,
+   "t": 0.5
+  }
+ },
+ "12. The day after a big move (next close-to-close %)": {
+  "after a <-1% day 2006-15": {
+   "n": 347,
+   "mean": 0.2204,
+   "hit": 56,
+   "t": 1.93
+  },
+  "after a <-1% day 2016-26": {
+   "n": 294,
+   "mean": 0.1623,
+   "hit": 55,
+   "t": 1.44
+  },
+  "after a >+1% day 2006-15": {
+   "n": 350,
+   "mean": -0.1458,
+   "hit": 52,
+   "t": -1.93
+  },
+  "after a >+1% day 2016-26": {
+   "n": 348,
+   "mean": -0.1022,
+   "hit": 52,
+   "t": -1.37
+  }
+ },
+ "13. VIX (last week's close) vs today's range % (higher = bigger day)": {
+  "VIX<15 range 2006-15": {
+   "n": 875,
+   "mean": 0.7851,
+   "hit": 100,
+   "t": 63.19
+  },
+  "VIX<15 range 2016-26": {
+   "n": 988,
+   "mean": 0.6591,
+   "hit": 100,
+   "t": 65.9
+  },
+  "VIX 15-20 range 2006-15": {
+   "n": 678,
+   "mean": 1.077,
+   "hit": 100,
+   "t": 57.74
+  },
+  "VIX 15-20 range 2016-26": {
+   "n": 909,
+   "mean": 1.0143,
+   "hit": 100,
+   "t": 58.56
+  },
+  "VIX 20-30 range 2006-15": {
+   "n": 662,
+   "mean": 1.6256,
+   "hit": 100,
+   "t": 50.27
+  },
+  "VIX 20-30 range 2016-26": {
+   "n": 642,
+   "mean": 1.5216,
+   "hit": 100,
+   "t": 50.68
+  },
+  "VIX 30+ range 2006-15": {
+   "n": 294,
+   "mean": 3.4131,
+   "hit": 100,
+   "t": 27.73
+  },
+  "VIX 30+ range 2016-26": {
+   "n": 166,
+   "mean": 2.7232,
+   "hit": 100,
+   "t": 19.97
+  }
+ },
+ "13b. VIX vs today's return %": {
+  "VIX<15 2006-15": {
+   "n": 875,
+   "mean": 0.0949,
+   "hit": 59,
+   "t": 4.79
+  },
+  "VIX<15 2016-26": {
+   "n": 988,
+   "mean": 0.1333,
+   "hit": 59,
+   "t": 7.64
+  },
+  "VIX 15-20 2006-15": {
+   "n": 678,
+   "mean": 0.0477,
+   "hit": 54,
+   "t": 1.46
+  },
+  "VIX 15-20 2016-26": {
+   "n": 909,
+   "mean": 0.0633,
+   "hit": 55,
+   "t": 2.27
+  },
+  "VIX 20-30 2006-15": {
+   "n": 662,
+   "mean": -0.0194,
+   "hit": 50,
+   "t": -0.4
+  },
+  "VIX 20-30 2016-26": {
+   "n": 642,
+   "mean": 0.0011,
+   "hit": 51,
+   "t": 0.02
+  },
+  "VIX 30+ 2006-15": {
+   "n": 294,
+   "mean": -0.1155,
+   "hit": 50,
+   "t": -0.68
+  },
+  "VIX 30+ 2016-26": {
+   "n": 166,
+   "mean": -0.2445,
+   "hit": 44,
+   "t": -1.08
+  }
+ },
+ "14. Week after monthly expiry vs other days (close-to-close %)": {
+  "week after expiry 2006-15": {
+   "n": 570,
+   "mean": 0.0559,
+   "hit": 54,
+   "t": 1.06
+  },
+  "week after expiry 2016-26": {
+   "n": 616,
+   "mean": 0.0834,
+   "hit": 57,
+   "t": 1.91
+  },
+  "other weeks 2006-15": {
+   "n": 1943,
+   "mean": 0.0201,
+   "hit": 54,
+   "t": 0.67
+  },
+  "other weeks 2016-26": {
+   "n": 2089,
+   "mean": 0.0469,
+   "hit": 54,
+   "t": 1.9
+  }
+ },
+ "15. Trend filter: next day when the prior close is above/below its 20-day average (%)": {
+  "above 20d 2006-15": {
+   "n": 1564,
+   "mean": 0.0044,
+   "hit": 54,
+   "t": 0.18
+  },
+  "above 20d 2016-26": {
+   "n": 1835,
+   "mean": 0.0456,
+   "hit": 55,
+   "t": 2.46
+  },
+  "below 20d 2006-15": {
+   "n": 930,
+   "mean": 0.0674,
+   "hit": 55,
+   "t": 1.16
+  },
+  "below 20d 2016-26": {
+   "n": 870,
+   "mean": 0.0756,
+   "hit": 55,
+   "t": 1.39
+  }
+ },
+ "16. Time of day: average SPY move in each half hour (pts)": {
+  "09:30 IS": {
+   "n": 31,
+   "mean": -0.063,
+   "hit": 48,
+   "t": -0.28
+  },
+  "09:30 OOS": {
+   "n": 133,
+   "mean": 0.0623,
+   "hit": 57,
+   "t": 0.35
+  },
+  "10:00 IS": {
+   "n": 31,
+   "mean": -0.1435,
+   "hit": 35,
+   "t": -0.63
+  },
+  "10:00 OOS": {
+   "n": 133,
+   "mean": 0.093,
+   "hit": 55,
+   "t": 0.66
+  },
+  "10:30 IS": {
+   "n": 31,
+   "mean": -0.0633,
+   "hit": 48,
+   "t": -0.3
+  },
+  "10:30 OOS": {
+   "n": 133,
+   "mean": 0.1343,
+   "hit": 53,
+   "t": 1.0
+  },
+  "11:00 IS": {
+   "n": 31,
+   "mean": 0.0674,
+   "hit": 52,
+   "t": 0.32
+  },
+  "11:00 OOS": {
+   "n": 133,
+   "mean": -0.0646,
+   "hit": 50,
+   "t": -0.56
+  },
+  "11:30 IS": {
+   "n": 31,
+   "mean": 0.253,
+   "hit": 61,
+   "t": 2.05
+  },
+  "11:30 OOS": {
+   "n": 133,
+   "mean": -0.028,
+   "hit": 52,
+   "t": -0.27
+  },
+  "12:00 IS": {
+   "n": 31,
+   "mean": 0.1325,
+   "hit": 45,
+   "t": 0.7
+  },
+  "12:00 OOS": {
+   "n": 133,
+   "mean": 0.0309,
+   "hit": 56,
+   "t": 0.36
+  },
+  "12:30 IS": {
+   "n": 31,
+   "mean": 0.0488,
+   "hit": 55,
+   "t": 0.35
+  },
+  "12:30 OOS": {
+   "n": 133,
+   "mean": -0.024,
+   "hit": 47,
+   "t": -0.32
+  },
+  "13:00 IS": {
+   "n": 31,
+   "mean": -0.1444,
+   "hit": 42,
+   "t": -0.89
+  },
+  "13:00 OOS": {
+   "n": 133,
+   "mean": 0.0854,
+   "hit": 50,
+   "t": 0.8
+  },
+  "13:30 IS": {
+   "n": 31,
+   "mean": 0.2076,
+   "hit": 61,
+   "t": 2.31
+  },
+  "13:30 OOS": {
+   "n": 133,
+   "mean": 0.0151,
+   "hit": 50,
+   "t": 0.19
+  },
+  "14:00 IS": {
+   "n": 31,
+   "mean": 0.1,
+   "hit": 58,
+   "t": 0.81
+  },
+  "14:00 OOS": {
+   "n": 133,
+   "mean": -0.0494,
+   "hit": 48,
+   "t": -0.52
+  },
+  "14:30 IS": {
+   "n": 31,
+   "mean": -0.1605,
+   "hit": 48,
+   "t": -0.8
+  },
+  "14:30 OOS": {
+   "n": 133,
+   "mean": -0.1225,
+   "hit": 47,
+   "t": -1.47
+  },
+  "15:00 IS": {
+   "n": 31,
+   "mean": -0.1316,
+   "hit": 35,
+   "t": -1.13
+  },
+  "15:00 OOS": {
+   "n": 133,
+   "mean": 0.0446,
+   "hit": 55,
+   "t": 0.38
+  },
+  "15:30 IS": {
+   "n": 31,
+   "mean": -0.1847,
+   "hit": 42,
+   "t": -0.98
+  },
+  "15:30 OOS": {
+   "n": 133,
+   "mean": -0.0091,
+   "hit": 50,
+   "t": -0.09
+  }
+ },
+ "17. Last hour (15:00-16:00) in the direction of the day so far": {
+  "last hour in the day's direction OOS": {
+   "n": 133,
+   "mean": -0.0661,
+   "hit": 50,
+   "t": -0.4
+  },
+  "last hour in the day's direction IS": {
+   "n": 31,
+   "mean": -0.3501,
+   "hit": 35,
+   "t": -1.97
+  }
+ },
+ "18. Lunch (11:30-13:30): continue or reverse the morning?": {
+  "11:30-13:30 in the morning's direction OOS": {
+   "n": 133,
+   "mean": 0.1614,
+   "hit": 56,
+   "t": 0.8
+  },
+  "11:30-13:30 in the morning's direction IS": {
+   "n": 31,
+   "mean": 0.0177,
+   "hit": 45,
+   "t": 0.05
+  }
+ },
+ "19. Fade a stretch beyond VWAP \u00b11\u03c3 (next 30 min, after costs)": {
+  "beyond VWAP\u00b11\u03c3 -> 30m back toward VWAP OOS": {
+   "n": 796,
+   "mean": -0.0577,
+   "hit": 45,
+   "t": -1.46
+  },
+  "beyond VWAP\u00b11\u03c3 -> 30m back toward VWAP IS": {
+   "n": 171,
+   "mean": 0.0139,
+   "hit": 48,
+   "t": 0.21
+  }
+ }
+}

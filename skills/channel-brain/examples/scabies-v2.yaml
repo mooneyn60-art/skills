@@ -1,0 +1,22 @@
+# House #22 rewritten (TARS 10/29): one story, 2 action lines, ~18 s. Same CDC facts as the original.
+slug: scabies-v2
+series: Things Living In Your House
+part: 22
+title: Something Is Digging a Tunnel in Your Skin Right Now
+creature: scabies
+creature_cfg: {plan: mite, label: scabies mite, color: '#efe2cc', dark: '#cdb894', mood: sneaky, s: 0.9}
+scene: bedroom
+scene_p: {time: night}
+wild: skin
+music: mystery
+next: "Next: the bug that rolls into a ball."
+sources: ["CDC, About Scabies: https://www.cdc.gov/scabies/about/index.html"]
+yt:
+  - hook: Something is digging a tunnel in your skin right now.
+  - tiny: Shrink down. It's a mite, laying eggs as it digs.
+    scene: skin
+  - escalate: You won't even itch for a month.
+    gag: {clock: 6, at: 40%, dur: 1.6}
+  - xray: Every tunnel is packed with eggs.
+    scene: skin
+  - punch: It spreads by touch. So... who did you touch today?

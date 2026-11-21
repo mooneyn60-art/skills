@@ -1,0 +1,66 @@
+{
+  "_fetched": "2026-09-25T14:29:55Z",
+  "_source": "Robinhood MCP (get_equity_quotes, get_option_quotes) -- read-only, no orders placed. Refresh of sofi_options_2026-09-24.json for the now-two-leg SOFI call position plus the 10-share stake.",
+  "underlying": "SOFI",
+  "stock_quote": {
+    "last_trade_price": 16.685,
+    "bid_price": 16.68,
+    "ask_price": 16.69,
+    "previous_close": 16.8,
+    "previous_close_date": "2026-09-24",
+    "quote_time": "2026-09-25T14:29:55.503313095Z"
+  },
+  "position": {
+    "shares": {
+      "qty": 10,
+      "stop_price": 15.75,
+      "stop_type": "stop (single trigger given; treated as stop-market -- no separate limit price on record)"
+    },
+    "dec18_19c": {
+      "instrument_id": "22607507-274c-41f9-bbb6-2eda4fc5cee1",
+      "expiration": "2026-12-18",
+      "strike": 19.0,
+      "qty": 1,
+      "cost_basis": 0.82,
+      "stop_trigger": 0.66,
+      "stop_limit": 0.60,
+      "bid": 0.9,
+      "ask": 0.93,
+      "mark": 0.915,
+      "adjusted_mark": 0.92,
+      "previous_close": 0.98,
+      "previous_close_date": "2026-09-24",
+      "iv": 0.527576,
+      "delta": 0.36382,
+      "gamma": 0.088771,
+      "theta": -0.010004,
+      "vega": 0.030102,
+      "open_interest": 5167,
+      "volume": 85,
+      "quote_time": "2026-09-25T14:29:52.044945815Z"
+    },
+    "dec18_18c": {
+      "instrument_id": "3a88e0c6-0642-4b95-b691-8e3272d6fd38",
+      "expiration": "2026-12-18",
+      "strike": 18.0,
+      "qty": 1,
+      "cost_basis": 1.22,
+      "stop_trigger": 0.98,
+      "stop_limit": 0.9,
+      "bid": 1.2,
+      "ask": 1.22,
+      "mark": 1.21,
+      "adjusted_mark": 1.21,
+      "previous_close": 1.29,
+      "previous_close_date": "2026-09-24",
+      "iv": 0.522062,
+      "delta": 0.444696,
+      "gamma": 0.0944,
+      "theta": -0.010513,
+      "vega": 0.031676,
+      "open_interest": 10043,
+      "volume": 151,
+      "quote_time": "2026-09-25T14:29:52.04485086Z"
+    }
+  }
+}
